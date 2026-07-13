@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mente no Trabalho — Materiais da série</title>
+<meta name="description" content="O acervo da série Mente no Trabalho, com Kiko & Esabela: lives, clipes, newsletter e o Workbook dos 4 E's.">
+<style>
+  :root{
+    --bg:#0A1830;            /* azul-escuro da série */
+    --bg-2:#0E2140;
+    --panel:#12294d;
+    --panel-2:#16305a;
+    --line:rgba(255,255,255,.10);
+    --line-strong:rgba(255,255,255,.18);
+    --ink:#EAF1FB;
+    --ink-soft:#AFC0DB;
+    --ink-mute:#7D91B4;
+    --accent:#F2B33D;        /* âmbar quente, humano */
+    --accent-2:#5AA9E6;      /* azul claro */
+    --good:#4FD1A1;
+    --radius:16px;
+    --maxw:1120px;
+    --font:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;font-family:var(--font);color:var(--ink);
+    background:
+      radial-gradient(1100px 600px at 78% -8%, rgba(90,169,230,.16), transparent 60%),
+      radial-gradient(900px 520px at 6% 4%, rgba(242,179,61,.10), transparent 55%),
+      var(--bg);
+    line-height:1.55;-webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+  .eyebrow{
+    font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--accent);font-weight:700;
+  }
+
+  /* ---------- NAV ---------- */
+  header.nav{
+    position:sticky;top:0;z-index:50;
+    backdrop-filter:blur(10px);
+    background:rgba(10,24,48,.72);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:66px}
+  .brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.01em}
+  .brand .mark{
+    width:38px;height:38px;border-radius:11px;flex:none;
+    background:linear-gradient(150deg,var(--accent),#e08b2c);
+    display:grid;place-items:center;color:#231402;font-size:1.15rem;
+    box-shadow:0 6px 18px rgba(242,179,61,.28);
+  }
+  .brand small{display:block;font-weight:500;font-size:.68rem;color:var(--ink-mute);letter-spacing:.04em}
+  .nav-links{display:flex;gap:26px;align-items:center}
+  .nav-links a{color:var(--ink-soft);font-size:.9rem;font-weight:500}
+  .nav-links a:hover{color:var(--ink)}
+  .nav-cta{
+    background:var(--accent);color:#231402;padding:9px 16px;border-radius:999px;
+    font-weight:700;font-size:.86rem;
+  }
+  .nav-cta:hover{filter:brightness(1.05)}
+  @media(max-width:760px){.nav-links a:not(.nav-cta){display:none}}
+
+  /* ---------- HERO ---------- */
+  .hero{padding:74px 0 40px;text-align:center}
+  .hero .eyebrow{margin-bottom:16px}
+  .hero h1{
+    font-size:clamp(2.2rem,5.4vw,3.9rem);line-height:1.05;margin:0 0 18px;
+    font-weight:800;letter-spacing:-.02em;
+  }
+  .hero h1 .g{
+    background:linear-gradient(120deg,var(--accent),var(--accent-2));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .hero p.lead{
+    max-width:620px;margin:0 auto 30px;color:var(--ink-soft);font-size:1.12rem;
+  }
+  .hero .meta{
+    display:flex;gap:10px;justify-content:center;flex-wrap:wrap;color:var(--ink-mute);
+    font-size:.86rem;margin-bottom:8px;
+  }
+  .hero .meta span{
+    border:1px solid var(--line-strong);border-radius:999px;padding:6px 14px;
+    display:inline-flex;gap:7px;align-items:center;
+  }
+  .dot{width:7px;height:7px;border-radius:50%;background:var(--good);box-shadow:0 0 0 4px rgba(79,209,161,.16)}
+
+  /* ---------- BUTTONS ---------- */
+  .btn{
+    display:inline-flex;align-items:center;gap:9px;justify-content:center;
+    padding:13px 24px;border-radius:999px;font-weight:700;font-size:.95rem;
+    border:1px solid transparent;cursor:pointer;transition:.15s;
+  }
+  .btn-primary{background:var(--accent);color:#231402}
+  .btn-primary:hover{filter:brightness(1.06);transform:translateY(-1px)}
+  .btn-ghost{border-color:var(--line-strong);color:var(--ink)}
+  .btn-ghost:hover{background:rgba(255,255,255,.05)}
+  .btn-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+  /* ---------- SECTIONS ---------- */
+  section{padding:58px 0;scroll-margin-top:80px}
+  .sec-head{margin-bottom:30px}
+  .sec-head h2{font-size:clamp(1.5rem,3vw,2.1rem);margin:8px 0 6px;font-weight:800;letter-spacing:-.01em}
+  .sec-head p{color:var(--ink-soft);margin:0;max-width:640px}
+
+  /* ---------- NEXT LIVE ---------- */
+  .next{
+    background:linear-gradient(135deg,var(--panel),var(--panel-2));
+    border:1px solid var(--line-strong);border-radius:22px;
+    padding:34px;display:grid;grid-template-columns:1.4fr 1fr;gap:30px;align-items:center;
+    position:relative;overflow:hidden;
+  }
+  .next::before{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(500px 260px at 92% 0%,rgba(242,179,61,.16),transparent 60%);
+    pointer-events:none;
+  }
+  .next .live-badge{
+    display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.78rem;
+    letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;
+  }
+  .next h3{font-size:clamp(1.4rem,3vw,2rem);margin:0 0 10px;font-weight:800;letter-spacing:-.01em}
+  .next .when{color:var(--ink-soft);font-size:1rem;margin-bottom:20px}
+  .next .when strong{color:var(--ink)}
+  .next-card{
+    background:rgba(10,24,48,.5);border:1px solid var(--line);border-radius:16px;
+    padding:22px;text-align:center;position:relative;z-index:1;
+  }
+  .next-card .cd{font-size:.74rem;color:var(--ink-mute);letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px}
+  .next-card .big{font-size:2.6rem;font-weight:800;line-height:1;letter-spacing:-.02em}
+  .next-card .big span{font-size:1rem;color:var(--ink-mute);font-weight:600}
+  @media(max-width:760px){.next{grid-template-columns:1fr;padding:26px}}
+
+  /* ---------- LIVES / GRID ---------- */
+  .grid{display:grid;gap:20px}
+  .grid-2{grid-template-columns:repeat(2,1fr)}
+  .grid-3{grid-template-columns:repeat(3,1fr)}
+  .grid-4{grid-template-columns:repeat(4,1fr)}
+  @media(max-width:900px){.grid-3,.grid-4{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:600px){.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}}
+
+  .card{
+    background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+    padding:24px;transition:.18s;position:relative;display:flex;flex-direction:column;
+  }
+  .card:hover{border-color:var(--line-strong);transform:translateY(-3px);background:var(--panel-2)}
+  .card .num{font-size:.74rem;color:var(--accent);font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+  .card h3{font-size:1.18rem;margin:8px 0 8px;font-weight:700;letter-spacing:-.01em}
+  .card .desc{color:var(--ink-soft);font-size:.94rem;margin:0 0 18px;flex:1}
+  .card .foot{display:flex;gap:14px;align-items:center;font-size:.86rem}
+  .card .foot a{color:var(--accent-2);font-weight:600;display:inline-flex;align-items:center;gap:6px}
+  .card .foot a:hover{color:var(--ink)}
+  .tag{
+    display:inline-block;font-size:.7rem;color:var(--ink-mute);
+    border:1px solid var(--line);border-radius:6px;padding:2px 8px;margin-bottom:6px;
+  }
+
+  /* ---------- CLIPS ---------- */
+  .clip{
+    background:var(--panel);border:1px solid var(--line);border-radius:14px;
+    padding:18px 18px;transition:.16s;display:flex;flex-direction:column;gap:10px;
+  }
+  .clip:hover{border-color:var(--accent);transform:translateY(-2px)}
+  .clip .k{font-size:.72rem;color:var(--accent);font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+  .clip h4{margin:0;font-size:1rem;font-weight:700}
+  .clip p{margin:0;color:var(--ink-mute);font-size:.85rem;flex:1}
+  .clip a{color:var(--accent-2);font-size:.82rem;font-weight:600;display:inline-flex;gap:6px;align-items:center}
+  .clip a:hover{color:var(--ink)}
+
+  /* ---------- SPLIT (newsletter + workbook) ---------- */
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  @media(max-width:760px){.split{grid-template-columns:1fr}}
+  .offer{
+    border:1px solid var(--line-strong);border-radius:20px;padding:32px;
+    background:linear-gradient(160deg,var(--panel),rgba(10,24,48,.4));
+    display:flex;flex-direction:column;
+  }
+  .offer .ic{font-size:1.8rem;margin-bottom:14px}
+  .offer h3{font-size:1.4rem;margin:0 0 8px;font-weight:800;letter-spacing:-.01em}
+  .offer .big-num{font-size:.9rem;color:var(--accent);font-weight:700;margin-bottom:10px}
+  .offer p{color:var(--ink-soft);margin:0 0 22px;flex:1}
+  .offer .btn{align-self:flex-start}
+
+  /* ---------- placeholder link state ---------- */
+  a[data-todo]{position:relative}
+  a[data-todo]::after{
+    content:"a definir";font-size:.6rem;font-weight:700;letter-spacing:.06em;
+    text-transform:uppercase;color:#231402;background:var(--accent);
+    padding:1px 6px;border-radius:5px;margin-left:7px;vertical-align:middle;opacity:.9;
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer{border-top:1px solid var(--line);padding:40px 0 54px;margin-top:20px}
+  .foot-in{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+  .foot-in .brand small{color:var(--ink-mute)}
+  .foot-links{display:flex;gap:22px;font-size:.88rem;color:var(--ink-soft)}
+  .foot-links a:hover{color:var(--ink)}
+  .copy{color:var(--ink-mute);font-size:.8rem;margin-top:22px}
+  .sig{
+    text-align:center;color:var(--ink-soft);font-style:italic;font-size:1.05rem;
+    max-width:600px;margin:0 auto;padding:8px 0 4px;
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="#topo">
+      <span class="mark">◐</span>
+      <span>Mente no Trabalho<small>com Kiko &amp; Esabela</small></span>
+    </a>
+    <nav class="nav-links">
+      <a href="#proxima">Próxima live</a>
+      <a href="#lives">Acervo</a>
+      <a href="#clipes">Clipes</a>
+      <a href="#materiais">Materiais</a>
+      <a class="nav-cta" data-todo href="#a-definir">Inscrever na newsletter</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<a id="topo"></a>
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Série semanal ao vivo · Sextas, 11h30</div>
+    <h1>Uma conversa por semana sobre<br><span class="g">saúde mental no trabalho</span></h1>
+    <p class="lead">Todo o material da série num só lugar: as lives na íntegra, os melhores momentos, a newsletter e o Workbook dos 4 E's da conversa do líder.</p>
+    <div class="meta">
+      <span><i class="dot"></i> Ao vivo no LinkedIn</span>
+      <span>≈ 30 min por episódio</span>
+      <span>Kiko &amp; Esabela</span>
+    </div>
+    <div class="btn-row" style="margin-top:26px">
+      <a class="btn btn-primary" data-todo href="#a-definir">Assistir à próxima live →</a>
+      <a class="btn btn-ghost" href="#lives">Ver o acervo</a>
+    </div>
+  </div>
+</section>
+
+<!-- NEXT LIVE -->
+<section id="proxima">
+  <div class="wrap">
+    <div class="next">
+      <div style="position:relative;z-index:1">
+        <div class="live-badge"><i class="dot"></i> Próximo episódio · Live 3</div>
+        <h3>Os sinais precoces de burnout — o que o líder vê antes do afastamento</h3>
+        <div class="when"><strong>Sexta-feira, 17 de julho</strong> · 11h30 (horário de Brasília) · ao vivo no LinkedIn</div>
+        <div class="btn-row" style="justify-content:flex-start">
+          <a class="btn btn-primary" data-todo href="#a-definir">Inscrever no evento</a>
+          <a class="btn btn-ghost" data-todo href="#a-definir">Adicionar ao calendário</a>
+        </div>
+      </div>
+      <div class="next-card">
+        <div class="cd">Começa em</div>
+        <div class="big" id="countdown">—</div>
+        <div style="color:var(--ink-mute);font-size:.82rem;margin-top:10px">17/07 · 11h30 BRT</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIVES -->
+<section id="lives">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Acervo</div>
+      <h2>As lives na íntegra</h2>
+      <p>Cada episódio é uma conversa de ~30 minutos sobre um tema real da saúde mental no trabalho. Assista quando quiser.</p>
+    </div>
+    <div class="grid grid-3">
+
+      <div class="card">
+        <span class="tag">03/07/2026</span>
+        <div class="num">Episódio 1</div>
+        <h3>Riscos psicossociais entram na lei</h3>
+        <p class="desc">O que o STF e a NR-1 mudam para as empresas — e por que a saúde mental deixou de ser tema de bem-estar para virar obrigação de gestão.</p>
+        <div class="foot"><a data-todo href="#a-definir">Assistir no YouTube →</a></div>
+      </div>
+
+      <div class="card">
+        <span class="tag">10/07/2026</span>
+        <div class="num">Episódio 2</div>
+        <h3>A conversa que ninguém ensinou o líder a ter</h3>
+        <p class="desc">Os 4 E's — Enxergue, Escolha o espaço, Escute e Encaminhe. Um método simples para o líder abordar saúde mental com o time sem virar terapeuta.</p>
+        <div class="foot"><a data-todo href="#a-definir">Assistir no YouTube →</a></div>
+      </div>
+
+      <div class="card" style="border-style:dashed;opacity:.9">
+        <span class="tag">17/07/2026</span>
+        <div class="num">Episódio 3 · em breve</div>
+        <h3>Os sinais precoces de burnout</h3>
+        <p class="desc">O que o líder consegue enxergar antes do afastamento — e o que fazer com esse sinal. Ao vivo nesta sexta.</p>
+        <div class="foot"><a data-todo href="#a-definir">Inscrever no evento →</a></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CLIPS -->
+<section id="clipes">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Melhores momentos</div>
+      <h2>Clipes da Live 2</h2>
+      <p>Trechos curtos para assistir e compartilhar. Cada clipe abre um ponto da conversa sobre a liderança que sustenta pessoas.</p>
+    </div>
+    <div class="grid grid-4">
+
+      <div class="clip"><div class="k">O dado</div><h4>546 mil afastamentos</h4><p>O recorde de 2025 no INSS que mudou a conversa.</p><a data-todo href="#a-definir">Ver clipe →</a></div>
+      <div class="clip"><div class="k">A tese</div><h4>Líder não é terapeuta</h4><p>“Precisa ser humano com método.”</p><a data-todo href="#a-definir">Ver clipe →</a></div>
+      <div class="clip"><div class="k">4 E's · 1</div><h4>Enxergue</h4><p>É mudança de padrão, não diagnóstico.</p><a data-todo href="#a-definir">Ver clipe →</a></div>
+      <div class="clip"><div class="k">4 E's · 2</div><h4>Escute</h4><p>Sem resolver, sem minimizar, sem prometer sigilo.</p><a data-todo href="#a-definir">Ver clipe →</a></div>
+      <div class="clip"><div class="k">4 E's · 3</div><h4>Encaminhe</h4><p>PAE / RH-SST e follow-up em uma semana.</p><a data-todo href="#a-definir">Ver clipe →</a></div>
+      <div class="clip"><div class="k">Prática</div><h4>Feedback contínuo</h4><p>A conversa que não pode esperar a crise.</p><a data-todo href="#a-definir">Ver clipe →</a></div>
+      <div class="clip"><div class="k">Provocação</div><h4>Ataque à raiz</h4><p>Programas não bastam se a causa fica.</p><a data-todo href="#a-definir">Ver clipe →</a></div>
+      <div class="clip"><div class="k">Cultura</div><h4>Não precisamos de heróis</h4><p>Precisamos de sistemas que cuidam.</p><a data-todo href="#a-definir">Ver clipe →</a></div>
+
+    </div>
+  </div>
+</section>
+
+<!-- MATERIALS -->
+<section id="materiais">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Para levar com você</div>
+      <h2>Newsletter e Workbook</h2>
+      <p>O aprofundamento da série entre um episódio e outro.</p>
+    </div>
+    <div class="split">
+
+      <div class="offer">
+        <div class="ic">✉️</div>
+        <h3>A newsletter</h3>
+        <div class="big-num">+ 39 mil pessoas acompanham</div>
+        <p>Toda semana, o essencial da conversa em texto: o tema da live, os dados por trás dele e o que fazer com isso na segunda-feira de manhã.</p>
+        <a class="btn btn-primary" data-todo href="#a-definir">Assinar gratuitamente</a>
+      </div>
+
+      <div class="offer">
+        <div class="ic">📘</div>
+        <h3>Workbook dos 4 E's</h3>
+        <div class="big-num">Guia prático da conversa do líder</div>
+        <p>Enxergue, Escolha o espaço, Escute e Encaminhe em um passo a passo para o líder usar antes, durante e depois da conversa sobre saúde mental.</p>
+        <a class="btn btn-ghost" data-todo href="#a-definir">Baixar o Workbook</a>
+      </div>
+
+    </div>
+    <p class="sig" style="margin-top:38px">“O líder não precisa ser terapeuta. Precisa ser humano com método.”</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-in">
+      <a class="brand" href="#topo">
+        <span class="mark">◐</span>
+        <span>Mente no Trabalho<small>com Kiko &amp; Esabela</small></span>
+      </a>
+      <nav class="foot-links">
+        <a data-todo href="#a-definir">LinkedIn</a>
+        <a data-todo href="#a-definir">YouTube</a>
+        <a data-todo href="#a-definir">Newsletter</a>
+        <a href="#proxima">Próxima live</a>
+      </nav>
+    </div>
+    <div class="copy">Mente no Trabalho — série semanal sobre saúde mental e liderança. Sextas, 11h30, ao vivo no LinkedIn. © 2026.</div>
+  </div>
+</footer>
+
+<script>
+  // Contagem regressiva para a próxima live: 17/07/2026 11:30 BRT (UTC-3 = 14:30 UTC)
+  (function(){
+    var target = new Date(Date.UTC(2026,6,17,14,30,0));
+    var el = document.getElementById('countdown');
+    function tick(){
+      var now = new Date();
+      var d = target - now;
+      if(d <= 0){ el.innerHTML = 'Ao vivo <span>agora</span>'; return; }
+      var days = Math.floor(d/86400000);
+      var hrs  = Math.floor(d%86400000/3600000);
+      var mins = Math.floor(d%3600000/60000);
+      if(days > 0){ el.innerHTML = days+' <span>dias</span> '+hrs+' <span>h</span>'; }
+      else { el.innerHTML = hrs+' <span>h</span> '+mins+' <span>min</span>'; }
+    }
+    tick(); setInterval(tick, 30000);
+  })();
+</script>
+</body>
+</html>

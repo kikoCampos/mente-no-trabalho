@@ -166,6 +166,13 @@
     padding:18px 18px;transition:.16s;display:flex;flex-direction:column;gap:10px;
   }
   .clip:hover{border-color:var(--accent);transform:translateY(-2px)}
+  .clip video{width:100%;aspect-ratio:16/9;border-radius:10px;display:block;background:#000}
+  .group-label{
+    font-size:.98rem;font-weight:800;color:var(--ink);margin:0 0 16px;
+    display:flex;align-items:center;gap:12px;
+  }
+  .group-label span{color:var(--ink-mute);font-weight:500;font-size:.85rem}
+  .group-label::after{content:"";height:1px;flex:1;background:var(--line)}
   .clip .k{font-size:.72rem;color:var(--accent);font-weight:700;letter-spacing:.08em;text-transform:uppercase}
   .clip h4{margin:0;font-size:1rem;font-weight:700}
   .clip p{margin:0;color:var(--ink-mute);font-size:.85rem;flex:1}
@@ -185,14 +192,6 @@
   .offer .big-num{font-size:.9rem;color:var(--accent);font-weight:700;margin-bottom:10px}
   .offer p{color:var(--ink-soft);margin:0 0 22px;flex:1}
   .offer .btn{align-self:flex-start}
-
-  /* ---------- placeholder link state ---------- */
-  a[data-todo]{position:relative}
-  a[data-todo]::after{
-    content:"a definir";font-size:.6rem;font-weight:700;letter-spacing:.06em;
-    text-transform:uppercase;color:#231402;background:var(--accent);
-    padding:1px 6px;border-radius:5px;margin-left:7px;vertical-align:middle;opacity:.9;
-  }
 
   /* ---------- FOOTER ---------- */
   footer{border-top:1px solid var(--line);padding:40px 0 54px;margin-top:20px}
@@ -221,7 +220,7 @@
       <a href="#lives">Acervo</a>
       <a href="#clipes">Clipes</a>
       <a href="#materiais">Materiais</a>
-      <a class="nav-cta" data-todo href="#a-definir">Inscrever na newsletter</a>
+      <a class="nav-cta" href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=6888852094439198720" target="_blank" rel="noopener">Inscrever na newsletter</a>
     </nav>
   </div>
 </header>
@@ -239,7 +238,7 @@
       <span>Kiko &amp; Esabela</span>
     </div>
     <div class="btn-row" style="margin-top:26px">
-      <a class="btn btn-primary" data-todo href="#a-definir">Assistir à próxima live →</a>
+      <a class="btn btn-primary" href="https://www.linkedin.com/events/7482103528426012672/" target="_blank" rel="noopener">Assistir à próxima live →</a>
       <a class="btn btn-ghost" href="#lives">Ver o acervo</a>
     </div>
   </div>
@@ -254,8 +253,8 @@
         <h3>Os sinais precoces de burnout — o que o líder vê antes do afastamento</h3>
         <div class="when"><strong>Sexta-feira, 17 de julho</strong> · 11h30 (horário de Brasília) · ao vivo no LinkedIn</div>
         <div class="btn-row" style="justify-content:flex-start">
-          <a class="btn btn-primary" data-todo href="#a-definir">Inscrever no evento</a>
-          <a class="btn btn-ghost" data-todo href="#a-definir">Adicionar ao calendário</a>
+          <a class="btn btn-primary" href="https://www.linkedin.com/events/7482103528426012672/" target="_blank" rel="noopener">Inscrever no evento</a>
+          <a class="btn btn-ghost" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Mente%20no%20Trabalho%20%E2%80%94%20Live%203%3A%20Sinais%20precoces%20de%20burnout&amp;dates=20260717T143000Z/20260717T150000Z&amp;details=Ao%20vivo%20no%20LinkedIn%2C%20com%20Kiko%20%26%20Esabela.%20Inscri%C3%A7%C3%A3o%3A%20https%3A%2F%2Fwww.linkedin.com%2Fevents%2F7482103528426012672%2F" target="_blank" rel="noopener">Adicionar ao calendário</a>
         </div>
       </div>
       <div class="next-card">
@@ -282,7 +281,7 @@
         <div class="num">Episódio 1</div>
         <h3>Riscos psicossociais entram na lei</h3>
         <p class="desc">O que o STF e a NR-1 mudam para as empresas — e por que a saúde mental deixou de ser tema de bem-estar para virar obrigação de gestão.</p>
-        <div class="foot"><a data-todo href="#a-definir">Assistir no YouTube →</a></div>
+        <div class="foot"><a href="https://youtu.be/uhOpqAySxxM" target="_blank" rel="noopener">Assistir no YouTube →</a></div>
       </div>
 
       <div class="card">
@@ -290,7 +289,7 @@
         <div class="num">Episódio 2</div>
         <h3>A conversa que ninguém ensinou o líder a ter</h3>
         <p class="desc">Os 4 E's — Enxergue, Escolha o espaço, Escute e Encaminhe. Um método simples para o líder abordar saúde mental com o time sem virar terapeuta.</p>
-        <div class="foot"><a data-todo href="#a-definir">Assistir no YouTube →</a></div>
+        <div class="foot"><a href="https://youtu.be/YaURTiRbPwg" target="_blank" rel="noopener">Assistir no YouTube →</a></div>
       </div>
 
       <div class="card" style="border-style:dashed;opacity:.9">
@@ -298,7 +297,7 @@
         <div class="num">Episódio 3 · em breve</div>
         <h3>Os sinais precoces de burnout</h3>
         <p class="desc">O que o líder consegue enxergar antes do afastamento — e o que fazer com esse sinal. Ao vivo nesta sexta.</p>
-        <div class="foot"><a data-todo href="#a-definir">Inscrever no evento →</a></div>
+        <div class="foot"><a href="https://www.linkedin.com/events/7482103528426012672/" target="_blank" rel="noopener">Inscrever no evento →</a></div>
       </div>
 
     </div>
@@ -310,19 +309,35 @@
   <div class="wrap">
     <div class="sec-head">
       <div class="eyebrow">Melhores momentos</div>
-      <h2>Clipes da Live 2</h2>
-      <p>Trechos curtos para assistir e compartilhar. Cada clipe abre um ponto da conversa sobre a liderança que sustenta pessoas.</p>
+      <h2>Clipes para assistir e compartilhar</h2>
+      <p>Trechos curtos das conversas — aperte o play direto aqui.</p>
     </div>
+
+    <div class="group-label">Live 2 <span>· A conversa do líder (os 4 E's)</span></div>
     <div class="grid grid-4">
 
-      <div class="clip"><div class="k">O dado</div><h4>546 mil afastamentos</h4><p>O recorde de 2025 no INSS que mudou a conversa.</p><a data-todo href="#a-definir">Ver clipe →</a></div>
-      <div class="clip"><div class="k">A tese</div><h4>Líder não é terapeuta</h4><p>“Precisa ser humano com método.”</p><a data-todo href="#a-definir">Ver clipe →</a></div>
-      <div class="clip"><div class="k">4 E's · 1</div><h4>Enxergue</h4><p>É mudança de padrão, não diagnóstico.</p><a data-todo href="#a-definir">Ver clipe →</a></div>
-      <div class="clip"><div class="k">4 E's · 2</div><h4>Escute</h4><p>Sem resolver, sem minimizar, sem prometer sigilo.</p><a data-todo href="#a-definir">Ver clipe →</a></div>
-      <div class="clip"><div class="k">4 E's · 3</div><h4>Encaminhe</h4><p>PAE / RH-SST e follow-up em uma semana.</p><a data-todo href="#a-definir">Ver clipe →</a></div>
-      <div class="clip"><div class="k">Prática</div><h4>Feedback contínuo</h4><p>A conversa que não pode esperar a crise.</p><a data-todo href="#a-definir">Ver clipe →</a></div>
-      <div class="clip"><div class="k">Provocação</div><h4>Ataque à raiz</h4><p>Programas não bastam se a causa fica.</p><a data-todo href="#a-definir">Ver clipe →</a></div>
-      <div class="clip"><div class="k">Cultura</div><h4>Não precisamos de heróis</h4><p>Precisamos de sistemas que cuidam.</p><a data-todo href="#a-definir">Ver clipe →</a></div>
+      <div class="clip"><video controls preload="none" poster="media/l2-01-546-mil.jpg"><source src="media/l2-01-546-mil.mp4" type="video/mp4"></video><div class="k">O dado</div><h4>546 mil afastamentos</h4><p>O recorde de 2025 no INSS que mudou a conversa.</p></div>
+      <div class="clip"><video controls preload="none" poster="media/l2-02-terapeuta.jpg"><source src="media/l2-02-terapeuta.mp4" type="video/mp4"></video><div class="k">A tese</div><h4>Líder não é terapeuta</h4><p>“Precisa ser humano com método.”</p></div>
+      <div class="clip"><video controls preload="none" poster="media/l2-03-enxergue.jpg"><source src="media/l2-03-enxergue.mp4" type="video/mp4"></video><div class="k">4 E's · 1</div><h4>Enxergue</h4><p>É mudança de padrão, não diagnóstico.</p></div>
+      <div class="clip"><video controls preload="none" poster="media/l2-04-escute.jpg"><source src="media/l2-04-escute.mp4" type="video/mp4"></video><div class="k">4 E's · 2</div><h4>Escute</h4><p>Sem resolver, sem minimizar, sem prometer sigilo.</p></div>
+      <div class="clip"><video controls preload="none" poster="media/l2-05-encaminhe.jpg"><source src="media/l2-05-encaminhe.mp4" type="video/mp4"></video><div class="k">4 E's · 3</div><h4>Encaminhe</h4><p>PAE / RH-SST e follow-up em uma semana.</p></div>
+      <div class="clip"><video controls preload="none" poster="media/l2-06-feedback-continuo.jpg"><source src="media/l2-06-feedback-continuo.mp4" type="video/mp4"></video><div class="k">Prática</div><h4>Feedback contínuo</h4><p>A conversa que não pode esperar a crise.</p></div>
+      <div class="clip"><video controls preload="none" poster="media/l2-07-ataque-raiz.jpg"><source src="media/l2-07-ataque-raiz.mp4" type="video/mp4"></video><div class="k">Provocação</div><h4>Ataque à raiz</h4><p>Cinco minutos que evitam meses de afastamento.</p></div>
+      <div class="clip"><video controls preload="none" poster="media/l2-08-herois.jpg"><source src="media/l2-08-herois.mp4" type="video/mp4"></video><div class="k">Cultura</div><h4>Não precisamos de heróis</h4><p>Encaminhar é responsabilidade, não fraqueza.</p></div>
+
+    </div>
+
+    <div class="group-label" style="margin-top:38px">Live 1 <span>· Riscos psicossociais entram na lei</span></div>
+    <div class="grid grid-4">
+
+      <div class="clip"><video controls preload="none" poster="media/l1-01-percepcao-divergente.jpg"><source src="media/l1-01-percepcao-divergente.mp4" type="video/mp4"></video><div class="k">O dado</div><h4>Percepção divergente</h4><p>95% dos líderes × 15% dos funcionários: a régua do cuidado.</p></div>
+      <div class="clip"><video controls preload="none" poster="media/l1-02-conversa-semanal.jpg"><source src="media/l1-02-conversa-semanal.mp4" type="video/mp4"></video><div class="k">Prática</div><h4>Conversa semanal de 10 minutos</h4><p>O ritual simples que muda a relação líder–time.</p></div>
+      <div class="clip"><video controls preload="none" poster="media/l1-03-stf-multas.jpg"><source src="media/l1-03-stf-multas.mp4" type="video/mp4"></video><div class="k">Contexto legal</div><h4>STF suspendeu as multas</h4><p>Por que tratar isso como alívio pode ser um erro.</p></div>
+      <div class="clip"><video controls preload="none" poster="media/l1-04-presenteismo-custos.jpg"><source src="media/l1-04-presenteismo-custos.mp4" type="video/mp4"></video><div class="k">Negócio</div><h4>Presenteísmo e custos</h4><p>Saúde mental é pauta de resultado, não de benefício.</p></div>
+      <div class="clip"><video controls preload="none" poster="media/l1-05-programas-nao-bastam.jpg"><source src="media/l1-05-programas-nao-bastam.mp4" type="video/mp4"></video><div class="k">Estrutura</div><h4>Programas não bastam</h4><p>Sem ajuste estrutural, o programa vira paliativo.</p></div>
+      <div class="clip"><video controls preload="none" poster="media/l1-06-primeiro-passo.jpg"><source src="media/l1-06-primeiro-passo.mp4" type="video/mp4"></video><div class="k">Prática</div><h4>O primeiro passo</h4><p>Entender como as pessoas realmente trabalham.</p></div>
+      <div class="clip"><video controls preload="none" poster="media/l1-07-autonomia-recursos.jpg"><source src="media/l1-07-autonomia-recursos.mp4" type="video/mp4"></video><div class="k">Gestão</div><h4>Autonomia e recursos</h4><p>O que o líder deve garantir para o time.</p></div>
+      <div class="clip"><video controls preload="none" poster="media/l1-08-analise-ergonomica.jpg"><source src="media/l1-08-analise-ergonomica.mp4" type="video/mp4"></video><div class="k">Método</div><h4>Análise ergonômica viva</h4><p>Como transformar diagnóstico em plano de ação.</p></div>
 
     </div>
   </div>
@@ -343,7 +358,7 @@
         <h3>A newsletter</h3>
         <div class="big-num">+ 39 mil pessoas acompanham</div>
         <p>Toda semana, o essencial da conversa em texto: o tema da live, os dados por trás dele e o que fazer com isso na segunda-feira de manhã.</p>
-        <a class="btn btn-primary" data-todo href="#a-definir">Assinar gratuitamente</a>
+        <a class="btn btn-primary" href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=6888852094439198720" target="_blank" rel="noopener">Assinar gratuitamente</a>
       </div>
 
       <div class="offer">
@@ -351,7 +366,7 @@
         <h3>Workbook dos 4 E's</h3>
         <div class="big-num">Guia prático da conversa do líder</div>
         <p>Enxergue, Escolha o espaço, Escute e Encaminhe em um passo a passo para o líder usar antes, durante e depois da conversa sobre saúde mental.</p>
-        <a class="btn btn-ghost" data-todo href="#a-definir">Baixar o Workbook</a>
+        <a class="btn btn-ghost" href="https://www.dropbox.com/scl/fi/y97egncqhhdcka3r4sm4w/Workbook-4Es-do-L-der.pdf?rlkey=iboilxw6dz3vssq73cwykg8ru&amp;dl=1" target="_blank" rel="noopener">Baixar o Workbook</a>
       </div>
 
     </div>
@@ -368,9 +383,9 @@
         <span>Mente no Trabalho<small>com Kiko &amp; Esabela</small></span>
       </a>
       <nav class="foot-links">
-        <a data-todo href="#a-definir">LinkedIn</a>
-        <a data-todo href="#a-definir">YouTube</a>
-        <a data-todo href="#a-definir">Newsletter</a>
+        <a href="https://www.linkedin.com/in/kikocampos/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://youtube.com/@kikocamposh" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=6888852094439198720" target="_blank" rel="noopener">Newsletter</a>
         <a href="#proxima">Próxima live</a>
       </nav>
     </div>

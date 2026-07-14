@@ -188,6 +188,10 @@
   .clip a{color:var(--accent-2);font-size:.82rem;font-weight:600;display:inline-flex;gap:6px;align-items:center}
   .clip a:hover{color:var(--ink)}
 
+  .clip.more{display:none}
+  #clipes.expanded .clip.more{display:flex}
+  .toggle-row{display:flex;justify-content:center;margin-top:30px}
+
   /* ---------- SPLIT (newsletter + workbook) ---------- */
   .split{display:grid;grid-template-columns:1fr 1fr;gap:22px}
   @media(max-width:760px){.split{grid-template-columns:1fr}}
@@ -342,11 +346,11 @@
       <div class="clip"><video controls preload="metadata" playsinline><source src="Li%CC%81der%20humano_%20me%CC%81todo%20e%20o%20alerta_%20546%20mil%20afastamentos.mp4" type="video/mp4"></video><div class="k">O dado</div><h4>546 mil afastamentos</h4><p>O recorde de 2025 no INSS que mudou a conversa.</p></div>
       <div class="clip"><video controls preload="metadata" playsinline><source src="O%20li%CC%81der%20na%CC%83o%20precisa%20ser%20terapeuta%20_%20seja%20humano%20e%20tenha%20me%CC%81todo.mp4" type="video/mp4"></video><div class="k">A tese</div><h4>Líder não é terapeuta</h4><p>“Precisa ser humano com método.”</p></div>
       <div class="clip"><video controls preload="metadata" playsinline><source src="Enxergue_%20procure%20mudanc%CC%A7a%20de%20padra%CC%83o_%20na%CC%83o%20diagno%CC%81stico.mp4" type="video/mp4"></video><div class="k">4 E's · 1</div><h4>Enxergue</h4><p>É mudança de padrão, não diagnóstico.</p></div>
-      <div class="clip"><video controls preload="metadata" playsinline><source src="Escute_%20na%CC%83o%20resolva_%20na%CC%83o%20minimize_%20na%CC%83o%20prometa%20sigilo.mp4" type="video/mp4"></video><div class="k">4 E's · 2</div><h4>Escute</h4><p>Sem resolver, sem minimizar, sem prometer sigilo.</p></div>
-      <div class="clip"><video controls preload="metadata" playsinline><source src="Encaminhe_%20observe_%20acompanhe%20e%20conecte%20com%20apoio.mp4" type="video/mp4"></video><div class="k">4 E's · 3</div><h4>Encaminhe</h4><p>PAE / RH-SST e follow-up em uma semana.</p></div>
-      <div class="clip"><video controls preload="metadata" playsinline><source src="Feedback%20conti%CC%81nuo_%20na%CC%83o%20basta%20uma%20reunia%CC%83o%20anual.mp4" type="video/mp4"></video><div class="k">Prática</div><h4>Feedback contínuo</h4><p>A conversa que não pode esperar a crise.</p></div>
-      <div class="clip"><video controls preload="metadata" playsinline><source src="Ataque%20a%CC%80%20raiz_%20cinco%20minutos%20que%20evitam%20meses%20de%20afastamento.mp4" type="video/mp4"></video><div class="k">Provocação</div><h4>Ataque à raiz</h4><p>Cinco minutos que evitam meses de afastamento.</p></div>
-      <div class="clip"><video controls preload="metadata" playsinline><source src="Li%CC%81deres%20na%CC%83o%20precisam%20ser%20hero%CC%81is_%20encaminhar%20e%CC%81%20responsabilidade.mp4" type="video/mp4"></video><div class="k">Cultura</div><h4>Não precisamos de heróis</h4><p>Encaminhar é responsabilidade, não fraqueza.</p></div>
+      <div class="clip more"><video controls preload="none" playsinline><source src="Escute_%20na%CC%83o%20resolva_%20na%CC%83o%20minimize_%20na%CC%83o%20prometa%20sigilo.mp4" type="video/mp4"></video><div class="k">4 E's · 2</div><h4>Escute</h4><p>Sem resolver, sem minimizar, sem prometer sigilo.</p></div>
+      <div class="clip more"><video controls preload="none" playsinline><source src="Encaminhe_%20observe_%20acompanhe%20e%20conecte%20com%20apoio.mp4" type="video/mp4"></video><div class="k">4 E's · 3</div><h4>Encaminhe</h4><p>PAE / RH-SST e follow-up em uma semana.</p></div>
+      <div class="clip more"><video controls preload="none" playsinline><source src="Feedback%20conti%CC%81nuo_%20na%CC%83o%20basta%20uma%20reunia%CC%83o%20anual.mp4" type="video/mp4"></video><div class="k">Prática</div><h4>Feedback contínuo</h4><p>A conversa que não pode esperar a crise.</p></div>
+      <div class="clip more"><video controls preload="none" playsinline><source src="Ataque%20a%CC%80%20raiz_%20cinco%20minutos%20que%20evitam%20meses%20de%20afastamento.mp4" type="video/mp4"></video><div class="k">Provocação</div><h4>Ataque à raiz</h4><p>Cinco minutos que evitam meses de afastamento.</p></div>
+      <div class="clip more"><video controls preload="none" playsinline><source src="Li%CC%81deres%20na%CC%83o%20precisam%20ser%20hero%CC%81is_%20encaminhar%20e%CC%81%20responsabilidade.mp4" type="video/mp4"></video><div class="k">Cultura</div><h4>Não precisamos de heróis</h4><p>Encaminhar é responsabilidade, não fraqueza.</p></div>
 
     </div>
 
@@ -356,12 +360,16 @@
       <div class="clip"><video controls preload="metadata" playsinline><source src="Percepc%CC%A7a%CC%83o%20divergente_%2095%20li%CC%81deres%20vs%2015%20funciona%CC%81rios%20(16x9).mp4" type="video/mp4"></video><div class="k">O dado</div><h4>Percepção divergente</h4><p>95% dos líderes × 15% dos funcionários: a régua do cuidado.</p></div>
       <div class="clip"><video controls preload="metadata" playsinline><source src="Conversa%20semanal%20de%2010%20minutos%20para%20li%CC%81deres%20(16x9).mp4" type="video/mp4"></video><div class="k">Prática</div><h4>Conversa semanal de 10 minutos</h4><p>O ritual simples que muda a relação líder–time.</p></div>
       <div class="clip"><video controls preload="metadata" playsinline><source src="STF%20suspendeu%20multas_%20por%20que%20isso%20pode%20ser%20um%20erro%20(16x9).mp4" type="video/mp4"></video><div class="k">Contexto legal</div><h4>STF suspendeu as multas</h4><p>Por que tratar isso como alívio pode ser um erro.</p></div>
-      <div class="clip"><video controls preload="metadata" playsinline><source src="Presentei%CC%81smo%20e%20custos_%20por%20que%20sau%CC%81de%20mental%20e%CC%81%20pauta%20de%20nego%CC%81cio%20(16x9).mp4" type="video/mp4"></video><div class="k">Negócio</div><h4>Presenteísmo e custos</h4><p>Saúde mental é pauta de resultado, não de benefício.</p></div>
-      <div class="clip"><video controls preload="metadata" playsinline><source src="Programas%20na%CC%83o%20bastam_%20ajuste%20estrutural%20para%20sau%CC%81de%20mental%20(16x9).mp4" type="video/mp4"></video><div class="k">Estrutura</div><h4>Programas não bastam</h4><p>Sem ajuste estrutural, o programa vira paliativo.</p></div>
-      <div class="clip"><video controls preload="metadata" playsinline><source src="Primeiro%20passo%20pra%CC%81tico_%20entender%20como%20as%20pessoas%20trabalham%20(16x9).mp4" type="video/mp4"></video><div class="k">Prática</div><h4>O primeiro passo</h4><p>Entender como as pessoas realmente trabalham.</p></div>
-      <div class="clip"><video controls preload="metadata" playsinline><source src="Autonomia%20e%20recursos_%20o%20que%20li%CC%81deres%20devem%20garantir%20(16x9).mp4" type="video/mp4"></video><div class="k">Gestão</div><h4>Autonomia e recursos</h4><p>O que o líder deve garantir para o time.</p></div>
-      <div class="clip"><video controls preload="metadata" playsinline><source src="Como%20fazer%20ana%CC%81lise%20ergono%CC%82mica%20e%20criar%20um%20plano%20de%20ac%CC%A7a%CC%83o%20vivo%20(16x9).mp4" type="video/mp4"></video><div class="k">Método</div><h4>Análise ergonômica viva</h4><p>Como transformar diagnóstico em plano de ação.</p></div>
+      <div class="clip more"><video controls preload="none" playsinline><source src="Presentei%CC%81smo%20e%20custos_%20por%20que%20sau%CC%81de%20mental%20e%CC%81%20pauta%20de%20nego%CC%81cio%20(16x9).mp4" type="video/mp4"></video><div class="k">Negócio</div><h4>Presenteísmo e custos</h4><p>Saúde mental é pauta de resultado, não de benefício.</p></div>
+      <div class="clip more"><video controls preload="none" playsinline><source src="Programas%20na%CC%83o%20bastam_%20ajuste%20estrutural%20para%20sau%CC%81de%20mental%20(16x9).mp4" type="video/mp4"></video><div class="k">Estrutura</div><h4>Programas não bastam</h4><p>Sem ajuste estrutural, o programa vira paliativo.</p></div>
+      <div class="clip more"><video controls preload="none" playsinline><source src="Primeiro%20passo%20pra%CC%81tico_%20entender%20como%20as%20pessoas%20trabalham%20(16x9).mp4" type="video/mp4"></video><div class="k">Prática</div><h4>O primeiro passo</h4><p>Entender como as pessoas realmente trabalham.</p></div>
+      <div class="clip more"><video controls preload="none" playsinline><source src="Autonomia%20e%20recursos_%20o%20que%20li%CC%81deres%20devem%20garantir%20(16x9).mp4" type="video/mp4"></video><div class="k">Gestão</div><h4>Autonomia e recursos</h4><p>O que o líder deve garantir para o time.</p></div>
+      <div class="clip more"><video controls preload="none" playsinline><source src="Como%20fazer%20ana%CC%81lise%20ergono%CC%82mica%20e%20criar%20um%20plano%20de%20ac%CC%A7a%CC%83o%20vivo%20(16x9).mp4" type="video/mp4"></video><div class="k">Método</div><h4>Análise ergonômica viva</h4><p>Como transformar diagnóstico em plano de ação.</p></div>
 
+    </div>
+
+    <div class="toggle-row">
+      <button class="btn btn-ghost" id="btn-clips" onclick="toggleClips()">Ver todos os 16 clipes</button>
     </div>
   </div>
 </section>
@@ -447,6 +455,17 @@
 </footer>
 
 <script>
+  function toggleClips(){
+    var s = document.getElementById('clipes');
+    var on = s.classList.toggle('expanded');
+    document.getElementById('btn-clips').textContent = on ? 'Mostrar menos clipes' : 'Ver todos os 16 clipes';
+    if(on){
+      s.querySelectorAll('.clip.more video').forEach(function(v){
+        if(v.preload === 'none'){ v.preload = 'metadata'; v.load(); }
+      });
+    }
+  }
+
   // Contagem regressiva para a próxima live: 17/07/2026 11:30 BRT (UTC-3 = 14:30 UTC)
   (function(){
     var target = new Date(Date.UTC(2026,6,17,14,30,0));

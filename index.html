@@ -144,10 +144,19 @@
   .next-card .cd{font-size:.74rem;color:var(--ink-mute);letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px}
   .next-card .big{font-size:2.6rem;font-weight:800;line-height:1;letter-spacing:-.02em}
   .next-card .big span{font-size:1rem;color:var(--ink-mute);font-weight:600}
-  .next-art-link{display:block;position:relative;z-index:1;transition:.18s}
-  .next-art-link:hover{transform:translateY(-2px)}
-  .next-art{width:100%;height:auto;display:block;border-radius:14px;border:1px solid var(--line-strong);box-shadow:0 12px 34px rgba(0,0,0,.28)}
-  @media(max-width:760px){.next{grid-template-columns:1fr;padding:26px}}
+  .next-wrap{text-align:center}
+  .next-eyebrow{justify-content:center;margin-bottom:18px}
+  .next-art-link{display:inline-block;max-width:800px;width:100%;transition:.2s}
+  .next-art-link:hover{transform:translateY(-3px)}
+  .next-art{width:100%;height:auto;display:block;border-radius:18px;box-shadow:0 22px 60px rgba(0,0,0,.42)}
+  .next-count{margin:28px 0 0}
+  .next-count .cd-label{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-mute);margin-bottom:8px}
+  .cd-big{font-size:1.9rem;font-weight:800;line-height:1;letter-spacing:-.01em}
+  #countdown{color:var(--accent)}
+  #countdown span{font-size:1rem;color:var(--ink-mute);font-weight:600}
+  .next-count .cd-when{font-size:.9rem;color:var(--ink-soft);margin-top:10px}
+  .next-btns{margin-top:22px}
+  @media(max-width:760px){.next{grid-template-columns:1fr;padding:26px}.cd-big{font-size:1.7rem}}
 
   /* ---------- LIVES / GRID ---------- */
   .grid{display:grid;gap:20px}
@@ -278,25 +287,19 @@
 
 <!-- NEXT LIVE -->
 <section id="proxima">
-  <div class="wrap">
-    <div class="next">
-      <a class="next-art-link" href="https://www.linkedin.com/events/7483920038396293120/" target="_blank" rel="noopener">
-        <img class="next-art" src="17%20de%20jul.%20de%202026%2C%2013_24_09.png" alt="Live 4 — Além do líder herói: como transformar o cuidado em cultura, não no esforço de uma pessoa só. Sexta, 24/07, 11h30, ao vivo no LinkedIn, com Kiko Campos e Esabela Cruz.">
-      </a>
-      <div style="position:relative;z-index:1">
-        <div class="live-badge"><i class="dot"></i> Próximo episódio · Live 4</div>
-        <h3>Além do líder herói</h3>
-        <div class="when"><strong>Sexta-feira, 24 de julho</strong> · 11h30 (horário de Brasília) · ao vivo no LinkedIn</div>
-        <div class="next-card" style="margin-bottom:20px">
-          <div class="cd">Começa em</div>
-          <div class="big" id="countdown">—</div>
-          <div style="color:var(--ink-mute);font-size:.82rem;margin-top:10px">24/07 · 11h30 BRT</div>
-        </div>
-        <div class="btn-row" style="justify-content:flex-start">
-          <a class="btn btn-primary" href="https://www.linkedin.com/events/7483920038396293120/" target="_blank" rel="noopener">Inscrever no evento</a>
-          <a class="btn btn-ghost" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Mente%20no%20Trabalho%20%E2%80%94%20Live%204%3A%20Al%C3%A9m%20do%20l%C3%ADder%20her%C3%B3i&amp;dates=20260724T143000Z/20260724T150000Z&amp;details=Ao%20vivo%20no%20LinkedIn%2C%20com%20Kiko%20Campos%20e%20Esabela%20Cruz.%20Inscri%C3%A7%C3%A3o%3A%20https%3A%2F%2Fwww.linkedin.com%2Fevents%2F7483920038396293120%2F" target="_blank" rel="noopener">Adicionar ao calendário</a>
-        </div>
-      </div>
+  <div class="wrap next-wrap">
+    <div class="live-badge next-eyebrow"><i class="dot"></i> Próximo episódio · Live 4</div>
+    <a class="next-art-link" href="https://www.linkedin.com/events/7483920038396293120/" target="_blank" rel="noopener">
+      <img class="next-art" src="17%20de%20jul.%20de%202026%2C%2013_24_09.png" alt="Live 4 — Além do líder herói: como transformar o cuidado em cultura, não no esforço de uma pessoa só. Sexta, 24/07, 11h30, ao vivo no LinkedIn, com Kiko Campos e Esabela Cruz.">
+    </a>
+    <div class="next-count">
+      <div class="cd-label">Começa em</div>
+      <div class="cd-big" id="countdown">—</div>
+      <div class="cd-when">sexta, 24/07 · 11h30 (horário de Brasília) · ao vivo no LinkedIn</div>
+    </div>
+    <div class="btn-row next-btns">
+      <a class="btn btn-primary" href="https://www.linkedin.com/events/7483920038396293120/" target="_blank" rel="noopener">Inscrever no evento</a>
+      <a class="btn btn-ghost" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Mente%20no%20Trabalho%20%E2%80%94%20Live%204%3A%20Al%C3%A9m%20do%20l%C3%ADder%20her%C3%B3i&amp;dates=20260724T143000Z/20260724T150000Z&amp;details=Ao%20vivo%20no%20LinkedIn%2C%20com%20Kiko%20Campos%20e%20Esabela%20Cruz.%20Inscri%C3%A7%C3%A3o%3A%20https%3A%2F%2Fwww.linkedin.com%2Fevents%2F7483920038396293120%2F" target="_blank" rel="noopener">Adicionar ao calendário</a>
     </div>
   </div>
 </section>

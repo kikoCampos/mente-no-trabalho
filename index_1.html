@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mente no Trabalho — Materiais da série</title>
+<meta name="description" content="O acervo da série Mente no Trabalho, com Kiko Campos & Esabela Cruz: lives, clipes, newsletter e o Workbook dos 4 E's.">
+<meta property="og:title" content="Mente no Trabalho — com Kiko Campos & Esabela Cruz">
+<meta property="og:description" content="Lives na íntegra, clipes, newsletter e o Workbook dos 4 E's — todo o material da série num só lugar.">
+<meta property="og:image" content="https://mente.kikocampos.com/17%20de%20jul.%20de%202026%2C%2013_24_09.png">
+<meta property="og:url" content="https://mente.kikocampos.com/">
+<meta property="og:type" content="website">
+<style>
+  :root{
+    --bg:#0A1830;            /* azul-escuro da série */
+    --bg-2:#0E2140;
+    --panel:#12294d;
+    --panel-2:#16305a;
+    --line:rgba(255,255,255,.10);
+    --line-strong:rgba(255,255,255,.18);
+    --ink:#EAF1FB;
+    --ink-soft:#AFC0DB;
+    --ink-mute:#7D91B4;
+    --accent:#F2B33D;        /* âmbar quente, humano */
+    --accent-2:#5AA9E6;      /* azul claro */
+    --good:#4FD1A1;
+    --radius:16px;
+    --maxw:1120px;
+    --font:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;font-family:var(--font);color:var(--ink);
+    background:
+      radial-gradient(1100px 600px at 78% -8%, rgba(90,169,230,.16), transparent 60%),
+      radial-gradient(900px 520px at 6% 4%, rgba(242,179,61,.10), transparent 55%),
+      var(--bg);
+    line-height:1.55;-webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+  .eyebrow{
+    font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--accent);font-weight:700;
+  }
+
+  /* ---------- NAV ---------- */
+  header.nav{
+    position:sticky;top:0;z-index:50;
+    backdrop-filter:blur(10px);
+    background:rgba(10,24,48,.72);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:66px}
+  .brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.01em}
+  .brand .mark{
+    width:38px;height:38px;border-radius:11px;flex:none;
+    background:linear-gradient(150deg,var(--accent),#e08b2c);
+    display:grid;place-items:center;color:#231402;font-size:1.15rem;
+    box-shadow:0 6px 18px rgba(242,179,61,.28);
+  }
+  .brand small{display:block;font-weight:500;font-size:.68rem;color:var(--ink-mute);letter-spacing:.04em}
+  .nav-links{display:flex;gap:26px;align-items:center}
+  .nav-links a{color:var(--ink-soft);font-size:.9rem;font-weight:500}
+  .nav-links a:hover{color:var(--ink)}
+  .nav-links a.nav-cta{
+    background:var(--accent);color:#231402;padding:9px 16px;border-radius:999px;
+    font-weight:700;font-size:.86rem;white-space:nowrap;
+  }
+  .nav-links a.nav-cta:hover{color:#231402;filter:brightness(1.05)}
+  @media(max-width:760px){
+    .nav-links a:not(.nav-cta){display:none}
+    .brand small{display:none}
+    .nav-links a.nav-cta{padding:8px 13px;font-size:.78rem}
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{padding:74px 0 40px;text-align:center}
+  .hero .eyebrow{margin-bottom:16px}
+  .hero h1{
+    font-size:clamp(2.2rem,5.4vw,3.9rem);line-height:1.05;margin:0 0 18px;
+    font-weight:800;letter-spacing:-.02em;
+  }
+  .hero h1 .g{
+    background:linear-gradient(120deg,var(--accent),var(--accent-2));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .hero p.lead{
+    max-width:620px;margin:0 auto 30px;color:var(--ink-soft);font-size:1.12rem;
+  }
+  .hero .meta{
+    display:flex;gap:10px;justify-content:center;flex-wrap:wrap;color:var(--ink-mute);
+    font-size:.86rem;margin-bottom:8px;
+  }
+  .hero .meta span{
+    border:1px solid var(--line-strong);border-radius:999px;padding:6px 14px;
+    display:inline-flex;gap:7px;align-items:center;
+  }
+  .dot{width:7px;height:7px;border-radius:50%;background:var(--good);box-shadow:0 0 0 4px rgba(79,209,161,.16)}
+
+  /* ---------- BUTTONS ---------- */
+  .btn{
+    display:inline-flex;align-items:center;gap:9px;justify-content:center;
+    padding:13px 24px;border-radius:999px;font-weight:700;font-size:.95rem;
+    border:1px solid transparent;cursor:pointer;transition:.15s;
+    background:transparent;-webkit-appearance:none;appearance:none;font-family:inherit;
+  }
+  .btn-primary{background:var(--accent);color:#231402}
+  .btn-primary:hover{filter:brightness(1.06);transform:translateY(-1px)}
+  .btn-ghost{border-color:var(--line-strong);color:var(--ink)}
+  .btn-ghost:hover{background:rgba(255,255,255,.05)}
+  .btn-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+  /* ---------- SECTIONS ---------- */
+  section{padding:58px 0;scroll-margin-top:80px}
+  .sec-head{margin-bottom:30px}
+  .sec-head h2{font-size:clamp(1.5rem,3vw,2.1rem);margin:8px 0 6px;font-weight:800;letter-spacing:-.01em}
+  .sec-head p{color:var(--ink-soft);margin:0;max-width:640px}
+
+  /* ---------- NEXT LIVE ---------- */
+  .next{
+    background:linear-gradient(135deg,var(--panel),var(--panel-2));
+    border:1px solid var(--line-strong);border-radius:22px;
+    padding:34px;display:grid;grid-template-columns:1.4fr 1fr;gap:30px;align-items:center;
+    position:relative;overflow:hidden;
+  }
+  .next::before{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(500px 260px at 92% 0%,rgba(242,179,61,.16),transparent 60%);
+    pointer-events:none;
+  }
+  .next .live-badge{
+    display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.78rem;
+    letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;
+  }
+  .next h3{font-size:clamp(1.4rem,3vw,2rem);margin:0 0 10px;font-weight:800;letter-spacing:-.01em}
+  .next .when{color:var(--ink-soft);font-size:1rem;margin-bottom:20px}
+  .next .when strong{color:var(--ink)}
+  .next-card{
+    background:rgba(10,24,48,.5);border:1px solid var(--line);border-radius:16px;
+    padding:22px;text-align:center;position:relative;z-index:1;
+  }
+  .next-card .cd{font-size:.74rem;color:var(--ink-mute);letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px}
+  .next-card .big{font-size:2.6rem;font-weight:800;line-height:1;letter-spacing:-.02em}
+  .next-card .big span{font-size:1rem;color:var(--ink-mute);font-weight:600}
+  .next-art-link{display:block;position:relative;z-index:1;transition:.18s}
+  .next-art-link:hover{transform:translateY(-2px)}
+  .next-art{width:100%;height:auto;display:block;border-radius:14px;border:1px solid var(--line-strong);box-shadow:0 12px 34px rgba(0,0,0,.28)}
+  @media(max-width:760px){.next{grid-template-columns:1fr;padding:26px}}
+
+  /* ---------- LIVES / GRID ---------- */
+  .grid{display:grid;gap:20px}
+  .grid-2{grid-template-columns:repeat(2,1fr)}
+  .grid-3{grid-template-columns:repeat(3,1fr)}
+  .grid-4{grid-template-columns:repeat(4,1fr)}
+  @media(max-width:900px){.grid-3,.grid-4{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:600px){.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}}
+
+  .card{
+    background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+    padding:24px;transition:.18s;position:relative;display:flex;flex-direction:column;
+  }
+  .card:hover{border-color:var(--line-strong);transform:translateY(-3px);background:var(--panel-2)}
+  .card .num{font-size:.74rem;color:var(--accent);font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+  .card h3{font-size:1.18rem;margin:8px 0 8px;font-weight:700;letter-spacing:-.01em}
+  .card .desc{color:var(--ink-soft);font-size:.94rem;margin:0 0 18px;flex:1}
+  .card .foot{display:flex;gap:14px;align-items:center;font-size:.86rem}
+  .card .foot a{color:var(--accent-2);font-weight:600;display:inline-flex;align-items:center;gap:6px}
+  .card .foot a:hover{color:var(--ink)}
+  .tag{
+    display:inline-block;align-self:flex-start;font-size:.7rem;color:var(--ink-mute);
+    border:1px solid var(--line);border-radius:6px;padding:2px 8px;margin-bottom:6px;
+  }
+
+  /* ---------- CLIPS ---------- */
+  .clip{
+    background:var(--panel);border:1px solid var(--line);border-radius:14px;
+    padding:18px 18px;transition:.16s;display:flex;flex-direction:column;gap:10px;
+  }
+  .clip:hover{border-color:var(--accent);transform:translateY(-2px)}
+  .clip video{width:100%;aspect-ratio:16/9;border-radius:10px;display:block;background:#000}
+  .group-label{
+    font-size:.98rem;font-weight:800;color:var(--ink);margin:0 0 16px;
+    display:flex;align-items:center;gap:12px;
+  }
+  .group-label span{color:var(--ink-mute);font-weight:500;font-size:.85rem}
+  .group-label::after{content:"";height:1px;flex:1;background:var(--line)}
+  .clip .k{font-size:.72rem;color:var(--accent);font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+  .clip h4{margin:0;font-size:1rem;font-weight:700}
+  .clip p{margin:0;color:var(--ink-mute);font-size:.85rem;flex:1}
+  .clip a{color:var(--accent-2);font-size:.82rem;font-weight:600;display:inline-flex;gap:6px;align-items:center}
+  .clip a:hover{color:var(--ink)}
+
+  .clip.more{display:none}
+  #clipes.expanded .clip.more{display:flex}
+  .toggle-row{display:flex;justify-content:center;margin-top:30px}
+
+  /* ---------- SPLIT (newsletter + workbook) ---------- */
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  @media(max-width:760px){.split{grid-template-columns:1fr}}
+  .offer{
+    border:1px solid var(--line-strong);border-radius:20px;padding:32px;
+    background:linear-gradient(160deg,var(--panel),rgba(10,24,48,.4));
+    display:flex;flex-direction:column;
+  }
+  .offer .ic{font-size:1.8rem;margin-bottom:14px}
+  .offer h3{font-size:1.4rem;margin:0 0 8px;font-weight:800;letter-spacing:-.01em}
+  .offer .big-num{font-size:.9rem;color:var(--accent);font-weight:700;margin-bottom:10px}
+  .offer p{color:var(--ink-soft);margin:0 0 22px;flex:1}
+  .offer .btn{align-self:flex-start}
+
+
+  /* ---------- HOSTS ---------- */
+  .hosts{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  @media(max-width:760px){.hosts{grid-template-columns:1fr}}
+  .host{
+    border:1px solid var(--line-strong);border-radius:20px;padding:30px;
+    background:linear-gradient(160deg,var(--panel),rgba(10,24,48,.4));
+    display:flex;gap:22px;align-items:center;
+  }
+  .host img{width:112px;height:112px;border-radius:50%;object-fit:cover;border:3px solid var(--accent);flex:none}
+  .host h3{margin:0 0 6px;font-size:1.25rem;font-weight:800;letter-spacing:-.01em}
+  .host p{margin:0;color:var(--ink-soft);font-size:.92rem}
+  @media(max-width:480px){.host{flex-direction:column;text-align:center}}
+
+  /* ---------- FOOTER ---------- */
+  footer{border-top:1px solid var(--line);padding:40px 0 54px;margin-top:20px}
+  .foot-in{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+  .foot-in .brand small{color:var(--ink-mute)}
+  .foot-links{display:flex;gap:22px;font-size:.88rem;color:var(--ink-soft)}
+  .foot-links a:hover{color:var(--ink)}
+  .copy{color:var(--ink-mute);font-size:.8rem;margin-top:22px}
+  .sig{
+    text-align:center;color:var(--ink-soft);font-style:italic;font-size:1.05rem;
+    max-width:600px;margin:0 auto;padding:8px 0 4px;
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="wrap nav-in">
+    <a href="https://kikocampos.com" style="display:inline-block;background:#0D2137;color:#fff;border-radius:999px;padding:6px 13px;font-size:12px;font-weight:700;text-decoration:none;letter-spacing:.06em;margin-right:14px">← Kiko Campos</a>
+    <a class="brand" href="#topo">
+      <span class="mark">◐</span>
+      <span>Mente no Trabalho<small>com Kiko Campos &amp; Esabela Cruz</small></span>
+    </a>
+    <nav class="nav-links">
+      <a href="#proxima">Próxima live</a>
+      <a href="#lives">Acervo</a>
+      <a href="#clipes">Clipes</a>
+      <a href="#materiais">Materiais</a>
+      <a class="nav-cta" href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=6888852094439198720" target="_blank" rel="noopener">Inscrever na newsletter</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<a id="topo"></a>
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Série semanal ao vivo · Sextas, 11h30</div>
+    <h1>Uma conversa por semana sobre<br><span class="g">saúde mental no trabalho</span></h1>
+    <p class="lead">Todo o material da série num só lugar: as lives na íntegra, os melhores momentos, a newsletter e o Workbook dos 4 E's da conversa do líder.</p>
+    <div class="meta">
+      <span><i class="dot"></i> Ao vivo no LinkedIn</span>
+      <span>≈ 30 min por episódio</span>
+      <span>Kiko Campos &amp; Esabela Cruz</span>
+    </div>
+    <div class="btn-row" style="margin-top:26px">
+      <a class="btn btn-primary" href="https://www.linkedin.com/events/7483920038396293120/" target="_blank" rel="noopener">Assistir à próxima live →</a>
+      <a class="btn btn-ghost" href="#lives">Ver o acervo</a>
+    </div>
+  </div>
+</section>
+
+<!-- NEXT LIVE -->
+<section id="proxima">
+  <div class="wrap">
+    <div class="next">
+      <a class="next-art-link" href="https://www.linkedin.com/events/7483920038396293120/" target="_blank" rel="noopener">
+        <img class="next-art" src="17%20de%20jul.%20de%202026%2C%2013_24_09.png" alt="Live 4 — Além do líder herói: como transformar o cuidado em cultura, não no esforço de uma pessoa só. Sexta, 24/07, 11h30, ao vivo no LinkedIn, com Kiko Campos e Esabela Cruz.">
+      </a>
+      <div style="position:relative;z-index:1">
+        <div class="live-badge"><i class="dot"></i> Próximo episódio · Live 4</div>
+        <h3>Além do líder herói</h3>
+        <div class="when"><strong>Sexta-feira, 24 de julho</strong> · 11h30 (horário de Brasília) · ao vivo no LinkedIn</div>
+        <div class="next-card" style="margin-bottom:20px">
+          <div class="cd">Começa em</div>
+          <div class="big" id="countdown">—</div>
+          <div style="color:var(--ink-mute);font-size:.82rem;margin-top:10px">24/07 · 11h30 BRT</div>
+        </div>
+        <div class="btn-row" style="justify-content:flex-start">
+          <a class="btn btn-primary" href="https://www.linkedin.com/events/7483920038396293120/" target="_blank" rel="noopener">Inscrever no evento</a>
+          <a class="btn btn-ghost" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Mente%20no%20Trabalho%20%E2%80%94%20Live%204%3A%20Al%C3%A9m%20do%20l%C3%ADder%20her%C3%B3i&amp;dates=20260724T143000Z/20260724T150000Z&amp;details=Ao%20vivo%20no%20LinkedIn%2C%20com%20Kiko%20Campos%20e%20Esabela%20Cruz.%20Inscri%C3%A7%C3%A3o%3A%20https%3A%2F%2Fwww.linkedin.com%2Fevents%2F7483920038396293120%2F" target="_blank" rel="noopener">Adicionar ao calendário</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIVES -->
+<section id="lives">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Acervo</div>
+      <h2>As lives na íntegra</h2>
+      <p>Cada episódio é uma conversa de ~30 minutos sobre um tema real da saúde mental no trabalho. Assista quando quiser.</p>
+    </div>
+    <div class="grid grid-3">
+
+      <div class="card">
+        <span class="tag">03/07/2026</span>
+        <div class="num">Episódio 1</div>
+        <h3>Riscos psicossociais entram na lei</h3>
+        <p class="desc">O que o STF e a NR-1 mudam para as empresas — e por que a saúde mental deixou de ser tema de bem-estar para virar obrigação de gestão.</p>
+        <div class="foot"><a href="https://youtu.be/uhOpqAySxxM" target="_blank" rel="noopener">Assistir no YouTube →</a></div>
+      </div>
+
+      <div class="card">
+        <span class="tag">10/07/2026</span>
+        <div class="num">Episódio 2</div>
+        <h3>A conversa que ninguém ensinou o líder a ter</h3>
+        <p class="desc">Os 4 E's — Enxergue, Escolha o espaço, Escute e Encaminhe. Um método simples para o líder abordar saúde mental com o time sem virar terapeuta.</p>
+        <div class="foot"><a href="https://youtu.be/YaURTiRbPwg" target="_blank" rel="noopener">Assistir no YouTube →</a></div>
+      </div>
+
+      <div class="card">
+        <span class="tag">17/07/2026</span>
+        <div class="num">Episódio 3</div>
+        <h3>Os sinais precoces de burnout</h3>
+        <p class="desc">O que o líder consegue enxergar antes do afastamento — os 3 sinais, os 3 P's e o que fazer com cada um sem virar terapeuta.</p>
+        <div class="foot"><a href="https://youtu.be/Xc5leZ8BClE" target="_blank" rel="noopener">Assistir no YouTube →</a></div>
+      </div>
+
+      <div class="card" style="border-style:dashed;opacity:.9">
+        <span class="tag">24/07/2026</span>
+        <div class="num">Episódio 4 · em breve</div>
+        <h3>Além do líder herói</h3>
+        <p class="desc">Como transformar o cuidado em cultura — e não no esforço de uma pessoa só. Ao vivo nesta sexta.</p>
+        <div class="foot"><a href="https://www.linkedin.com/events/7483920038396293120/" target="_blank" rel="noopener">Inscrever no evento →</a></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CLIPS -->
+<section id="clipes">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Melhores momentos</div>
+      <h2>Clipes para assistir e compartilhar</h2>
+      <p>Trechos curtos das conversas — aperte o play direto aqui.</p>
+    </div>
+
+    <div class="group-label">Live 3 <span>· Sinais precoces de burnout</span></div>
+    <div class="grid grid-4">
+
+      <div class="clip"><video controls preload="metadata" playsinline><source src="3%20sinais%20de%20burnout%20que%20li%CC%81deres%20identificam.mp4" type="video/mp4"></video><div class="k">O dado</div><h4>Os 3 sinais precoces</h4><p>O que o líder enxerga antes do afastamento.</p></div>
+      <div class="clip"><video controls preload="metadata" playsinline><source src="Frase-chave_%20_E%CC%81%20o%20trabalho%20que%20adoece_.mp4" type="video/mp4"></video><div class="k">A tese</div><h4>É o trabalho que adoece</h4><p>O burnout nasce da organização, não da pessoa.</p></div>
+      <div class="clip"><video controls preload="metadata" playsinline><source src="Os%203%20P_s_%20padra%CC%83o_%20pausa%20e%20prioridade%20na%20lideranc%CC%A7a.mp4" type="video/mp4"></video><div class="k">Método</div><h4>Os 3 P's</h4><p>Padrão, pausa e prioridade: o que o líder observa.</p></div>
+      <div class="clip more"><video controls preload="none" playsinline><source src="O%20que%20e%CC%81%20burnout_%20as%20tre%CC%82s%20dimenso%CC%83es.mp4" type="video/mp4"></video><div class="k">O conceito</div><h4>O que é burnout</h4><p>As três dimensões — muito além do cansaço.</p></div>
+      <div class="clip more"><video controls preload="none" playsinline><source src="Por%20que%20o%20burnout%20nasce%20do%20trabalho.mp4" type="video/mp4"></video><div class="k">Causa</div><h4>Por que nasce do trabalho</h4><p>São as condições que adoecem — antes da pessoa.</p></div>
+      <div class="clip more"><video controls preload="none" playsinline><source src="Cultura%20organizacional_%20ajuste%20do%20trabalho_%20na%CC%83o%20das%20pessoas.mp4" type="video/mp4"></video><div class="k">Cultura</div><h4>Ajuste o trabalho, não as pessoas</h4><p>Cultura é redesenhar o trabalho, não exigir resiliência.</p></div>
+      <div class="clip more"><video controls preload="none" playsinline><source src="Medo%20de%20falar%20sobre%20sau%CC%81de%20mental%20no%20trabalho.mp4" type="video/mp4"></video><div class="k">Barreira</div><h4>O medo de falar</h4><p>Por que o time silencia — e como o líder abre a porta.</p></div>
+
+    </div>
+
+    <div class="group-label" style="margin-top:38px">Live 2 <span>· A conversa do líder (os 4 E's)</span></div>
+    <div class="grid grid-4">
+
+      <div class="clip"><video controls preload="metadata" playsinline><source src="Li%CC%81der%20humano_%20me%CC%81todo%20e%20o%20alerta_%20546%20mil%20afastamentos.mp4" type="video/mp4"></video><div class="k">O dado</div><h4>546 mil afastamentos</h4><p>O recorde de 2025 no INSS que mudou a conversa.</p></div>
+      <div class="clip"><video controls preload="metadata" playsinline><source src="O%20li%CC%81der%20na%CC%83o%20precisa%20ser%20terapeuta%20_%20seja%20humano%20e%20tenha%20me%CC%81todo.mp4" type="video/mp4"></video><div class="k">A tese</div><h4>Líder não é terapeuta</h4><p>“Precisa ser humano com método.”</p></div>
+      <div class="clip"><video controls preload="metadata" playsinline><source src="Enxergue_%20procure%20mudanc%CC%A7a%20de%20padra%CC%83o_%20na%CC%83o%20diagno%CC%81stico.mp4" type="video/mp4"></video><div class="k">4 E's · 1</div><h4>Enxergue</h4><p>É mudança de padrão, não diagnóstico.</p></div>
+      <div class="clip more"><video controls preload="none" playsinline><source src="Escute_%20na%CC%83o%20resolva_%20na%CC%83o%20minimize_%20na%CC%83o%20prometa%20sigilo.mp4" type="video/mp4"></video><div class="k">4 E's · 2</div><h4>Escute</h4><p>Sem resolver, sem minimizar, sem prometer sigilo.</p></div>
+      <div class="clip more"><video controls preload="none" playsinline><source src="Encaminhe_%20observe_%20acompanhe%20e%20conecte%20com%20apoio.mp4" type="video/mp4"></video><div class="k">4 E's · 3</div><h4>Encaminhe</h4><p>PAE / RH-SST e follow-up em uma semana.</p></div>
+      <div class="clip more"><video controls preload="none" playsinline><source src="Feedback%20conti%CC%81nuo_%20na%CC%83o%20basta%20uma%20reunia%CC%83o%20anual.mp4" type="video/mp4"></video><div class="k">Prática</div><h4>Feedback contínuo</h4><p>A conversa que não pode esperar a crise.</p></div>
+      <div class="clip more"><video controls preload="none" playsinline><source src="Ataque%20a%CC%80%20raiz_%20cinco%20minutos%20que%20evitam%20meses%20de%20afastamento.mp4" type="video/mp4"></video><div class="k">Provocação</div><h4>Ataque à raiz</h4><p>Cinco minutos que evitam meses de afastamento.</p></div>
+      <div class="clip more"><video controls preload="none" playsinline><source src="Li%CC%81deres%20na%CC%83o%20precisam%20ser%20hero%CC%81is_%20encaminhar%20e%CC%81%20responsabilidade.mp4" type="video/mp4"></video><div class="k">Cultura</div><h4>Não precisamos de heróis</h4><p>Encaminhar é responsabilidade, não fraqueza.</p></div>
+
+    </div>
+
+    <div class="group-label" style="margin-top:38px">Live 1 <span>· Riscos psicossociais entram na lei</span></div>
+    <div class="grid grid-4">
+
+      <div class="clip"><video controls preload="metadata" playsinline><source src="Percepc%CC%A7a%CC%83o%20divergente_%2095%20li%CC%81deres%20vs%2015%20funciona%CC%81rios%20(16x9).mp4" type="video/mp4"></video><div class="k">O dado</div><h4>Percepção divergente</h4><p>95% dos líderes × 15% dos funcionários: a régua do cuidado.</p></div>
+      <div class="clip"><video controls preload="metadata" playsinline><source src="Conversa%20semanal%20de%2010%20minutos%20para%20li%CC%81deres%20(16x9).mp4" type="video/mp4"></video><div class="k">Prática</div><h4>Conversa semanal de 10 minutos</h4><p>O ritual simples que muda a relação líder–time.</p></div>
+      <div class="clip"><video controls preload="metadata" playsinline><source src="STF%20suspendeu%20multas_%20por%20que%20isso%20pode%20ser%20um%20erro%20(16x9).mp4" type="video/mp4"></video><div class="k">Contexto legal</div><h4>STF suspendeu as multas</h4><p>Por que tratar isso como alívio pode ser um erro.</p></div>
+      <div class="clip more"><video controls preload="none" playsinline><source src="Presentei%CC%81smo%20e%20custos_%20por%20que%20sau%CC%81de%20mental%20e%CC%81%20pauta%20de%20nego%CC%81cio%20(16x9).mp4" type="video/mp4"></video><div class="k">Negócio</div><h4>Presenteísmo e custos</h4><p>Saúde mental é pauta de resultado, não de benefício.</p></div>
+      <div class="clip more"><video controls preload="none" playsinline><source src="Programas%20na%CC%83o%20bastam_%20ajuste%20estrutural%20para%20sau%CC%81de%20mental%20(16x9).mp4" type="video/mp4"></video><div class="k">Estrutura</div><h4>Programas não bastam</h4><p>Sem ajuste estrutural, o programa vira paliativo.</p></div>
+      <div class="clip more"><video controls preload="none" playsinline><source src="Primeiro%20passo%20pra%CC%81tico_%20entender%20como%20as%20pessoas%20trabalham%20(16x9).mp4" type="video/mp4"></video><div class="k">Prática</div><h4>O primeiro passo</h4><p>Entender como as pessoas realmente trabalham.</p></div>
+      <div class="clip more"><video controls preload="none" playsinline><source src="Autonomia%20e%20recursos_%20o%20que%20li%CC%81deres%20devem%20garantir%20(16x9).mp4" type="video/mp4"></video><div class="k">Gestão</div><h4>Autonomia e recursos</h4><p>O que o líder deve garantir para o time.</p></div>
+      <div class="clip more"><video controls preload="none" playsinline><source src="Como%20fazer%20ana%CC%81lise%20ergono%CC%82mica%20e%20criar%20um%20plano%20de%20ac%CC%A7a%CC%83o%20vivo%20(16x9).mp4" type="video/mp4"></video><div class="k">Método</div><h4>Análise ergonômica viva</h4><p>Como transformar diagnóstico em plano de ação.</p></div>
+
+    </div>
+
+    <div class="toggle-row">
+      <button class="btn btn-ghost" id="btn-clips" onclick="toggleClips()">Ver todos os 23 clipes</button>
+    </div>
+  </div>
+</section>
+
+<!-- HOSTS -->
+<section id="quem">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Quem apresenta</div>
+      <h2>Uma dupla, uma conversa</h2>
+      <p>Toda sexta, os dois lados da mesma mesa — gestão e cuidado, dados e escuta.</p>
+    </div>
+    <div class="hosts">
+
+      <div class="host">
+        <img src="kiko.jpg" alt="Kiko Campos">
+        <div>
+          <h3>Kiko Campos</h3>
+          <p>Executivo de RH e CHRO com passagens por Vale, Carrefour, Grupo Big e Walmart Brasil. Advisor de CEOs e conselhos em cultura, liderança e transformação.</p>
+        </div>
+      </div>
+
+      <div class="host">
+        <img src="esabela.jpg" alt="Esabela Cruz">
+        <div>
+          <h3>Esabela Cruz, MSc</h3>
+          <p>Psicóloga do Trabalho, especialista em saúde mental e riscos psicossociais (NR-1), com atuação em cultura, DEI e formação de lideranças em multinacionais na América Latina.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- MATERIALS -->
+<section id="materiais">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Para levar com você</div>
+      <h2>Newsletter e Workbook</h2>
+      <p>O aprofundamento da série entre um episódio e outro.</p>
+    </div>
+    <div class="split">
+
+      <div class="offer">
+        <div class="ic">✉️</div>
+        <h3>A newsletter</h3>
+        <div class="big-num">+ 39 mil pessoas acompanham</div>
+        <p>Toda semana, o essencial da conversa em texto: o tema da live, os dados por trás dele e o que fazer com isso na segunda-feira de manhã.</p>
+        <a class="btn btn-primary" href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=6888852094439198720" target="_blank" rel="noopener">Assinar gratuitamente</a>
+      </div>
+
+      <div class="offer">
+        <div class="ic">📘</div>
+        <h3>Workbook dos 4 E's</h3>
+        <div class="big-num">Guia prático da conversa do líder</div>
+        <p>Enxergue, Escolha o espaço, Escute e Encaminhe em um passo a passo para o líder usar antes, durante e depois da conversa sobre saúde mental.</p>
+        <a class="btn btn-ghost" href="https://www.dropbox.com/scl/fi/y97egncqhhdcka3r4sm4w/Workbook-4Es-do-L-der.pdf?rlkey=iboilxw6dz3vssq73cwykg8ru&amp;dl=1" target="_blank" rel="noopener">Baixar o Workbook</a>
+      </div>
+
+    </div>
+    <p class="sig" style="margin-top:38px">“O líder não precisa ser terapeuta. Precisa ser humano com método.”</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-in">
+      <a class="brand" href="#topo">
+        <span class="mark">◐</span>
+        <span>Mente no Trabalho<small>com Kiko Campos &amp; Esabela Cruz</small></span>
+      </a>
+      <nav class="foot-links">
+        <a href="https://www.linkedin.com/in/kikocampos/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://youtube.com/@kikocamposh" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=6888852094439198720" target="_blank" rel="noopener">Newsletter</a>
+        <a href="#proxima">Próxima live</a>
+      </nav>
+    </div>
+    <div class="copy">Mente no Trabalho — série semanal sobre saúde mental e liderança. Sextas, 11h30, ao vivo no LinkedIn. © 2026.</div>
+  </div>
+</footer>
+
+<script>
+  function toggleClips(){
+    var s = document.getElementById('clipes');
+    var on = s.classList.toggle('expanded');
+    document.getElementById('btn-clips').textContent = on ? 'Mostrar menos clipes' : 'Ver todos os 23 clipes';
+    if(on){
+      s.querySelectorAll('.clip.more video').forEach(function(v){
+        if(v.preload === 'none'){ v.preload = 'metadata'; v.load(); }
+      });
+    }
+  }
+
+  // Contagem regressiva para a próxima live: 24/07/2026 11:30 BRT (UTC-3 = 14:30 UTC)
+  (function(){
+    var target = new Date(Date.UTC(2026,6,24,14,30,0));
+    var el = document.getElementById('countdown');
+    function tick(){
+      var now = new Date();
+      var d = target - now;
+      if(d <= 0){ el.innerHTML = 'Ao vivo <span>agora</span>'; return; }
+      var days = Math.floor(d/86400000);
+      var hrs  = Math.floor(d%86400000/3600000);
+      var mins = Math.floor(d%3600000/60000);
+      if(days > 0){ el.innerHTML = days+' <span>dias</span> '+hrs+' <span>h</span>'; }
+      else { el.innerHTML = hrs+' <span>h</span> '+mins+' <span>min</span>'; }
+    }
+    tick(); setInterval(tick, 30000);
+  })();
+</script>
+</body>
+</html>

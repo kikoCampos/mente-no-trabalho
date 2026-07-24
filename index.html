@@ -130,23 +130,42 @@
   .sec-head p{color:var(--ink-soft);margin:0;max-width:640px}
 
   /* ---------- NEXT LIVE ---------- */
-  .next-wrap{text-align:center}
-  .live-badge{
-    display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.76rem;
-    letter-spacing:.12em;text-transform:uppercase;color:var(--accent);
+  .next{
+    display:grid;grid-template-columns:1.45fr 1fr;gap:38px;align-items:center;
+    background:linear-gradient(135deg,var(--panel),rgba(10,24,48,.55));
+    border:1px solid var(--line-strong);border-radius:24px;
+    padding:34px;position:relative;overflow:hidden;
   }
-  .next-eyebrow{justify-content:center;margin-bottom:18px}
-  .next-art-link{display:inline-block;max-width:800px;width:100%;transition:.2s}
+  .next::before{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background:radial-gradient(560px 300px at 100% 0%,rgba(242,179,61,.12),transparent 60%);
+  }
+  .next-art-link{display:block;position:relative;z-index:1;transition:.2s}
   .next-art-link:hover{transform:translateY(-3px)}
-  .next-art{width:100%;height:auto;display:block;border-radius:18px;box-shadow:0 22px 60px rgba(0,0,0,.42)}
-  .next-count{margin:28px 0 0}
-  .next-count .cd-label{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-mute);margin-bottom:8px}
-  .cd-big{font-size:1.9rem;font-weight:800;line-height:1;letter-spacing:-.01em}
+  .next-art{width:100%;height:auto;display:block;border-radius:14px;box-shadow:0 18px 50px rgba(0,0,0,.45)}
+  .next-info{position:relative;z-index:1;min-width:0}
+  .live-badge{
+    display:flex;align-items:center;gap:8px;font-weight:700;font-size:.74rem;
+    letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;
+  }
+  .next-info h3{
+    font-family:var(--display);font-weight:700;letter-spacing:0;
+    font-size:clamp(1.5rem,2.4vw,2.1rem);line-height:1.15;margin:0 0 10px;
+  }
+  .next-info .when{color:var(--ink-soft);font-size:.94rem;margin:0 0 24px}
+  .next-info .when strong{color:var(--ink)}
+  .next-count .cd-label{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-mute);margin-bottom:8px}
+  .cd-big{font-size:2.1rem;font-weight:800;line-height:1;letter-spacing:-.01em}
   #countdown{color:var(--accent)}
   #countdown span{font-size:1rem;color:var(--ink-mute);font-weight:600}
-  .next-count .cd-when{font-size:.9rem;color:var(--ink-soft);margin-top:10px}
-  .next-btns{margin-top:22px}
-  @media(max-width:760px){.cd-big{font-size:1.7rem}}
+  .next-btns{margin-top:26px;display:flex;gap:12px;flex-wrap:wrap}
+  @media(max-width:940px){
+    .next{grid-template-columns:1fr;padding:24px;gap:24px}
+    .next-info{text-align:center}
+    .live-badge{justify-content:center}
+    .next-btns{justify-content:center}
+    .cd-big{font-size:1.8rem}
+  }
 
   /* ---------- LIVES / GRID ---------- */
   .grid{display:grid;gap:20px}
@@ -285,19 +304,24 @@
 
 <!-- NEXT LIVE -->
 <section id="proxima">
-  <div class="wrap next-wrap">
-    <div class="live-badge next-eyebrow"><i class="dot"></i> Próximo episódio · Live 5</div>
-    <a class="next-art-link" href="https://www.linkedin.com/events/mentenotrabalho-live5-nr-1semp-7486454736104337413/" target="_blank" rel="noopener">
-      <img class="next-art" src="arte-live5-nr1.png" alt="Live 5 — NR-1 sem pânico: o mapa do RH. A fiscalização da NR-1 já começou. Saúde mental virou gestão de risco — não programa, e sim o plano do RH. Sexta, 31/07, 11h30, ao vivo no LinkedIn, com Kiko Campos e Esabela Cruz.">
-    </a>
-    <div class="next-count">
-      <div class="cd-label">Começa em</div>
-      <div class="cd-big" id="countdown">—</div>
-      <div class="cd-when">sexta, 31/07 · 11h30 (horário de Brasília) · ao vivo no LinkedIn</div>
-    </div>
-    <div class="btn-row next-btns">
-      <a class="btn btn-primary" href="https://www.linkedin.com/events/mentenotrabalho-live5-nr-1semp-7486454736104337413/" target="_blank" rel="noopener">Inscrever no evento</a>
-      <a class="btn btn-ghost" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Mente%20no%20Trabalho%20%E2%80%94%20Live%205%3A%20NR-1%20sem%20p%C3%A2nico%2C%20o%20mapa%20do%20RH&amp;dates=20260731T143000Z/20260731T150000Z&amp;details=Ao%20vivo%20no%20LinkedIn%2C%20com%20Kiko%20Campos%20e%20Esabela%20Cruz.%20Inscri%C3%A7%C3%A3o%3A%20https%3A%2F%2Fwww.linkedin.com%2Fevents%2Fmentenotrabalho-live5-nr-1semp-7486454736104337413%2F" target="_blank" rel="noopener">Adicionar ao calendário</a>
+  <div class="wrap">
+    <div class="next">
+      <a class="next-art-link" href="https://www.linkedin.com/events/mentenotrabalho-live5-nr-1semp-7486454736104337413/" target="_blank" rel="noopener">
+        <img class="next-art" src="arte-live5-nr1.png" alt="Live 5 — NR-1 sem pânico: o mapa do RH. A fiscalização da NR-1 já começou. Saúde mental virou gestão de risco — não programa, e sim o plano do RH. Sexta, 31/07, 11h30, ao vivo no LinkedIn, com Kiko Campos e Esabela Cruz.">
+      </a>
+      <div class="next-info">
+        <div class="live-badge"><i class="dot"></i> Próximo episódio · Live 5</div>
+        <h3>NR-1 sem pânico: o mapa do RH</h3>
+        <p class="when"><strong>Sexta, 31/07 · 11h30</strong> (horário de Brasília) · ao vivo no LinkedIn</p>
+        <div class="next-count">
+          <div class="cd-label">Começa em</div>
+          <div class="cd-big" id="countdown">—</div>
+        </div>
+        <div class="next-btns">
+          <a class="btn btn-primary" href="https://www.linkedin.com/events/mentenotrabalho-live5-nr-1semp-7486454736104337413/" target="_blank" rel="noopener">Inscrever no evento</a>
+          <a class="btn btn-ghost" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Mente%20no%20Trabalho%20%E2%80%94%20Live%205%3A%20NR-1%20sem%20p%C3%A2nico%2C%20o%20mapa%20do%20RH&amp;dates=20260731T143000Z/20260731T150000Z&amp;details=Ao%20vivo%20no%20LinkedIn%2C%20com%20Kiko%20Campos%20e%20Esabela%20Cruz.%20Inscri%C3%A7%C3%A3o%3A%20https%3A%2F%2Fwww.linkedin.com%2Fevents%2Fmentenotrabalho-live5-nr-1semp-7486454736104337413%2F" target="_blank" rel="noopener">Adicionar ao calendário</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>

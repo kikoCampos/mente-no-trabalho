@@ -24,20 +24,26 @@
     border-radius:999px;padding:7px 16px;font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ink)}
   .brand .dot{width:8px;height:8px;background:var(--accent);border-radius:50%}
   header.top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:14px;
-    border-bottom:1px solid var(--line);padding-bottom:22px;margin-bottom:28px}
+    border-bottom:1px solid var(--line);padding-bottom:22px;margin-bottom:24px}
   header.top h1{font-family:"Playfair Display",Georgia,serif;font-size:34px;font-weight:800;letter-spacing:-.4px;margin-top:14px;line-height:1.1}
   header.top h1 em{color:var(--accent);font-style:normal}
   header.top .sub{color:var(--ink-soft);font-size:14px;margin-top:6px}
   .badge{font-size:12px;color:var(--ink-mute);background:var(--bg-2);border:1px solid var(--line);
     padding:7px 13px;border-radius:999px;white-space:nowrap}
+  .verdict{display:flex;gap:14px;align-items:flex-start;background:linear-gradient(100deg,rgba(79,209,161,.10),rgba(242,179,61,.06));
+    border:1px solid rgba(79,209,161,.30);border-left:4px solid var(--good);border-radius:14px;padding:16px 18px;margin-bottom:8px}
+  .verdict .tag{font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--good);white-space:nowrap;padding-top:2px}
+  .verdict p{font-size:14px;color:var(--ink)}
+  .verdict b{color:#fff}
   h2.sec{font-size:12px;text-transform:uppercase;letter-spacing:.22em;color:var(--ink-mute);
-    margin:36px 0 15px;font-weight:700}
+    margin:34px 0 15px;font-weight:700}
+  h2.sec span{color:var(--ink-mute);text-transform:none;letter-spacing:0;font-weight:500;font-size:12.5px}
   .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
   .kpi{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:17px 19px;position:relative;overflow:hidden}
   .kpi::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--accent)}
-  .kpi.blue::before{background:var(--accent-2)}
-  .kpi .lab{font-size:11.5px;color:var(--ink-soft);font-weight:600;letter-spacing:.02em}
-  .kpi .val{font-family:"Playfair Display",Georgia,serif;font-size:33px;font-weight:800;margin:8px 0 3px;letter-spacing:-.5px}
+  .kpi.blue::before{background:var(--accent-2)} .kpi.star::before{background:var(--good)}
+  .kpi .lab{font-size:11.5px;color:var(--ink-soft);font-weight:600}
+  .kpi .val{font-family:"Playfair Display",Georgia,serif;font-size:32px;font-weight:800;margin:8px 0 3px;letter-spacing:-.5px}
   .kpi .delta{font-size:12px;font-weight:600}
   .up{color:var(--good)} .down{color:var(--bad)} .flat{color:var(--ink-mute)}
   .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
@@ -46,14 +52,33 @@
   .panel .cap{font-size:12px;color:var(--ink-mute);margin-bottom:16px}
   svg{width:100%;height:auto;display:block;overflow:visible}
   .glab{font-size:11px;fill:var(--ink-mute)} .gval{font-size:11.5px;font-weight:700;fill:var(--ink)}
+  /* funnel */
+  .funnel{display:flex;flex-direction:column;gap:9px;margin-top:4px}
+  .stage{position:relative}
+  .stage .row{display:flex;align-items:center;justify-content:space-between;margin-bottom:5px}
+  .stage .name{font-size:13px;font-weight:600;color:var(--ink)}
+  .stage .name small{color:var(--ink-mute);font-weight:500;font-size:11.5px}
+  .stage .amt{font-family:"Playfair Display",serif;font-size:17px;font-weight:800}
+  .stage .bar{height:26px;border-radius:7px}
+  .stage .bar.known{background:linear-gradient(90deg,var(--accent),#f6c766)}
+  .stage .bar.dark{border:1.5px dashed rgba(242,179,61,.5);background:rgba(242,179,61,.05);display:flex;align-items:center;padding-left:12px}
+  .stage .bar.dark span{font-size:11px;font-weight:700;color:var(--accent);letter-spacing:.03em}
+  .conv{font-size:11px;color:var(--ink-mute);text-align:right;margin-top:-2px}
+  /* tables */
   .tblwrap{overflow-x:auto;border:1px solid var(--line);border-radius:16px}
-  table{border-collapse:collapse;width:100%;font-size:13px;min-width:780px}
-  th,td{padding:12px 13px;text-align:right;border-bottom:1px solid var(--line);white-space:nowrap}
-  th{background:var(--bg-2);color:var(--ink-mute);font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.06em}
+  table{border-collapse:collapse;width:100%;font-size:13px;min-width:820px}
+  th,td{padding:11px 13px;text-align:right;border-bottom:1px solid var(--line);white-space:nowrap}
+  th{background:var(--bg-2);color:var(--ink-mute);font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.05em}
   td:first-child,th:first-child{text-align:left}
   tbody tr:last-child td{border-bottom:none}
   tbody tr.l4{background:rgba(242,179,61,.06)}
   .tema{color:var(--ink-soft);font-size:12px}
+  .dim{color:var(--ink-mute)}
+  .win{color:var(--good);font-weight:700}
+  /* experiment log */
+  table.log{min-width:680px}
+  table.log td,table.log th{text-align:left;white-space:normal}
+  table.log td.r{white-space:nowrap;text-align:left}
   .cols{display:grid;grid-template-columns:1fr 1fr;gap:16px}
   ul.clean{list-style:none} ul.clean li{padding:8px 0 8px 20px;position:relative;font-size:13.5px;color:var(--ink-soft);border-bottom:1px solid var(--line)}
   ul.clean li:last-child{border-bottom:none}
@@ -73,88 +98,108 @@
   <header class="top">
     <div>
       <span class="brand"><span class="dot"></span>Mente no Trabalho</span>
-      <h1>Painel da <em>Série</em></h1>
-      <div class="sub">Kiko Campos &amp; Esabela Cruz · desempenho de cada LinkedIn Live</div>
+      <h1>Painel de <em>Growth</em> da Série</h1>
+      <div class="sub">Kiko Campos &amp; Esabela Cruz · funil, taxas e experimentos por live</div>
     </div>
     <div class="badge" id="stamp">Atualizado em 24/07/2026 · fonte: LinkedIn Eventos</div>
   </header>
 
-  <h2 class="sec">Live 4 — Além do líder herói (24/07) · destaques</h2>
+  <div class="verdict">
+    <div class="tag">Leitura</div>
+    <p>A série está <b>amadurecendo, não caindo.</b> A Live 4 bateu <b>recorde de captação</b> (57 inscritos, +217%) e teve a <b>melhor retenção</b> da série (1m28). O alcance bruto parece cair só porque é <b>cumulativo</b> — a L1 teve 3 semanas para somar views; a L4, horas. Por isso o placar aqui são <b>métricas imunes ao tempo</b> (inscritos, retenção, taxas) — não o alcance total.</p>
+  </div>
+
+  <h2 class="sec">Live 4 — destaques <span>· métricas justas para comparar</span></h2>
   <div class="kpis" id="kpis"></div>
 
-  <h2 class="sec">Evolução da série</h2>
+  <h2 class="sec">O funil da série <span>· onde está o valor (e onde está o vazamento)</span></h2>
   <div class="grid2">
     <div class="panel">
-      <h3>Inscritos por live</h3>
-      <div class="cap">Métrica de captação (independe do tempo). Meta de comparecimento: acima de 40% dos inscritos.</div>
-      <div id="chartInscritos"></div>
+      <h3>Funil da Live 4</h3>
+      <div class="cap">A live é topo de funil. O valor não é a audiência que passa — é a que fica capturada como e-mail próprio.</div>
+      <div class="funnel" id="funnel"></div>
     </div>
     <div class="panel">
+      <h3>Inscritos por live</h3>
+      <div class="cap">Captação — quase imune ao tempo (congela após a live). A alavanca de outbound (Waalaxy) disparou a L4.</div>
+      <div id="chartInscritos"></div>
+    </div>
+  </div>
+
+  <h2 class="sec">Métricas imunes ao tempo <span>· o placar honesto</span></h2>
+  <div class="grid2">
+    <div class="panel">
       <h3>Tempo médio de visualização</h3>
-      <div class="cap">Proxy de retenção e qualidade. Quanto maior, melhor — quem entra, permanece.</div>
+      <div class="cap">Retenção por espectador — não infla com os dias. É o termômetro real de qualidade. A L4 lidera.</div>
       <div id="chartTempo"></div>
     </div>
     <div class="panel">
-      <h3>Alcance orgânico do post</h3>
-      <div class="cap">Impressões e views de vídeo. Obs.: cumulativo — a Live 4 tem só horas no ar e ainda vai crescer.</div>
-      <div id="chartAlcance"></div>
-    </div>
-    <div class="panel">
-      <h3>Engajamento total</h3>
-      <div class="cap">Reações + comentários + compartilhamentos por live.</div>
+      <h3>Taxa de engajamento</h3>
+      <div class="cap">Razão (engajamento ÷ impressões) — auto-normaliza pelo tempo, ao contrário da contagem bruta.</div>
       <div id="chartEng"></div>
     </div>
   </div>
 
-  <h2 class="sec">Tabela mestra — uma linha por live</h2>
+  <h2 class="sec">Log de experimentos <span>· cada live é um teste até o portão da Live 8</span></h2>
+  <div class="tblwrap"><table class="log" id="log"></table></div>
+
+  <h2 class="sec">Tabela mestra <span>· dados brutos, uma linha por live</span></h2>
   <div class="tblwrap"><table id="tbl"></table></div>
 
-  <h2 class="sec">Metas &amp; leitura</h2>
+  <h2 class="sec">Norte &amp; próximos passos</h2>
   <div class="cols">
     <div class="panel">
-      <h3>O que os números dizem</h3>
-      <ul class="clean" id="insights"></ul>
+      <h3>Métrica-Norte &amp; lacunas</h3>
+      <ul class="clean">
+        <li><b>North Star · e-mails ativáveis por live</b> (meta 15–25) — o elo com a lista de pré-lançamento do livro <span class="pill miss">instrumentar</span></li>
+        <li><b>Comparecimento ao vivo:</b> anotar o pico de "assistindo agora" durante a live <span class="pill watch">anotar ao vivo</span></li>
+        <li><b>Downloads do Guia do Líder:</b> rastrear no site (link com UTM) <span class="pill miss">instrumentar</span></li>
+        <li><b>Recorrência de coorte:</b> quantos da L4 já estavam na L3? Retenção da audiência própria <span class="pill watch">medir</span></li>
+      </ul>
     </div>
     <div class="panel">
-      <h3>KPIs oficiais &amp; lacunas</h3>
+      <h3>Próximo experimento (Live 5)</h3>
       <ul class="clean">
-        <li><b>Inscritos (captação):</b> 23 → 38 → 18 → <b>57</b> <span class="pill ok">recorde na L4</span></li>
-        <li><b>Tempo médio (retenção):</b> 0m59 → 0m42 → 1m07 → <b>1m28</b> <span class="pill ok">melhor da série</span></li>
-        <li><b>Comparecimento &gt;40%:</b> anotar o pico de "assistindo agora" durante a live <span class="pill watch">anotar ao vivo</span></li>
-        <li><b>KPI-rei · e-mails/live (15–25):</b> vem da newsletter, não do LinkedIn <span class="pill miss">preencher</span></li>
-        <li><b>Downloads do Guia do Líder:</b> vem do site mente.kikocampos.com <span class="pill miss">preencher</span></li>
+        <li><b>Hipótese:</b> Guia do Líder atrás de um <b>e-mail gate</b> dobra a captura de e-mail por espectador.</li>
+        <li><b>Como medir:</b> link único com UTM na live + comentário fixado + DM aos inscritos; contar e-mails novos no dia.</li>
+        <li><b>Alavanca secundária:</b> lembrete automático 1h antes → subir a taxa de comparecimento.</li>
+        <li><b>Meta do ciclo:</b> primeira leitura de <b>inscrito → e-mail</b> para acender o fundo do funil.</li>
       </ul>
     </div>
   </div>
 
   <div class="foot">
-    <b>Norte da série:</b> audiência própria ativável (e-mails) que sustente o lançamento do livro. A live é topo de funil — o valor está no que fica capturado. Priorize <b>e-mails/live</b> como métrica-Norte; trate views/impressões como termômetro, não bússola.<br>
-    <b>Notas metodológicas:</b> views de evento/vídeo e impressões são <b>cumulativos</b> — comparar edições de idades diferentes exige cautela (a L1 tem 3 semanas; a L4, horas). Inscritos e tempo médio são as métricas mais justas para comparação imediata. <b>Live 2:</b> a transmissão foi para um evento duplicado — 38 inscritos no evento oficial + 4 no duplicado; os dados de vídeo vêm do evento onde a live realmente ocorreu. <b>Comparecimento ao vivo:</b> o StreamYard não guarda o pico de espectadores para destino LinkedIn; anotar manualmente o "assistindo agora" durante cada transmissão.
+    <b>Por que o alcance bruto não é o placar:</b> views e impressões são <b>cumulativos</b> — crescem com a idade do post, então uma edição antiga sempre "ganha" de uma nova. Comparar totais entre lives de idades diferentes é viés, não desempenho. As métricas de comparação justa são <b>inscritos, tempo médio (retenção) e taxas</b>. Para acompanhar alcance sem enganar, o correto é medir sempre na mesma idade (ex.: alcance em T+72h) — a implementar a partir da Live 5.<br>
+    <b>Notas:</b> <b>Live 2</b> transmitiu para um evento duplicado — 38 inscritos no oficial + 4 no duplicado; dados de vídeo vêm do evento onde a live ocorreu. <b>StreamYard</b> não guarda o pico de espectadores ao vivo para destino LinkedIn; anotar manualmente durante cada live. <b>Atualizar:</b> editar o array <code>lives</code> no topo do &lt;script&gt; e re-subir <code>painel.html</code> no repositório.
   </div>
 </div>
 
 <script>
 /* ====== DADOS (edite aqui a cada live) ====== */
 const lives = [
-  {id:'L1', tema:'A mente no trabalho (estreia)', data:'03/07', inscritos:23, viewsEvento:481, impressoes:2633, viewsVideo:608, tempoMedioSeg:59,  reacoes:78, comentarios:50, compart:18, salvam:7, cliques:1, engaj:2.8, emails:null, downloads:null},
-  {id:'L2', tema:'NR-1 sem juridiquês',           data:'10/07', inscritos:38, viewsEvento:715, impressoes:1974, viewsVideo:815, tempoMedioSeg:42,  reacoes:49, comentarios:29, compart:18, salvam:2, cliques:0, engaj:2.5, emails:null, downloads:null, nota:'incidente'},
-  {id:'L3', tema:'Sinais precoces de burnout',     data:'17/07', inscritos:18, viewsEvento:314, impressoes:1000, viewsVideo:373, tempoMedioSeg:67,  reacoes:20, comentarios:10, compart:9,  salvam:1, cliques:0, engaj:2.0, emails:null, downloads:null},
-  {id:'L4', tema:'Além do líder herói',            data:'24/07', inscritos:57, viewsEvento:116, impressoes:632,  viewsVideo:150, tempoMedioSeg:88,  reacoes:16, comentarios:10, compart:4,  salvam:2, cliques:2, engaj:2.5, emails:null, downloads:null, nota:'recém-publicada'},
+  {id:'L1', tema:'A mente no trabalho (estreia)', data:'03/07', idadeDias:21, inscritos:23, comparecimento:null, viewsEvento:481, impressoes:2633, viewsVideo:608, tempoMedioSeg:59, reacoes:78, comentarios:50, compart:18, engaj:2.8, emails:null, downloads:null,
+    exp:'Estreia — provar a pauta', res:'Baseline: 23 inscritos; maior alcance orgânico da série (buzz de estreia)', resWin:false},
+  {id:'L2', tema:'NR-1 sem juridiquês', data:'10/07', idadeDias:14, inscritos:38, comparecimento:null, viewsEvento:715, impressoes:1974, viewsVideo:815, tempoMedioSeg:42, reacoes:49, comentarios:29, compart:18, engaj:2.5, emails:null, downloads:null,
+    exp:'Tema técnico (NR-1)', res:'38 inscritos; incidente de transmissão (foi para o evento errado)', resWin:false},
+  {id:'L3', tema:'Sinais precoces de burnout', data:'17/07', idadeDias:7, inscritos:18, comparecimento:null, viewsEvento:314, impressoes:1000, viewsVideo:373, tempoMedioSeg:67, reacoes:20, comentarios:10, compart:9, engaj:2.0, emails:null, downloads:null,
+    exp:'Burnout — orgânico puro (sem outbound)', res:'18 inscritos; alcance orgânico normalizou após a estreia', resWin:false},
+  {id:'L4', tema:'Além do líder herói', data:'24/07', idadeDias:0, inscritos:57, comparecimento:null, viewsEvento:116, impressoes:632, viewsVideo:150, tempoMedioSeg:88, reacoes:16, comentarios:10, compart:4, engaj:2.5, emails:null, downloads:null,
+    exp:'Outbound Waalaxy para analistas de RH', res:'Inscritos +217% (recorde: 57) e melhor retenção da série (1m28)', resWin:true},
 ];
 /* ============================================ */
 
 const C={accent:'#F2B33D',blue:'#5AA9E6',good:'#4FD1A1',mut:'#7D91B4',line:'rgba(255,255,255,.14)'};
 const fmt=n=>n==null?'—':n.toLocaleString('pt-BR');
 const mmss=s=>s==null?'—':Math.floor(s/60)+'m'+String(s%60).padStart(2,'0');
-const eng=l=>l.reacoes+l.comentarios+l.compart;
 const last=lives[lives.length-1], prev=lives[lives.length-2];
 const delta=(a,b)=>{if(b==null||a==null)return{t:'—',c:'flat'};const d=Math.round((a-b)/b*100);return{t:(d>=0?'+':'')+d+'% vs '+prev.id,c:d>0?'up':d<0?'down':'flat'};};
 
+/* KPIs — só métricas justas */
 const kd=[
-  {lab:'Inscritos',val:fmt(last.inscritos),d:delta(last.inscritos,prev.inscritos),cls:'',rec:last.inscritos===Math.max(...lives.map(l=>l.inscritos))},
-  {lab:'Tempo médio de visualização',val:mmss(last.tempoMedioSeg),d:delta(last.tempoMedioSeg,prev.tempoMedioSeg),cls:'',rec:last.tempoMedioSeg===Math.max(...lives.map(l=>l.tempoMedioSeg))},
-  {lab:'Impressões do post',val:fmt(last.impressoes),d:{t:'ainda acumulando',c:'flat'},cls:'blue',rec:false},
+  {lab:'Inscritos (captação)',val:fmt(last.inscritos),d:delta(last.inscritos,prev.inscritos),cls:'star',rec:last.inscritos===Math.max(...lives.map(l=>l.inscritos))},
+  {lab:'Tempo médio (retenção)',val:mmss(last.tempoMedioSeg),d:delta(last.tempoMedioSeg,prev.tempoMedioSeg),cls:'star',rec:last.tempoMedioSeg===Math.max(...lives.map(l=>l.tempoMedioSeg))},
   {lab:'Taxa de engajamento',val:last.engaj+'%',d:delta(last.engaj,prev.engaj),cls:'blue',rec:false},
+  {lab:'E-mails capturados (Norte)',val:last.emails==null?'a medir':fmt(last.emails),d:{t:'instrumentar',c:'flat'},cls:'',rec:false},
 ];
 document.getElementById('kpis').innerHTML=kd.map(k=>`
   <div class="kpi ${k.cls}">
@@ -163,24 +208,56 @@ document.getElementById('kpis').innerHTML=kd.map(k=>`
     <div class="delta ${k.d.c}">${k.rec?'recorde da série · ':''}${k.d.t}</div>
   </div>`).join('');
 
-const cols=[['Live','id'],['Tema','tema'],['Data','data'],['Inscritos','inscritos'],['Views evento','viewsEvento'],['Impressões','impressoes'],['Views vídeo','viewsVideo'],['Tempo médio','tempoMedioSeg'],['Reações','reacoes'],['Coment.','comentarios'],['Compart.','compart'],['Eng.%','engaj'],['E-mails','emails'],['Downloads','downloads']];
+/* Funil L4 */
+const f=last;
+const stages=[
+  {name:'Alcance (impressões)', sub:'topo — alugado no LinkedIn', v:f.impressoes, known:true},
+  {name:'Inscritos', sub:'intenção capturada', v:f.inscritos, known:true},
+  {name:'Comparecimento ao vivo', sub:'anotar pico "assistindo agora"', v:f.comparecimento, known:false},
+  {name:'E-mails capturados', sub:'audiência própria — o Norte', v:f.emails, known:false},
+  {name:'Ativação (resposta/pipeline)', sub:'DMs, inbound, pré-lançamento', v:f.ativacao, known:false},
+];
+const maxF=Math.max(...stages.filter(s=>s.known).map(s=>s.v));
+let fh='';
+stages.forEach((s,i)=>{
+  const w=s.known?Math.max(8,Math.round(s.v/maxF*100)):100;
+  let conv='';
+  if(i>0){const p=stages[i-1];if(s.known&&p.known&&p.v)conv=`↳ ${Math.round(s.v/p.v*100)}% do passo anterior`;}
+  fh+=`<div class="stage">
+    <div class="row"><div class="name">${s.name} <small>· ${s.sub}</small></div><div class="amt" style="color:${s.known?'var(--ink)':'var(--accent)'}">${s.known?fmt(s.v):'a medir'}</div></div>
+    ${s.known?`<div class="bar known" style="width:${w}%"></div>`:`<div class="bar dark" style="width:100%"><span>instrumentar</span></div>`}
+    ${conv?`<div class="conv">${conv}</div>`:''}
+  </div>`;
+});
+document.getElementById('funnel').innerHTML=fh;
+
+/* experiment log */
+let lg='<thead><tr><th>Live</th><th>Hipótese / alavanca testada</th><th>Resultado</th></tr></thead><tbody>';
+lives.forEach(l=>{lg+=`<tr class="${l.id==='L4'?'l4':''}"><td class="r"><b>${l.id}</b> <span class="dim">${l.data}</span></td><td>${l.exp}</td><td class="${l.resWin?'win':''}">${l.res}${l.resWin?' ✓':''}</td></tr>`;});
+lg+='<tr><td class="r"><b>L5</b> <span class="dim">31/07</span></td><td>Guia do Líder com e-mail gate (a testar)</td><td class="dim">Medir taxa inscrito → e-mail</td></tr></tbody>';
+document.getElementById('log').innerHTML=lg;
+
+/* master table */
+const cols=[['Live','id'],['Tema','tema'],['Data','data'],['Idade (d)','idadeDias'],['Inscritos','inscritos'],['Tempo médio','tempoMedioSeg'],['Eng.%','engaj'],['E-mails','emails'],['Impressões','impressoes'],['Views vídeo','viewsVideo']];
 let thead='<thead><tr>'+cols.map(c=>`<th>${c[0]}</th>`).join('')+'</tr></thead>';
 let tbody='<tbody>'+lives.map(l=>{
   return `<tr class="${l.id==='L4'?'l4':''}">`+cols.map(c=>{
     let k=c[1],v=l[k];
     if(k==='id')return `<td><b>${v}</b></td>`;
-    if(k==='tema')return `<td class="tema">${v}${l.nota==='incidente'?' *':''}</td>`;
-    if(k==='data')return `<td>${v}</td>`;
+    if(k==='tema')return `<td class="tema">${v}</td>`;
+    if(k==='data'||k==='idadeDias')return `<td class="dim">${v}</td>`;
     if(k==='tempoMedioSeg')return `<td>${mmss(v)}</td>`;
     if(k==='engaj')return `<td>${v}%</td>`;
-    if(k==='emails'||k==='downloads')return `<td style="color:var(--ink-mute)">${v==null?'—':fmt(v)}</td>`;
+    if(k==='emails')return `<td style="color:var(--ink-mute)">${v==null?'—':fmt(v)}</td>`;
+    if(k==='impressoes'||k==='viewsVideo')return `<td class="dim">${fmt(v)}</td>`;
     return `<td>${fmt(v)}</td>`;
   }).join('')+'</tr>';
 }).join('')+'</tbody>';
 document.getElementById('tbl').innerHTML=thead+tbody;
 
+/* charts */
 function barChart(el,data,color,fmtFn,highlightLast){
-  const W=520,H=210,pl=20,pr=14,pt=16,pb=34,iw=W-pl-pr,ih=H-pt-pb;
+  const W=520,H=200,pl=20,pr=14,pt=16,pb=34,iw=W-pl-pr,ih=H-pt-pb;
   const max=Math.max(...data.map(d=>d.v))*1.15||1;
   const bw=iw/data.length*0.56, gap=iw/data.length;
   let s=`<svg viewBox="0 0 ${W} ${H}">`;
@@ -195,9 +272,9 @@ function barChart(el,data,color,fmtFn,highlightLast){
   s+='</svg>';el.innerHTML=s;
 }
 function lineChart(el,data,color,fmtFn){
-  const W=520,H=210,pl=22,pr=16,pt=22,pb=34,iw=W-pl-pr,ih=H-pt-pb;
+  const W=520,H=200,pl=22,pr=16,pt=22,pb=34,iw=W-pl-pr,ih=H-pt-pb;
   const max=Math.max(...data.map(d=>d.v))*1.2||1, min=Math.min(...data.map(d=>d.v))*0.6;
-  const X=i=>pl+iw*i/(data.length-1), Y=v=>pt+ih-ih*(v-min)/(max-min);
+  const X=i=>pl+iw*i/(data.length-1), Y=v=>pt+ih-ih*(v-min)/(max-min||1);
   let s=`<svg viewBox="0 0 ${W} ${H}">`;
   for(let i=0;i<=3;i++){const y=pt+ih-ih*i/3;s+=`<line x1="${pl}" y1="${y}" x2="${W-pr}" y2="${y}" stroke="${C.line}" stroke-width="1"/>`;}
   let path=data.map((d,i)=>(i?'L':'M')+X(i)+' '+Y(d.v)).join(' ');
@@ -210,36 +287,9 @@ function lineChart(el,data,color,fmtFn){
   });
   s+='</svg>';el.innerHTML=s;
 }
-function groupChart(el,data){
-  const W=520,H=210,pl=20,pr=14,pt=18,pb=34,iw=W-pl-pr,ih=H-pt-pb;
-  const max=Math.max(...data.map(d=>Math.max(d.a,d.b)))*1.15||1;
-  const gap=iw/data.length, bw=gap*0.28;
-  let s=`<svg viewBox="0 0 ${W} ${H}">`;
-  for(let i=0;i<=3;i++){const y=pt+ih-ih*i/3;s+=`<line x1="${pl}" y1="${y}" x2="${W-pr}" y2="${y}" stroke="${C.line}" stroke-width="1"/>`;}
-  data.forEach((d,i)=>{
-    const cx=pl+gap*i+gap/2;
-    const ha=ih*d.a/max, hb=ih*d.b/max;
-    s+=`<rect x="${cx-bw-3}" y="${pt+ih-ha}" width="${bw}" height="${ha}" rx="4" fill="${C.blue}"/>`;
-    s+=`<rect x="${cx+3}" y="${pt+ih-hb}" width="${bw}" height="${hb}" rx="4" fill="${C.accent}"/>`;
-    s+=`<text class="glab" x="${cx}" y="${H-14}" text-anchor="middle">${d.k}</text>`;
-  });
-  s+=`<g><rect x="${pl}" y="0" width="10" height="10" rx="2" fill="${C.blue}"/><text class="glab" x="${pl+15}" y="9">Impressões</text>`;
-  s+=`<rect x="${pl+95}" y="0" width="10" height="10" rx="2" fill="${C.accent}"/><text class="glab" x="${pl+110}" y="9">Views de vídeo</text></g>`;
-  s+='</svg>';el.innerHTML=s;
-}
-
 barChart(document.getElementById('chartInscritos'),lives.map(l=>({k:l.id,v:l.inscritos})),C.blue,fmt,true);
 lineChart(document.getElementById('chartTempo'),lives.map(l=>({k:l.id,v:l.tempoMedioSeg})),C.good,mmss);
-groupChart(document.getElementById('chartAlcance'),lives.map(l=>({k:l.id,a:l.impressoes,b:l.viewsVideo})));
-barChart(document.getElementById('chartEng'),lives.map(l=>({k:l.id,v:eng(l)})),C.accent,fmt,false);
-
-document.getElementById('insights').innerHTML=[
- '<b>Captação disparou na L4:</b> 57 inscritos, +217% vs L3 (18). A campanha Waalaxy para analistas de RH fez o motor de audiência engatar.',
- '<b>Melhor retenção da série:</b> tempo médio de 1m28 na L4 — o maior de todas. Mesmo com menos alcance bruto, quem assistiu ficou mais.',
- '<b>Alcance orgânico normalizou após a estreia:</b> o buzz da L1 (2.633 impressões, 78 reações) foi um pico; a L4 dependeu de convite ativo, não de viralização.',
- '<b>O vazamento está na captura:</b> a L4 gerou só 2 cliques para o site. Converter inscrito em e-mail próprio é o gargalo a resolver.',
- '<b>Falta fechar o KPI-rei:</b> e-mails e downloads do guia são o elo entre audiência e lista de pré-lançamento do livro.'
-].map(t=>`<li>${t}</li>`).join('');
+lineChart(document.getElementById('chartEng'),lives.map(l=>({k:l.id,v:l.engaj})),C.accent,v=>v+'%');
 </script>
 </body>
 </html>

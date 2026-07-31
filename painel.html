@@ -140,6 +140,20 @@ ul.clean li b{color:var(--ink)}
 </div>
 </div>
 
+<h2 class="sec">Alcance comparável <span>· mesma idade, sem viés de calendário</span></h2>
+<div class="grid2">
+<div class="panel">
+<h3>Taxa de visualização</h3>
+<div class="cap">Views de vídeo ÷ impressões — quanto do alcance vira play. É uma razão, então quase imune à idade do post.</div>
+<div id="chartViewRate"></div>
+</div>
+<div class="panel">
+<h3>Views @ T+72h por live</h3>
+<div class="cap">Alcance medido sempre na mesma idade (~72h pós-live) — a régua justa de velocidade. Começa na Live 5 (captura seg 03/08).</div>
+<div id="chartViews72"></div>
+</div>
+</div>
+
 <h2 class="sec">Log de experimentos <span>· cada live é um teste até o portão da Live 8</span></h2>
 <div class="tblwrap"><table class="log" id="log"></table></div>
 
@@ -169,7 +183,7 @@ ul.clean li b{color:var(--ink)}
 </div>
 
 <div class="foot">
-<b>Por que o alcance bruto não é o placar:</b> views e impressões são <b>cumulativos</b> — crescem com a idade do post, então uma edição antiga sempre "ganha" de uma nova. Comparar totais entre lives de idades diferentes é viés, não desempenho. As métricas de comparação justa são <b>inscritos, tempo médio (retenção) e taxas</b>. Para acompanhar alcance sem enganar, o correto é medir sempre na mesma idade (ex.: alcance em T+72h) — a implementar a partir da Live 5.<br>
+<b>Por que o alcance bruto não é o placar:</b> views e impressões são <b>cumulativos</b> — crescem com a idade do post, então uma edição antiga sempre "ganha" de uma nova. Comparar totais entre lives de idades diferentes é viés, não desempenho. As métricas de comparação justa são <b>inscritos, tempo médio (retenção) e taxas</b>. Para acompanhar alcance sem enganar, o correto é medir sempre na mesma idade (ex.: alcance em T+72h) — instrumentado a partir da Live 5, com captura toda segunda (~72h pós-live).<br>
 <b>Notas:</b> <b>Live 2</b> transmitiu para um evento duplicado — 38 inscritos no oficial + 4 no duplicado; dados de vídeo vêm do evento onde a live ocorreu. <b>StreamYard</b> não guarda o pico de espectadores ao vivo para destino LinkedIn; anotar manualmente durante cada live. <b>Atualizar:</b> editar o array <code>lives</code> no topo do &lt;script&gt; e re-subir <code>painel.html</code> no repositório.
 </div>
 </div>
@@ -177,15 +191,15 @@ ul.clean li b{color:var(--ink)}
 <script>
 /* ====== DADOS (edite aqui a cada live) ====== */
 const lives = [
-{id:'L1', tema:'A mente no trabalho (estreia)', data:'03/07', idadeDias:28, inscritos:23, comparecimento:null, viewsEvento:481, impressoes:2633, viewsVideo:608, tempoMedioSeg:59, reacoes:78, comentarios:50, compart:18, engaj:2.8, emails:null, downloads:null,
+{id:'L1', tema:'A mente no trabalho (estreia)', data:'03/07', idadeDias:28, inscritos:23, comparecimento:null, viewsEvento:481, impressoes:2633, viewsVideo:608, tempoMedioSeg:59, reacoes:78, comentarios:50, compart:18, engaj:2.8, emails:null, downloads:null, views72h:null,
 exp:'Estreia — provar a pauta', res:'Baseline: 23 inscritos; maior alcance orgânico da série (buzz de estreia)', resWin:false},
-{id:'L2', tema:'NR-1 sem juridiquês', data:'10/07', idadeDias:21, inscritos:38, comparecimento:null, viewsEvento:715, impressoes:1974, viewsVideo:815, tempoMedioSeg:42, reacoes:49, comentarios:29, compart:18, engaj:2.5, emails:null, downloads:null,
+{id:'L2', tema:'NR-1 sem juridiquês', data:'10/07', idadeDias:21, inscritos:38, comparecimento:null, viewsEvento:715, impressoes:1974, viewsVideo:815, tempoMedioSeg:42, reacoes:49, comentarios:29, compart:18, engaj:2.5, emails:null, downloads:null, views72h:null,
 exp:'Tema técnico (NR-1)', res:'38 inscritos; incidente de transmissão (foi para o evento errado)', resWin:false},
-{id:'L3', tema:'Sinais precoces de burnout', data:'17/07', idadeDias:14, inscritos:18, comparecimento:null, viewsEvento:314, impressoes:1000, viewsVideo:373, tempoMedioSeg:67, reacoes:20, comentarios:10, compart:9, engaj:2.0, emails:null, downloads:null,
+{id:'L3', tema:'Sinais precoces de burnout', data:'17/07', idadeDias:14, inscritos:18, comparecimento:null, viewsEvento:314, impressoes:1000, viewsVideo:373, tempoMedioSeg:67, reacoes:20, comentarios:10, compart:9, engaj:2.0, emails:null, downloads:null, views72h:null,
 exp:'Burnout — orgânico puro (sem outbound)', res:'18 inscritos; alcance orgânico normalizou após a estreia', resWin:false},
-{id:'L4', tema:'Além do líder herói', data:'24/07', idadeDias:7, inscritos:57, comparecimento:null, viewsEvento:116, impressoes:632, viewsVideo:150, tempoMedioSeg:88, reacoes:16, comentarios:10, compart:4, engaj:2.5, emails:null, downloads:null,
+{id:'L4', tema:'Além do líder herói', data:'24/07', idadeDias:7, inscritos:57, comparecimento:null, viewsEvento:116, impressoes:632, viewsVideo:150, tempoMedioSeg:88, reacoes:16, comentarios:10, compart:4, engaj:2.5, emails:null, downloads:null, views72h:null,
 exp:'Outbound Waalaxy para analistas de RH', res:'Inscritos +217% (recorde: 57) e melhor retenção da série até então (1m28)', resWin:true},
-{id:'L5', tema:'NR-1 sem pânico: o mapa do RH', data:'31/07', idadeDias:0, inscritos:45, comparecimento:null, viewsEvento:101, impressoes:509, viewsVideo:164, tempoMedioSeg:133, reacoes:18, comentarios:12, compart:2, engaj:3.5, emails:null, downloads:null,
+{id:'L5', tema:'NR-1 sem pânico: o mapa do RH', data:'31/07', idadeDias:0, inscritos:45, comparecimento:null, viewsEvento:101, impressoes:509, viewsVideo:164, tempoMedioSeg:133, reacoes:18, comentarios:12, compart:2, engaj:3.5, emails:null, downloads:null, views72h:null,
 exp:'Sprint de captura + newsletter (30k) + landing NR-1', res:'45 inscritos (2º melhor) e RECORDE de retenção (2m13) e de engajamento (3.5%)', resWin:true},
 ];
 /* ============================================ */
@@ -240,7 +254,7 @@ lg+='<tr><td class="r"><b>L6</b> <span class="dim">07/08</span></td><td>Caso de 
 document.getElementById('log').innerHTML=lg;
 
 /* master table */
-const cols=[['Live','id'],['Tema','tema'],['Data','data'],['Idade (d)','idadeDias'],['Inscritos','inscritos'],['Tempo médio','tempoMedioSeg'],['Eng.%','engaj'],['E-mails','emails'],['Impressões','impressoes'],['Views vídeo','viewsVideo']];
+const cols=[['Live','id'],['Tema','tema'],['Data','data'],['Idade (d)','idadeDias'],['Inscritos','inscritos'],['Tempo médio','tempoMedioSeg'],['Eng.%','engaj'],['E-mails','emails'],['Impressões','impressoes'],['Views vídeo','viewsVideo'],['Views @72h','views72h']];
 let thead='<thead><tr>'+cols.map(c=>`<th>${c[0]}</th>`).join('')+'</tr></thead>';
 let tbody='<tbody>'+lives.map(l=>{
 return `<tr class="${l.id==='L5'?'l4':''}">`+cols.map(c=>{
@@ -251,7 +265,7 @@ if(k==='data'||k==='idadeDias')return `<td class="dim">${v}</td>`;
 if(k==='tempoMedioSeg')return `<td>${mmss(v)}</td>`;
 if(k==='engaj')return `<td>${v}%</td>`;
 if(k==='emails')return `<td style="color:var(--ink-mute)">${v==null?'—':fmt(v)}</td>`;
-if(k==='impressoes'||k==='viewsVideo')return `<td class="dim">${fmt(v)}</td>`;
+if(k==='impressoes'||k==='viewsVideo'||k==='views72h')return `<td class="dim">${fmt(v)}</td>`;
 return `<td>${fmt(v)}</td>`;
 }).join('')+'</tr>';
 }).join('')+'</tbody>';
@@ -292,6 +306,11 @@ s+='</svg>';el.innerHTML=s;
 barChart(document.getElementById('chartInscritos'),lives.map(l=>({k:l.id,v:l.inscritos})),C.blue,fmt,true);
 lineChart(document.getElementById('chartTempo'),lives.map(l=>({k:l.id,v:l.tempoMedioSeg})),C.good,mmss);
 lineChart(document.getElementById('chartEng'),lives.map(l=>({k:l.id,v:l.engaj})),C.accent,v=>v+'%');
+const viewRate=l=>l.impressoes?+(l.viewsVideo/l.impressoes*100).toFixed(1):null;
+barChart(document.getElementById('chartViewRate'),lives.map(l=>({k:l.id,v:viewRate(l)})),C.blue,v=>v+'%',true);
+const has72=lives.some(l=>l.views72h!=null);
+if(has72){barChart(document.getElementById('chartViews72'),lives.filter(l=>l.views72h!=null).map(l=>({k:l.id,v:l.views72h})),C.accent,fmt,true);}
+else{document.getElementById('chartViews72').innerHTML='<div style="padding:30px 10px;text-align:center;color:var(--ink-mute);font-size:13px;line-height:1.65">Instrumentando — primeira captura em <b style="color:var(--accent)">seg 03/08</b> (T+72h da Live 5).<br>A partir daqui, todas as lives medidas na mesma idade — comparáveis de verdade.</div>';}
 </script>
 </body>
 </html>

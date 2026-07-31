@@ -31,6 +31,7 @@
 <meta property="og:image" content="https://mente.kikocampos.com/arte-live6-caso-de-negocio.png">
 <meta property="og:url" content="https://mente.kikocampos.com/">
 <meta property="og:type" content="website">
+<link rel="canonical" href="https://mente.kikocampos.com/">
 <meta name="theme-color" content="#0A1830">
 <link rel="icon" href="favicon.ico" sizes="48x48">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
@@ -294,6 +295,8 @@
   }
 
 .clip .ytlite{position:relative;width:100%;aspect-ratio:16/9;border-radius:10px;overflow:hidden;cursor:pointer;background:#000;display:block}.clip .ytlite img{width:100%;height:100%;object-fit:cover;display:block;opacity:.85;transition:opacity .2s}.clip .ytlite:hover img{opacity:1}.clip .ytlite .ytplay{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:54px;height:54px;border-radius:50%;background:rgba(255,74,18,.94);color:#fff;display:flex;align-items:center;justify-content:center;font-size:19px;padding-left:2px;box-shadow:0 8px 24px rgba(0,0,0,.45);transition:transform .15s}.clip .ytlite:hover .ytplay{transform:translate(-50%,-50%) scale(1.08)}.clip .ytlite iframe{width:100%;height:100%;border:0;display:block}
+.clip .ytlite[role="button"]{cursor:pointer}
+.clip .ytlite:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
 </style>
 </head>
 <body>
@@ -659,7 +662,35 @@
   })();
 </script>
 
-<script>function playYT(el){var id=el.getAttribute('data-id');el.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0&modestbranding=1" title="YouTube" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';}</script>
+<script>
+function playYT(el){
+  var id=el.getAttribute('data-id');
+  var label=(el.getAttribute('aria-label')||'YouTube').replace(/"/g,'');
+  el.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0&modestbranding=1" title="'+label+'" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';
+  // depois de virar player, deixa de ser um "botão"
+  el.removeAttribute('role');el.removeAttribute('tabindex');el.removeAttribute('aria-label');
+}
+
+// Acessibilidade dos clipes: tornar o play operável por teclado e leitor de tela.
+(function(){
+  function enhance(){
+    document.querySelectorAll('.clip .ytlite').forEach(function(el){
+      if(el.dataset.a11y) return;
+      el.dataset.a11y='1';
+      var clip=el.closest('.clip');
+      var h=clip&&clip.querySelector('h4');
+      var t=(h&&h.textContent||'').trim();
+      el.setAttribute('role','button');
+      el.setAttribute('tabindex','0');
+      if(t) el.setAttribute('aria-label','Assistir clipe: '+t);
+      el.addEventListener('keydown',function(ev){
+        if(ev.key==='Enter'||ev.key===' '||ev.key==='Spacebar'){ev.preventDefault();window.playYT(el);}
+      });
+    });
+  }
+  if(document.readyState!=='loading') enhance(); else document.addEventListener('DOMContentLoaded',enhance);
+})();
+</script>
 
 <!-- Banner de consentimento LGPD — ecossistema kikocampos.com -->
 <div id="lgpd" style="position:fixed;left:0;right:0;bottom:0;z-index:99999;display:none;background:rgba(10,24,48,.96);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-top:1px solid rgba(255,255,255,.14);padding:16px 20px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Inter,Roboto,Arial,sans-serif">

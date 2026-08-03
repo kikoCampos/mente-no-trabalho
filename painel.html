@@ -9,184 +9,198 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --bg:#0A1830; --bg-2:#0E2140; --panel:#12294d; --panel-2:#16305a;
-    --line:rgba(255,255,255,.10); --line-strong:rgba(255,255,255,.18);
-    --ink:#EAF1FB; --ink-soft:#AFC0DB; --ink-mute:#7D91B4;
-    --accent:#F2B33D; --accent-2:#5AA9E6; --good:#4FD1A1; --bad:#e8785f;
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:"Montserrat",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    background:linear-gradient(180deg,var(--bg),var(--bg-2));color:var(--ink);
-    padding:38px 22px 64px;line-height:1.55;-webkit-font-smoothing:antialiased}
-  .wrap{max-width:1160px;margin:0 auto}
-  .brand{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(242,179,61,.55);
-    border-radius:999px;padding:7px 16px;font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ink)}
-  .brand .dot{width:8px;height:8px;background:var(--accent);border-radius:50%}
-  header.top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:14px;
-    border-bottom:1px solid var(--line);padding-bottom:22px;margin-bottom:24px}
-  header.top h1{font-family:"Playfair Display",Georgia,serif;font-size:34px;font-weight:800;letter-spacing:-.4px;margin-top:14px;line-height:1.1}
-  header.top h1 em{color:var(--accent);font-style:normal}
-  header.top .sub{color:var(--ink-soft);font-size:14px;margin-top:6px}
-  .badge{font-size:12px;color:var(--ink-mute);background:var(--bg-2);border:1px solid var(--line);
-    padding:7px 13px;border-radius:999px;white-space:nowrap}
-  .verdict{display:flex;gap:14px;align-items:flex-start;background:linear-gradient(100deg,rgba(79,209,161,.10),rgba(242,179,61,.06));
-    border:1px solid rgba(79,209,161,.30);border-left:4px solid var(--good);border-radius:14px;padding:16px 18px;margin-bottom:8px}
-  .verdict .tag{font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--good);white-space:nowrap;padding-top:2px}
-  .verdict p{font-size:14px;color:var(--ink)}
-  .verdict b{color:#fff}
-  h2.sec{font-size:12px;text-transform:uppercase;letter-spacing:.22em;color:var(--ink-mute);
-    margin:34px 0 15px;font-weight:700}
-  h2.sec span{color:var(--ink-mute);text-transform:none;letter-spacing:0;font-weight:500;font-size:12.5px}
-  .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-  .kpi{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:17px 19px;position:relative;overflow:hidden}
-  .kpi::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--accent)}
-  .kpi.blue::before{background:var(--accent-2)} .kpi.star::before{background:var(--good)}
-  .kpi .lab{font-size:11.5px;color:var(--ink-soft);font-weight:600}
-  .kpi .val{font-family:"Playfair Display",Georgia,serif;font-size:32px;font-weight:800;margin:8px 0 3px;letter-spacing:-.5px}
-  .kpi .delta{font-size:12px;font-weight:600}
-  .up{color:var(--good)} .down{color:var(--bad)} .flat{color:var(--ink-mute)}
-  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-  .panel{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px 20px 13px}
-  .panel h3{font-family:"Playfair Display",Georgia,serif;font-size:19px;font-weight:700;margin-bottom:2px}
-  .panel .cap{font-size:12px;color:var(--ink-mute);margin-bottom:16px}
-  svg{width:100%;height:auto;display:block;overflow:visible}
-  .glab{font-size:11px;fill:var(--ink-mute)} .gval{font-size:11.5px;font-weight:700;fill:var(--ink)}
-  /* funnel */
-  .funnel{display:flex;flex-direction:column;gap:9px;margin-top:4px}
-  .stage{position:relative}
-  .stage .row{display:flex;align-items:center;justify-content:space-between;margin-bottom:5px}
-  .stage .name{font-size:13px;font-weight:600;color:var(--ink)}
-  .stage .name small{color:var(--ink-mute);font-weight:500;font-size:11.5px}
-  .stage .amt{font-family:"Playfair Display",serif;font-size:17px;font-weight:800}
-  .stage .bar{height:26px;border-radius:7px}
-  .stage .bar.known{background:linear-gradient(90deg,var(--accent),#f6c766)}
-  .stage .bar.dark{border:1.5px dashed rgba(242,179,61,.5);background:rgba(242,179,61,.05);display:flex;align-items:center;padding-left:12px}
-  .stage .bar.dark span{font-size:11px;font-weight:700;color:var(--accent);letter-spacing:.03em}
-  .conv{font-size:11px;color:var(--ink-mute);text-align:right;margin-top:-2px}
-  /* tables */
-  .tblwrap{overflow-x:auto;border:1px solid var(--line);border-radius:16px}
-  table{border-collapse:collapse;width:100%;font-size:13px;min-width:820px}
-  th,td{padding:11px 13px;text-align:right;border-bottom:1px solid var(--line);white-space:nowrap}
-  th{background:var(--bg-2);color:var(--ink-mute);font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.05em}
-  td:first-child,th:first-child{text-align:left}
-  tbody tr:last-child td{border-bottom:none}
-  tbody tr.l4{background:rgba(242,179,61,.06)}
-  .tema{color:var(--ink-soft);font-size:12px}
-  .dim{color:var(--ink-mute)}
-  .win{color:var(--good);font-weight:700}
-  /* experiment log */
-  table.log{min-width:680px}
-  table.log td,table.log th{text-align:left;white-space:normal}
-  table.log td.r{white-space:nowrap;text-align:left}
-  .cols{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-  ul.clean{list-style:none} ul.clean li{padding:8px 0 8px 20px;position:relative;font-size:13.5px;color:var(--ink-soft);border-bottom:1px solid var(--line)}
-  ul.clean li:last-child{border-bottom:none}
-  ul.clean li::before{content:"";position:absolute;left:2px;top:15px;width:7px;height:7px;border-radius:50%;background:var(--accent)}
-  ul.clean li b{color:var(--ink)}
-  .pill{display:inline-block;font-size:11px;font-weight:700;padding:2px 9px;border-radius:999px;margin-left:6px}
-  .pill.ok{background:rgba(79,209,161,.15);color:var(--good)}
-  .pill.watch{background:rgba(242,179,61,.15);color:var(--accent)}
-  .pill.miss{background:rgba(232,120,95,.15);color:var(--bad)}
-  .foot{margin-top:32px;font-size:12px;color:var(--ink-mute);border-top:1px solid var(--line);padding-top:18px;line-height:1.7}
-  .foot code{background:var(--bg-2);padding:2px 6px;border-radius:5px;color:var(--accent);font-size:11.5px}
-  @media(max-width:820px){.kpis{grid-template-columns:1fr 1fr}.grid2{grid-template-columns:1fr}.cols{grid-template-columns:1fr}header.top h1{font-size:26px}}
+:root{
+--bg:#0A1830; --bg-2:#0E2140; --panel:#12294d; --panel-2:#16305a;
+--line:rgba(255,255,255,.10); --line-strong:rgba(255,255,255,.18);
+--ink:#EAF1FB; --ink-soft:#AFC0DB; --ink-mute:#7D91B4;
+--accent:#F2B33D; --accent-2:#5AA9E6; --good:#4FD1A1; --bad:#e8785f;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Montserrat",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+background:linear-gradient(180deg,var(--bg),var(--bg-2));color:var(--ink);
+padding:38px 22px 64px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1160px;margin:0 auto}
+.brand{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(242,179,61,.55);
+border-radius:999px;padding:7px 16px;font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ink)}
+.brand .dot{width:8px;height:8px;background:var(--accent);border-radius:50%}
+header.top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:14px;
+border-bottom:1px solid var(--line);padding-bottom:22px;margin-bottom:24px}
+header.top h1{font-family:"Playfair Display",Georgia,serif;font-size:34px;font-weight:800;letter-spacing:-.4px;margin-top:14px;line-height:1.1}
+header.top h1 em{color:var(--accent);font-style:normal}
+header.top .sub{color:var(--ink-soft);font-size:14px;margin-top:6px}
+.badge{font-size:12px;color:var(--ink-mute);background:var(--bg-2);border:1px solid var(--line);
+padding:7px 13px;border-radius:999px;white-space:nowrap}
+.verdict{display:flex;gap:14px;align-items:flex-start;background:linear-gradient(100deg,rgba(79,209,161,.10),rgba(242,179,61,.06));
+border:1px solid rgba(79,209,161,.30);border-left:4px solid var(--good);border-radius:14px;padding:16px 18px;margin-bottom:8px}
+.verdict .tag{font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--good);white-space:nowrap;padding-top:2px}
+.verdict p{font-size:14px;color:var(--ink)}
+.verdict b{color:#fff}
+h2.sec{font-size:12px;text-transform:uppercase;letter-spacing:.22em;color:var(--ink-mute);
+margin:34px 0 15px;font-weight:700}
+h2.sec span{color:var(--ink-mute);text-transform:none;letter-spacing:0;font-weight:500;font-size:12.5px}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.kpi{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:17px 19px;position:relative;overflow:hidden}
+.kpi::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--accent)}
+.kpi.blue::before{background:var(--accent-2)} .kpi.star::before{background:var(--good)}
+.kpi .lab{font-size:11.5px;color:var(--ink-soft);font-weight:600}
+.kpi .val{font-family:"Playfair Display",Georgia,serif;font-size:32px;font-weight:800;margin:8px 0 3px;letter-spacing:-.5px}
+.kpi .delta{font-size:12px;font-weight:600}
+.up{color:var(--good)} .down{color:var(--bad)} .flat{color:var(--ink-mute)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px 20px 13px}
+.panel h3{font-family:"Playfair Display",Georgia,serif;font-size:19px;font-weight:700;margin-bottom:2px}
+.panel .cap{font-size:12px;color:var(--ink-mute);margin-bottom:16px}
+svg{width:100%;height:auto;display:block;overflow:visible}
+.glab{font-size:11px;fill:var(--ink-mute)} .gval{font-size:11.5px;font-weight:700;fill:var(--ink)}
+/* funnel */
+.funnel{display:flex;flex-direction:column;gap:9px;margin-top:4px}
+.stage{position:relative}
+.stage .row{display:flex;align-items:center;justify-content:space-between;margin-bottom:5px}
+.stage .name{font-size:13px;font-weight:600;color:var(--ink)}
+.stage .name small{color:var(--ink-mute);font-weight:500;font-size:11.5px}
+.stage .amt{font-family:"Playfair Display",serif;font-size:17px;font-weight:800}
+.stage .bar{height:26px;border-radius:7px}
+.stage .bar.known{background:linear-gradient(90deg,var(--accent),#f6c766)}
+.stage .bar.dark{border:1.5px dashed rgba(242,179,61,.5);background:rgba(242,179,61,.05);display:flex;align-items:center;padding-left:12px}
+.stage .bar.dark span{font-size:11px;font-weight:700;color:var(--accent);letter-spacing:.03em}
+.conv{font-size:11px;color:var(--ink-mute);text-align:right;margin-top:-2px}
+/* tables */
+.tblwrap{overflow-x:auto;border:1px solid var(--line);border-radius:16px}
+table{border-collapse:collapse;width:100%;font-size:13px;min-width:820px}
+th,td{padding:11px 13px;text-align:right;border-bottom:1px solid var(--line);white-space:nowrap}
+th{background:var(--bg-2);color:var(--ink-mute);font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.05em}
+td:first-child,th:first-child{text-align:left}
+tbody tr:last-child td{border-bottom:none}
+tbody tr.l4{background:rgba(242,179,61,.06)}
+.tema{color:var(--ink-soft);font-size:12px}
+.dim{color:var(--ink-mute)}
+.win{color:var(--good);font-weight:700}
+/* experiment log */
+table.log{min-width:680px}
+table.log td,table.log th{text-align:left;white-space:normal}
+table.log td.r{white-space:nowrap;text-align:left}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+ul.clean{list-style:none} ul.clean li{padding:8px 0 8px 20px;position:relative;font-size:13.5px;color:var(--ink-soft);border-bottom:1px solid var(--line)}
+ul.clean li:last-child{border-bottom:none}
+ul.clean li::before{content:"";position:absolute;left:2px;top:15px;width:7px;height:7px;border-radius:50%;background:var(--accent)}
+ul.clean li b{color:var(--ink)}
+.pill{display:inline-block;font-size:11px;font-weight:700;padding:2px 9px;border-radius:999px;margin-left:6px}
+.pill.ok{background:rgba(79,209,161,.15);color:var(--good)}
+.pill.watch{background:rgba(242,179,61,.15);color:var(--accent)}
+.pill.miss{background:rgba(232,120,95,.15);color:var(--bad)}
+.foot{margin-top:32px;font-size:12px;color:var(--ink-mute);border-top:1px solid var(--line);padding-top:18px;line-height:1.7}
+.foot code{background:var(--bg-2);padding:2px 6px;border-radius:5px;color:var(--accent);font-size:11.5px}
+@media(max-width:820px){.kpis{grid-template-columns:1fr 1fr}.grid2{grid-template-columns:1fr}.cols{grid-template-columns:1fr}header.top h1{font-size:26px}}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <header class="top">
-    <div>
-      <span class="brand"><span class="dot"></span>Mente no Trabalho</span>
-      <h1>Painel de <em>Growth</em> da Série</h1>
-      <div class="sub">Kiko Campos &amp; Esabela Cruz · funil, taxas e experimentos por live</div>
-    </div>
-    <div class="badge" id="stamp">Atualizado em 03/08/2026 · fonte: LinkedIn Eventos</div>
-  </header>
+<header class="top">
+<div>
+<span class="brand"><span class="dot"></span>Mente no Trabalho</span>
+<h1>Painel de <em>Growth</em> da Série</h1>
+<div class="sub">Kiko Campos &amp; Esabela Cruz · funil, taxas e experimentos por live</div>
+</div>
+<div class="badge" id="stamp">Atualizado em 03/08/2026 · fonte: LinkedIn Eventos</div>
+</header>
 
-  <div class="verdict">
-    <div class="tag">Leitura</div>
-    <p>A série segue <b>amadurecendo</b>. A Live 5 (NR-1 sem pânico) captou <b>45 inscritos</b> e é a <b>primeira edição com alcance medido na mesma idade (T+72h)</b>: <b>276 visualizações de vídeo</b> e 668 impressões, com retenção de <b>1m28</b>. A partir daqui o placar de alcance passa a ser <b>comparável entre lives</b> — sempre em T+72h — em vez do total cumulativo, que sempre favorece as edições mais antigas. Por isso as métricas de comparação justa continuam sendo <b>inscritos, retenção e taxas</b>.</p>
-  </div>
+<div class="verdict">
+<div class="tag">Leitura</div>
+<p>A série está <b>amadurecendo, não caindo.</b> A Live 5 bateu <b>recorde de retenção</b> (2m13 — mais que o dobro da estreia) e de <b>engajamento</b> (3.5%), com forte captação (<b>45 inscritos</b>, 2º melhor da série). A Live 4 segue com o recorde de inscritos (57). O alcance bruto parece cair só porque é <b>cumulativo</b> — a L1 teve semanas para somar views; a L5, horas. Por isso o placar aqui são <b>métricas imunes ao tempo</b> (inscritos, retenção, taxas) — não o alcance total.</p>
+</div>
 
-  <h2 class="sec">Live 5 — destaques <span>· métricas justas para comparar</span></h2>
-  <div class="kpis" id="kpis"></div>
+<h2 class="sec">Live 5 — destaques <span>· métricas justas para comparar</span></h2>
+<div class="kpis" id="kpis"></div>
 
-  <h2 class="sec">O funil da série <span>· onde está o valor (e onde está o vazamento)</span></h2>
-  <div class="grid2">
-    <div class="panel">
-      <h3>Funil da Live 5</h3>
-      <div class="cap">A live é topo de funil. O valor não é a audiência que passa — é a que fica capturada como e-mail próprio.</div>
-      <div class="funnel" id="funnel"></div>
-    </div>
-    <div class="panel">
-      <h3>Inscritos por live</h3>
-      <div class="cap">Captação — quase imune ao tempo (congela após a live). A alavanca de outbound (Waalaxy) disparou a L4.</div>
-      <div id="chartInscritos"></div>
-    </div>
-  </div>
+<h2 class="sec">O funil da série <span>· onde está o valor (e onde está o vazamento)</span></h2>
+<div class="grid2">
+<div class="panel">
+<h3>Funil da Live 5</h3>
+<div class="cap">A live é topo de funil. O valor não é a audiência que passa — é a que fica capturada como e-mail próprio.</div>
+<div class="funnel" id="funnel"></div>
+</div>
+<div class="panel">
+<h3>Inscritos por live</h3>
+<div class="cap">Captação — quase imune ao tempo (congela após a live). A alavanca de outbound (Waalaxy) disparou a L4; a L5 se sustentou com a sprint de captura + newsletter.</div>
+<div id="chartInscritos"></div>
+</div>
+</div>
 
-  <h2 class="sec">Métricas imunes ao tempo <span>· o placar honesto</span></h2>
-  <div class="grid2">
-    <div class="panel">
-      <h3>Tempo médio de visualização</h3>
-      <div class="cap">Retenção por espectador — não infla com os dias. É o termômetro real de qualidade. A L4 lidera.</div>
-      <div id="chartTempo"></div>
-    </div>
-    <div class="panel">
-      <h3>Taxa de engajamento</h3>
-      <div class="cap">Razão (engajamento ÷ impressões) — auto-normaliza pelo tempo, ao contrário da contagem bruta.</div>
-      <div id="chartEng"></div>
-    </div>
-  </div>
+<h2 class="sec">Métricas imunes ao tempo <span>· o placar honesto</span></h2>
+<div class="grid2">
+<div class="panel">
+<h3>Tempo médio de visualização</h3>
+<div class="cap">Retenção por espectador — não infla com os dias. É o termômetro real de qualidade. A L5 lidera com folga.</div>
+<div id="chartTempo"></div>
+</div>
+<div class="panel">
+<h3>Taxa de engajamento</h3>
+<div class="cap">Razão (engajamento ÷ impressões) — auto-normaliza pelo tempo, ao contrário da contagem bruta.</div>
+<div id="chartEng"></div>
+</div>
+</div>
 
-  <h2 class="sec">Log de experimentos <span>· cada live é um teste até o portão da Live 8</span></h2>
-  <div class="tblwrap"><table class="log" id="log"></table></div>
+<h2 class="sec">Alcance comparável <span>· mesma idade, sem viés de calendário</span></h2>
+<div class="grid2">
+<div class="panel">
+<h3>Taxa de visualização</h3>
+<div class="cap">Views de vídeo ÷ impressões — quanto do alcance vira play. É uma razão, então quase imune à idade do post.</div>
+<div id="chartViewRate"></div>
+</div>
+<div class="panel">
+<h3>Views @ T+72h por live</h3>
+<div class="cap">Alcance medido sempre na mesma idade (~72h pós-live) — a régua justa de velocidade. Começa na Live 5 (captura seg 03/08).</div>
+<div id="chartViews72"></div>
+</div>
+</div>
 
-  <h2 class="sec">Tabela mestra <span>· dados brutos, uma linha por live</span></h2>
-  <div class="tblwrap"><table id="tbl"></table></div>
+<h2 class="sec">Log de experimentos <span>· cada live é um teste até o portão da Live 8</span></h2>
+<div class="tblwrap"><table class="log" id="log"></table></div>
 
-  <h2 class="sec">Norte &amp; próximos passos</h2>
-  <div class="cols">
-    <div class="panel">
-      <h3>Métrica-Norte &amp; lacunas</h3>
-      <ul class="clean">
-        <li><b>North Star · e-mails ativáveis por live</b> (meta 15–25) — o elo com a lista de pré-lançamento do livro <span class="pill miss">instrumentar</span></li>
-        <li><b>Comparecimento ao vivo:</b> anotar o pico de "assistindo agora" durante a live <span class="pill watch">anotar ao vivo</span></li>
-        <li><b>Downloads do Guia do Líder:</b> rastrear no site (link com UTM) <span class="pill miss">instrumentar</span></li>
-        <li><b>Recorrência de coorte:</b> quantos da L5 já estavam na L4? Retenção da audiência própria <span class="pill watch">medir</span></li>
-      </ul>
-    </div>
-    <div class="panel">
-      <h3>Próximo experimento (Live 6)</h3>
-      <ul class="clean">
-        <li><b>Hipótese:</b> Guia do Líder atrás de um <b>e-mail gate</b> dobra a captura de e-mail por espectador.</li>
-        <li><b>Como medir:</b> link único com UTM na live + comentário fixado + DM aos inscritos; contar e-mails novos no dia.</li>
-        <li><b>Alavanca secundária:</b> lembrete automático 1h antes → subir a taxa de comparecimento.</li>
-        <li><b>Meta do ciclo:</b> primeira leitura de <b>inscrito → e-mail</b> para acender o fundo do funil.</li>
-      </ul>
-    </div>
-  </div>
+<h2 class="sec">Tabela mestra <span>· dados brutos, uma linha por live</span></h2>
+<div class="tblwrap"><table id="tbl"></table></div>
 
-  <div class="foot">
-    <b>Por que o alcance bruto não é o placar:</b> views e impressões são <b>cumulativos</b> — crescem com a idade do post, então uma edição antiga sempre "ganha" de uma nova. Comparar totais entre lives de idades diferentes é viés, não desempenho. As métricas de comparação justa são <b>inscritos, tempo médio (retenção) e taxas</b>. Para acompanhar alcance sem enganar, o correto é medir sempre na mesma idade (ex.: alcance em T+72h) — implementado a partir da Live 5.<br>
-    <b>Notas:</b> <b>Live 2</b> transmitiu para um evento duplicado — 38 inscritos no oficial + 4 no duplicado; dados de vídeo vêm do evento onde a live ocorreu. <b>StreamYard</b> não guarda o pico de espectadores ao vivo para destino LinkedIn; anotar manualmente durante cada live. <b>Atualizar:</b> editar o array <code>lives</code> no topo do &lt;script&gt; e re-subir <code>painel.html</code> no repositório.
-  </div>
+<h2 class="sec">Norte &amp; próximos passos</h2>
+<div class="cols">
+<div class="panel">
+<h3>Métrica-Norte &amp; lacunas</h3>
+<ul class="clean">
+<li><b>North Star · e-mails ativáveis por live</b> (meta 15–25) — o elo com a lista de pré-lançamento do livro <span class="pill miss">instrumentar</span></li>
+<li><b>Comparecimento ao vivo:</b> anotar o pico de "assistindo agora" durante a live <span class="pill watch">anotar ao vivo</span></li>
+<li><b>Downloads do Checklist NR-1 / Guia do Líder:</b> rastrear no site (link com UTM) <span class="pill miss">instrumentar</span></li>
+<li><b>Recorrência de coorte:</b> quantos da L5 já estavam na L4? Retenção da audiência própria <span class="pill watch">medir</span></li>
+</ul>
+</div>
+<div class="panel">
+<h3>Próximo experimento (Live 6)</h3>
+<ul class="clean">
+<li><b>Tema:</b> "O caso de negócio do bem-estar" (07/08) — linguagem de board/CFO.</li>
+<li><b>Hipótese:</b> enquadrar bem-estar como caso de negócio eleva compartilhamentos e atrai decisores (gerência+).</li>
+<li><b>Como medir:</b> senioridade dos inscritos + compartilhamentos vs. média da série; teaser no fecho da L5 + newsletter.</li>
+<li><b>Meta do ciclo:</b> consolidar a leitura de <b>inscrito → e-mail</b> (Norte) iniciada na L5.</li>
+</ul>
+</div>
+</div>
+
+<div class="foot">
+<b>Por que o alcance bruto não é o placar:</b> views e impressões são <b>cumulativos</b> — crescem com a idade do post, então uma edição antiga sempre "ganha" de uma nova. Comparar totais entre lives de idades diferentes é viés, não desempenho. As métricas de comparação justa são <b>inscritos, tempo médio (retenção) e taxas</b>. Para acompanhar alcance sem enganar, o correto é medir sempre na mesma idade (ex.: alcance em T+72h) — instrumentado a partir da Live 5, com captura toda segunda (~72h pós-live).<br>
+<b>Notas:</b> <b>Live 2</b> transmitiu para um evento duplicado — 38 inscritos no oficial + 4 no duplicado; dados de vídeo vêm do evento onde a live ocorreu. <b>StreamYard</b> não guarda o pico de espectadores ao vivo para destino LinkedIn; anotar manualmente durante cada live. <b>Atualizar:</b> editar o array <code>lives</code> no topo do &lt;script&gt; e re-subir <code>painel.html</code> no repositório.
+</div>
 </div>
 
 <script>
 /* ====== DADOS (edite aqui a cada live) ====== */
 const lives = [
-  {id:'L1', tema:'A mente no trabalho (estreia)', data:'03/07', idadeDias:31, inscritos:23, comparecimento:null, viewsEvento:481, impressoes:2633, viewsVideo:608, views72h:null, tempoMedioSeg:59, reacoes:78, comentarios:50, compart:18, engaj:2.8, emails:null, downloads:null,
-    exp:'Estreia — provar a pauta', res:'Baseline: 23 inscritos; maior alcance orgânico da série (buzz de estreia)', resWin:false},
-  {id:'L2', tema:'NR-1 sem juridiquês', data:'10/07', idadeDias:24, inscritos:38, comparecimento:null, viewsEvento:715, impressoes:1974, viewsVideo:815, views72h:null, tempoMedioSeg:42, reacoes:49, comentarios:29, compart:18, engaj:2.5, emails:null, downloads:null,
-    exp:'Tema técnico (NR-1)', res:'38 inscritos; incidente de transmissão (foi para o evento errado)', resWin:false},
-  {id:'L3', tema:'Sinais precoces de burnout', data:'17/07', idadeDias:17, inscritos:18, comparecimento:null, viewsEvento:314, impressoes:1000, viewsVideo:373, views72h:null, tempoMedioSeg:67, reacoes:20, comentarios:10, compart:9, engaj:2.0, emails:null, downloads:null,
-    exp:'Burnout — orgânico puro (sem outbound)', res:'18 inscritos; alcance orgânico normalizou após a estreia', resWin:false},
-  {id:'L4', tema:'Além do líder herói', data:'24/07', idadeDias:10, inscritos:57, comparecimento:null, viewsEvento:116, impressoes:632, viewsVideo:150, views72h:null, tempoMedioSeg:88, reacoes:16, comentarios:10, compart:4, engaj:2.5, emails:null, downloads:null,
-    exp:'Outbound Waalaxy para analistas de RH', res:'Inscritos +217% (recorde: 57) e melhor retenção da série (1m28)', resWin:true},
-  {id:'L5', tema:'NR-1 sem pânico: o mapa do RH', data:'31/07', idadeDias:3, inscritos:45, comparecimento:null, viewsEvento:425, impressoes:668, viewsVideo:276, views72h:276, tempoMedioSeg:88, reacoes:13, comentarios:8, compart:2, engaj:1.9, emails:null, downloads:null,
-    exp:'NR-1 aplicada ao RH — 1ª medição de alcance em T+72h', res:'45 inscritos; alcance em T+72h medido pela 1ª vez: 276 views de vídeo, 668 impressões, retenção 1m28', resWin:false},
+{id:'L1', tema:'A mente no trabalho (estreia)', data:'03/07', idadeDias:28, inscritos:23, comparecimento:null, viewsEvento:481, impressoes:2633, viewsVideo:608, tempoMedioSeg:59, reacoes:78, comentarios:50, compart:18, engaj:2.8, emails:null, downloads:null, views72h:null,
+exp:'Estreia — provar a pauta', res:'Baseline: 23 inscritos; maior alcance orgânico da série (buzz de estreia)', resWin:false},
+{id:'L2', tema:'NR-1 sem juridiquês', data:'10/07', idadeDias:21, inscritos:38, comparecimento:null, viewsEvento:715, impressoes:1974, viewsVideo:815, tempoMedioSeg:42, reacoes:49, comentarios:29, compart:18, engaj:2.5, emails:null, downloads:null, views72h:null,
+exp:'Tema técnico (NR-1)', res:'38 inscritos; incidente de transmissão (foi para o evento errado)', resWin:false},
+{id:'L3', tema:'Sinais precoces de burnout', data:'17/07', idadeDias:14, inscritos:18, comparecimento:null, viewsEvento:314, impressoes:1000, viewsVideo:373, tempoMedioSeg:67, reacoes:20, comentarios:10, compart:9, engaj:2.0, emails:null, downloads:null, views72h:null,
+exp:'Burnout — orgânico puro (sem outbound)', res:'18 inscritos; alcance orgânico normalizou após a estreia', resWin:false},
+{id:'L4', tema:'Além do líder herói', data:'24/07', idadeDias:7, inscritos:57, comparecimento:null, viewsEvento:116, impressoes:632, viewsVideo:150, tempoMedioSeg:88, reacoes:16, comentarios:10, compart:4, engaj:2.5, emails:null, downloads:null, views72h:null,
+exp:'Outbound Waalaxy para analistas de RH', res:'Inscritos +217% (recorde: 57) e melhor retenção da série até então (1m28)', resWin:true},
+{id:'L5', tema:'NR-1 sem pânico: o mapa do RH', data:'31/07', idadeDias:0, inscritos:45, comparecimento:null, viewsEvento:101, impressoes:509, viewsVideo:164, tempoMedioSeg:133, reacoes:18, comentarios:12, compart:2, engaj:3.5, emails:null, downloads:null, views72h:276,
+exp:'Sprint de captura + newsletter (30k) + landing NR-1', res:'45 inscritos (2º melhor) e RECORDE de retenção (2m13) e de engajamento (3.5%)', resWin:true},
 ];
 /* ============================================ */
 
@@ -198,100 +212,105 @@ const delta=(a,b)=>{if(b==null||a==null)return{t:'—',c:'flat'};const d=Math.ro
 
 /* KPIs — só métricas justas */
 const kd=[
-  {lab:'Inscritos (captação)',val:fmt(last.inscritos),d:delta(last.inscritos,prev.inscritos),cls:'star',rec:last.inscritos===Math.max(...lives.map(l=>l.inscritos))},
-  {lab:'Tempo médio (retenção)',val:mmss(last.tempoMedioSeg),d:delta(last.tempoMedioSeg,prev.tempoMedioSeg),cls:'star',rec:last.tempoMedioSeg===Math.max(...lives.map(l=>l.tempoMedioSeg))},
-  {lab:'Taxa de engajamento',val:last.engaj+'%',d:delta(last.engaj,prev.engaj),cls:'blue',rec:false},
-  {lab:'E-mails capturados (Norte)',val:last.emails==null?'a medir':fmt(last.emails),d:{t:'instrumentar',c:'flat'},cls:'',rec:false},
+{lab:'Inscritos (captação)',val:fmt(last.inscritos),d:delta(last.inscritos,prev.inscritos),cls:'star',rec:last.inscritos===Math.max(...lives.map(l=>l.inscritos))},
+{lab:'Tempo médio (retenção)',val:mmss(last.tempoMedioSeg),d:delta(last.tempoMedioSeg,prev.tempoMedioSeg),cls:'star',rec:last.tempoMedioSeg===Math.max(...lives.map(l=>l.tempoMedioSeg))},
+{lab:'Taxa de engajamento',val:last.engaj+'%',d:delta(last.engaj,prev.engaj),cls:'blue',rec:last.engaj===Math.max(...lives.map(l=>l.engaj))},
+{lab:'E-mails capturados (Norte)',val:last.emails==null?'a medir':fmt(last.emails),d:{t:'instrumentar',c:'flat'},cls:'',rec:false},
 ];
 document.getElementById('kpis').innerHTML=kd.map(k=>`
-  <div class="kpi ${k.cls}">
-    <div class="lab">${k.lab}</div>
-    <div class="val">${k.val}</div>
-    <div class="delta ${k.d.c}">${k.rec?'recorde da série · ':''}${k.d.t}</div>
-  </div>`).join('');
+<div class="kpi ${k.cls}">
+<div class="lab">${k.lab}</div>
+<div class="val">${k.val}</div>
+<div class="delta ${k.d.c}">${k.rec?'recorde da série · ':''}${k.d.t}</div>
+</div>`).join('');
 
-/* Funil L5 */
+/* Funil da última live */
 const f=last;
 const stages=[
-  {name:'Alcance (impressões)', sub:'topo — alugado no LinkedIn', v:f.impressoes, known:true},
-  {name:'Inscritos', sub:'intenção capturada', v:f.inscritos, known:true},
-  {name:'Comparecimento ao vivo', sub:'anotar pico "assistindo agora"', v:f.comparecimento, known:false},
-  {name:'E-mails capturados', sub:'audiência própria — o Norte', v:f.emails, known:false},
-  {name:'Ativação (resposta/pipeline)', sub:'DMs, inbound, pré-lançamento', v:f.ativacao, known:false},
+{name:'Alcance (impressões)', sub:'topo — alugado no LinkedIn', v:f.impressoes, known:true},
+{name:'Inscritos', sub:'intenção capturada', v:f.inscritos, known:true},
+{name:'Comparecimento ao vivo', sub:'anotar pico "assistindo agora"', v:f.comparecimento, known:false},
+{name:'E-mails capturados', sub:'audiência própria — o Norte', v:f.emails, known:false},
+{name:'Ativação (resposta/pipeline)', sub:'DMs, inbound, pré-lançamento', v:f.ativacao, known:false},
 ];
 const maxF=Math.max(...stages.filter(s=>s.known).map(s=>s.v));
 let fh='';
 stages.forEach((s,i)=>{
-  const w=s.known?Math.max(8,Math.round(s.v/maxF*100)):100;
-  let conv='';
-  if(i>0){const p=stages[i-1];if(s.known&&p.known&&p.v)conv=`↳ ${Math.round(s.v/p.v*100)}% do passo anterior`;}
-  fh+=`<div class="stage">
-    <div class="row"><div class="name">${s.name} <small>· ${s.sub}</small></div><div class="amt" style="color:${s.known?'var(--ink)':'var(--accent)'}">${s.known?fmt(s.v):'a medir'}</div></div>
-    ${s.known?`<div class="bar known" style="width:${w}%"></div>`:`<div class="bar dark" style="width:100%"><span>instrumentar</span></div>`}
-    ${conv?`<div class="conv">${conv}</div>`:''}
-  </div>`;
+const w=s.known?Math.max(8,Math.round(s.v/maxF*100)):100;
+let conv='';
+if(i>0){const p=stages[i-1];if(s.known&&p.known&&p.v)conv=`↳ ${Math.round(s.v/p.v*100)}% do passo anterior`;}
+fh+=`<div class="stage">
+<div class="row"><div class="name">${s.name} <small>· ${s.sub}</small></div><div class="amt" style="color:${s.known?'var(--ink)':'var(--accent)'}">${s.known?fmt(s.v):'a medir'}</div></div>
+${s.known?`<div class="bar known" style="width:${w}%"></div>`:`<div class="bar dark" style="width:100%"><span>instrumentar</span></div>`}
+${conv?`<div class="conv">${conv}</div>`:''}
+</div>`;
 });
 document.getElementById('funnel').innerHTML=fh;
 
 /* experiment log */
 let lg='<thead><tr><th>Live</th><th>Hipótese / alavanca testada</th><th>Resultado</th></tr></thead><tbody>';
 lives.forEach(l=>{lg+=`<tr class="${l.id==='L5'?'l4':''}"><td class="r"><b>${l.id}</b> <span class="dim">${l.data}</span></td><td>${l.exp}</td><td class="${l.resWin?'win':''}">${l.res}${l.resWin?' ✓':''}</td></tr>`;});
-lg+='<tr><td class="r"><b>L6</b> <span class="dim">07/08</span></td><td>Guia do Líder com e-mail gate (a testar)</td><td class="dim">Medir taxa inscrito → e-mail</td></tr></tbody>';
+lg+='<tr><td class="r"><b>L6</b> <span class="dim">07/08</span></td><td>Caso de negócio do bem-estar (linguagem de board/CFO)</td><td class="dim">A realizar</td></tr></tbody>';
 document.getElementById('log').innerHTML=lg;
 
 /* master table */
-const cols=[['Live','id'],['Tema','tema'],['Data','data'],['Idade (d)','idadeDias'],['Inscritos','inscritos'],['Tempo médio','tempoMedioSeg'],['Eng.%','engaj'],['E-mails','emails'],['Impressões','impressoes'],['Views vídeo','viewsVideo']];
+const cols=[['Live','id'],['Tema','tema'],['Data','data'],['Idade (d)','idadeDias'],['Inscritos','inscritos'],['Tempo médio','tempoMedioSeg'],['Eng.%','engaj'],['E-mails','emails'],['Impressões','impressoes'],['Views vídeo','viewsVideo'],['Views @72h','views72h']];
 let thead='<thead><tr>'+cols.map(c=>`<th>${c[0]}</th>`).join('')+'</tr></thead>';
 let tbody='<tbody>'+lives.map(l=>{
-  return `<tr class="${l.id==='L5'?'l4':''}">`+cols.map(c=>{
-    let k=c[1],v=l[k];
-    if(k==='id')return `<td><b>${v}</b></td>`;
-    if(k==='tema')return `<td class="tema">${v}</td>`;
-    if(k==='data'||k==='idadeDias')return `<td class="dim">${v}</td>`;
-    if(k==='tempoMedioSeg')return `<td>${mmss(v)}</td>`;
-    if(k==='engaj')return `<td>${v}%</td>`;
-    if(k==='emails')return `<td style="color:var(--ink-mute)">${v==null?'—':fmt(v)}</td>`;
-    if(k==='impressoes'||k==='viewsVideo')return `<td class="dim">${fmt(v)}</td>`;
-    return `<td>${fmt(v)}</td>`;
-  }).join('')+'</tr>';
+return `<tr class="${l.id==='L5'?'l4':''}">`+cols.map(c=>{
+let k=c[1],v=l[k];
+if(k==='id')return `<td><b>${v}</b></td>`;
+if(k==='tema')return `<td class="tema">${v}</td>`;
+if(k==='data'||k==='idadeDias')return `<td class="dim">${v}</td>`;
+if(k==='tempoMedioSeg')return `<td>${mmss(v)}</td>`;
+if(k==='engaj')return `<td>${v}%</td>`;
+if(k==='emails')return `<td style="color:var(--ink-mute)">${v==null?'—':fmt(v)}</td>`;
+if(k==='impressoes'||k==='viewsVideo'||k==='views72h')return `<td class="dim">${fmt(v)}</td>`;
+return `<td>${fmt(v)}</td>`;
+}).join('')+'</tr>';
 }).join('')+'</tbody>';
 document.getElementById('tbl').innerHTML=thead+tbody;
 
 /* charts */
 function barChart(el,data,color,fmtFn,highlightLast){
-  const W=520,H=200,pl=20,pr=14,pt=16,pb=34,iw=W-pl-pr,ih=H-pt-pb;
-  const max=Math.max(...data.map(d=>d.v))*1.15||1;
-  const bw=iw/data.length*0.56, gap=iw/data.length;
-  let s=`<svg viewBox="0 0 ${W} ${H}">`;
-  for(let i=0;i<=3;i++){const y=pt+ih-ih*i/3;s+=`<line x1="${pl}" y1="${y}" x2="${W-pr}" y2="${y}" stroke="${C.line}" stroke-width="1"/>`;}
-  data.forEach((d,i)=>{
-    const x=pl+gap*i+(gap-bw)/2, h=ih*d.v/max, y=pt+ih-h;
-    const col=(highlightLast&&i===data.length-1)?C.accent:color;
-    s+=`<rect x="${x}" y="${y}" width="${bw}" height="${h}" rx="5" fill="${col}"/>`;
-    s+=`<text class="gval" x="${x+bw/2}" y="${y-6}" text-anchor="middle">${fmtFn(d.v)}</text>`;
-    s+=`<text class="glab" x="${x+bw/2}" y="${H-14}" text-anchor="middle">${d.k}</text>`;
-  });
-  s+='</svg>';el.innerHTML=s;
+const W=520,H=200,pl=20,pr=14,pt=16,pb=34,iw=W-pl-pr,ih=H-pt-pb;
+const max=Math.max(...data.map(d=>d.v))*1.15||1;
+const bw=iw/data.length*0.56, gap=iw/data.length;
+let s=`<svg viewBox="0 0 ${W} ${H}">`;
+for(let i=0;i<=3;i++){const y=pt+ih-ih*i/3;s+=`<line x1="${pl}" y1="${y}" x2="${W-pr}" y2="${y}" stroke="${C.line}" stroke-width="1"/>`;}
+data.forEach((d,i)=>{
+const x=pl+gap*i+(gap-bw)/2, h=ih*d.v/max, y=pt+ih-h;
+const col=(highlightLast&&i===data.length-1)?C.accent:color;
+s+=`<rect x="${x}" y="${y}" width="${bw}" height="${h}" rx="5" fill="${col}"/>`;
+s+=`<text class="gval" x="${x+bw/2}" y="${y-6}" text-anchor="middle">${fmtFn(d.v)}</text>`;
+s+=`<text class="glab" x="${x+bw/2}" y="${H-14}" text-anchor="middle">${d.k}</text>`;
+});
+s+='</svg>';el.innerHTML=s;
 }
 function lineChart(el,data,color,fmtFn){
-  const W=520,H=200,pl=22,pr=16,pt=22,pb=34,iw=W-pl-pr,ih=H-pt-pb;
-  const max=Math.max(...data.map(d=>d.v))*1.2||1, min=Math.min(...data.map(d=>d.v))*0.6;
-  const X=i=>pl+iw*i/(data.length-1), Y=v=>pt+ih-ih*(v-min)/(max-min||1);
-  let s=`<svg viewBox="0 0 ${W} ${H}">`;
-  for(let i=0;i<=3;i++){const y=pt+ih-ih*i/3;s+=`<line x1="${pl}" y1="${y}" x2="${W-pr}" y2="${y}" stroke="${C.line}" stroke-width="1"/>`;}
-  let path=data.map((d,i)=>(i?'L':'M')+X(i)+' '+Y(d.v)).join(' ');
-  s+=`<path d="${path}" fill="none" stroke="${color}" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>`;
-  data.forEach((d,i)=>{
-    const lastp=i===data.length-1;
-    s+=`<circle cx="${X(i)}" cy="${Y(d.v)}" r="${lastp?6:4.5}" fill="${lastp?C.accent:color}" stroke="#0A1830" stroke-width="2"/>`;
-    s+=`<text class="gval" x="${X(i)}" y="${Y(d.v)-11}" text-anchor="middle">${fmtFn(d.v)}</text>`;
-    s+=`<text class="glab" x="${X(i)}" y="${H-14}" text-anchor="middle">${d.k}</text>`;
-  });
-  s+='</svg>';el.innerHTML=s;
+const W=520,H=200,pl=22,pr=16,pt=22,pb=34,iw=W-pl-pr,ih=H-pt-pb;
+const max=Math.max(...data.map(d=>d.v))*1.2||1, min=Math.min(...data.map(d=>d.v))*0.6;
+const X=i=>pl+iw*i/(data.length-1), Y=v=>pt+ih-ih*(v-min)/(max-min||1);
+let s=`<svg viewBox="0 0 ${W} ${H}">`;
+for(let i=0;i<=3;i++){const y=pt+ih-ih*i/3;s+=`<line x1="${pl}" y1="${y}" x2="${W-pr}" y2="${y}" stroke="${C.line}" stroke-width="1"/>`;}
+let path=data.map((d,i)=>(i?'L':'M')+X(i)+' '+Y(d.v)).join(' ');
+s+=`<path d="${path}" fill="none" stroke="${color}" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>`;
+data.forEach((d,i)=>{
+const lastp=i===data.length-1;
+s+=`<circle cx="${X(i)}" cy="${Y(d.v)}" r="${lastp?6:4.5}" fill="${lastp?C.accent:color}" stroke="#0A1830" stroke-width="2"/>`;
+s+=`<text class="gval" x="${X(i)}" y="${Y(d.v)-11}" text-anchor="middle">${fmtFn(d.v)}</text>`;
+s+=`<text class="glab" x="${X(i)}" y="${H-14}" text-anchor="middle">${d.k}</text>`;
+});
+s+='</svg>';el.innerHTML=s;
 }
 barChart(document.getElementById('chartInscritos'),lives.map(l=>({k:l.id,v:l.inscritos})),C.blue,fmt,true);
 lineChart(document.getElementById('chartTempo'),lives.map(l=>({k:l.id,v:l.tempoMedioSeg})),C.good,mmss);
 lineChart(document.getElementById('chartEng'),lives.map(l=>({k:l.id,v:l.engaj})),C.accent,v=>v+'%');
+const viewRate=l=>l.impressoes?+(l.viewsVideo/l.impressoes*100).toFixed(1):null;
+barChart(document.getElementById('chartViewRate'),lives.map(l=>({k:l.id,v:viewRate(l)})),C.blue,v=>v+'%',true);
+const has72=lives.some(l=>l.views72h!=null);
+if(has72){barChart(document.getElementById('chartViews72'),lives.filter(l=>l.views72h!=null).map(l=>({k:l.id,v:l.views72h})),C.accent,fmt,true);}
+else{document.getElementById('chartViews72').innerHTML='<div style="padding:30px 10px;text-align:center;color:var(--ink-mute);font-size:13px;line-height:1.65">Instrumentando — primeira captura em <b style="color:var(--accent)">seg 03/08</b> (T+72h da Live 5).<br>A partir daqui, todas as lives medidas na mesma idade — comparáveis de verdade.</div>';}
 </script>
 </body>
 </html>

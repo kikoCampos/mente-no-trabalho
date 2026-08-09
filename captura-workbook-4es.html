@@ -2,6 +2,21 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
+<!-- Google Analytics 4 + Consent Mode (LGPD) — ecossistema kikocampos.com -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RD1P3CKLSE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('consent', 'default', { 'analytics_storage': 'denied' });
+  if (document.cookie.indexOf('kc_cookie=accepted') > -1) {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+  gtag('config', 'G-RD1P3CKLSE', {
+    'linker': { 'domains': ['kikocampos.com', 'mente.kikocampos.com', 'jovens.kikocampos.com'] }
+  });
+</script>
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Workbook dos 4 E’s: a conversa do líder · Mente no Trabalho</title>
 <meta name="description" content="Enxergue, Escolha o espaço, Escute e Encaminhe — o método para o líder abordar saúde mental com o time, sem virar terapeuta.">
@@ -93,7 +108,7 @@
 <script>
   var GFORM = {
     action: "https://docs.google.com/forms/d/e/1FAIpQLSfVjyxgIf_QFjFq6lx_c8Xu4YWGAEGHZ489-Q_BDhUogNTrJw/formResponse",
-    fields: { nome: "entry.648302113", email: "entry.1781685496", empresa: "entry.913744440", material: "COLE_AQUI_O_ENTRY_DO_CAMPO_MATERIAL" },
+    fields: { nome: "entry.648302113", email: "entry.1781685496", empresa: "entry.913744440" },
     materialValue: "workbook-4es"
   };
   document.getElementById('capForm').addEventListener('submit', function(ev){
@@ -116,6 +131,23 @@
     var n = document.getElementById('nome'), e = document.getElementById('email');
     [n,e].forEach(function(i){ if(!i.value.trim() || (i.type==='email' && i.value.indexOf('@')<1)) i.style.borderColor = '#C0891F'; });
   }
+
+  /* ==== RASTREIO POR MATERIAL ====================================
+     Para gravar o material na planilha do Google Forms, cole abaixo
+     o "entry.XXXXXXX" do campo Material do formulario.            */
+  var MATERIAL = "workbook-4es";
+  var MATERIAL_ENTRY = "";
+  function track(nome){
+    try{ if (typeof gtag === 'function') gtag('event', nome, { material: MATERIAL }); }catch(e){}
+  }
+  track('view_material_page');
+  (function(){
+    var f = document.getElementById('capForm');
+    if(f) f.addEventListener('submit', function(){ track('lead_material'); });
+    document.querySelectorAll('a.dl').forEach(function(a){
+      a.addEventListener('click', function(){ track('download_material'); });
+    });
+  })();
 </script>
 </body>
 </html>

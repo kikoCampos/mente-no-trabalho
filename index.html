@@ -206,7 +206,7 @@
   .card .num{font-size:.72rem;color:var(--accent);font-weight:700;letter-spacing:.1em;text-transform:uppercase}
   .card h3{font-size:1.16rem;margin:8px 0 8px;font-weight:700;letter-spacing:0}
   .card .desc{color:var(--ink-soft);font-size:.92rem;margin:0 0 18px;flex:1}
-  .card .foot{display:flex;gap:14px;align-items:center;font-size:.86rem}
+  .card .foot{display:flex;gap:14px;align-items:center;font-size:.86rem;flex-wrap:wrap}
   .card .foot a{color:var(--accent-2);font-weight:600;display:inline-flex;align-items:center;gap:6px}
   .card .foot a:hover{color:var(--ink)}
   .tag{
@@ -297,6 +297,45 @@
 .clip .ytlite{position:relative;width:100%;aspect-ratio:16/9;border-radius:10px;overflow:hidden;cursor:pointer;background:#000;display:block}.clip .ytlite img{width:100%;height:100%;object-fit:cover;display:block;opacity:.85;transition:opacity .2s}.clip .ytlite:hover img{opacity:1}.clip .ytlite .ytplay{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:54px;height:54px;border-radius:50%;background:rgba(255,74,18,.94);color:#fff;display:flex;align-items:center;justify-content:center;font-size:19px;padding-left:2px;box-shadow:0 8px 24px rgba(0,0,0,.45);transition:transform .15s}.clip .ytlite:hover .ytplay{transform:translate(-50%,-50%) scale(1.08)}.clip .ytlite iframe{width:100%;height:100%;border:0;display:block}
 .clip .ytlite[role="button"]{cursor:pointer}
 .clip .ytlite:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+
+  /* ---- BIBLIOTECA (materiais) ---- */
+  .lib-hero{display:grid;grid-template-columns:.42fr 1fr;gap:34px;align-items:center;
+    border:1px solid var(--line-strong);border-radius:20px;padding:30px;
+    background:linear-gradient(160deg,var(--panel-2),rgba(10,24,48,.55));margin-bottom:34px;position:relative;overflow:hidden}
+  .lib-hero::after{content:'';position:absolute;right:-120px;top:-140px;width:360px;height:360px;border:2px solid rgba(242,179,61,.18);border-radius:50%;pointer-events:none}
+  .lib-hero > div{position:relative;z-index:1}
+  .lib-hero img{width:100%;border-radius:10px;box-shadow:0 22px 50px rgba(0,0,0,.45);display:block;border:1px solid rgba(255,255,255,.14)}
+  .flag{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#231402;
+    font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;padding:6px 12px;border-radius:999px;margin-bottom:14px}
+  .lib-hero h3{font-family:var(--display);font-size:1.85rem;line-height:1.15;margin:0 0 8px}
+  .lib-hero .big-num{font-size:.95rem;margin-bottom:12px}
+  .lib-hero p{color:var(--ink-soft);margin:0 0 16px;max-width:56ch}
+  .inside{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:20px}
+  .inside span{font-size:.8rem;color:var(--ink-soft);padding-left:16px;position:relative}
+  .inside span::before{content:'';position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:50%;background:var(--accent)}
+  .meta-file{font-size:.74rem;color:var(--ink-mute);margin-top:12px;letter-spacing:.04em}
+  .trilhas{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px}
+  .trilha{border:1px solid var(--line);border-radius:18px;padding:24px;background:rgba(18,41,77,.45)}
+  .trilha > .th{font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:4px}
+  .trilha > .ts{font-size:.82rem;color:var(--ink-mute);margin-bottom:18px}
+  .mat{display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-top:1px solid var(--line)}
+  .mat .ico{width:34px;min-width:34px;height:42px;border-radius:4px;border:1px solid rgba(242,179,61,.45);
+    background:linear-gradient(160deg,rgba(242,179,61,.16),transparent);display:flex;align-items:flex-end;justify-content:center;
+    font-size:.52rem;letter-spacing:.08em;color:var(--accent);font-weight:700;padding-bottom:4px}
+  .mat b{display:block;font-size:.95rem;margin-bottom:3px}
+  .mat p{margin:0;font-size:.8rem;color:var(--ink-mute);line-height:1.45}
+  .mat > a{font-size:.8rem;color:var(--accent);font-weight:700;text-decoration:none;white-space:nowrap;margin-left:auto;align-self:center}
+  .mat > a:hover{text-decoration:underline}
+  .mat > a.soon{color:var(--ink-mute);pointer-events:none}
+  .tag-new{font-size:.58rem;background:rgba(242,179,61,.2);color:var(--accent);padding:2px 7px;border-radius:999px;
+    letter-spacing:.1em;text-transform:uppercase;font-weight:700;margin-left:8px;vertical-align:middle}
+  .nlband{margin-top:30px;border:1px solid var(--line-strong);border-radius:20px;padding:26px 30px;
+    background:linear-gradient(100deg,rgba(242,179,61,.13),rgba(10,24,48,.2));display:flex;gap:26px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+  .nlband h3{font-family:var(--display);font-size:1.35rem;margin:0 0 4px}
+  .nlband p{margin:0;color:var(--ink-soft);font-size:.9rem;max-width:60ch}
+  .mat-link{display:block;flex-basis:100%;margin-top:2px;font-size:.82rem;color:var(--accent);text-decoration:none;font-weight:600}
+  .mat-link:hover{text-decoration:underline}
+  @media(max-width:760px){.lib-hero{grid-template-columns:1fr;gap:22px}}
 </style>
 </head>
 <body>
@@ -310,7 +349,7 @@
       <a href="#proxima">Próxima live</a>
       <a href="#lives">Acervo</a>
       <a href="#clipes">Clipes</a>
-      <a href="#materiais">Materiais</a>
+      <a href="#materiais">Biblioteca</a>
       <a class="nav-cta" href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=6888852094439198720" target="_blank" rel="noopener">Inscrever na newsletter</a>
     </nav>
   </div>
@@ -383,7 +422,9 @@
         <div class="num">Episódio 2</div>
         <h3>A conversa que ninguém ensinou o líder a ter</h3>
         <p class="desc">Os 4 E's — Enxergue, Escolha o espaço, Escute e Encaminhe. Um método simples para o líder abordar saúde mental com o time sem virar terapeuta.</p>
-        <div class="foot"><a href="https://youtu.be/YaURTiRbPwg" target="_blank" rel="noopener">Assistir no YouTube →</a></div>
+        <div class="foot"><a href="https://youtu.be/YaURTiRbPwg" target="_blank" rel="noopener">Assistir no YouTube →</a>
+        <a class="mat-link" href="captura-workbook-4es.html">Material desta live: Workbook dos 4 E’s →</a>
+      </div>
       </div>
 
       <div class="card">
@@ -399,7 +440,9 @@
         <div class="num">Episódio 4</div>
         <h3>Além do líder herói</h3>
         <p class="desc">Como transformar o cuidado em cultura — e não no esforço de uma pessoa só. Os 4 casos, o estudo de Oxford e a chave tangível × intangível.</p>
-        <div class="foot"><a href="https://youtu.be/KmVbGnPfJDw" target="_blank" rel="noopener">Assistir no YouTube →</a></div>
+        <div class="foot"><a href="https://youtu.be/KmVbGnPfJDw" target="_blank" rel="noopener">Assistir no YouTube →</a>
+        <a class="mat-link" href="captura-guia-lider.html">Material desta live: Guia do Líder: 4 casos →</a>
+      </div>
       </div>
 
       <div class="card">
@@ -407,7 +450,9 @@
         <div class="num">Episódio 5</div>
         <h3>NR-1 sem pânico: o mapa do RH</h3>
         <p class="desc">A fiscalização já começou. Saúde mental virou gestão de risco psicossocial — não programa, e sim gestão contínua e compartilhada, em 4 etapas e um plano de 90 dias.</p>
-        <div class="foot"><a href="https://youtu.be/Jt6b8BsGjxI" target="_blank" rel="noopener">Assistir no YouTube →</a></div>
+        <div class="foot"><a href="https://youtu.be/Jt6b8BsGjxI" target="_blank" rel="noopener">Assistir no YouTube →</a>
+        <a class="mat-link" href="captura-nr1.html">Material desta live: Checklist NR-1 →</a>
+      </div>
       </div>
 
       <div class="card">
@@ -415,7 +460,9 @@
         <div class="num">Episódio 6</div>
         <h3>O caso de negócio do bem-estar</h3>
         <p class="desc">Como o RH convence o board: as três contas que colocam bem-estar no resultado — absenteísmo, presenteísmo e rotatividade — e o piloto de 90 dias que prova o retorno.</p>
-        <div class="foot"><a href="https://youtu.be/oX-PB-y9akw" target="_blank" rel="noopener">Assistir no YouTube →</a></div>
+        <div class="foot"><a href="https://youtu.be/oX-PB-y9akw" target="_blank" rel="noopener">Assistir no YouTube →</a>
+        <a class="mat-link" href="captura-caso-de-negocio.html">Material desta live: O caso de negócio (guia) →</a>
+      </div>
       </div>
 
     </div>
@@ -585,51 +632,83 @@
   <div class="wrap">
     <div class="sec-head">
       <div class="eyebrow">Para levar com você</div>
-      <h2>Newsletter e materiais</h2>
-      <p>O aprofundamento da série entre um episódio e outro.</p>
+      <h2>Biblioteca</h2>
+      <p>Tudo o que a série produziu — organizado por quem você é na segunda-feira de manhã.</p>
     </div>
-    <div class="split">
 
-      <div class="offer">
-        <div class="kind">Toda semana</div>
-        <h3>A newsletter</h3>
-        <div class="big-num">+ 39 mil pessoas acompanham</div>
-        <p>O essencial da conversa em texto: o tema da live, os dados por trás dele e o que fazer com isso na segunda-feira de manhã.</p>
-        <a class="btn btn-primary" href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=6888852094439198720" target="_blank" rel="noopener">Assinar gratuitamente</a>
+    <div class="lib-hero">
+      <img src="capa-guia-caso-de-negocio.png" alt="Capa do guia O caso de negócio do bem-estar" loading="lazy">
+      <div>
+        <span class="flag">Material da vez · Live 6</span>
+        <h3>O caso de negócio do bem-estar</h3>
+        <div class="big-num">As três contas que transformam “custo de RH” em linha de resultado</div>
+        <p>Você fez o mapa da NR-1. Agora precisa do orçamento — e o board decide na língua do resultado, não na do custo. Este guia leva você da conta à reunião.</p>
+        <div class="inside">
+          <span>As 3 contas, com as fórmulas</span>
+          <span>Os 5 números com fonte</span>
+          <span>O modelo de uma página</span>
+          <span>As 3 perguntas do CFO</span>
+        </div>
+        <a class="btn btn-primary" href="captura-caso-de-negocio.html">Receber o guia</a>
+        <div class="meta-file">PDF · 5 páginas · fontes verificadas · gratuito</div>
+      </div>
+    </div>
+
+    <div class="trilhas">
+
+      <div class="trilha">
+        <div class="th">Se você lidera um time</div>
+        <div class="ts">A conversa e o redesenho do trabalho.</div>
+        <div class="mat">
+          <div class="ico">PDF</div>
+          <div><b>Workbook dos 4 E’s</b><p>A conversa do líder, passo a passo · Live 2</p></div>
+          <a href="captura-workbook-4es.html">Baixar →</a>
+        </div>
+        <div class="mat">
+          <div class="ico">PDF</div>
+          <div><b>Guia do Líder: 4 casos</b><p>Do caso real ao botão que resolve · Live 4</p></div>
+          <a href="captura-guia-lider.html">Baixar →</a>
+        </div>
       </div>
 
-      <div class="offer">
-        <div class="kind">PDF gratuito · Live 2</div>
-        <h3>Workbook dos 4 E's</h3>
-        <div class="big-num">A conversa do líder, passo a passo</div>
-        <p>Enxergue, Escolha o espaço, Escute e Encaminhe — para usar antes, durante e depois da conversa sobre saúde mental.</p>
-        <a class="btn btn-ghost" href="captura-workbook-4es.html" target="_blank" rel="noopener">Baixar o Workbook</a>
+      <div class="trilha">
+        <div class="th">Se você é RH ou SESMT</div>
+        <div class="ts">Do susto da norma ao plano de ação.</div>
+        <div class="mat">
+          <div class="ico">PDF</div>
+          <div><b>Checklist NR-1</b><p>Os primeiros passos do RH — 4 etapas + 90 dias · Live 5</p></div>
+          <a href="captura-nr1.html">Baixar →</a>
+        </div>
+        <div class="mat">
+          <div class="ico">PDF</div>
+          <div><b>Deck da Live 5</b><p>O mapa da NR-1 em 4 etapas · Live 5</p></div>
+          <a href="captura-deck-live5.html">Baixar →</a>
+        </div>
       </div>
 
-      <div class="offer">
-        <div class="kind">PDF gratuito · Live 4</div>
-        <h3>Guia do Líder: 4 casos</h3>
-        <div class="big-num">Do caso real ao botão que resolve</div>
-        <p>Os 4 casos da Live 4 — escala, meta, turno e omissão — com o passo a passo do que o líder faz em cada um, sem depender de heroísmo.</p>
-        <a class="btn btn-ghost" href="captura-guia-lider.html" target="_blank" rel="noopener">Baixar o Guia</a>
+      <div class="trilha">
+        <div class="th">Se você vai falar com o board</div>
+        <div class="ts">A tradução para a língua do orçamento.</div>
+        <div class="mat">
+          <div class="ico">PDF</div>
+          <div><b>O caso de negócio do bem-estar<span class="tag-new">novo</span></b><p>As 3 contas, os 5 números e o pitch de uma página · Live 6</p></div>
+          <a href="captura-caso-de-negocio.html">Baixar →</a>
+        </div>
+        <div class="mat">
+          <div class="ico">FERR</div>
+          <div><b>Diagnóstico NR-1</b><p>15 perguntas e o seu índice na hora — em breve</p></div>
+          <a class="soon" href="#materiais">Em breve</a>
+        </div>
       </div>
 
-      <div class="offer">
-        <div class="kind">Material gratuito · Live 5</div>
-        <h3>Checklist NR-1: os primeiros passos do RH</h3>
-        <div class="big-num">Do susto ao plano — 4 etapas + 90 dias</div>
-        <p>O roteiro prático para o RH sair do pânico e montar a gestão dos riscos psicossociais: inventário, avaliação, plano de ação e ciclo — com um plano de 90 dias.</p>
-        <a class="btn btn-ghost" href="captura-nr1.html" target="_blank" rel="noopener">Receber o Checklist</a>
-      </div>
+    </div>
 
-      <div class="offer">
-        <div class="kind">PDF gratuito · Live 5</div>
-        <h3>Deck da Live 5: o mapa em 4 etapas</h3>
-        <div class="big-num">Os slides da NR-1 sem pânico</div>
-        <p>A apresentação completa da Live 5 — a virada de paradigma e as 4 etapas do mapa da NR-1: inventário dos fatores, avaliação, plano de ação e ciclo PDCA.</p>
-        <a class="btn btn-ghost" href="captura-deck-live5.html" target="_blank" rel="noopener">Baixar o Deck</a>
+    <div class="nlband">
+      <div>
+        <h3>A newsletter “Humanize-se”</h3>
+        <p>O essencial da conversa em texto, toda semana: o tema da live, os dados por trás dele e o que fazer com isso na segunda. <b style="color:var(--accent)">+39 mil pessoas</b>.</p>
       </div>
-
+      <a class="btn btn-primary" href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=6888852094439198720" target="_blank" rel="noopener">Assinar gratuitamente</a>
     </div>
 
     <figure class="infografico">

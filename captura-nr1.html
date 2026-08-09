@@ -2,6 +2,21 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
+<!-- Google Analytics 4 + Consent Mode (LGPD) — ecossistema kikocampos.com -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RD1P3CKLSE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('consent', 'default', { 'analytics_storage': 'denied' });
+  if (document.cookie.indexOf('kc_cookie=accepted') > -1) {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+  gtag('config', 'G-RD1P3CKLSE', {
+    'linker': { 'domains': ['kikocampos.com', 'mente.kikocampos.com', 'jovens.kikocampos.com'] }
+  });
+</script>
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="index,follow">
 <title>Checklist NR-1: os primeiros passos do RH · Mente no Trabalho</title>
@@ -228,6 +243,23 @@
     document.getElementById('success-view').style.display='block';
     document.getElementById('success-view').scrollIntoView({behavior:'smooth', block:'center'});
   });
+
+  /* ==== RASTREIO POR MATERIAL ====================================
+     Para gravar o material na planilha do Google Forms, cole abaixo
+     o "entry.XXXXXXX" do campo Material do formulario.            */
+  var MATERIAL = "checklist-nr1";
+  var MATERIAL_ENTRY = "";
+  function track(nome){
+    try{ if (typeof gtag === 'function') gtag('event', nome, { material: MATERIAL }); }catch(e){}
+  }
+  track('view_material_page');
+  (function(){
+    var f = document.getElementById('capture');
+    if(f) f.addEventListener('submit', function(){ track('lead_material'); });
+    document.querySelectorAll('a.dl').forEach(function(a){
+      a.addEventListener('click', function(){ track('download_material'); });
+    });
+  })();
 </script>
 </body>
 </html>

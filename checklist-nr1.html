@@ -323,16 +323,23 @@ input:focus,select:focus{outline:none;border-color:var(--navy);background:#fff}
 
 <script>
 /* =====================================================================
-   CONFIGURAÇÃO — 1 linha para ligar o recebimento das respostas
+   CONFIGURAÇÃO — coletor: Google Forms "Checklist NR-1 — Mente no Trabalho"
    ---------------------------------------------------------------------
-   1) Crie uma conta grátis em https://formspree.io (plano free: 50 envios/mês)
-   2) New Form → copie o ID do endpoint (ex.: https://formspree.io/f/xldbqwer)
-   3) Cole o ID abaixo. Enquanto estiver "SEU_ID_AQUI", a página funciona
-      normalmente e apenas não envia (modo demonstração).
+   As respostas caem na planilha:
+   docs.google.com/spreadsheets/d/1nXUwnTozd-tn3DSlj18DdEfcuNhnDpz5_RnqApMc0Q0
+   Editar o formulário:
+   docs.google.com/forms/d/1ffgTkMOpY-yXZisIre4EJb7GgterMJSHpIPfIYoq2SU/edit
    ===================================================================== */
 const CONFIG = {
-  endpoint: "https://formspree.io/f/SEU_ID_AQUI",
-  assunto: "Diagnóstico NR-1 — nova resposta"
+  endpoint: "https://docs.google.com/forms/d/e/1FAIpQLSfVjyxgIf_QFjFq6lx_c8Xu4YWGAEGHZ489-Q_BDhUogNTrJw/formResponse",
+  campos: {
+    nome:    "entry.648302113",
+    email:   "entry.1781685496",
+    empresa: "entry.913744440",
+    indice:  "entry.1726039738",
+    faixa:   "entry.1103492851",
+    detalhe: "entry.496534665"
+  }
 };
 
 /* ---------- Instrumento ---------- */
@@ -543,39 +550,38 @@ function mostrar(r){
 /* ---------- Envio ---------- */
 async function enviar(r){
   const st = document.getElementById("statusEnvio");
-  if(CONFIG.endpoint.includes("SEU_ID_AQUI")){
-    st.textContent = "Modo demonstração: o envio ainda não está configurado.";
-    return;
-  }
-  st.textContent = "Enviando o seu resultado…";
-  const payload = {
-    _subject: CONFIG.assunto + " — " + (document.getElementById("nome").value||"sem nome") + " (" + r.score + "/100)",
-    Nome: document.getElementById("nome").value,
-    Email: document.getElementById("email").value,
-    Empresa: document.getElementById("empresa").value,
-    Porte: document.getElementById("porte").value,
-    Papel: document.getElementById("papel").value,
-    Setor: document.getElementById("setor").value,
-    "INDICE (0-100)": r.score,
-    "Faixa": r.faixa.nome,
-    "Pontos": r.soma + "/" + r.max,
-    "Nao-negociaveis em zero": r.criticosFalhos.length ? r.criticosFalhos.join(" | ") : "nenhum",
-    "Data": new Date().toLocaleString("pt-BR"),
-    "Origem": location.href
-  };
-  r.porDim.forEach(d=> payload["Dim: "+d.nome] = d.pct + "%");
-  Object.assign(payload, r.respostas);
+  st.textContent = "Registrando o seu resultado…";
+
+  const v = id => (document.getElementById(id).value || "").trim();
+  const detalhe = [
+    "Dimensões: " + r.porDim.map(d=>`${d.nome} ${d.pct}%`).join(" · "),
+    "Não-negociáveis em zero: " + (r.criticosFalhos.length ? r.criticosFalhos.length + " (" + r.criticosFalhos.join(" | ") + ")" : "nenhum"),
+    "Pontos: " + r.soma + "/" + r.max,
+    "Porte: " + (v("porte")||"-") + " · Papel: " + (v("papel")||"-") + " · Setor: " + (v("setor")||"-"),
+    "Respostas: " + DIMENSOES.map(dim=>dim.id + ":" + dim.itens.map((it,ii)=>{
+      const el = document.querySelector(`input[name="${dim.id}_${ii}"]:checked`);
+      return el ? el.value : "-";
+    }).join("")).join(" "),
+    "Origem: " + location.href
+  ].join(" || ");
+
+  const dados = new URLSearchParams();
+  dados.append(CONFIG.campos.nome, v("nome"));
+  dados.append(CONFIG.campos.email, v("email"));
+  dados.append(CONFIG.campos.empresa, v("empresa"));
+  dados.append(CONFIG.campos.indice, String(r.score));
+  dados.append(CONFIG.campos.faixa, r.faixa.nome);
+  dados.append(CONFIG.campos.detalhe, detalhe);
 
   try{
-    const res = await fetch(CONFIG.endpoint,{
-      method:"POST", headers:{"Content-Type":"application/json","Accept":"application/json"},
-      body: JSON.stringify(payload)
+    await fetch(CONFIG.endpoint, {
+      method:"POST", mode:"no-cors",
+      headers:{"Content-Type":"application/x-www-form-urlencoded"},
+      body: dados.toString()
     });
-    st.textContent = res.ok
-      ? "✓ Resultado enviado para " + document.getElementById("email").value
-      : "Não conseguimos enviar por e-mail agora — use “Salvar em PDF” para guardar o resultado.";
+    st.textContent = "✓ Resultado registrado — enviamos a versão completa para " + v("email");
   }catch(e){
-    st.textContent = "Não conseguimos enviar por e-mail agora — use “Salvar em PDF” para guardar o resultado.";
+    st.textContent = "Não conseguimos registrar agora — use “Salvar em PDF” para guardar o seu resultado.";
   }
 }
 

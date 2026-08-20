@@ -1,0 +1,1428 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Workbook da 1ª Temporada — Mente no Trabalho</title>
+<meta name="description" content="O workbook prático das 8 edições de Mente no Trabalho, com Kiko Campos & Esabela Cruz. Oito módulos para preencher, com plano de segunda-feira no final.">
+<meta name="theme-color" content="#0A1830">
+<meta property="og:title" content="Workbook da 1ª Temporada — Mente no Trabalho">
+<meta property="og:description" content="Oito módulos, um por edição. Você preenche, o navegador salva, e no fim sai o seu Plano de Segunda-feira.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0A1830; --navy-2:#0E2140; --navy-3:#16305a;
+  --paper:#FBF9F4; --paper-2:#F3EFE6; --card:#FFFFFF;
+  --ink:#12203A; --ink-soft:#4A5A76; --ink-mute:#8494AE;
+  --line:#E2DCCF; --line-2:#CFC7B5;
+  --accent:#F2B33D; --accent-deep:#B87A22;
+  --blue:#2E6FB7; --good:#1F9D6B; --alert:#C0392B;
+  --font:"Montserrat",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --display:"Playfair Display",Georgia,"Times New Roman",serif;
+  --maxw:860px; --radius:14px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font);font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:var(--display);font-weight:700;line-height:1.18;margin:0}
+p{margin:0 0 1em}
+a{color:var(--blue)}
+.topbar{position:sticky;top:0;z-index:60;background:rgba(10,24,48,.97);backdrop-filter:blur(8px);color:#EAF1FB;border-bottom:1px solid rgba(255,255,255,.10)}
+.topbar-in{max-width:1180px;margin:0 auto;padding:10px 18px;display:flex;align-items:center;gap:14px}
+.brandmark{font-family:var(--display);font-size:15px;letter-spacing:.2px;white-space:nowrap}
+.brandmark span{color:var(--accent)}
+.topbar .spacer{flex:1}
+.progresswrap{display:flex;align-items:center;gap:9px;font-size:12px;color:#AFC0DB;white-space:nowrap}
+.bar{width:130px;height:6px;border-radius:99px;background:rgba(255,255,255,.14);overflow:hidden}
+.bar i{display:block;height:100%;width:0%;background:linear-gradient(90deg,var(--accent),#ffd57a);transition:width .35s ease}
+.tbtn{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);color:#EAF1FB;font-family:var(--font);font-size:12.5px;font-weight:600;padding:7px 13px;border-radius:9px;cursor:pointer;transition:.16s}
+.tbtn:hover{background:rgba(255,255,255,.15)}
+.tbtn.solid{background:var(--accent);color:#231703;border-color:var(--accent)}
+.tbtn.solid:hover{background:#ffc554}
+.saved{font-size:11.5px;color:#7D91B4;min-width:74px}
+.saved.on{color:#4FD1A1}
+.modnav{background:var(--navy-2);border-bottom:1px solid rgba(255,255,255,.08);position:sticky;top:47px;z-index:55}
+.modnav-in{max-width:1180px;margin:0 auto;padding:0 12px;display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+.modnav-in::-webkit-scrollbar{display:none}
+.mtab{flex:0 0 auto;background:none;border:0;border-bottom:3px solid transparent;color:#8FA3C4;font-family:var(--font);font-size:12.5px;font-weight:600;padding:11px 12px 9px;cursor:pointer;white-space:nowrap;display:flex;align-items:center;gap:7px;transition:.16s}
+.mtab:hover{color:#EAF1FB}
+.mtab.active{color:#fff;border-bottom-color:var(--accent)}
+.mtab .dot{width:7px;height:7px;border-radius:99px;background:rgba(255,255,255,.2);flex:0 0 auto}
+.mtab.done .dot{background:var(--good)}
+.mtab.part .dot{background:var(--accent)}
+.mtab .star{color:var(--accent);font-size:10px}
+.page{display:none;animation:fade .3s ease}
+.page.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+.cover{background:linear-gradient(160deg,#0A1830 0%,#12294d 62%,#1a3a6b 100%);color:#EAF1FB;padding:64px 22px 56px;text-align:center;position:relative;overflow:hidden}
+.cover:after{content:"";position:absolute;inset:auto -20% -60% -20%;height:220px;background:radial-gradient(ellipse at center,rgba(242,179,61,.18),transparent 70%)}
+.cover .kicker{font-size:11.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:20px}
+.cover h1{font-size:clamp(34px,6.2vw,58px);letter-spacing:-.5px}
+.cover h1 em{font-style:italic;color:var(--accent)}
+.cover .sub{max-width:600px;margin:20px auto 0;color:#C3D2E9;font-size:16.5px}
+.cover .authors{margin-top:26px;font-size:13px;color:#8FA3C4;letter-spacing:.05em}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px;margin:22px 0;box-shadow:0 1px 2px rgba(18,32,58,.04)}
+.card h3{font-size:21px;margin-bottom:10px}
+.sect{margin:46px 0}
+.eyebrow{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--accent-deep);margin-bottom:9px}
+.lead{font-size:17.5px;color:var(--ink-soft)}
+hr.rule{border:0;border-top:1px solid var(--line);margin:34px 0}
+.mhead{background:var(--navy);color:#EAF1FB;border-radius:18px;padding:34px 30px;margin:26px 0 8px;position:relative;overflow:hidden}
+.mhead:before{content:attr(data-num);position:absolute;right:16px;top:-14px;font-family:var(--display);font-size:120px;font-weight:800;color:rgba(242,179,61,.13);line-height:1}
+.mhead .ed{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);font-weight:700}
+.mhead h2{font-size:clamp(25px,4.4vw,36px);margin:9px 0 12px;max-width:80%}
+.mhead .q{color:#C3D2E9;font-size:16px;max-width:88%}
+.mhead .meta{margin-top:18px;display:flex;flex-wrap:wrap;gap:8px}
+.pill{font-size:11px;font-weight:600;padding:4px 11px;border-radius:99px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.16);color:#C3D2E9}
+.pill.hot{background:rgba(242,179,61,.16);border-color:rgba(242,179,61,.4);color:#FFD98A}
+.quote{border-left:4px solid var(--accent);background:var(--paper-2);padding:18px 22px;margin:24px 0;border-radius:0 12px 12px 0}
+.quote p{font-family:var(--display);font-size:20px;line-height:1.4;margin:0}
+.quote cite{display:block;margin-top:9px;font-family:var(--font);font-style:normal;font-size:12px;color:var(--ink-mute);letter-spacing:.04em}
+.box{border:1px solid var(--line);border-radius:12px;padding:17px 19px;margin:18px 0;background:var(--paper-2)}
+.box .bt{font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;margin-bottom:7px;color:var(--ink-mute)}
+.box.warn{background:#FCF3F1;border-color:#EDC9C2}.box.warn .bt{color:var(--alert)}
+.box.ok{background:#F0F8F4;border-color:#C6E4D4}.box.ok .bt{color:var(--good)}
+.box.data{background:#0E2140;border-color:#1a3a6b;color:#DDE7F6}.box.data .bt{color:var(--accent)}
+.box.data .src{font-size:11.5px;color:#8FA3C4;margin-top:8px}
+.box p:last-child{margin-bottom:0}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:18px 0}
+.side{border-radius:12px;padding:16px 18px;border:1px solid}
+.side.no{background:#FCF3F1;border-color:#EDC9C2}
+.side.yes{background:#F0F8F4;border-color:#C6E4D4}
+.side .st{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;margin-bottom:8px}
+.side.no .st{color:var(--alert)} .side.yes .st{color:var(--good)}
+.side p{font-size:14.5px;margin:0}
+.prat{border:2px solid var(--navy);border-radius:16px;padding:24px;margin:28px 0;background:#fff;position:relative}
+.prat .pt{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.prat .pnum{background:var(--navy);color:var(--accent);font-family:var(--display);font-size:14px;font-weight:700;width:30px;height:30px;border-radius:8px;display:grid;place-items:center;flex:0 0 auto}
+.prat h4{font-size:18px}
+.prat .phint{font-size:13.5px;color:var(--ink-soft);margin:2px 0 16px}
+.prat.core:after{content:"exercício central";position:absolute;top:-11px;right:18px;background:var(--accent);color:#231703;font-size:10px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;padding:3px 10px;border-radius:99px}
+label.fl{display:block;font-size:12.5px;font-weight:600;color:var(--ink-soft);margin:16px 0 6px}
+label.fl:first-child{margin-top:0}
+textarea,input[type=text],input[type=number],input[type=date],select{width:100%;font-family:var(--font);font-size:15px;color:var(--ink);background:#fff;border:1px solid var(--line-2);border-radius:10px;padding:11px 13px;transition:.15s;resize:vertical}
+textarea{min-height:78px;line-height:1.55;overflow:hidden}
+textarea:focus,input:focus,select:focus{outline:0;border-color:var(--blue);box-shadow:0 0 0 3px rgba(46,111,183,.13)}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.fgrid.thirds{grid-template-columns:1fr 1fr 1fr}
+.scale{display:flex;align-items:center;gap:14px;padding:13px 0;border-bottom:1px dashed var(--line)}
+.scale:last-of-type{border-bottom:0}
+.scale .q{flex:1;font-size:14.5px}
+.opts{display:flex;gap:6px;flex:0 0 auto}
+.opts label{cursor:pointer}
+.opts input{position:absolute;opacity:0;pointer-events:none}
+.opts span{display:grid;place-items:center;width:34px;height:34px;border-radius:9px;border:1px solid var(--line-2);font-size:13.5px;font-weight:600;color:var(--ink-mute);background:#fff;transition:.14s}
+.opts input:checked + span{background:var(--navy);border-color:var(--navy);color:var(--accent)}
+.scoreout{display:flex;align-items:center;gap:16px;background:var(--navy);color:#EAF1FB;border-radius:12px;padding:16px 20px;margin-top:18px}
+.scoreout .n{font-family:var(--display);font-size:38px;color:var(--accent);line-height:1;min-width:64px;text-align:center}
+.scoreout .lb{font-size:13.5px;color:#C3D2E9}
+.chk{display:flex;gap:12px;align-items:flex-start;padding:11px 0;border-bottom:1px dashed var(--line)}
+.chk:last-child{border-bottom:0}
+.chk input{appearance:none;flex:0 0 auto;width:21px;height:21px;margin-top:1px;border:2px solid var(--line-2);border-radius:6px;cursor:pointer;background:#fff;transition:.14s;position:relative}
+.chk input:checked{background:var(--good);border-color:var(--good)}
+.chk input:checked:after{content:"";position:absolute;left:6px;top:2px;width:5px;height:10px;border:solid #fff;border-width:0 2.5px 2.5px 0;transform:rotate(43deg)}
+.chk label{font-size:14.5px;cursor:pointer;flex:1}
+.chk label b{display:block;font-weight:700;font-size:14.5px}
+.chk label small{display:block;color:var(--ink-soft);font-size:13px;line-height:1.5;margin-top:2px}
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:14px}
+th{background:var(--navy);color:#EAF1FB;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;padding:10px 11px;text-align:left}
+th:first-child{border-radius:9px 0 0 0} th:last-child{border-radius:0 9px 0 0}
+td{border-bottom:1px solid var(--line);padding:10px 11px;vertical-align:top}
+td.ex{color:var(--ink-mute);font-style:italic;font-size:13px}
+table.fill td{padding:5px}
+table.fill input,table.fill textarea{border:1px solid var(--line);border-radius:7px;padding:8px 9px;font-size:13.5px;min-height:auto}
+table.fill textarea{min-height:38px}
+.fi{display:flex;gap:12px;align-items:center;padding:10px 0;border-bottom:1px dashed var(--line)}
+.fi .s{flex:1;font-size:14.5px}
+.fi .btns{display:flex;gap:6px}
+.fi button{width:36px;height:34px;border-radius:8px;border:1px solid var(--line-2);background:#fff;font-family:var(--font);font-weight:700;font-size:13px;color:var(--ink-mute);cursor:pointer;transition:.14s}
+.fi button:hover{border-color:var(--navy)}
+.fi button.right{background:var(--good);border-color:var(--good);color:#fff}
+.fi button.wrong{background:#FBE7E3;border-color:var(--alert);color:var(--alert)}
+.fi .fb{font-size:12px;color:var(--ink-mute);min-width:96px;text-align:right}
+.calc{background:var(--navy);border-radius:16px;padding:24px;color:#EAF1FB;margin:24px 0}
+.calc h4{color:#fff;font-size:19px;margin-bottom:4px}
+.calc .sub{color:#8FA3C4;font-size:13.5px;margin-bottom:18px}
+.calc .row{display:grid;grid-template-columns:1fr 128px;gap:12px;align-items:center;padding:9px 0;border-bottom:1px dashed rgba(255,255,255,.13)}
+.calc .row span{font-size:14px;color:#C3D2E9}
+.calc .row small{display:block;color:#7D91B4;font-size:11.5px}
+.calc input{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.2);color:#fff;text-align:right;font-variant-numeric:tabular-nums}
+.calc input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(242,179,61,.18)}
+.calc .sum{display:flex;justify-content:space-between;align-items:baseline;margin-top:18px;padding-top:16px;border-top:2px solid rgba(242,179,61,.35)}
+.calc .sum .l{font-size:13px;color:#C3D2E9;max-width:52%}
+.calc .sum .v{font-family:var(--display);font-size:clamp(26px,5vw,40px);color:var(--accent);line-height:1}
+.calc .part{display:flex;justify-content:space-between;font-size:13px;color:#AFC0DB;padding:6px 0}
+.calc .part b{color:#fff;font-variant-numeric:tabular-nums}
+.pagenav{display:flex;justify-content:space-between;gap:12px;margin:40px 0 70px}
+.nbtn{flex:1;background:#fff;border:1px solid var(--line-2);border-radius:12px;padding:14px 18px;font-family:var(--font);cursor:pointer;text-align:left;transition:.16s;color:var(--ink)}
+.nbtn:hover{border-color:var(--navy);transform:translateY(-1px)}
+.nbtn:disabled{opacity:.35;cursor:default;transform:none}
+.nbtn small{display:block;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-mute);margin-bottom:3px}
+.nbtn b{font-size:14.5px;font-weight:600}
+.nbtn.next{text-align:right;background:var(--navy);border-color:var(--navy);color:#EAF1FB}
+.nbtn.next small{color:var(--accent)}
+.btn{display:inline-block;background:var(--navy);color:#EAF1FB;border:1px solid var(--navy);border-radius:10px;padding:12px 20px;font-family:var(--font);font-size:14px;font-weight:600;cursor:pointer;text-decoration:none;transition:.16s}
+.btn:hover{background:var(--navy-3)}
+.btn.amber{background:var(--accent);border-color:var(--accent);color:#231703}
+.btn.amber:hover{background:#ffc554}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line-2)}
+.btn.ghost:hover{background:var(--paper-2)}
+.btnrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.chairs{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
+.chair{border:2px solid var(--line-2);border-radius:14px;padding:18px;background:#fff;cursor:pointer;text-align:left;font-family:var(--font);transition:.16s}
+.chair:hover{border-color:var(--navy)}
+.chair.on{border-color:var(--accent);background:#FFFBF1;box-shadow:0 0 0 3px rgba(242,179,61,.18)}
+.chair b{display:block;font-size:15px;margin-bottom:5px}
+.chair small{color:var(--ink-soft);font-size:12.5px;line-height:1.5}
+.mapa{display:grid;gap:9px;margin:18px 0}
+.mrow{display:grid;grid-template-columns:34px 1fr;gap:13px;align-items:start;padding:11px 13px;border:1px solid var(--line);border-radius:11px;background:#fff;cursor:pointer;text-align:left;font-family:var(--font);transition:.16s}
+.mrow:hover{border-color:var(--navy);transform:translateX(2px)}
+.mrow .n{font-family:var(--display);font-size:19px;color:var(--accent-deep);line-height:1.2}
+.mrow .t{display:block;font-size:14.5px;font-weight:600}
+.mrow .d{display:block;font-size:13px;color:var(--ink-soft);margin-top:2px}
+.atolabel{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--ink-mute);margin:16px 0 2px}
+.plano{background:#fff;border:2px solid var(--navy);border-radius:16px;padding:30px;margin:24px 0}
+.pline{padding:15px 0;border-bottom:1px solid var(--line)}
+.pline:last-child{border-bottom:0}
+.pline .pl{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--accent-deep);margin-bottom:5px}
+.pline .pv{font-size:16px;min-height:24px;color:var(--ink);white-space:pre-wrap}
+.pline .pv:empty:before{content:"— ainda em branco. Volte ao módulo indicado.";color:var(--ink-mute);font-size:13.5px;font-style:italic}
+.pline .pw{font-size:11px;color:var(--ink-mute);margin-top:4px}
+.footer{background:var(--navy);color:#8FA3C4;padding:36px 22px;text-align:center;font-size:12.5px;margin-top:60px}
+.footer b{color:#EAF1FB;font-weight:600}
+.footer a{color:var(--accent)}
+@media(max-width:720px){
+  .duo,.fgrid,.fgrid.thirds,.chairs{grid-template-columns:1fr}
+  .mhead h2,.mhead .q{max-width:100%}
+  .cover{padding:44px 20px 40px}
+  .card,.prat{padding:19px}
+  .scale{flex-direction:column;align-items:flex-start;gap:9px}
+  .calc .row{grid-template-columns:1fr;gap:5px}
+  .calc input{text-align:left}
+  .topbar-in{flex-wrap:wrap;gap:9px}
+  .progresswrap .bar{width:88px}
+}
+@media print{
+  @page{size:A4;margin:15mm 14mm}
+  body{background:#fff;font-size:10.5pt}
+  .topbar,.modnav,.pagenav,.noprint,.btnrow,.fi .btns{display:none!important}
+  .page{display:block!important;page-break-before:always}
+  .page:first-of-type{page-break-before:avoid}
+  .cover,.mhead,.calc,th,.scoreout,.box.data{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .card,.prat,.box,.mhead,.quote,.plano,.scale,.chk{page-break-inside:avoid}
+  textarea,input{border:1px solid #bbb!important;box-shadow:none!important}
+  textarea{min-height:auto;height:auto!important}
+  .wrap{max-width:100%;padding:0}
+}
+</style>
+</head>
+<body>
+<div class="topbar noprint">
+  <div class="topbar-in">
+    <div class="brandmark">Mente no Trabalho <span>· Workbook</span></div>
+    <div class="spacer"></div>
+    <div class="progresswrap"><span id="pctTxt">0%</span><div class="bar"><i id="pctBar"></i></div></div>
+    <span class="saved" id="savedTag">&nbsp;</span>
+    <button class="tbtn" onclick="go(9)">Meu plano</button>
+    <button class="tbtn solid" onclick="window.print()">Imprimir / PDF</button>
+  </div>
+</div>
+
+<nav class="modnav noprint"><div class="modnav-in" id="modnav"></div></nav>
+
+<!-- ================= CAPA ================= -->
+<section class="page active" id="p0">
+  <div class="cover">
+    <div class="kicker">1ª Temporada · 8 edições</div>
+    <h1>O workbook de<br><em>quem vai fazer</em></h1>
+    <p class="sub">O e-book é para ler. Este é para preencher. Oito módulos, um por edição — e, no fim, o seu Plano de Segunda-feira: o que muda, quem é o dono, qual número e em que data.</p>
+    <div class="authors">KIKO CAMPOS &amp; ESABELA CRUZ · MENTE.KIKOCAMPOS.COM</div>
+  </div>
+
+  <div class="wrap">
+    <div class="card" style="margin-top:-28px;position:relative;z-index:2">
+      <div class="eyebrow">Antes de começar</div>
+      <h3>Três regras de uso</h3>
+      <div class="chk"><input type="checkbox" id="r1" data-nosave="1"><label for="r1"><b>Um módulo por semana, não oito numa tarde.</b><small>Cada módulo leva de 12 a 25 minutos e termina com uma decisão que vale para a semana seguinte. Oito semanas é o ritmo desenhado — a temporada levou oito.</small></label></div>
+      <div class="chk"><input type="checkbox" id="r2" data-nosave="1"><label for="r2"><b>Escreva por extenso, como você falaria.</b><small>Resposta curta demais é resposta que você ainda não tem. As frases de abertura e de encaminhamento só funcionam se forem suas — leia em voz alta antes de dar por pronto.</small></label></div>
+      <div class="chk"><input type="checkbox" id="r3" data-nosave="1"><label for="r3"><b>Preencha pensando em uma pessoa e uma área reais.</b><small>Não no time ideal. Escolha agora quem é a pessoa e qual é a área — e mantenha as duas do módulo 1 ao 8.</small></label></div>
+    </div>
+
+    <div class="card">
+      <div class="eyebrow">Personalize</div>
+      <h3>Qual cadeira você ocupa?</h3>
+      <p style="font-size:14.5px;color:var(--ink-soft)">Os oito módulos servem a todo mundo, mas a ordem de urgência muda com a cadeira. Escolha a sua e o workbook marca com ★ os módulos que você não deveria pular.</p>
+      <div class="chairs">
+        <button class="chair" data-chair="lider" onclick="setChair('lider')"><b>Lidero um time</b><small>Gestor direto, coordenador, supervisor. Você é quem vê o sinal primeiro.</small></button>
+        <button class="chair" data-chair="rh" onclick="setChair('rh')"><b>Respondo por RH ou SST</b><small>Você precisa transformar isso em gestão de risco que sobrevive à auditoria.</small></button>
+        <button class="chair" data-chair="board" onclick="setChair('board')"><b>Preciso aprovar orçamento</b><small>Você leva o tema para a mesa onde as decisões custam dinheiro.</small></button>
+      </div>
+      <div class="fgrid" style="margin-top:20px">
+        <div><label class="fl" for="f_nome">Seu nome</label><input type="text" id="f_nome" placeholder="Como você assina"></div>
+        <div><label class="fl" for="f_area">A área que você vai usar como caso</label><input type="text" id="f_area" placeholder="Ex.: SAC noturno · Loja 12 · CD Guarulhos"></div>
+      </div>
+      <label class="fl" for="f_inicio">Data em que você começou este workbook</label>
+      <input type="date" id="f_inicio" style="max-width:240px">
+    </div>
+
+    <div class="sect">
+      <div class="eyebrow">O mapa</div>
+      <h2 style="font-size:28px;margin-bottom:6px">As 8 edições, em 8 perguntas</h2>
+      <p class="lead" style="font-size:16px">A temporada não tratou de oito temas — respondeu a oito perguntas práticas. Pergunta é recuperável; tema não é. Clique para ir direto ao módulo.</p>
+      <div class="atolabel">Ato 1 · O indivíduo — "dá para ver antes?"</div>
+      <div class="mapa" id="mapa1"></div>
+      <div class="atolabel">Ato 2 · O sistema — "dá para sustentar sem herói?"</div>
+      <div class="mapa" id="mapa2"></div>
+      <div class="atolabel">Ato 3 · A prova e o que fica — "alguém já fez?"</div>
+      <div class="mapa" id="mapa3"></div>
+    </div>
+
+    <div class="box data">
+      <div class="bt">O número que atravessa a temporada</div>
+      <p style="font-size:15px;margin-bottom:6px">Os benefícios por incapacidade temporária concedidos pelo INSS por transtornos mentais e comportamentais foram <b style="color:var(--accent);font-size:19px">546.254 em 2025</b>, contra 472.328 em 2024 — alta de 15,66% em um ano, sobre um ano que já era recorde.</p>
+      <div class="src">Fonte: Ministério da Previdência Social / Dataprev — divulgação de janeiro de 2026. Use este número; número sem fonte não sobrevive a uma pergunta do board.</div>
+    </div>
+
+    <div class="card">
+      <div class="eyebrow">Como este arquivo funciona</div>
+      <h3>Você preenche, o navegador guarda</h3>
+      <p style="font-size:14.5px;color:var(--ink-soft)">Tudo o que você escrever fica salvo <b>neste navegador, neste computador</b> — nada é enviado para lugar nenhum. Se você limpar os dados do navegador ou usar outro aparelho, o preenchimento não vem junto. Por isso: ao terminar cada módulo, use <b>Imprimir / PDF</b> para guardar uma cópia, ou <b>Baixar backup</b> para levar o preenchimento para outra máquina.</p>
+      <div class="btnrow noprint">
+        <button class="btn amber" onclick="go(1)">Começar pelo módulo 1</button>
+        <button class="btn ghost" onclick="exportJSON()">Baixar backup</button>
+        <button class="btn ghost" onclick="document.getElementById('importFile').click()">Restaurar backup</button>
+        <input type="file" id="importFile" accept="application/json" style="display:none" onchange="importJSON(this)">
+      </div>
+    </div>
+  </div>
+  <div class="pagenav wrap noprint"><span></span><button class="nbtn next" onclick="go(1)"><small>Módulo 1</small><b>Por que virou pauta de gestão →</b></button></div>
+</section>
+<!-- ================= MÓDULO 1 ================= -->
+<section class="page" id="p1"><div class="wrap">
+  <div class="mhead" data-num="01">
+    <div class="ed">Edição 1 · 03 de julho de 2026</div>
+    <h2>Por que a saúde mental virou pauta de gestão</h2>
+    <p class="q">A pergunta desta edição: <b>por que isso deixou de ser tema de benefício e virou tema de gestão?</b></p>
+    <div class="meta"><span class="pill">15 min</span><span class="pill hot">3 práticas</span><span class="pill">Todas as cadeiras</span></div>
+  </div>
+
+  <p class="lead" style="margin-top:26px">Saúde mental no trabalho parou de ser assunto de campanha porque virou três coisas ao mesmo tempo: risco, custo e obrigação. E porque a pergunta que se fazia estava errada.</p>
+
+  <div class="quote"><p>Compliance protege o CNPJ. Cultura protege o CPF.</p><cite>Live 1 · Mente no Trabalho</cite></div>
+
+  <div class="card">
+    <div class="eyebrow">A virada de pergunta</div>
+    <h3>Não é sobre quem adoeceu</h3>
+    <div class="duo">
+      <div class="side no"><div class="st">A pergunta que não resolve</div><p>"Quem está adoecido aqui?" — coloca o problema dentro da pessoa, e a resposta possível vira encaminhamento individual: terapia, aplicativo, palestra.</p></div>
+      <div class="side yes"><div class="st">A pergunta que resolve</div><p>"O que, na organização do trabalho, pode estar adoecendo as pessoas?" — coloca o problema onde ele pode ser mudado por decisão de gestão.</p></div>
+    </div>
+    <div class="box ok"><div class="bt">A frase para levar para a 1:1</div><p style="font-size:15px">Não pergunte apenas "você está bem?". Pergunte também: <b>"o que no trabalho está dificultando que você fique bem?"</b></p></div>
+  </div>
+
+  <div class="card">
+    <div class="eyebrow">O ciclo</div>
+    <h3>Quatro etapas para mapear sem achismo</h3>
+    <table>
+      <tr><th style="width:22%">Etapa</th><th style="width:34%">A pergunta central</th><th>O risco de pular</th></tr>
+      <tr><td><b>1 · Observar</b></td><td>Como o trabalho acontece na prática?</td><td>Decidir com base em narrativa incompleta — o trabalho prescrito no lugar do trabalho real.</td></tr>
+      <tr><td><b>2 · Identificar</b></td><td>Quais fatores geram pressão, conflito ou adoecimento?</td><td>Confundir sintoma individual com causa organizacional.</td></tr>
+      <tr><td><b>3 · Priorizar</b></td><td>O que tem maior probabilidade e severidade?</td><td>Tentar resolver tudo e não resolver nada.</td></tr>
+      <tr><td><b>4 · Agir</b></td><td>Qual mudança concreta será feita primeiro?</td><td>Produzir diagnóstico de gaveta.</td></tr>
+    </table>
+    <div class="box"><div class="bt">Princípio de maturidade</div><p style="font-size:14.5px">Comece por onde há evidência e alcance. Um risco bem tratado, com rotina e aprendizado, vale mais do que um inventário perfeito que ninguém usa.</p></div>
+  </div>
+
+  <div class="prat core">
+    <div class="pt"><div class="pnum">1</div><h4>As sete perguntas — e as três que você vai levar</h4></div>
+    <p class="phint">Leia as sete. Marque as três que, na <b>sua</b> área, você não sabe responder hoje. São essas que você leva para a próxima reunião de equipe.</p>
+    <div class="chk"><input type="checkbox" id="m1_q1"><label for="m1_q1">O que está mais pesado hoje: volume, urgência, ambiguidade, conflito ou falta de recurso?</label></div>
+    <div class="chk"><input type="checkbox" id="m1_q2"><label for="m1_q2">O que foi combinado no papel e não funciona na prática?</label></div>
+    <div class="chk"><input type="checkbox" id="m1_q3"><label for="m1_q3">Onde estamos cobrando resultado sem dar autonomia suficiente?</label></div>
+    <div class="chk"><input type="checkbox" id="m1_q4"><label for="m1_q4">Quais prioridades estão competindo entre si e criando exigências contraditórias?</label></div>
+    <div class="chk"><input type="checkbox" id="m1_q5"><label for="m1_q5">Que parte do trabalho está dependendo de esforço invisível, improviso ou heroísmo?</label></div>
+    <div class="chk"><input type="checkbox" id="m1_q6"><label for="m1_q6">Há algum comportamento, piada, pressão ou prática que as pessoas toleram por medo de falar?</label></div>
+    <div class="chk"><input type="checkbox" id="m1_q7"><label for="m1_q7">O que eu, como líder, posso remover, simplificar ou proteger nesta semana?</label></div>
+    <label class="fl" for="m1_resposta7">Responda agora, só para você, à pergunta 7 — e seja específico: o que você pode remover, simplificar ou proteger nesta semana?</label>
+    <textarea id="m1_resposta7" class="lined" placeholder="Nesta semana eu vou remover / simplificar / proteger..."></textarea>
+  </div>
+
+  <div class="prat">
+    <div class="pt"><div class="pnum">2</div><h4>O trabalho prescrito × o trabalho real</h4></div>
+    <p class="phint">Escolha um processo da sua área. Descreva os dois — e onde a diferença está sendo paga com esforço invisível de alguém.</p>
+    <div class="fgrid">
+      <div><label class="fl" for="m1_prescrito">Como está escrito que funciona</label><textarea id="m1_prescrito" placeholder="O procedimento, o SLA, a escala no papel..."></textarea></div>
+      <div><label class="fl" for="m1_real">Como funciona de verdade, na segunda de manhã</label><textarea id="m1_real" placeholder="O que as pessoas realmente fazem para dar conta..."></textarea></div>
+    </div>
+    <label class="fl" for="m1_gap">Quem está pagando essa diferença — e com o quê?</label>
+    <textarea id="m1_gap" placeholder="Ex.: o time da noite cobre com hora extra não pedida; a coordenadora resolve no WhatsApp fora do horário..."></textarea>
+  </div>
+
+  <div class="prat">
+    <div class="pt"><div class="pnum">3</div><h4>Agende a conversa de 10 minutos</h4></div>
+    <p class="phint">Um roteiro curto, para usar com uma pessoa por semana. Marque com quem começa — e quando.</p>
+    <table>
+      <tr><th style="width:16%">Minuto</th><th style="width:44%">A pergunta</th><th>O que observar</th></tr>
+      <tr><td>0–2</td><td>O que está funcionando bem no seu trabalho hoje?</td><td class="ex">Fontes de energia, apoio, clareza e boas práticas a preservar.</td></tr>
+      <tr><td>2–5</td><td>O que está dificultando sua entrega ou aumentando a pressão?</td><td class="ex">Sobrecarga, conflito de prioridade, retrabalho, falta de autonomia ou recurso.</td></tr>
+      <tr><td>5–7</td><td>Há algo que você precisa e não está recebendo?</td><td class="ex">Ferramenta, informação, decisão, apoio de liderança, pausa, treinamento.</td></tr>
+      <tr><td>7–9</td><td>Qual pequena mudança teria maior impacto nesta semana?</td><td class="ex">Ação simples, concreta e dentro do alcance do líder ou da equipe.</td></tr>
+      <tr><td>9–10</td><td>Como vamos acompanhar isso?</td><td class="ex">Responsável, prazo de retorno e evidência de evolução.</td></tr>
+    </table>
+    <div class="fgrid">
+      <div><label class="fl" for="m1_com_quem">Com quem eu começo</label><input type="text" id="m1_com_quem" placeholder="Nome"></div>
+      <div><label class="fl" for="m1_quando">Em que dia e hora</label><input type="date" id="m1_quando"></div>
+    </div>
+  </div>
+
+  <div class="box warn"><div class="bt">Precisão · leia antes de repetir por aí</div><p style="font-size:14px">A obrigação de gerir os <b>FRPRT — Fatores de Riscos Psicossociais Relacionados ao Trabalho</b> dentro do Gerenciamento de Riscos Ocupacionais está de pé. O status de sanções e prazos é matéria jurídica em movimento: confirme com o seu Jurídico/compliance antes de afirmar qualquer coisa sobre multa. E nunca diga "a norma foi suspensa" — não foi.</p></div>
+</div>
+<div class="pagenav wrap noprint"><button class="nbtn" onclick="go(0)"><small>Voltar</small><b>← Capa e mapa</b></button><button class="nbtn next" onclick="go(2)"><small>Módulo 2</small><b>A conversa que ninguém ensinou →</b></button></div>
+</section>
+
+<!-- ================= MÓDULO 2 ================= -->
+<section class="page" id="p2"><div class="wrap">
+  <div class="mhead" data-num="02">
+    <div class="ed">Edição 2 · 10 de julho de 2026</div>
+    <h2>A conversa que ninguém ensinou o líder a ter</h2>
+    <p class="q">A pergunta desta edição: <b>o que um líder fala quando percebe que alguém não está bem?</b></p>
+    <div class="meta"><span class="pill">45–60 min</span><span class="pill hot">8 práticas</span><span class="pill">★ Líder</span></div>
+  </div>
+
+  <p class="lead" style="margin-top:26px">Este é o módulo mais longo do workbook — e o único que se faz com caneta na mão em quatro blocos de 12 a 15 minutos, um por E. Não é um manual de diagnóstico: líder não diagnostica, não rotula e não faz terapia.</p>
+
+  <div class="quote"><p>O líder não precisa ser terapeuta. Precisa ser humano com método.</p><cite>Live 2 · Mente no Trabalho</cite></div>
+
+  <div class="prat core">
+    <div class="pt"><div class="pnum">1</div><h4>Autoavaliação de partida</h4></div>
+    <p class="phint">De 1 (nunca faço) a 4 (faço com consistência). Sem julgamento — é só o seu ponto de partida. Você reencontra estas quatro perguntas no fim do módulo.</p>
+    <div id="m2scaleA"></div>
+    <div class="scoreout"><div class="n" id="m2_scoreA">–</div><div class="lb" id="m2_scoreA_txt">Responda as quatro para ver a leitura.</div></div>
+    <label class="fl" for="m2_prioridade">Onde você se deu 1 ou 2? Essa é a sua prioridade nas próximas páginas.</label>
+    <input type="text" id="m2_prioridade" placeholder="Ex.: escutar sem sair resolvendo">
+  </div>
+
+  <div class="card">
+    <div class="eyebrow">O método</div>
+    <h3>Os 4 E's em uma página</h3>
+    <table>
+      <tr><th style="width:20%">E</th><th style="width:40%">Pergunta-guia</th><th>Risco a evitar</th></tr>
+      <tr><td><b>E1 · Enxergue</b><br><span style="font-size:12.5px;color:var(--ink-mute)">mudança de padrão, não diagnóstico</span></td><td>"O que mudou nessa pessoa nas últimas semanas?"</td><td>Rotular ("acho que ela está deprimida").</td></tr>
+      <tr><td><b>E2 · Escolha o espaço</b><br><span style="font-size:12.5px;color:var(--ink-mute)">privado, sem pressa, abrindo pelo fato</span></td><td>"Onde e quando essa pessoa se sentiria segura para falar?"</td><td>Abordar no corredor, na frente do time ou por mensagem.</td></tr>
+      <tr><td><b>E3 · Escute</b><br><span style="font-size:12.5px;color:var(--ink-mute)">sem resolver, sem minimizar</span></td><td>"Eu entendi o que essa pessoa está vivendo — ou só o que eu supus?"</td><td>Virar consultor ("você devia...") ou prometer sigilo absoluto.</td></tr>
+      <tr><td><b>E4 · Encaminhe</b><br><span style="font-size:12.5px;color:var(--ink-mute)">a ponte certa + follow-up</span></td><td>"Qual é a ponte certa — e quando eu volto para saber como está?"</td><td>Entregar um telefone e nunca mais voltar ao assunto.</td></tr>
+    </table>
+    <p style="text-align:center;font-size:13px;color:var(--ink-mute);margin:0">o líder é ponte, não é destino</p>
+  </div>
+
+  <h3 style="font-size:24px;margin-top:44px">E1 · Enxergue</h3>
+  <p style="color:var(--ink-soft)">Você não precisa saber o que a pessoa tem — e não deve tentar saber. Precisa notar <b>o que mudou</b>. O sinal relevante nunca é um comportamento isolado; é um desvio do padrão habitual daquela pessoa, sustentado por duas ou três semanas. O sinal é o contraste, não o comportamento em si.</p>
+
+  <div class="prat">
+    <div class="pt"><div class="pnum">2</div><h4>Fato ou interpretação?</h4></div>
+    <p class="phint">Clique em F para fato observável e I para interpretação ou rótulo. O gabarito aparece na hora.</p>
+    <div id="fiWrap"></div>
+    <div class="box" style="margin-bottom:0"><div class="bt">Repare</div><p style="font-size:14px">Os fatos citam <b>comportamento, frequência e contraste</b> com o padrão anterior. As interpretações citam estados internos que você não pode observar.</p></div>
+  </div>
+
+  <div class="prat core">
+    <div class="pt"><div class="pnum">3</div><h4>Agora, o seu time</h4></div>
+    <p class="phint">Pense em uma pessoa cujo padrão mudou (ou use um caso passado). Descreva apenas fatos observáveis — como se uma câmera tivesse registrado.</p>
+    <label class="fl" for="m2_pessoa">A pessoa (só o primeiro nome basta)</label>
+    <input type="text" id="m2_pessoa" placeholder="Nome">
+    <label class="fl" for="m2_padrao">O padrão habitual dessa pessoa era:</label>
+    <textarea id="m2_padrao" class="lined"></textarea>
+    <label class="fl" for="m2_mudou">O que mudou — comportamento + desde quando + com que frequência:</label>
+    <textarea id="m2_mudou" class="lined"></textarea>
+    <div class="box warn" style="margin-bottom:0"><div class="bt">Releia antes de seguir</div><p style="font-size:14px">Sobrou algum adjetivo sobre o estado da pessoa ("desanimada", "estressada", "sem foco")? Corte. Se a câmera não gravaria, não é fato.</p></div>
+  </div>
+
+  <h3 style="font-size:24px;margin-top:44px">E2 · Escolha o espaço</h3>
+  <p style="color:var(--ink-soft)">A mesma frase, dita no lugar errado, vira constrangimento.</p>
+  <div class="card">
+    <table>
+      <tr><td style="width:26%"><b>Privado</b></td><td>1:1, porta fechada ou chamada de vídeo individual. Nunca no corredor, no open space, no grupo do time — e não por mensagem de texto.</td></tr>
+      <tr><td><b>Sem pressa</b></td><td>Reserve 30 minutos sem reunião na sequência. "Tenho 5 minutinhos?" comunica que o assunto não importa.</td></tr>
+      <tr><td><b>Anunciado com cuidado</b></td><td>"Quero conversar com você amanhã, coisa boa, sobre como você está" evita a angústia do convite vago — "precisamos conversar" dispara alarme de demissão.</td></tr>
+    </table>
+    <div class="box ok" style="margin-bottom:0"><div class="bt">A fórmula da abertura</div><p style="font-size:15px"><b>Fato + cuidado + pergunta aberta.</b> "Notei que [fato observável]. Fiquei com vontade de saber como você está, porque me importo com você."</p></div>
+  </div>
+
+  <div class="prat core">
+    <div class="pt"><div class="pnum">4</div><h4>Escreva a sua abertura — e planeje o espaço</h4></div>
+    <p class="phint">Use os fatos da prática 3. Escreva por extenso, como você realmente falaria.</p>
+    <label class="fl" for="m2_abertura">"Notei que..."</label>
+    <textarea id="m2_abertura" class="lined" style="min-height:100px"></textarea>
+    <div class="box"><div class="bt">Teste rápido</div><p style="font-size:14px">Leia em voz alta. Soa como você? Tem rótulo escondido? Cabe em 20 segundos? Se falhou em algum, reescreva.</p></div>
+    <div class="fgrid thirds">
+      <div><label class="fl" for="m2_onde">Onde será</label><input type="text" id="m2_onde" placeholder="Sala, call individual..."></div>
+      <div><label class="fl" for="m2_dataconversa">Quando (dia sem pressa)</label><input type="date" id="m2_dataconversa"></div>
+      <div><label class="fl" for="m2_convite">Como eu convido, sem alarme</label><input type="text" id="m2_convite" placeholder="A frase do convite"></div>
+    </div>
+  </div>
+
+  <h3 style="font-size:24px;margin-top:44px">E3 · Escute</h3>
+  <p style="color:var(--ink-soft)">Aberta a conversa, seu trabalho muda: agora é silêncio de qualidade. O impulso do líder é resolver — é assim que fomos treinados. Aqui, resolver rápido é falhar: a pessoa não veio buscar um plano de ação, veio verificar se é seguro falar. <b>Escutar é a entrega.</b></p>
+  <div class="card">
+    <table>
+      <tr><th style="width:22%">Tentação</th><th style="width:38%">Como soa</th><th>Antídoto</th></tr>
+      <tr><td><b>Resolver</b></td><td>"Já sei — vamos tirar você desse projeto."</td><td>Pergunte antes de propor: "O que ajudaria você agora?"</td></tr>
+      <tr><td><b>Minimizar</b></td><td>"Isso passa." / "Todo mundo tá cansado." / "Já passei por pior."</td><td>Valide: "Faz sentido você estar sentindo isso. Obrigado por me contar."</td></tr>
+      <tr><td><b>Prometer demais</b></td><td>"Fica só entre nós, juro."</td><td>"O que você me contar fica entre nós — a única exceção é se você estiver em risco. Nesse caso, eu busco ajuda junto com você, nunca pelas suas costas."</td></tr>
+    </table>
+  </div>
+
+  <div class="prat">
+    <div class="pt"><div class="pnum">5</div><h4>Reescreva as três respostas ruins</h4></div>
+    <p class="phint">Alguém do time desabafa: <i>"Não estou dando conta. Qualquer e-mail me dá um aperto no peito. Tenho medo de estar decepcionando todo mundo."</i></p>
+    <label class="fl" for="m2_r1">Em vez de "Relaxa, você é ótimo, isso é fase." — <span style="color:var(--alert)">minimiza</span></label>
+    <textarea id="m2_r1"></textarea>
+    <label class="fl" for="m2_r2">Em vez de "Então vamos redistribuir suas entregas ainda hoje." — <span style="color:var(--alert)">resolve antes de escutar</span></label>
+    <textarea id="m2_r2"></textarea>
+    <label class="fl" for="m2_r3">Em vez de "Isso não sai daqui, juro." — <span style="color:var(--alert)">promete o que não pode</span></label>
+    <textarea id="m2_r3"></textarea>
+  </div>
+
+  <div class="box"><div class="bt">"E se a pessoa negar?"</div><p style="font-size:14.5px">É o cenário mais comum — e não é fracasso. Não insista e não encurrale. A conversa já cumpriu o papel: a pessoa agora sabe que você enxerga e que a porta está aberta.<br><br><i>"Entendi — e fico feliz se estiver tudo bem mesmo. Só quero que você saiba que eu notei essas mudanças, que me importo, e que minha porta está aberta quando você quiser. Vou voltar a falar com você em uma ou duas semanas, tá?"</i></p></div>
+
+  <h3 style="font-size:24px;margin-top:44px">E4 · Encaminhe</h3>
+  <p style="color:var(--ink-soft)">Escutar acolhe; encaminhar cuida. O líder que só escuta vira, sem querer, o "terapeuta informal" do time — e isso adoece os dois. <b>Ponte, não destino.</b></p>
+  <div class="card">
+    <table>
+      <tr><td style="width:28%"><b>1 · Ofereça a ponte</b></td><td>"Você não precisa passar por isso sozinho. A empresa tem [PAE / convênio / RH-SST], é confidencial e eu posso te ajudar a acessar agora, se quiser." Encaminhar junto funciona melhor que entregar um telefone.</td></tr>
+      <tr><td><b>2 · Combine o follow-up</b></td><td>"Posso voltar a falar com você daqui a uma semana?" Marque na agenda na frente da pessoa. Follow-up combinado é cuidado; follow-up surpresa é fiscalização.</td></tr>
+      <tr><td><b>3 · Ajuste o contexto</b></td><td>Com consentimento da pessoa, avalie o que dá para mudar na carga, no prazo ou na escala enquanto ela se recupera.</td></tr>
+    </table>
+  </div>
+
+  <div class="prat core">
+    <div class="pt"><div class="pnum">6</div><h4>Mapeie os seus recursos — antes de precisar deles</h4></div>
+    <p class="phint">A pior hora para descobrir se a sua empresa tem PAE é no meio da conversa. Preencha agora — e corra atrás do que não souber.</p>
+    <label class="fl" for="m2_pae">PAE / apoio psicológico do convênio</label><input type="text" id="m2_pae" placeholder="Canal, telefone, como acessa">
+    <label class="fl" for="m2_rh">Contato de RH para casos sensíveis</label><input type="text" id="m2_rh">
+    <label class="fl" for="m2_sst">SST / medicina do trabalho</label><input type="text" id="m2_sst">
+    <label class="fl" for="m2_ajuste">Política de ajuste temporário (carga, prazos, home office)</label><input type="text" id="m2_ajuste">
+    <label class="fl" for="m2_protocolo">Protocolo para situação de risco</label><input type="text" id="m2_protocolo">
+    <label class="fl" for="m2_ponte">A sua frase de ponte, com as suas palavras e os recursos reais da sua empresa</label>
+    <textarea id="m2_ponte" class="lined"></textarea>
+  </div>
+
+  <div class="prat">
+    <div class="pt"><div class="pnum">7</div><h4>Simulação integrada — o caso Mariana</h4></div>
+    <p class="phint">Mariana, analista sênior, 6 anos de casa, sempre foi a referência técnica do time. Nas últimas três semanas: ficou em silêncio nas reuniões, entregou dois relatórios com erros que nunca cometia, cancelou duas 1:1s e responde mensagens de madrugada. Ontem um colega comentou, em tom de piada: "A Mari anda com um pavio curto, hein."</p>
+    <label class="fl" for="m2_sim1">E1 · Os fatos observáveis (sem rótulos) que justificam a conversa</label><textarea id="m2_sim1" class="lined"></textarea>
+    <label class="fl" for="m2_sim2">E2 · Onde, quando, como você convida — e a sua frase de abertura</label><textarea id="m2_sim2" class="lined"></textarea>
+    <label class="fl" for="m2_sim3">E3 · Mariana desaba: "Estou cuidando da minha mãe doente e não queria que ninguém soubesse. Não posso falhar aqui também." O que você diz?</label><textarea id="m2_sim3" class="lined"></textarea>
+    <label class="fl" for="m2_sim4">E4 · A oferta de ponte + o follow-up combinado</label><textarea id="m2_sim4" class="lined"></textarea>
+  </div>
+
+  <div class="card">
+    <div class="eyebrow">Repertório rápido</div>
+    <h3>Cinco situações que fogem do roteiro</h3>
+    <table>
+      <tr><th style="width:26%">Situação</th><th>O que fazer e dizer</th></tr>
+      <tr><td><b>"Está tudo bem." (nega)</b></td><td>Não insista. Nomeie o cuidado, deixe a porta aberta e combine retorno. Registre para si os fatos e mantenha a observação.</td></tr>
+      <tr><td><b>A pessoa chora</b></td><td>Não apresse, não mude de assunto, não saia buscando água como fuga. "Fica à vontade. Temos tempo." Ofereça pausa — e retome com suavidade.</td></tr>
+      <tr><td><b>"Promete que não conta pra ninguém?"</b></td><td>"O que você me contar fica entre nós — a única exceção é se você estiver em risco. Nesse caso, eu busco ajuda junto com você, nunca pelas suas costas."</td></tr>
+      <tr><td><b>Menciona desesperança ou risco</b></td><td>Leve a sério sempre. Não fica para amanhã e não fica só com você: protocolo interno no mesmo dia. Em risco imediato, CVV 188.</td></tr>
+      <tr><td><b>O problema é você</b></td><td>Não se defenda na hora. "Obrigado por me dizer isso — não é fácil. Deixa eu pensar sobre o que você falou e voltar." E volte mesmo.</td></tr>
+    </table>
+  </div>
+
+  <div class="prat">
+    <div class="pt"><div class="pnum">8</div><h4>Autoavaliação de saída</h4></div>
+    <p class="phint">As mesmas quatro perguntas. Responda de novo pensando em como você chega à conversa agora que ela está escrita.</p>
+    <div id="m2scaleB"></div>
+    <div class="scoreout"><div class="n" id="m2_scoreB">–</div><div class="lb" id="m2_scoreB_txt">Responda as quatro para ver a comparação.</div></div>
+  </div>
+
+  <div class="box data"><div class="bt">Checklist de bolso · releia 2 minutos antes da conversa</div>
+  <p style="font-size:14.5px;margin:0"><b>E1</b> Tenho fatos observáveis, não rótulos. · <b>E2</b> Privado, 30 min sem pressa, convite sem alarme, abertura pronta. · <b>E3</b> Não resolver, não minimizar, não prometer sigilo absoluto; validar e sustentar o silêncio. · <b>E4</b> Oferecer a ponte e acessar junto; follow-up combinado em ~1 semana, marcado na agenda; risco mencionado = mesmo dia, nunca sozinho.</p></div>
+</div>
+<div class="pagenav wrap noprint"><button class="nbtn" onclick="go(1)"><small>Voltar</small><b>← Módulo 1</b></button><button class="nbtn next" onclick="go(3)"><small>Módulo 3</small><b>Sinais precoces de burnout →</b></button></div>
+</section>
+<!-- ================= MÓDULO 3 ================= -->
+<section class="page" id="p3"><div class="wrap">
+  <div class="mhead" data-num="03">
+    <div class="ed">Edição 3 · 17 de julho de 2026</div>
+    <h2>Sinais precoces de burnout</h2>
+    <p class="q">A pergunta desta edição: <b>quais sinais aparecem antes do afastamento?</b></p>
+    <div class="meta"><span class="pill">20 min</span><span class="pill hot">3 práticas</span><span class="pill">★ Líder</span></div>
+  </div>
+
+  <p class="lead" style="margin-top:26px">Burnout não é um dia ruim. É uma tendência que ninguém interrompeu — e ela dá sinais semanas antes do atestado. O RH não vê o time todo dia; o líder vê. Por isso o sinal chega primeiro em você.</p>
+
+  <div class="quote"><p>Burnout não chega de repente. Ele dá sinais — e o líder é quem enxerga primeiro, antes de virar afastamento.</p><cite>Live 3 · Mente no Trabalho</cite></div>
+
+  <div class="card">
+    <div class="eyebrow">O que observar · dimensões do burnout na CID-11 (OMS)</div>
+    <h3>Os três sinais</h3>
+    <table>
+      <tr><th style="width:28%">Sinal</th><th>Como aparece no trabalho</th></tr>
+      <tr><td><b>Energia que não volta</b><br><span style="font-size:12.5px;color:var(--ink-mute)">exaustão</span></td><td>Cansaço que o fim de semana não resolve; a pessoa "chega já cansada". É quem volta de férias e em uma semana já está esgotada.</td></tr>
+      <tr><td><b>Distanciamento</b><br><span style="font-size:12.5px;color:var(--ink-mute)">cinismo</span></td><td>Quem era engajado vira "tanto faz": ironia, retração, silêncio, câmera sempre fechada. Some das reuniões, para de dar palpite onde sempre deu.</td></tr>
+      <tr><td><b>Entrega em queda</b><br><span style="font-size:12.5px;color:var(--ink-mute)">eficácia reduzida</span></td><td>Erros fora do padrão, retrabalho, prazos escorregando em quem sempre entregou.</td></tr>
+    </table>
+    <div class="box warn" style="margin-bottom:0"><div class="bt">A regra que evita injustiça</div><p style="font-size:14.5px">O sinal não é "ser fraco" — é <b>mudar de padrão</b>. A comparação é da pessoa com ela mesma, não com o colega do lado. Um dia cansado é humano; três semanas em queda é sinal.</p></div>
+  </div>
+
+  <div class="prat core">
+    <div class="pt"><div class="pnum">1</div><h4>O radar do seu time</h4></div>
+    <p class="phint">Sem diagnóstico e sem rótulo: só padrão. Liste até três pessoas cujo padrão mudou nas últimas semanas. Se você não conseguir preencher a coluna "há quantas semanas", é porque ainda não é observação — é impressão.</p>
+    <table class="fill">
+      <tr><th style="width:20%">Quem</th><th style="width:32%">O que mudou (fato)</th><th style="width:16%">Há quantas semanas</th><th>Qual dos 3 sinais</th></tr>
+      <tr><td><input type="text" id="m3_p1n"></td><td><textarea id="m3_p1f"></textarea></td><td><input type="text" id="m3_p1s"></td><td><select id="m3_p1t"><option value="">—</option><option>Energia</option><option>Distanciamento</option><option>Entrega</option><option>Mais de um</option></select></td></tr>
+      <tr><td><input type="text" id="m3_p2n"></td><td><textarea id="m3_p2f"></textarea></td><td><input type="text" id="m3_p2s"></td><td><select id="m3_p2t"><option value="">—</option><option>Energia</option><option>Distanciamento</option><option>Entrega</option><option>Mais de um</option></select></td></tr>
+      <tr><td><input type="text" id="m3_p3n"></td><td><textarea id="m3_p3f"></textarea></td><td><input type="text" id="m3_p3s"></td><td><select id="m3_p3t"><option value="">—</option><option>Energia</option><option>Distanciamento</option><option>Entrega</option><option>Mais de um</option></select></td></tr>
+    </table>
+    <div class="box"><div class="bt">Os indicadores que já estão na sua mão</div><p style="font-size:14px">Antes de confiar só na memória, olhe: horas extras, dobras, atestados (principalmente picos às segundas), trocas de turno negadas, quase-acidentes e turnover por gestor. Cruze-os com os nomes acima.</p></div>
+  </div>
+
+  <div class="card">
+    <div class="eyebrow">O que fazer</div>
+    <h3>Os 3 P's da prevenção</h3>
+    <table>
+      <tr><td style="width:22%"><b>PADRÃO</b></td><td>Olhar a tendência em semanas, não o dia ruim. A pergunta operacional: <i>"faz quantas semanas que essa pessoa mudou?"</i></td></tr>
+      <tr><td><b>PAUSA</b></td><td>Proteger recuperação real: desconexão, férias de verdade, microrrecuperação. <b>Pausa não é prêmio por produzir, é manutenção para continuar produzindo.</b></td></tr>
+      <tr><td><b>PRIORIDADE</b></td><td>Redesenhar a carga: <b>tirar, não só somar.</b> A pergunta operacional: <i>"o que sai da lista dessa pessoa esta semana?"</i></td></tr>
+    </table>
+    <p style="font-size:14px;color:var(--ink-soft);margin:0">Padrão, Pausa, Prioridade é o que transforma "eu percebi" em "eu agi". E se você glorifica a sobrecarga, você fabrica burnout.</p>
+  </div>
+
+  <div class="prat core">
+    <div class="pt"><div class="pnum">2</div><h4>Aplique os 3 P's à primeira pessoa da sua lista</h4></div>
+    <label class="fl" for="m3_padrao">PADRÃO · há quantas semanas mudou, e o que exatamente eu vou observar nas próximas duas</label>
+    <textarea id="m3_padrao"></textarea>
+    <label class="fl" for="m3_pausa">PAUSA · qual recuperação eu protejo — e o que eu preciso parar de fazer para que ela aconteça de verdade</label>
+    <textarea id="m3_pausa" placeholder="Ex.: não escrever no grupo depois das 19h; férias marcadas e não remarcadas; pausa após chamada crítica"></textarea>
+    <label class="fl" for="m3_prioridade">PRIORIDADE · o que sai da lista dessa pessoa esta semana (nome da tarefa, e para onde vai)</label>
+    <textarea id="m3_prioridade" placeholder="Sai o quê, vai para quem, até quando"></textarea>
+  </div>
+
+  <div class="prat">
+    <div class="pt"><div class="pnum">3</div><h4>E quando quem está em burnout é o próprio líder?</h4></div>
+    <p class="phint">Um líder esgotado não enxerga o time. Responda de 1 (nunca) a 4 (com frequência), pensando nas últimas quatro semanas.</p>
+    <div id="m3scale"></div>
+    <div class="scoreout"><div class="n" id="m3_score">–</div><div class="lb" id="m3_score_txt">Responda as quatro para ver a leitura.</div></div>
+    <label class="fl" for="m3_meu">Se algum item ficou em 3 ou 4: com quem você vai falar sobre isso — e quando?</label>
+    <input type="text" id="m3_meu" placeholder="Nome e data. Ponte também vale para você.">
+  </div>
+
+  <div class="box ok"><div class="bt">Como este módulo se liga ao anterior</div><p style="font-size:14.5px">Os 3 sinais e os 3 P's são o <b>radar</b>: enxergar e prevenir. Os 4 E's do módulo 2 são a <b>conversa</b>: o que fazer quando o radar apitar. É um sistema só — e prevenção é decisão de organização, não heroísmo de um líder sozinho.</p></div>
+</div>
+<div class="pagenav wrap noprint"><button class="nbtn" onclick="go(2)"><small>Voltar</small><b>← Módulo 2</b></button><button class="nbtn next" onclick="go(4)"><small>Módulo 4</small><b>Além do líder herói →</b></button></div>
+</section>
+
+<!-- ================= MÓDULO 4 ================= -->
+<section class="page" id="p4"><div class="wrap">
+  <div class="mhead" data-num="04">
+    <div class="ed">Edição 4 · 24 de julho de 2026</div>
+    <h2>Além do líder herói</h2>
+    <p class="q">A pergunta desta edição: <b>como o cuidado deixa de depender de um líder bom?</b></p>
+    <div class="meta"><span class="pill">25 min</span><span class="pill hot">3 práticas</span><span class="pill">★ Líder</span></div>
+  </div>
+
+  <p class="lead" style="margin-top:26px">A maioria das empresas responde ao adoecimento com ações voltadas ao indivíduo — terapia, aplicativos, mindfulness, ginástica laboral. São iniciativas bem-intencionadas, mas, sozinhas, elas não movem a curva.</p>
+
+  <div class="box data">
+    <div class="bt">O dado que muda a conversa</div>
+    <p style="font-size:15px;margin-bottom:6px">Um estudo de Oxford acompanhou cerca de <b style="color:var(--accent)">46 mil trabalhadores em 233 organizações</b>: quem participou de programas individuais de bem-estar não ficou melhor do que quem não participou. A recomendação do autor é intervir na organização do trabalho — carga, escalas, metas, clareza, relações.</p>
+    <div class="src">Fonte: William Fleming, Universidade de Oxford, Industrial Relations Journal, 2024.</div>
+  </div>
+
+  <div class="card">
+    <div class="eyebrow">A chave</div>
+    <h3>A linha d'água</h3>
+    <div class="duo">
+      <div class="side no"><div class="st">A pessoa · intangível</div><p>Vida pessoal, saúde, família, luto, dívidas. O líder <b>não controla</b> — acolhe com respeito e encaminha.</p></div>
+      <div class="side yes"><div class="st">O trabalho · tangível</div><p>Escala, metas, pausas, clareza de papel, forma de cobrar e de reconhecer. O líder <b>controla quase tudo</b> — é aqui que a prevenção acontece.</p></div>
+    </div>
+    <div class="quote" style="margin-bottom:0"><p>Cuidado que depende de herói acaba quando o herói cansa. Cultura é o cuidado que continua funcionando — mesmo sem você.</p><cite>Live 4 · Mente no Trabalho</cite></div>
+  </div>
+
+  <div class="prat core">
+    <div class="pt"><div class="pnum">1</div><h4>A sua linha d'água</h4></div>
+    <p class="phint">Pegue o caso mais difícil do seu time hoje. Separe o que é da pessoa do que é do trabalho — e repare em quantas linhas cabem do lado direito.</p>
+    <div class="fgrid">
+      <div><label class="fl" for="m4_intangivel">Do lado de cima da linha — o que eu não controlo</label><textarea id="m4_intangivel" class="lined" style="min-height:110px"></textarea></div>
+      <div><label class="fl" for="m4_tangivel">Do lado de baixo — o que está no meu desenho do trabalho</label><textarea id="m4_tangivel" class="lined" style="min-height:110px"></textarea></div>
+    </div>
+  </div>
+
+  <h3 style="font-size:24px;margin-top:44px">Quatro casos, quatro botões</h3>
+  <p style="color:var(--ink-soft)">O que não dizer, o que dizer — e qual alavanca o líder tinha na mão o tempo todo.</p>
+
+  <div class="card">
+    <div class="eyebrow">Caso 1</div><h3>Jorge, operador de empilhadeira</h3>
+    <p style="font-size:14.5px;color:var(--ink-soft)">Com o quadro reduzido, Jorge dobrou o turno 8 vezes em 2 meses. Esta semana, quase bateu a empilhadeira na prateleira. O supervisor viu.</p>
+    <div class="duo">
+      <div class="side no"><div class="st">✗ O que não fazer</div><p>"Tá dormindo pouco? Problema de casa fica em casa. Preciso de você 100% focado — na próxima é advertência." Resultado: Jorge passa a esconder o cansaço. <b>Fadiga escondida vira acidente.</b></p></div>
+      <div class="side yes"><div class="st">✓ Fale assim</div><p>"Jorge, me dá 2 minutos? Você dobrou turno 8 vezes em 2 meses — eu contei — e ontem foi por pouco. Não estou cobrando, estou preocupado. Esta semana você sai da escala de dobra, e eu vou rever essa conta de quadro. O problema não é você, é a escala."</p></div>
+    </div>
+    <div class="box" style="margin-bottom:0"><div class="bt">Botão tangível</div><p style="font-size:14.5px">Escala e dobras. E registre o quase-acidente como evento de fadiga no GRO — é assim que o caso individual vira prevenção sistêmica.</p></div>
+  </div>
+
+  <div class="card">
+    <div class="eyebrow">Caso 2</div><h3>Vanessa, atendente de call center</h3>
+    <p style="font-size:14.5px;color:var(--ink-soft)">Monitorada por tempo médio de atendimento, pausas cronometradas. A supervisora notou choro no banheiro duas vezes na semana e 3 atestados em segundas-feiras no último mês e meio.</p>
+    <div class="duo">
+      <div class="side no"><div class="st">✗ O que não fazer</div><p>Chamar na frente do time ("gente, vamos dar uma força pra Vanessa!"), perguntar da vida pessoal em público e terceirizar: "baixa o app de meditação". Expõe a pessoa, vira terapeuta de auditório e ignora o padrão das segundas.</p></div>
+      <div class="side yes"><div class="st">✓ Fale assim</div><p>"Vanessa, no fim do turno, 5 minutos só nós duas? Notei 3 atestados em segundas e te vi abalada. Não vou perguntar da sua vida pessoal — quero entender o que no trabalho está pesando. A meta subiu? Vou olhar a distribuição das filas e garantir pausa após chamada crítica. E o PAE é confidencial — te passo o contato. Semana que vem a gente se fala de novo."</p></div>
+    </div>
+    <div class="box" style="margin-bottom:0"><div class="bt">Botões tangíveis</div><p style="font-size:14.5px">Meta de TMA, pausa pós-chamada crítica, distribuição de filas. Conversa sempre em particular, partindo de fatos observáveis.</p></div>
+  </div>
+
+  <div class="card">
+    <div class="eyebrow">Caso 3</div><h3>Cida, operadora de caixa</h3>
+    <p style="font-size:14.5px;color:var(--ink-soft)">Mãe solo, 10 anos de casa exemplares. A creche do filho mudou de horário; pediu troca de turno 2 vezes — negada ("a escala já fechou"). Passou a atrasar e ontem respondeu grosso a um cliente. Chegou reclamação formal.</p>
+    <div class="duo">
+      <div class="side no"><div class="st">✗ O que não fazer</div><p>"Reclamação de cliente é inadmissível! Problema de creche todo mundo tem. Se organiza, porque na próxima é advertência por escrito." Pune o sintoma e ignora o padrão: <b>a pessoa não mudou — o contexto mudou.</b></p></div>
+      <div class="side yes"><div class="st">✓ Fale assim</div><p>"Cida, preciso falar da reclamação — e você sabe que isso não é do seu feitio. O que mudou?... A creche, e a troca negada 2 vezes. A escala travada é um problema meu de gestão. Vou refazer o rodízio e montar um quadro de trocas com regra clara. Sobre o cliente: não pode se repetir — e eu vou te dar condições para isso."</p></div>
+    </div>
+    <div class="box" style="margin-bottom:0"><div class="bt">Botão tangível</div><p style="font-size:14.5px">Regra de troca de turno clara e publicada — flexibilidade com critério, não favor. Negar a troca duas vezes foi uma decisão de design que criou o risco.</p></div>
+  </div>
+
+  <div class="card">
+    <div class="eyebrow">Caso 4</div><h3>Roberto, auxiliar de produção</h3>
+    <p style="font-size:14.5px;color:var(--ink-soft)">Desde que o filho entrou na faculdade, faz entregas de aplicativo à noite. Na fábrica: 3 erros de apontamento no mês (ele nunca errava), almoço sozinho, respostas curtas. O líder percebeu — e pensou: "não é da minha conta".</p>
+    <div class="duo">
+      <div class="side no"><div class="st">✗ O que não fazer</div><p><b>Nada.</b> O silêncio parece neutro, parece respeito — mas é o erro mais comum e mais caro. O custo aparece depois: no acidente, no atestado, no afastamento.</p></div>
+      <div class="side yes"><div class="st">✓ Fale assim</div><p>"Roberto, bora um café? Notei 3 erros de apontamento — e você é o cara que nunca erra. Não quero invadir sua vida, mas me importo com você. Tem algo do trabalho pesando?... Existe o programa de apoio, é confidencial — te passo o contato. E se o cansaço bate no fim do turno, deixa eu ver a rotação e te tirar da prensa nesse horário. Semana que vem repetimos esse café."</p></div>
+    </div>
+    <div class="box" style="margin-bottom:0"><div class="bt">Botões tangíveis</div><p style="font-size:14.5px">Rotação de tarefas (tarefa crítica × horário de fadiga) + encaminhamento confidencial + follow-up marcado em uma semana.</p></div>
+  </div>
+
+  <div class="card">
+    <div class="eyebrow">Do caso à cultura</div>
+    <h3>O PDCA do líder — uma vez por mês</h3>
+    <p style="font-size:14.5px;color:var(--ink-soft)">É o que impede que o cuidado dependa da memória de uma pessoa.</p>
+    <table>
+      <tr><td style="width:32%"><b>PLAN · Olhe os dados</b></td><td>Horas extras, dobras, atestados, trocas negadas, quase-acidentes. É o radar de padrão do seu time.</td></tr>
+      <tr><td><b>DO · Uma medida tangível</b></td><td>Uma regra de troca publicada, uma pausa protegida, uma meta revisada. Uma por mês basta.</td></tr>
+      <tr><td><b>CHECK · Pergunte ao time</b></td><td>10 minutos na reunião: "o que no nosso jeito de trabalhar mais pesou este mês?"</td></tr>
+      <tr><td><b>ACT · Vire regra</b></td><td>O que funcionou vira regra escrita, não favor. Assim a cultura fica — mesmo quando você sai de férias.</td></tr>
+    </table>
+  </div>
+
+  <div class="prat core">
+    <div class="pt"><div class="pnum">2</div><h4>A medida tangível que eu vou mexer este mês</h4></div>
+    <p class="phint">Uma só. Esta linha vai para o seu Plano de Segunda-feira no fim do workbook.</p>
+    <label class="fl" for="m4_botao">Qual é — escala, meta, pausa, regra de troca, rotação, alçada</label>
+    <textarea id="m4_botao" placeholder="Descreva a mudança concreta, do jeito que ela seria escrita numa regra"></textarea>
+    <div class="fgrid">
+      <div><label class="fl" for="m4_leitura">Como eu vou saber se funcionou</label><input type="text" id="m4_leitura" placeholder="O indicador que eu vou olhar"></div>
+      <div><label class="fl" for="m4_data">Em que data eu leio o resultado</label><input type="date" id="m4_data"></div>
+    </div>
+  </div>
+
+  <div class="prat">
+    <div class="pt"><div class="pnum">3</div><h4>O poder das escolhas — checklist final</h4></div>
+    <div class="chk"><input type="checkbox" id="m4_c1"><label for="m4_c1">Eu sei quantas dobras e horas extras meu time fez este mês.</label></div>
+    <div class="chk"><input type="checkbox" id="m4_c2"><label for="m4_c2">Não existe regra de escala ou troca que hoje dependa de "favor".</label></div>
+    <div class="chk"><input type="checkbox" id="m4_c3"><label for="m4_c3">Não há ninguém com mudança de padrão que eu esteja fingindo não ver.</label></div>
+    <div class="chk"><input type="checkbox" id="m4_c4"><label for="m4_c4">Minha última medida de bem-estar mexeu no trabalho — e não só ofereceu algo para a pessoa "aguentar".</label></div>
+    <label class="fl" for="m4_naofiz">O que eu decidi não fazer este mês — e qual o custo dessa escolha</label>
+    <textarea id="m4_naofiz"></textarea>
+    <div class="quote" style="margin-bottom:0"><p>Não fazer nada também é uma escolha — e é a mais cara delas.</p><cite>Live 4 · Mente no Trabalho</cite></div>
+  </div>
+</div>
+<div class="pagenav wrap noprint"><button class="nbtn" onclick="go(3)"><small>Voltar</small><b>← Módulo 3</b></button><button class="nbtn next" onclick="go(5)"><small>Módulo 5</small><b>NR-1 sem pânico →</b></button></div>
+</section>
+<!-- ================= MÓDULO 5 ================= -->
+<section class="page" id="p5"><div class="wrap">
+  <div class="mhead" data-num="05">
+    <div class="ed">Edição 5 · 31 de julho de 2026</div>
+    <h2>NR-1 sem pânico: o mapa do RH</h2>
+    <p class="q">A pergunta desta edição: <b>por onde o RH começa a NR-1 sem entrar em pânico?</b></p>
+    <div class="meta"><span class="pill">25 min</span><span class="pill hot">4 práticas</span><span class="pill">★ RH e SST</span></div>
+  </div>
+
+  <p class="lead" style="margin-top:26px">Os <b>FRPRT — Fatores de Riscos Psicossociais Relacionados ao Trabalho</b> precisam entrar no seu GRO/PGR com a mesma seriedade de um risco físico ou químico. A NR-1 é ampla, e os FRPRT são uma parte dela.</p>
+
+  <div class="box warn">
+    <div class="bt">As quatro regras de precisão · valem para tudo o que você falar sobre o tema</div>
+    <p style="font-size:14.5px;margin:0">
+    <b>1.</b> Escreva <b>FRPRT por extenso na primeira menção</b>: Fatores de Riscos Psicossociais Relacionados ao Trabalho.<br>
+    <b>2.</b> Nunca diga "os 13 fatores". <b>Não existe lista fechada</b> — o que existe são principais FRPRT a mapear, como exemplos.<br>
+    <b>3.</b> A matriz severidade × probabilidade é <b>um exemplo</b>, não um padrão. Cada empresa fundamenta a sua.<br>
+    <b>4.</b> O plano <b>não é do RH</b>. É gestão contínua e compartilhada — RH, Jurídico/compliance, SST <b>e liderança</b>, sempre as quatro juntas. Quem tenta fazer sozinho não termina.</p>
+  </div>
+
+  <div class="quote"><p>A NR-1 não pede terapia de graça. Pede gestão de risco.</p><cite>Live 5 · Mente no Trabalho</cite></div>
+
+  <h3 style="font-size:24px;margin-top:44px">Etapa 1 · Inventário dos FRPRT</h3>
+  <p style="color:var(--ink-soft)">Mapear o que, na organização do trabalho, adoece — não as pessoas, o sistema.</p>
+
+  <div class="prat core">
+    <div class="pt"><div class="pnum">1</div><h4>Marque os fatores presentes na sua operação</h4></div>
+    <p class="phint">Exemplos, não uma lista fechada. Marque os que você <b>já tem evidência</b> de que existem — não os que você suspeita.</p>
+    <div id="frprtWrap" style="columns:2;column-gap:26px"></div>
+    <label class="fl" for="m5_escopo">Escopo: setores, funções e turnos a avaliar — comece pelas áreas de maior exposição</label>
+    <textarea id="m5_escopo"></textarea>
+    <label class="fl" for="m5_instrumento">Instrumento técnico escolhido (questionário com base científica — não pesquisa de clima genérica)</label>
+    <input type="text" id="m5_instrumento">
+    <div class="box" style="margin-bottom:0"><div class="bt">Indicadores que já estão na sua mão</div><p style="font-size:14px">Absenteísmo, atestados (picos às segundas), rotatividade, afastamentos INSS, horas extras e turnover por gestor. <b>Cruze-os.</b> Para cada risco, registre: fator organizacional → consequência à saúde → grupo exposto. E combine quantitativo (indicadores) com qualitativo (escuta e grupos focais).</p></div>
+  </div>
+
+  <h3 style="font-size:24px;margin-top:44px">Etapa 2 · Avaliação e priorização</h3>
+  <p style="color:var(--ink-soft)">Transformar percepção em decisão: o que é urgente e o que pode esperar.</p>
+  <div class="card">
+    <table>
+      <tr><th style="width:25%">Severidade ↓ / Probabilidade →</th><th>Rara</th><th>Possível</th><th>Frequente</th></tr>
+      <tr><td><b>Grave</b></td><td>Alto</td><td>Crítico</td><td><b>Crítico</b> ← comece por aqui</td></tr>
+      <tr><td><b>Moderada</b></td><td>Médio</td><td>Alto</td><td>Crítico</td></tr>
+      <tr><td><b>Leve</b></td><td>Baixo</td><td>Médio</td><td>Alto</td></tr>
+    </table>
+    <p style="font-size:13.5px;color:var(--ink-mute);margin:0"><b>Exemplo</b> de matriz severidade × probabilidade. Adapte ao modelo da sua empresa, com fundamentação técnica.</p>
+    <div class="box ok" style="margin-bottom:0"><div class="bt">Como ler</div><p style="font-size:14.5px">Comece pelos <b>Críticos e Altos</b> — é o que exige ação imediata e o que o auditor cobra primeiro. Os baixos entram no monitoramento contínuo, não na gaveta.</p></div>
+  </div>
+
+  <h3 style="font-size:24px;margin-top:44px">Etapa 3 · Plano de ação</h3>
+  <p style="color:var(--ink-soft)">Todo risco avaliado vira uma linha com dono, prazo e prova. Sem isso, não existe.</p>
+
+  <div class="prat core">
+    <div class="pt"><div class="pnum">2</div><h4>As suas primeiras linhas</h4></div>
+    <p class="phint">Priorize controle na fonte — na organização do trabalho — e não só no indivíduo. Programa de aplicativo não substitui mudança de escala.</p>
+    <table class="fill">
+      <tr><th style="width:22%">Risco (do inventário)</th><th style="width:26%">Medida de controle</th><th style="width:15%">Responsável</th><th style="width:14%">Prazo</th><th>Evidência</th></tr>
+      <tr><td class="ex" style="padding:9px">sobrecarga no SAC (picos)</td><td class="ex" style="padding:9px">redesenho de escala / pausas reais</td><td class="ex" style="padding:9px">Gestor + RH</td><td class="ex" style="padding:9px">__/__/__</td><td class="ex" style="padding:9px">nova escala + ata</td></tr>
+      <tr><td><textarea id="m5_r1a"></textarea></td><td><textarea id="m5_r1b"></textarea></td><td><input type="text" id="m5_r1c"></td><td><input type="date" id="m5_r1d"></td><td><textarea id="m5_r1e"></textarea></td></tr>
+      <tr><td><textarea id="m5_r2a"></textarea></td><td><textarea id="m5_r2b"></textarea></td><td><input type="text" id="m5_r2c"></td><td><input type="date" id="m5_r2d"></td><td><textarea id="m5_r2e"></textarea></td></tr>
+      <tr><td><textarea id="m5_r3a"></textarea></td><td><textarea id="m5_r3b"></textarea></td><td><input type="text" id="m5_r3c"></td><td><input type="date" id="m5_r3d"></td><td><textarea id="m5_r3e"></textarea></td></tr>
+    </table>
+    <div class="box warn" style="margin-bottom:0"><div class="bt">O que transforma a linha em prova</div><p style="font-size:14.5px">A coluna de evidência é a que sobrevive à auditoria e à ação trabalhista. <b>"Nova escala publicada + ata da reunião" é evidência; "sensibilização realizada" não é.</b> Se a linha não tem como ser provada em 48 horas, ela ainda não existe.</p></div>
+  </div>
+
+  <h3 style="font-size:24px;margin-top:44px">Etapa 4 · Integração e ciclo</h3>
+  <p style="color:var(--ink-soft)">Cuidar não pode depender de herói: o que fica é a rotina que continua funcionando.</p>
+
+  <div class="prat core">
+    <div class="pt"><div class="pnum">3</div><h4>O plano de 90 dias — com datas de verdade</h4></div>
+    <p class="phint">Por onde começar na segunda de manhã. Marque a data de leitura de cada bloco antes de sair desta página.</p>
+    <table>
+      <tr><th style="width:33%">Dias 0–30 · Enxergar</th><th style="width:33%">Dias 31–60 · Decidir</th><th>Dias 61–90 · Mover</th></tr>
+      <tr>
+        <td>→ formar o grupo (RH, SESMT, jurídico e liderança)<br>→ levantar indicadores que já existem<br>→ escolher o instrumento<br>→ rodar o inventário nas áreas críticas</td>
+        <td>→ classificar riscos pela matriz<br>→ definir os 3 a 5 riscos críticos<br>→ montar o plano de ação (dono, prazo, evidência)<br>→ inserir a seção no PGR</td>
+        <td>→ executar as primeiras medidas na fonte<br>→ capacitar lideranças<br>→ ativar canal de acolhimento<br>→ definir indicadores e a 1ª revisão</td>
+      </tr>
+      <tr>
+        <td><input type="date" id="m5_d30"></td>
+        <td><input type="date" id="m5_d60"></td>
+        <td><input type="date" id="m5_d90"></td>
+      </tr>
+    </table>
+    <label class="fl" for="m5_grupo">Quem são as quatro cadeiras do grupo — com nome e sobrenome</label>
+    <div class="fgrid">
+      <div><input type="text" id="m5_grupo" placeholder="RH: nome"></div>
+      <div><input type="text" id="m5_grupo2" placeholder="Jurídico/compliance: nome"></div>
+      <div><input type="text" id="m5_grupo3" placeholder="SST: nome"></div>
+      <div><input type="text" id="m5_grupo4" placeholder="Liderança: nome"></div>
+    </div>
+  </div>
+
+  <div class="prat">
+    <div class="pt"><div class="pnum">4</div><h4>O teste do buraco</h4></div>
+    <p class="phint">Antes do auditor — ou antes do adoecimento.</p>
+    <div class="chk"><input type="checkbox" id="m5_c1"><label for="m5_c1">O inventário separa <b>fator organizacional → consequência à saúde → grupo exposto</b>, e não lista pessoas.</label></div>
+    <div class="chk"><input type="checkbox" id="m5_c2"><label for="m5_c2">A avaliação usa um método fundamentado tecnicamente, e a matriz adotada está justificada por escrito.</label></div>
+    <div class="chk"><input type="checkbox" id="m5_c3"><label for="m5_c3">Toda ação do plano está vinculada a um risco do inventário — nenhuma ação órfã.</label></div>
+    <div class="chk"><input type="checkbox" id="m5_c4"><label for="m5_c4">Toda linha tem evidência provável em 48 horas.</label></div>
+    <div class="chk"><input type="checkbox" id="m5_c5"><label for="m5_c5">A seção está dentro do PGR — não num arquivo paralelo do RH.</label></div>
+    <div class="chk"><input type="checkbox" id="m5_c6"><label for="m5_c6">Existe data marcada da primeira revisão do ciclo.</label></div>
+  </div>
+</div>
+<div class="pagenav wrap noprint"><button class="nbtn" onclick="go(4)"><small>Voltar</small><b>← Módulo 4</b></button><button class="nbtn next" onclick="go(6)"><small>Módulo 6</small><b>O caso de negócio →</b></button></div>
+</section>
+
+<!-- ================= MÓDULO 6 ================= -->
+<section class="page" id="p6"><div class="wrap">
+  <div class="mhead" data-num="06">
+    <div class="ed">Edição 6 · 07 de agosto de 2026</div>
+    <h2>O caso de negócio do bem-estar</h2>
+    <p class="q">A pergunta desta edição: <b>que contas fazem o board aprovar?</b></p>
+    <div class="meta"><span class="pill">30 min</span><span class="pill hot">Calculadora</span><span class="pill">★ Board</span></div>
+  </div>
+
+  <p class="lead" style="margin-top:26px">A regra de ouro: <b>o board não aprova um programa. Ele aprova a redução de uma perda que já está acontecendo.</b> Por isso este módulo não começa pelo que você quer comprar — começa pelo que a sua empresa já está pagando.</p>
+
+  <div class="quote"><p>Bem-estar não é custo de RH. É uma linha de resultado que ninguém está lendo.</p><cite>Live 6 · Mente no Trabalho</cite></div>
+
+  <div class="box"><div class="bt">Antes de digitar qualquer número</div><p style="font-size:14.5px">Nenhuma das três contas exige consultoria, BI ou dado que você não possui. As três saem de informação que já existe na <b>folha</b>, na <b>medicina do trabalho</b> e no seu <b>controle de turnover</b>. Seja conservador: uma conta defensável vale mais que uma estimativa espetacular — você só precisa ganhar essa reunião uma vez.</p></div>
+
+  <div class="prat core">
+    <div class="pt"><div class="pnum">1</div><h4>As três contas</h4></div>
+    <p class="phint">Preencha com os dados dos últimos 12 meses da sua área crítica. O total se calcula sozinho.</p>
+
+    <div class="calc">
+      <h4>1 · O afastamento — o que você já paga</h4>
+      <p class="sub">Onde está o dado: afastamentos com CID do grupo F (transtornos mentais e comportamentais) dos últimos 12 meses; dias parados por caso; salário + encargos da posição; custo de cobrir a ausência.</p>
+      <div class="row"><span>Nº de afastamentos com CID F em 12 meses</span><input type="number" id="c1_n" min="0" step="1" placeholder="0"></div>
+      <div class="row"><span>Média de dias parados por caso<small>o registro da medicina do trabalho tem isso</small></span><input type="number" id="c1_dias" min="0" step="1" placeholder="0"></div>
+      <div class="row"><span>Salário + encargos mensais da posição (R$)<small>o custo-dia é este valor dividido por 30</small></span><input type="number" id="c1_sal" min="0" step="100" placeholder="0"></div>
+      <div class="row"><span>Custo total de cobrir as ausências (R$)<small>hora extra, temporário, retrabalho — em operação, costuma ser metade da conta</small></span><input type="number" id="c1_cob" min="0" step="100" placeholder="0"></div>
+      <div class="sum"><span class="l">Conta 1 — o que você pagou por pessoas que não estavam trabalhando</span><span class="v" id="c1_out">R$ 0</span></div>
+    </div>
+    <div class="box warn"><div class="bt">O erro mais comum nesta conta</div><p style="font-size:14px">Contar só o salário de quem se afastou e esquecer o custo de cobrir a ausência. E abra sempre por área: <b>risco tem endereço.</b></p></div>
+
+    <div class="calc">
+      <h4>2 · O turnover evitável — o que você paga para repor</h4>
+      <p class="sub">Custo de reposição não é o custo do anúncio de vaga: é verbas rescisórias + recrutamento + treinamento + curva de aprendizagem + buraco de produtividade.</p>
+      <div class="row"><span>Desligamentos na área crítica em 12 meses</span><input type="number" id="c2_n" min="0" step="1" placeholder="0"></div>
+      <div class="row"><span>Custo de reposição de uma posição típica (R$)</span><input type="number" id="c2_rep" min="0" step="100" placeholder="0"></div>
+      <div class="row"><span>Parcela atribuível ao risco psicossocial (%)<small>seja conservador — e justifique com a sobreposição dos dois mapas</small></span><input type="number" id="c2_pct" min="0" max="100" step="5" placeholder="0"></div>
+      <div class="sum"><span class="l">Conta 2 — o que você paga para repor gente que o desenho do trabalho expulsou</span><span class="v" id="c2_out">R$ 0</span></div>
+    </div>
+    <div class="box"><div class="bt">Sobreponha dois mapas</div><p style="font-size:14px">O do risco psicossocial (do inventário do módulo 5) e o do turnover. Na esmagadora maioria das operações eles se encaixam — sobrecarga crônica, meta impossível e chefia despreparada giram gente o ano inteiro. Isso não é coincidência, é causa.</p></div>
+
+    <div class="calc">
+      <h4>3 · O presenteísmo — o que você paga sem ver</h4>
+      <p class="sub">É a maior e a mais ignorada. Você não precisa de instrumento: precisa dos sintomas operacionais que a sua área já mede — erro e retrabalho, quebra e avaria, quase-acidente, TMA, reclamação de cliente, índice de qualidade, horas extras. Compare a área crítica com uma <b>área gêmea saudável</b>.</p>
+      <div class="row"><span>Diferença anual de ocorrências entre a área crítica e a área gêmea<small>em unidades: peças de retrabalho, avarias, erros, atendimentos refeitos</small></span><input type="number" id="c3_dif" min="0" step="1" placeholder="0"></div>
+      <div class="row"><span>Custo unitário da ocorrência (R$)</span><input type="number" id="c3_unit" min="0" step="10" placeholder="0"></div>
+      <div class="row"><span>Parcela que você atribui ao adoecimento (%)<small>conservador. Esta é uma estimativa — apresente com essa palavra</small></span><input type="number" id="c3_pct" min="0" max="100" step="5" placeholder="0"></div>
+      <div class="sum"><span class="l">Conta 3 — estimativa do que você paga sem ver</span><span class="v" id="c3_out">R$ 0</span></div>
+    </div>
+    <div class="box warn"><div class="bt">O que separa credibilidade de exposição</div><p style="font-size:14px">Estimativa assumida como tal sobrevive à pergunta do CFO; número apresentado como certeza, não. E nunca leve um índice de presenteísmo da literatura internacional no lugar da sua conta.</p></div>
+
+    <div class="calc" style="background:linear-gradient(150deg,#0A1830,#1a3a6b)">
+      <div class="part"><span>Conta 1 · afastamento</span><b id="t1">R$ 0</b></div>
+      <div class="part"><span>Conta 2 · turnover evitável</span><b id="t2">R$ 0</b></div>
+      <div class="part"><span>Conta 3 · presenteísmo (estimativa)</span><b id="t3">R$ 0</b></div>
+      <div class="sum"><span class="l"><b style="color:#fff">A perda dos últimos 12 meses</b><br><span style="font-size:11.5px;color:#8FA3C4">é a linha 1 do seu pitch</span></span><span class="v" id="tTotal">R$ 0</span></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="eyebrow">Legitimam o tema — nunca substituem a sua conta</div>
+    <h3>Os números que o board respeita</h3>
+    <table>
+      <tr><td style="width:24%"><b style="font-size:19px">546.254</b><br><span style="font-size:11px;letter-spacing:.1em;color:var(--ink-mute)">BRASIL · 2025</span></td><td>Benefícios por incapacidade temporária concedidos por transtornos mentais e comportamentais em 2025 — alta de 15,66% sobre os 472.328 de 2024, que já era recorde. Transtornos de ansiedade e episódios depressivos lideram a fila.<br><span style="font-size:12px;color:var(--ink-mute)">Fonte: Ministério da Previdência Social / Dataprev — divulgação de janeiro de 2026.</span></td></tr>
+      <tr><td><b style="font-size:19px">US$ 8,8 tri</b><br><span style="font-size:11px;letter-spacing:.1em;color:var(--ink-mute)">POR ANO · GLOBAL</span></td><td>O desengajamento custa à economia global cerca de US$ 8,8 trilhões por ano, algo em torno de 9% do PIB mundial. A mesma base mostra que aproximadamente 70% da variação do engajamento de uma equipe se explica pelo gestor direto — boa parte do problema está em algo que a empresa controla.<br><span style="font-size:12px;color:var(--ink-mute)">Fonte: Gallup.</span></td></tr>
+      <tr><td><b style="font-size:19px">46 mil</b><br><span style="font-size:11px;letter-spacing:.1em;color:var(--ink-mute)">233 ORGANIZAÇÕES</span></td><td>Participantes de programas individuais de bem-estar não apresentaram bem-estar maior que os não participantes. A recomendação do autor é intervir na organização do trabalho.<br><span style="font-size:12px;color:var(--ink-mute)">Fonte: William Fleming, Universidade de Oxford, Industrial Relations Journal, 2024.</span></td></tr>
+    </table>
+    <p style="font-size:13.5px;color:var(--ink-soft);margin:0"><b>Estatística global abre a porta; o número da sua operação é o que aprova o orçamento.</b> E se você errar na parte regulatória na frente do board, perde a autoridade para o resto da conversa: a obrigação de gerir o risco está de pé; sobre sanções e prazos, fale só o que o seu Jurídico confirmou por escrito.</p>
+  </div>
+
+  <div class="prat core">
+    <div class="pt"><div class="pnum">2</div><h4>O pitch de uma página — cinco linhas, nenhuma a mais</h4></div>
+    <p class="phint">Se você só tiver uma reunião, leve isto. Nesta ordem. Escreva antes de entrar na sala.</p>
+    <label class="fl" for="m6_l1">1 · A perda — quanto já estamos pagando, em reais, nos últimos 12 meses</label>
+    <textarea id="m6_l1" placeholder="Puxe o total da calculadora acima e diga em uma frase"></textarea>
+    <label class="fl" for="m6_cep">2 · O CEP — onde a perda está concentrada. Quais áreas, e que % do total</label>
+    <textarea id="m6_cep" placeholder="Risco tem endereço"></textarea>
+    <label class="fl" for="m6_causa">3 · A causa — o que no desenho do trabalho está produzindo isso, saindo do inventário</label>
+    <textarea id="m6_causa"></textarea>
+    <label class="fl" for="m6_medida">4 · A medida — o que muda, quem é o dono, qual o prazo e quanto custa</label>
+    <textarea id="m6_medida"></textarea>
+    <label class="fl" for="m6_leitura">5 · A leitura — qual indicador, em qual data, e o compromisso de voltar com o resultado, tenha dado certo ou não</label>
+    <textarea id="m6_leitura"></textarea>
+    <div class="box ok" style="margin-bottom:0"><div class="bt">A linha 5 é a mais subestimada</div><p style="font-size:14.5px">Comprometer-se a voltar com o resultado, <b>mesmo ruim</b>, é o que constrói credibilidade para o pedido seguinte. RH que só volta quando deu certo não é lido como parceiro de negócio.</p></div>
+  </div>
+
+  <div class="prat">
+    <div class="pt"><div class="pnum">3</div><h4>As três perguntas que derrubam o RH</h4></div>
+    <p class="phint">Elas vêm nesta ordem — e a terceira é onde entra o argumento regulatório: no fim, nunca na abertura. Ensaie duas frases para cada uma.</p>
+    <label class="fl" for="m6_p1">1 · "Quanto isso está me custando hoje?" <span style="color:var(--alert);font-weight:400">— se a resposta começar com "as pessoas estão sofrendo", acabou</span></label>
+    <textarea id="m6_p1"></textarea>
+    <label class="fl" for="m6_p2">2 · "O que exatamente você vai mudar, e como eu vou saber se funcionou?"</label>
+    <textarea id="m6_p2"></textarea>
+    <label class="fl" for="m6_p3">3 · "E se eu não fizer nada?"</label>
+    <textarea id="m6_p3"></textarea>
+  </div>
+</div>
+<div class="pagenav wrap noprint"><button class="nbtn" onclick="go(5)"><small>Voltar</small><b>← Módulo 5</b></button><button class="nbtn next" onclick="go(7)"><small>Módulo 7</small><b>A virada na prática →</b></button></div>
+</section>
+<!-- ================= MÓDULO 7 ================= -->
+<section class="page" id="p7"><div class="wrap">
+  <div class="mhead" data-num="07">
+    <div class="ed">Edição 7 · 14 de agosto de 2026</div>
+    <h2>A virada na prática</h2>
+    <p class="q">A pergunta desta edição: <b>o que aconteceu na prática com quem virou a chave?</b></p>
+    <div class="meta"><span class="pill">20 min</span><span class="pill hot">3 práticas</span><span class="pill">Todas as cadeiras</span></div>
+  </div>
+
+  <p class="lead" style="margin-top:26px">Toda empresa tem o slide. Poucas têm a virada. A diferença entre as duas nunca foi orçamento — foi o que aconteceu no primeiro conflito entre o plano e a meta de alguém.</p>
+
+  <div class="quote"><p>Plano aprovado não é virada. Virada é o que sobrevive ao primeiro "não cabe na minha meta".</p><cite>Live 7 · Mente no Trabalho</cite></div>
+
+  <div class="card">
+    <div class="eyebrow">O diagnóstico</div>
+    <h3>Os três lugares onde o plano morre em silêncio</h3>
+    <div class="chk"><input type="checkbox" id="m7_d1"><label for="m7_d1"><b>Sem dono</b><small>Se todo mundo é dono, ninguém acorda de madrugada pensando naquilo. Dono é nome e sobrenome, não uma área.</small></label></div>
+    <div class="chk"><input type="checkbox" id="m7_d2"><label for="m7_d2"><b>Sem número</b><small>Ninguém implementa o que não é medido na reunião que importa.</small></label></div>
+    <div class="chk"><input type="checkbox" id="m7_d3"><label for="m7_d3"><b>Sem mudar o trabalho</b><small>PGR só com aviso e palestra é formalmente bonito e materialmente vazio. Mudar a organização do trabalho é a hierarquia básica do controle.</small></label></div>
+    <p style="font-size:13.5px;color:var(--ink-mute);margin:8px 0 0">Marque os que estão acontecendo com o seu plano hoje. Marcar não é confissão — é onde você vai mexer.</p>
+  </div>
+
+  <h3 style="font-size:24px;margin-top:44px">Três histórias, três viradas</h3>
+  <p style="color:var(--ink-soft)">Todas anonimizadas: setor e ordem de grandeza, nunca nome de empresa. Repare que nenhuma delas começou com orçamento novo.</p>
+
+  <div class="card">
+    <div class="eyebrow">História 1 · organização do trabalho</div><h3>A escala de dezembro</h3>
+    <table>
+      <tr><td style="width:26%"><b>A cena</b></td><td>No pico de dezembro, um gerente fechava a loja às 23h e abria às 7h do dia seguinte. Em janeiro, afastamento por ansiedade. O plano aprovado nunca tinha chegado até a escala.</td></tr>
+      <tr><td><b>Onde travou</b></td><td>"Escala é assim mesmo." O plano tinha palestra e canal de escuta — não mudava o trabalho.</td></tr>
+      <tr><td><b>O movimento</b></td><td>Uma regra de uma linha: <b>ninguém fecha e abre no dia seguinte.</b> Custo de folha igual.</td></tr>
+      <tr><td><b>O que sobreviveu</b></td><td>Virou política de rede — e sobreviveu ao primeiro dezembro seguinte.</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <div class="eyebrow">História 2 · avaliação × custo</div><h3>A perda que a loja pagava sem ver</h3>
+    <table>
+      <tr><td style="width:26%"><b>A cena</b></td><td>Quebra de estoque e erro de precificação subindo por três trimestres. A seção campeã de perda era a mesma campeã de afastamento curto e de presenteísmo. O custo já estava no resultado — na linha errada.</td></tr>
+      <tr><td><b>Onde travou</b></td><td>Bem-estar e perda viviam em reuniões e diretorias diferentes. Ninguém somava — e ninguém era dono da soma.</td></tr>
+      <tr><td><b>O movimento</b></td><td>Cruzar o mapa de risco psicossocial com o mapa de perda, <b>por seção</b>.</td></tr>
+      <tr><td><b>O que sobreviveu</b></td><td>A reunião de perda — a que já existia — ganhou indicador de gente.</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <div class="eyebrow">História 3 · governança</div><h3>O plano que morreu na regional</h3>
+    <table>
+      <tr><td style="width:26%"><b>A cena</b></td><td>Programa aprovado, verba liberada, implantação zero. O diretor regional: <i>"eu entendo o programa, mas ele não cabe na minha meta"</i>. Ele não era o vilão — era o sistema funcionando.</td></tr>
+      <tr><td><b>Onde travou</b></td><td>Foi aprovado <b>no</b> board, mas nunca entrou <b>na</b> agenda. Reunião paralela de RH sempre perde.</td></tr>
+      <tr><td><b>O movimento</b></td><td>O indicador de afastamento entrou na mesma reunião de resultado das lojas, na página do P&amp;L.</td></tr>
+      <tr><td><b>O que sobreviveu</b></td><td>No trimestre seguinte, o mesmo diretor cobrava o indicador.</td></tr>
+    </table>
+    <div class="quote" style="margin-bottom:0"><p>Ninguém implementa o que não é medido na reunião que importa.</p><cite>Live 7 · Mente no Trabalho</cite></div>
+  </div>
+
+  <div class="prat core">
+    <div class="pt"><div class="pnum">1</div><h4>Escreva a sua história — no mesmo esqueleto</h4></div>
+    <p class="phint">Pode ser a que pegou ou a que morreu. As duas ensinam. E se você quiser que ela vire caso do livro, guarde este texto: é exatamente o que vamos pedir.</p>
+    <label class="fl" for="m7_cena">A cena, em uma frase</label><textarea id="m7_cena"></textarea>
+    <label class="fl" for="m7_travou">Onde travou — qual foi o primeiro "não cabe na minha meta"</label><textarea id="m7_travou"></textarea>
+    <label class="fl" for="m7_movimento">O movimento — a menor mudança concreta, sem orçamento novo</label><textarea id="m7_movimento"></textarea>
+    <label class="fl" for="m7_sobreviveu">O que sobreviveu — a evidência 90 dias depois</label><textarea id="m7_sobreviveu"></textarea>
+  </div>
+
+  <div class="prat">
+    <div class="pt"><div class="pnum">2</div><h4>A sua linha de base</h4></div>
+    <p class="phint">O Diagnóstico de Maturidade NR-1 são 15 perguntas em cerca de 3 minutos. Devolve um índice de 0 a 100, mostra em qual das cinco dimensões o seu plano trava e entrega três próximos movimentos. Faça agora — sem linha de base você não consegue provar melhora nenhuma depois.</p>
+    <div class="btnrow noprint" style="margin-top:0"><a class="btn amber" href="https://mente.kikocampos.com" target="_blank" rel="noopener">Abrir o diagnóstico →</a></div>
+    <div class="fgrid" style="margin-top:18px">
+      <div><label class="fl" for="m7_indice">Meu índice hoje (0 a 100)</label><input type="number" id="m7_indice" min="0" max="100" placeholder="0"></div>
+      <div><label class="fl" for="m7_datadiag">Data em que eu medi</label><input type="date" id="m7_datadiag"></div>
+    </div>
+    <label class="fl" for="m7_dimensao">A dimensão em que o meu plano trava</label>
+    <input type="text" id="m7_dimensao">
+    <div class="box" style="margin-bottom:0"><div class="bt">Descubra onde está o buraco antes de escolher a solução</div><p style="font-size:14px">É a ordem que quase ninguém segue — e é por isso que tanta empresa compra a solução certa para o problema errado.</p></div>
+  </div>
+
+  <div class="prat core">
+    <div class="pt"><div class="pnum">3</div><h4>Segunda-feira, sem orçamento novo</h4></div>
+    <p class="phint">Três movimentos. Estas três linhas vão direto para o seu Plano de Segunda-feira.</p>
+    <label class="fl" for="m7_dono">1 · O dono do risco — nome e sobrenome, não uma área</label>
+    <input type="text" id="m7_dono" placeholder="Ex.: Marcelo Ferreira, diretor de operações">
+    <label class="fl" for="m7_medida">2 · Uma medida que muda a organização do trabalho — e onde ela fica registrada no PGR (responsável, prazo, critério)</label>
+    <textarea id="m7_medida"></textarea>
+    <div class="fgrid">
+      <div><label class="fl" for="m7_indicador">3 · O indicador que vai virar 1 slide</label><input type="text" id="m7_indicador" placeholder="Um número e uma tendência"></div>
+      <div><label class="fl" for="m7_reuniao">Em qual reunião que JÁ existe</label><input type="text" id="m7_reuniao" placeholder="Ex.: comitê de resultado das lojas"></div>
+    </div>
+    <label class="fl" for="m7_dataleitura">Data da primeira leitura do indicador</label>
+    <input type="date" id="m7_dataleitura" style="max-width:240px">
+    <div class="box ok" style="margin-bottom:0"><div class="bt">Por que "1 slide" e não "uma reunião"</div><p style="font-size:14.5px"><b>Ninguém nega um slide. Todo mundo nega uma reunião nova.</b> Quando o número mora num comitê próprio, ele morre junto com o comitê.</p></div>
+  </div>
+</div>
+<div class="pagenav wrap noprint"><button class="nbtn" onclick="go(6)"><small>Voltar</small><b>← Módulo 6</b></button><button class="nbtn next" onclick="go(8)"><small>Módulo 8</small><b>Cultura humanizada →</b></button></div>
+</section>
+
+<!-- ================= MÓDULO 8 ================= -->
+<section class="page" id="p8"><div class="wrap">
+  <div class="mhead" data-num="08">
+    <div class="ed">Edição 8 · 21 de agosto de 2026 · final da 1ª temporada</div>
+    <h2>Cultura humanizada: o que fica</h2>
+    <p class="q">A pergunta desta edição: <b>o que continua acontecendo quando ninguém está olhando?</b></p>
+    <div class="meta"><span class="pill">20 min</span><span class="pill hot">3 práticas</span><span class="pill">Todas as cadeiras</span></div>
+  </div>
+
+  <p class="lead" style="margin-top:26px">Segunda-feira, 8h10. A live de sexta acabou. O slide foi apresentado, a pauta foi aprovada, todo mundo bateu palma. E aí a operação abre, o número do dia aperta, e alguém precisa decidir a escala. É nesse minuto — não no da apresentação — que a gente descobre se existe cultura.</p>
+
+  <div class="quote"><p>Cultura é o que continua acontecendo quando ninguém está olhando.</p><cite>Live 8 · Mente no Trabalho</cite></div>
+
+  <div class="prat core">
+    <div class="pt"><div class="pnum">1</div><h4>Os quatro sinais de que pegou</h4></div>
+    <p class="phint">Marque só o que já é verdade hoje — não o que está previsto. O resultado aparece embaixo.</p>
+    <div class="chk"><input type="checkbox" id="m8_s1" class="sig"><label for="m8_s1"><b>1 · Tem dono, e o dono não é o RH</b><small>O tema aparece na agenda de alguém que não é da sua área: um gerente regional, um diretor de operações. Enquanto o único nome no slide for o seu, você não tem cultura — você tem uma pessoa dedicada.</small></label></div>
+    <div class="chk"><input type="checkbox" id="m8_s2" class="sig"><label for="m8_s2"><b>2 · Alguma decisão passou a ser tomada de outro jeito</b><small>Uma escala, um prazo, uma meta, uma alçada. Não é o discurso que muda, é o trabalho. Se você não consegue apontar qual, não mudou nada ainda.</small></label></div>
+    <div class="chk"><input type="checkbox" id="m8_s3" class="sig"><label for="m8_s3"><b>3 · O número entrou numa reunião que já existia</b><small>Quando ele mora num comitê próprio, ele morre com o comitê.</small></label></div>
+    <div class="chk"><input type="checkbox" id="m8_s4" class="sig"><label for="m8_s4"><b>4 · Alguém corrige alguém, sem você na sala</b><small>É quando um gestor que você nunca treinou usa a linguagem nova para questionar outro: "espera, isso aí você já checou com a equipe?" Quando a cobrança passa a vir de par para par, a norma mudou de dono. Não dá para forjar.</small></label></div>
+    <div class="scoreout"><div class="n" id="m8_score">0</div><div class="lb" id="m8_score_txt">de 4 sinais. Marque o que já é verdade.</div></div>
+  </div>
+
+  <div class="prat">
+    <div class="pt"><div class="pnum">2</div><h4>Os três sinais de morte</h4></div>
+    <p class="phint">Se você marcar algum aqui, é sinal de alerta — e cada um tem um antídoto que você já escreveu neste workbook.</p>
+    <div class="chk"><input type="checkbox" id="m8_m1"><label for="m8_m1"><b>1 · Virou projeto, com data de fim</b><small>Nome bonito, logo próprio, cronograma e evento de encerramento. Projeto entrega e acaba; cultura não tem entrega final. No dia em que o projeto fecha, o assunto fecha junto.</small></label></div>
+    <div class="chk"><input type="checkbox" id="m8_m2"><label for="m8_m2"><b>2 · Só o RH fala dele</b><small>Se em três meses a única voz que aparece é a do RH, isso é campanha, não é gestão. A gestão dos FRPRT é compartilhada: RH, Jurídico e compliance, SST e liderança.</small></label></div>
+    <div class="chk"><input type="checkbox" id="m8_m3"><label for="m8_m3"><b>3 · Mede adesão, não mede trabalho</b><small>Quantas pessoas assistiram, quantas clicaram, quantas participaram. Adesão é métrica de campanha. Cultura se mede em risco e em decisão: o que a gente mapeou, o que a gente mudou, o que a gente parou de fazer.</small></label></div>
+    <div class="quote" style="margin-bottom:0"><p>O que não tem dono, não tem número e não muda o trabalho não é cultura. É campanha — e campanha tem data de fim.</p><cite>Live 8 · Mente no Trabalho</cite></div>
+  </div>
+
+  <div class="prat core">
+    <div class="pt"><div class="pnum">3</div><h4>As quatro marcações — abra o calendário agora</h4></div>
+    <p class="phint">Nada disso precisa de orçamento novo. Precisa de data. Marque as quatro antes de fechar este arquivo.</p>
+    <table class="fill">
+      <tr><th style="width:30%">Quando</th><th style="width:44%">O quê</th><th>Sua data</th></tr>
+      <tr><td><b>Esta semana</b></td><td>A linha de base: as 15 perguntas do diagnóstico, cerca de 10 minutos. Sem linha de base você não prova melhora nenhuma depois.</td><td style="padding:9px"><input type="date" id="m8_d1"></td></tr>
+      <tr><td><b>Neste trimestre</b></td><td>Nomear os donos por frente, registrar o que já existe e garantir que o resultado esteja no documento que já é da empresa — não num arquivo paralelo.</td><td style="padding:9px"><input type="date" id="m8_d2"></td></tr>
+      <tr><td><b>No ciclo de metas</b></td><td>Uma pergunta nova, sempre: <b>"essa meta muda a carga de trabalho de quem?"</b> É a coisa mais barata desta lista e a que mais muda decisão.</td><td style="padding:9px"><input type="date" id="m8_d3"></td></tr>
+      <tr><td><b>Recorrente, todo mês</b></td><td>Um slide fixo na reunião que já existe: um número, uma tendência e um dono.</td><td style="padding:9px"><input type="date" id="m8_d4"></td></tr>
+    </table>
+  </div>
+
+  <div class="card" style="background:var(--navy);color:#EAF1FB;border-color:var(--navy)">
+    <div class="eyebrow" style="color:var(--accent)">O manifesto</div>
+    <h3 style="color:#fff;font-size:24px">Seis frases para colar na parede</h3>
+    <p style="font-size:15px;color:#C3D2E9"><b style="color:var(--accent)">01</b> Cuidar não pode depender de herói. Cuidado que depende de uma pessoa acaba quando essa pessoa cansa, sai ou é promovida. Cultura é o que sobrevive à troca do gestor.</p>
+    <p style="font-size:15px;color:#C3D2E9"><b style="color:var(--accent)">02</b> É o trabalho que adoece. Antes de perguntar o que há de errado com a pessoa, pergunte o que há de errado com a escala, a meta, a pausa e a clareza do papel.</p>
+    <p style="font-size:15px;color:#C3D2E9"><b style="color:var(--accent)">03</b> O líder não precisa ser terapeuta. Precisa ser humano com método.</p>
+    <p style="font-size:15px;color:#C3D2E9"><b style="color:var(--accent)">04</b> Bem-estar não é custo de RH. É uma linha de resultado que ninguém está lendo.</p>
+    <p style="font-size:15px;color:#C3D2E9"><b style="color:var(--accent)">05</b> Plano aprovado não é virada. Virada é o que sobrevive ao primeiro "não cabe na minha meta".</p>
+    <p style="font-size:15px;color:#C3D2E9;margin-bottom:0"><b style="color:var(--accent)">06</b> Cultura humanizada não é ser mais gentil no discurso. É desenhar o trabalho de um jeito que exija menos heroísmo das pessoas.</p>
+  </div>
+
+  <div class="card">
+    <div class="eyebrow">Se você chegou até aqui</div>
+    <h3>A sua história pode virar caso do livro</h3>
+    <p style="font-size:14.5px;color:var(--ink-soft)">Você já escreveu, no módulo 7, a história que pegou ou a que morreu. Se quiser que ela entre no livro, mande para a gente: a conversa leva 20 minutos e a publicação é anonimizada do jeito que você quiser.</p>
+    <div class="btnrow noprint" style="margin-top:8px"><a class="btn amber" href="https://mente.kikocampos.com" target="_blank" rel="noopener">mente.kikocampos.com</a></div>
+  </div>
+</div>
+<div class="pagenav wrap noprint"><button class="nbtn" onclick="go(7)"><small>Voltar</small><b>← Módulo 7</b></button><button class="nbtn next" onclick="go(9)"><small>Fecho</small><b>O meu Plano de Segunda-feira →</b></button></div>
+</section>
+<!-- ================= PLANO FINAL ================= -->
+<section class="page" id="p9"><div class="wrap">
+  <div class="mhead" data-num="✓">
+    <div class="ed">Depois de fechar este arquivo</div>
+    <h2>O meu Plano de Segunda-feira</h2>
+    <p class="q">Não são quatro projetos. São decisões que cabem numa semana comum, sem orçamento novo. Esta página se monta sozinha com o que você escreveu — se algo estiver em branco, volte ao módulo indicado.</p>
+    <div class="meta"><span class="pill hot">Imprima esta página</span><span class="pill">Leve para a sua reunião</span></div>
+  </div>
+
+  <div class="plano">
+    <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;border-bottom:2px solid var(--navy);padding-bottom:14px;margin-bottom:6px">
+      <div><div class="pl">Quem assina</div><div class="pv" data-mirror="f_nome" style="font-family:var(--display);font-size:20px"></div></div>
+      <div><div class="pl">Área</div><div class="pv" data-mirror="f_area"></div></div>
+    </div>
+
+    <div class="pline"><div class="pl">1 · A perda dos últimos 12 meses</div><div class="pv" id="planoPerda" style="font-family:var(--display);font-size:26px;color:var(--navy)"></div><div class="pw">Total das três contas · módulo 6</div></div>
+    <div class="pline"><div class="pl">2 · O CEP — onde a perda está concentrada</div><div class="pv" data-mirror="m6_cep"></div><div class="pw">módulo 6 · risco tem endereço</div></div>
+    <div class="pline"><div class="pl">3 · A causa, no desenho do trabalho</div><div class="pv" data-mirror="m6_causa"></div><div class="pw">módulo 6, saindo do inventário do módulo 5</div></div>
+    <div class="pline"><div class="pl">4 · A medida — uma só</div><div class="pv" data-mirror="m7_medida"></div><div class="pw">módulo 7 · e o botão tangível do líder, do módulo 4:</div><div class="pv" data-mirror="m4_botao" style="font-size:14.5px;color:var(--ink-soft)"></div></div>
+    <div class="pline"><div class="pl">5 · O dono — nome e sobrenome</div><div class="pv" data-mirror="m7_dono"></div><div class="pw">módulo 7 · se todo mundo é dono, ninguém acorda de madrugada pensando naquilo</div></div>
+    <div class="pline"><div class="pl">6 · O indicador, e a reunião que já existe</div><div class="pv" id="planoIndicador"></div><div class="pw">módulo 7 · ninguém nega um slide</div></div>
+    <div class="pline"><div class="pl">7 · A leitura — a data em que eu volto com o resultado</div><div class="pv" id="planoData"></div><div class="pw">módulos 4 e 7 · voltar mesmo quando o resultado for ruim é o que constrói credibilidade</div></div>
+    <div class="pline"><div class="pl">8 · A conversa que eu vou ter</div><div class="pv" id="planoConversa"></div><div class="pw">módulo 2 · e o que sai da lista dessa pessoa esta semana (módulo 3):</div><div class="pv" data-mirror="m3_prioridade" style="font-size:14.5px;color:var(--ink-soft)"></div></div>
+    <div class="pline"><div class="pl">9 · A minha linha de base</div><div class="pv" id="planoDiag"></div><div class="pw">módulo 7 · Diagnóstico de Maturidade NR-1</div></div>
+    <div class="pline"><div class="pl">10 · As quatro datas do calendário</div><div class="pv" id="planoDatas"></div><div class="pw">módulo 8 · nada disso precisa de orçamento novo. Precisa de data.</div></div>
+  </div>
+
+  <div class="card noprint">
+    <div class="eyebrow">Antes de sair</div>
+    <h3>Guarde uma cópia</h3>
+    <p style="font-size:14.5px;color:var(--ink-soft)">O preenchimento fica salvo apenas neste navegador. Imprima em PDF para arquivar, ou baixe o backup para abrir em outro computador.</p>
+    <div class="btnrow">
+      <button class="btn amber" onclick="window.print()">Imprimir tudo em PDF</button>
+      <button class="btn ghost" onclick="exportJSON()">Baixar backup</button>
+      <button class="btn ghost" onclick="if(confirm('Isso apaga tudo o que você preencheu neste navegador. Tem certeza?')){localStorage.removeItem(KEY);location.reload()}">Limpar preenchimento</button>
+    </div>
+  </div>
+
+  <div class="quote" style="margin-top:36px"><p>Cuidar não pode depender de herói — nem de orçamento novo. Depende de dono, número e mudança de verdade no trabalho.</p><cite>Mente no Trabalho · 1ª temporada</cite></div>
+</div>
+<div class="pagenav wrap noprint"><button class="nbtn" onclick="go(8)"><small>Voltar</small><b>← Módulo 8</b></button><button class="nbtn next" onclick="go(0)"><small>Recomeçar</small><b>Capa e mapa →</b></button></div>
+</section>
+
+<div class="footer">
+  <p><b>Mente no Trabalho · 1ª temporada</b><br>Kiko Campos &amp; Esabela Cruz — <a href="https://mente.kikocampos.com">mente.kikocampos.com</a></p>
+  <p style="max-width:620px;margin:14px auto 0;font-size:11.5px;line-height:1.7">Material de apoio educativo. Não substitui análise jurídica, técnica ou de Segurança e Saúde no Trabalho específica para a sua organização, nem atendimento de saúde. Em situação de risco imediato, CVV 188.</p>
+</div>
+<script>
+const KEY='mnt_workbook_v1';
+let chair=null, cur=0;
+
+const MODS=[
+ {id:0,tab:'Capa',nav:'Capa'},
+ {id:1,tab:'1 · Pauta de gestão',chairs:['lider','rh','board']},
+ {id:2,tab:'2 · A conversa',chairs:['lider']},
+ {id:3,tab:'3 · Sinais de burnout',chairs:['lider']},
+ {id:4,tab:'4 · Além do herói',chairs:['lider']},
+ {id:5,tab:'5 · NR-1 sem pânico',chairs:['rh']},
+ {id:6,tab:'6 · Caso de negócio',chairs:['rh','board']},
+ {id:7,tab:'7 · A virada',chairs:['rh','board']},
+ {id:8,tab:'8 · O que fica',chairs:['board']},
+ {id:9,tab:'✓ Meu plano'}
+];
+
+const MAPA=[
+ [1,'A mente no trabalho','Por que a saúde mental virou pauta de gestão, e não de benefício?'],
+ [2,'A conversa que ninguém ensinou','O que um líder fala quando percebe que alguém não está bem?'],
+ [3,'Sinais precoces de burnout','Quais sinais aparecem antes do afastamento?'],
+ [4,'Além do líder herói','Como o cuidado deixa de depender de um líder bom?'],
+ [5,'NR-1 sem pânico','Por onde o RH começa a NR-1 sem entrar em pânico?'],
+ [6,'O caso de negócio do bem-estar','Que contas fazem o board aprovar?'],
+ [7,'A virada na prática','O que aconteceu na prática com quem virou a chave?'],
+ [8,'Cultura humanizada','O que continua acontecendo quando ninguém está olhando?']
+];
+
+const SCALE_M2=[
+ 'Percebo mudanças de padrão de comportamento nas pessoas do meu time antes que virem crise.',
+ 'Abordo o tema em conversas privadas, partindo de fatos observáveis — e não de rótulos.',
+ 'Consigo escutar sem interromper, sem minimizar e sem sair resolvendo.',
+ 'Sei exatamente para onde encaminhar (PAE, RH, SST) e faço follow-up depois.'
+];
+const SCALE_M3=[
+ 'Chego ao fim de semana e não recupero — na segunda ainda estou cansado.',
+ 'Tenho me pegado irônico ou indiferente com temas que antes me mobilizavam.',
+ 'Estou cometendo erros ou adiando decisões que antes eu resolvia rápido.',
+ 'Não consigo lembrar da última vez que desliguei de verdade.'
+];
+const FI=[
+ ['"A Paula não entregou os três últimos relatórios no prazo."','F'],
+ ['"O Marcos está deprimido."','I'],
+ ['"A Júlia ficou em silêncio nas últimas quatro reuniões — ela sempre foi a primeira a falar."','F'],
+ ['"O Rafa anda desmotivado, dá pra ver."','I'],
+ ['"O Diego respondeu de forma ríspida ao cliente na quinta, algo que nunca tinha acontecido."','F'],
+ ['"A Camila perdeu o interesse pelo trabalho."','I']
+];
+const FRPRT=['Sobrecarga e ritmo de trabalho','Autonomia e controle sobre o trabalho','Apoio da liderança e da gestão','Assédio moral/sexual e violência','Justiça e transparência organizacional','Equilíbrio trabalho–vida','Metas e pressão por resultados','Jornada, pausas e trabalho em turnos','Clareza de papel (ambiguidade e conflito)','Relações interpessoais e apoio dos colegas','Reconhecimento e recompensa','Insegurança e instabilidade no emprego','Comunicação e gestão de mudanças','Ambiente físico que afeta o psicológico'];
+
+/* ---------- construção ---------- */
+function buildNav(){
+  document.getElementById('modnav').innerHTML=MODS.map(m=>
+    `<button class="mtab" id="tab${m.id}" onclick="go(${m.id})"><span class="dot"></span>${m.tab}<span class="star" id="star${m.id}"></span></button>`).join('');
+}
+function buildMapa(){
+  const g=[[0,3,'mapa1'],[3,6,'mapa2'],[6,8,'mapa3']];
+  g.forEach(([a,b,el])=>{
+    document.getElementById(el).innerHTML=MAPA.slice(a,b).map(m=>
+      `<button class="mrow" onclick="go(${m[0]})"><span class="n">${m[0]}</span><span><span class="t">${m[1]}</span><span class="d">${m[2]}</span></span></button>`).join('');
+  });
+}
+function buildScale(el,items,name){
+  document.getElementById(el).innerHTML=items.map((q,i)=>
+    `<div class="scale"><span class="q">${q}</span><span class="opts">`+
+    [1,2,3,4].map(v=>`<label><input type="radio" name="${name}${i}" value="${v}"><span>${v}</span></label>`).join('')+
+    `</span></div>`).join('');
+}
+function buildFI(){
+  document.getElementById('fiWrap').innerHTML=FI.map((f,i)=>
+    `<div class="fi"><span class="s">${f[0]}</span><span class="btns"><button type="button" onclick="fiAns(${i},'F')">F</button><button type="button" onclick="fiAns(${i},'I')">I</button></span><span class="fb" id="fifb${i}"></span><input type="hidden" id="fi_${i}" data-noprog="1"></div>`).join('');
+}
+function fiAns(i,v){
+  document.getElementById('fi_'+i).value=v; renderFI(i); save();
+}
+function renderFI(i){
+  const v=document.getElementById('fi_'+i).value; if(!v) return;
+  const ok=v===FI[i][1];
+  const btns=document.querySelectorAll('#fiWrap .fi')[i].querySelectorAll('button');
+  btns.forEach(b=>b.className='');
+  const b=v==='F'?btns[0]:btns[1];
+  b.className=ok?'right':'wrong';
+  if(!ok){ (v==='F'?btns[1]:btns[0]).className='right'; }
+  document.getElementById('fifb'+i).textContent=ok?'✓ isso':'é '+(FI[i][1]==='F'?'fato':'interpretação');
+}
+function buildFRPRT(){
+  document.getElementById('frprtWrap').innerHTML=FRPRT.map((f,i)=>
+    `<div class="chk" style="break-inside:avoid"><input type="checkbox" id="frprt${i}"><label for="frprt${i}">${f}</label></div>`).join('');
+}
+
+/* ---------- persistência ---------- */
+function allFields(root){
+  return [...(root||document).querySelectorAll('input,textarea,select')].filter(e=>e.type!=='file'&&!e.dataset.nosave);
+}
+let saveTimer=null;
+function save(){
+  clearTimeout(saveTimer);
+  saveTimer=setTimeout(()=>{
+    const o={_chair:chair};
+    allFields().forEach(el=>{
+      if(el.type==='radio'){ if(el.checked) o['r:'+el.name]=el.value; }
+      else if(el.type==='checkbox'){ if(el.checked) o['c:'+el.id]=1; }
+      else if(el.value!=='') o[el.id]=el.value;
+    });
+    try{ localStorage.setItem(KEY,JSON.stringify(o)); flash(); }catch(e){ console.warn('sem armazenamento local',e); }
+    refresh();
+  },260);
+}
+function flash(){
+  const t=document.getElementById('savedTag');
+  t.textContent='salvo ✓'; t.classList.add('on');
+  clearTimeout(flash._t); flash._t=setTimeout(()=>{t.textContent='';t.classList.remove('on')},1600);
+}
+function load(){
+  let o=null;
+  try{ o=JSON.parse(localStorage.getItem(KEY)||'null'); }catch(e){}
+  if(!o) return;
+  if(o._chair) setChair(o._chair,true);
+  allFields().forEach(el=>{
+    if(el.type==='radio'){ if(o['r:'+el.name]===el.value) el.checked=true; }
+    else if(el.type==='checkbox'){ if(o['c:'+el.id]) el.checked=true; }
+    else if(o[el.id]!==undefined) el.value=o[el.id];
+  });
+  FI.forEach((f,i)=>renderFI(i));
+}
+function exportJSON(){
+  const data=localStorage.getItem(KEY)||'{}';
+  const b=new Blob([data],{type:'application/json'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(b);
+  a.download='workbook-mente-no-trabalho.json'; a.click();
+}
+function importJSON(inp){
+  const f=inp.files[0]; if(!f) return;
+  const r=new FileReader();
+  r.onload=e=>{ try{ JSON.parse(e.target.result); localStorage.setItem(KEY,e.target.result); location.reload(); }catch(err){ alert('Arquivo inválido.'); } };
+  r.readAsText(f);
+}
+
+/* ---------- navegação ---------- */
+function go(n){
+  cur=n;
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('p'+n).classList.add('active');
+  document.querySelectorAll('.mtab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('tab'+n).classList.add('active');
+  window.scrollTo({top:0,behavior:'instant'});
+  const t=document.getElementById('tab'+n);
+  if(t) t.scrollIntoView({block:'nearest',inline:'center',behavior:'smooth'});
+}
+function setChair(c,silent){
+  chair=c;
+  document.querySelectorAll('.chair').forEach(b=>b.classList.toggle('on',b.dataset.chair===c));
+  MODS.forEach(m=>{
+    const s=document.getElementById('star'+m.id);
+    if(s) s.textContent=(m.chairs&&m.chairs.includes(c))?'★':'';
+  });
+  if(!silent) save();
+}
+
+/* ---------- progresso ---------- */
+function modProgress(n){
+  const sec=document.getElementById('p'+n); if(!sec) return [0,0];
+  const els=allFields(sec).filter(e=>e.type!=='checkbox'&&e.type!=='radio'&&!e.dataset.noprog);
+  let tot=els.length, fil=els.filter(e=>e.value.trim()!=='').length;
+  const names=new Set();
+  allFields(sec).filter(e=>e.type==='radio').forEach(e=>names.add(e.name));
+  names.forEach(nm=>{ tot++; if(sec.querySelector(`input[name="${nm}"]:checked`)) fil++; });
+  return [fil,tot];
+}
+function refresh(){
+  let F=0,T=0;
+  MODS.forEach(m=>{
+    if(m.id===0||m.id===9) return;
+    const [f,t]=modProgress(m.id); F+=f; T+=t;
+    const tab=document.getElementById('tab'+m.id);
+    tab.classList.remove('done','part');
+    if(t>0&&f>=t) tab.classList.add('done'); else if(f>0) tab.classList.add('part');
+  });
+  const pct=T?Math.round(F/T*100):0;
+  document.getElementById('pctTxt').textContent=pct+'%';
+  document.getElementById('pctBar').style.width=pct+'%';
+  scores(); calc(); mirrors();
+}
+
+/* ---------- pontuações ---------- */
+function sumScale(name,n){
+  let s=0,c=0;
+  for(let i=0;i<n;i++){ const el=document.querySelector(`input[name="${name}${i}"]:checked`); if(el){ s+=+el.value; c++; } }
+  return [s,c];
+}
+function scores(){
+  const [a,ca]=sumScale('m2a',4);
+  const eA=document.getElementById('m2_scoreA'), tA=document.getElementById('m2_scoreA_txt');
+  if(ca===4){ eA.textContent=a;
+    tA.textContent = a<=8 ? 'De 4 a 8: o método é novo para você — percorra os quatro E\'s na ordem, sem pular prática.'
+      : a<=12 ? 'De 9 a 12: você já faz parte disso por intuição; o ganho está em transformar em rotina.'
+      : 'De 13 a 16: use o workbook para preparar as conversas difíceis e para treinar o seu time de líderes.';
+  } else { eA.textContent='–'; tA.textContent='Responda as quatro para ver a leitura.'; }
+
+  const [b,cb]=sumScale('m2b',4);
+  const eB=document.getElementById('m2_scoreB'), tB=document.getElementById('m2_scoreB_txt');
+  if(cb===4){ eB.textContent=b;
+    const d=b-a;
+    tB.textContent = ca<4 ? 'Preencha também a autoavaliação de partida para comparar.'
+      : d>0 ? `+${d} pontos em relação ao começo do módulo. O que mudou não foi a sua intenção — foi o fato de a conversa já estar escrita.`
+      : d===0 ? 'Mesmo total. Releia onde você se deu 1 ou 2: é ali que a próxima conversa vai travar.'
+      : 'Total menor que o de partida. Isso costuma ser bom sinal: você passou a ver o que ainda não fazia.';
+  } else { eB.textContent='–'; tB.textContent='Responda as quatro para ver a comparação.'; }
+
+  const [m,cm]=sumScale('m3s',4);
+  const eM=document.getElementById('m3_score'), tM=document.getElementById('m3_score_txt');
+  if(cm===4){ eM.textContent=m;
+    tM.textContent = m<=6 ? 'De 4 a 6: sinais dentro do esperado. Mantenha a pausa protegida — inclusive a sua.'
+      : m<=10 ? 'De 7 a 10: atenção. Há mais de um sinal sustentado; trate como você trataria no seu time.'
+      : 'De 11 a 16: alerta. Um líder esgotado não enxerga o time. Ponte também vale para você — procure apoio profissional.';
+  } else { eM.textContent='–'; tM.textContent='Responda as quatro para ver a leitura.'; }
+
+  const sig=[...document.querySelectorAll('.sig')].filter(c=>c.checked).length;
+  const eS=document.getElementById('m8_score'), tS=document.getElementById('m8_score_txt');
+  if(eS){ eS.textContent=sig;
+    tS.textContent = sig===0 ? 'de 4 sinais. Ainda é campanha — comece pelo dono, no módulo 7.'
+      : sig===1 ? 'de 4 sinais. Começou. O próximo mais barato costuma ser o número na reunião que já existe.'
+      : sig<=3 ? 'de 4 sinais. Está pegando. Falta o mais difícil de forjar: alguém corrigindo alguém sem você na sala.'
+      : 'de 4 sinais. Isso não é mais um programa — é gestão. O risco agora é parar de medir.';
+  }
+}
+
+/* ---------- calculadora ---------- */
+const brl=v=>'R$ '+(v||0).toLocaleString('pt-BR',{maximumFractionDigits:0});
+const num=id=>{const e=document.getElementById(id);return e&&e.value!==''?+e.value:0};
+function calc(){
+  const c1=num('c1_n')*num('c1_dias')*(num('c1_sal')/30)+num('c1_cob');
+  const c2=num('c2_n')*num('c2_rep')*(num('c2_pct')/100);
+  const c3=num('c3_dif')*num('c3_unit')*(num('c3_pct')/100);
+  const tot=c1+c2+c3;
+  const set=(id,v)=>{const e=document.getElementById(id); if(e) e.textContent=brl(Math.round(v))};
+  set('c1_out',c1); set('c2_out',c2); set('c3_out',c3);
+  set('t1',c1); set('t2',c2); set('t3',c3); set('tTotal',tot);
+  return tot;
+}
+
+/* ---------- espelhos do plano ---------- */
+const val=id=>{const e=document.getElementById(id);return e?e.value.trim():''};
+const dt=id=>{const v=val(id); if(!v) return ''; const [y,m,d]=v.split('-'); return `${d}/${m}/${y}`};
+function mirrors(){
+  document.querySelectorAll('[data-mirror]').forEach(el=>{ el.textContent=val(el.dataset.mirror); });
+  const tot=calc();
+  document.getElementById('planoPerda').textContent = tot>0 ? brl(Math.round(tot)) : '';
+  const ind=val('m7_indicador'), reu=val('m7_reuniao');
+  document.getElementById('planoIndicador').textContent = ind||reu ? `${ind}${ind&&reu?' · na reunião: ':(reu?'Na reunião: ':'')}${reu}` : '';
+  const d1=dt('m7_dataleitura'), d2=dt('m4_data');
+  document.getElementById('planoData').textContent = d1||d2 ? [d1&&'Indicador: '+d1, d2&&'Botão tangível: '+d2].filter(Boolean).join('  ·  ') : '';
+  const p=val('m2_pessoa'), dc=dt('m2_dataconversa'), ab=val('m2_abertura');
+  document.getElementById('planoConversa').textContent = p||dc||ab ? `${p}${dc?' · '+dc:''}${ab?'\n"'+ab+'"':''}` : '';
+  const ix=val('m7_indice'), dm=val('m7_dimensao'), dd=dt('m7_datadiag');
+  document.getElementById('planoDiag').textContent = ix||dm ? `Índice ${ix||'—'}/100${dm?' · trava em: '+dm:''}${dd?' · medido em '+dd:''}` : '';
+  const ds=[['Linha de base','m8_d1'],['Formalizações','m8_d2'],['Ciclo de metas','m8_d3'],['Slide mensal','m8_d4']]
+    .map(([l,id])=>{const v=dt(id); return v?l+': '+v:null}).filter(Boolean);
+  document.getElementById('planoDatas').textContent = ds.join('  ·  ');
+}
+
+/* ---------- textarea que cresce ---------- */
+function grow(el){ el.style.height='auto'; el.style.height=(el.scrollHeight+2)+'px'; }
+function growAll(){ document.querySelectorAll('textarea').forEach(grow); }
+
+/* ---------- init ---------- */
+buildNav(); buildMapa();
+buildScale('m2scaleA',SCALE_M2,'m2a');
+buildScale('m2scaleB',SCALE_M2,'m2b');
+buildScale('m3scale',SCALE_M3,'m3s');
+buildFI(); buildFRPRT();
+load();
+document.addEventListener('input',e=>{ if(e.target.matches('input,textarea,select')){ if(e.target.tagName==='TEXTAREA') grow(e.target); save(); }});
+document.addEventListener('change',e=>{ if(e.target.matches('input,textarea,select')) save(); });
+window.addEventListener('beforeprint',growAll);
+growAll(); refresh(); go(0);
+document.getElementById('tab0').classList.add('active');
+</script>
+</body>
+</html>

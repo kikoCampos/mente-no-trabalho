@@ -27,8 +27,8 @@
 <title>Mente no Trabalho — Materiais da série</title>
 <meta name="description" content="O acervo da série Mente no Trabalho, com Kiko Campos & Esabela Cruz: lives, clipes, newsletter, o e-book da 1ª temporada e o workbook interativo das 8 edições.">
 <meta property="og:title" content="Mente no Trabalho — com Kiko Campos & Esabela Cruz">
-<meta property="og:description" content="Lives na íntegra, clipes, newsletter e materiais para download — todo o conteúdo da série num só lugar.">
-<meta property="og:image" content="https://mente.kikocampos.com/capa-diagnostico-nr1.png">
+<meta property="og:description" content="Live 8, sexta 21/08 às 12h: o final da 1ª temporada. E o acervo completo — lives, clipes, o e-book e o workbook das 8 edições.">
+<meta property="og:image" content="https://mente.kikocampos.com/arte-live8-o-que-fica-12h.jpg">
 <meta property="og:url" content="https://mente.kikocampos.com/">
 <meta property="og:type" content="website">
 <link rel="canonical" href="https://mente.kikocampos.com/">
@@ -386,9 +386,13 @@
     .eb-form{grid-column:1 / -1}
     .ebook-band .eb-capa{width:84px}
   }
-  @media(max-width:520px){
-    .ebook-band{grid-template-columns:1fr;text-align:left}
-    .ebook-band .eb-capa{width:96px}
+  @media(max-width:560px){
+    .ebook-band{grid-template-columns:1fr;text-align:left;padding:20px}
+    .ebook-band .eb-capa{width:66px}
+    .eb-long{display:none}
+    .eb-txt h3{font-size:1.28rem;margin:6px 0 4px}
+    .eb-txt p{font-size:.9rem}
+    .eb-txt a.inside-link{margin-top:6px}
   }
 </style>
 </head>
@@ -422,35 +426,35 @@
       <span>Kiko Campos &amp; Esabela Cruz</span>
     </div>
     <div class="btn-row" style="margin-top:26px">
-      <a class="btn btn-primary" href="#proxima">Ver a próxima live →</a>
-      <a class="btn btn-ghost" href="#lives">Ver o acervo</a>
+      <a class="btn btn-primary" href="#ebook">Receber os dois: e-book + workbook →</a>
+      <a class="btn btn-ghost" href="#proxima">Ver a próxima live</a>
     </div>
   </div>
 </section>
 
 
 <!-- FAIXA DE CAPTURA — E-BOOK DA TEMPORADA 1 -->
-<section class="ebook-sec">
+<section class="ebook-sec" id="ebook">
   <div class="wrap">
     <div class="ebook-band">
       <img class="eb-capa" src="capa-ebook-temporada1.png" alt="Capa do e-book Cultura humanizada: o que fica quando a live acaba" loading="lazy">
       <div class="eb-txt">
-        <span class="flag">Final da temporada · e-book gratuito</span>
-        <h3>As 8 edições em um arquivo só</h3>
-        <p>O mapa da temporada, o manifesto e os quatro guias práticos &mdash; para o líder, para o RH e para a mesa do orçamento. 41 páginas.</p>
+        <span class="flag">Final da temporada · e-book + workbook, gratuitos</span>
+        <h3>As 8 edições em um arquivo só — e um workbook para preencher</h3>
+        <p>O e-book é para ler<span class="eb-long">: o mapa da temporada, o manifesto e os quatro guias práticos, em 41 páginas</span>. O workbook é para fazer<span class="eb-long">: oito módulos e o seu Plano de Segunda-feira</span>. <strong>Um e-mail leva os dois.</strong></p>
         <a class="inside-link" href="captura-ebook-temporada1.html">Ver o que tem dentro &rarr;</a>
       </div>
       <div>
         <form class="eb-form" id="ebForm" novalidate>
           <input id="ebEmail" type="email" placeholder="Seu melhor e-mail" autocomplete="email" required aria-label="Seu melhor e-mail">
-          <button type="submit">Receber o e-book</button>
+          <button type="submit">Receber os dois</button>
           <p class="eb-note">Download imediato, nesta tela. Sem spam.</p>
         </form>
         <div class="eb-ok" id="ebOk">
           <strong>Pronto. Aqui está.</strong>
           <a class="dl" id="ebDl" href="Ebook_Mente_no_Trabalho_Temporada1%20final.pdf" download="Ebook_Mente_no_Trabalho_Temporada1.pdf">Baixar o e-book (PDF)</a>
           <p>41 páginas. Comece pelo mapa da temporada, na página 4.</p>
-          <p style="margin-top:12px"><a href="captura-workbook-temporada1.html" style="color:var(--accent);font-weight:700;text-decoration:none">E abra o workbook para preencher →</a></p>
+          <p style="margin-top:14px"><a href="captura-workbook-temporada1.html" style="color:var(--accent);font-weight:700;text-decoration:none">Agora abra o workbook e preencha o seu Plano de Segunda-feira &rarr;</a></p>
         </div>
       </div>
     </div>
@@ -461,15 +465,12 @@
 <section id="proxima">
   <div class="wrap">
     <div class="next">
-      <div class="next-art-link" style="display:flex;align-items:center;justify-content:center;min-height:220px;border-radius:14px;background:linear-gradient(160deg,var(--panel-2),rgba(10,24,48,.7));box-shadow:0 18px 50px rgba(0,0,0,.35);text-align:center;padding:30px">
-        <div>
-          <div class="eyebrow" style="margin-bottom:12px">Grande final da 1ª temporada</div>
-          <div style="font-family:var(--display);font-size:2.6rem;color:var(--ink);font-weight:700">Live 8</div>
-        </div>
-      </div>
+      <a class="next-art-link" href="https://www.linkedin.com/in/kikocampos/" target="_blank" rel="noopener">
+        <img class="next-art" src="arte-live8-o-que-fica-12h.jpg" alt="Live 8 — Cultura humanizada: o que fica quando a live acaba. Sexta, 21/08, 12h, ao vivo no LinkedIn, com Kiko Campos &amp; Esabela Cruz." loading="lazy">
+      </a>
       <div class="next-info">
-        <div class="live-badge"><i class="dot"></i> Próximo episódio · Live 8</div>
-        <h3>O fechamento da 1ª temporada</h3>
+        <div class="live-badge"><i class="dot"></i> Final da temporada · Live 8</div>
+        <h3>Cultura humanizada: o que fica quando a live acaba</h3>
         <p class="when"><strong>Sexta, 21/08 · 12h</strong> (horário de Brasília) · ao vivo no LinkedIn · com Kiko Campos &amp; Esabela Cruz</p>
         <div class="next-count">
           <div class="cd-label">Começa em</div>
@@ -479,7 +480,7 @@
           <a class="btn btn-primary" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Mente%20no%20Trabalho%20%E2%80%94%20Live%208&amp;dates=20260821T150000Z/20260821T160000Z&amp;details=Ao%20vivo%20no%20LinkedIn%2C%20com%20Kiko%20Campos%20e%20Esabela%20Cruz.%20Perfil%3A%20https%3A%2F%2Fwww.linkedin.com%2Fin%2Fkikocampos%2F" target="_blank" rel="noopener">Adicionar ao calendário</a>
           <a class="btn btn-ghost" href="https://www.linkedin.com/in/kikocampos/" target="_blank" rel="noopener">Acompanhar no LinkedIn</a>
         </div>
-        <p class="when" style="margin-top:14px;opacity:.75">Título, arte e link de inscrição da Live 8 entram aqui assim que estiverem prontos.</p>
+        <p class="when" style="margin-top:14px;opacity:.75">Última edição da temporada: a costura das 8 lives, o manifesto da cultura humanizada e os dois materiais de fecho — o e-book, para ler, e o workbook, para preencher.</p>
       </div>
     </div>
   </div>
@@ -886,7 +887,12 @@
     function tick(){
       var now = new Date();
       var d = target - now;
-      if(d <= 0){ el.innerHTML = 'Ao vivo <span>agora</span>'; return; }
+      if(d <= 0){
+        var lbl = document.querySelector('.next-count .cd-label');
+        if(d > -5400000){ el.innerHTML = 'Ao vivo <span>agora</span>'; }
+        else { el.innerHTML = 'Encerrada'; if(lbl){ lbl.textContent = 'A \u00faltima edi\u00e7\u00e3o'; } }
+        return;
+      }
       var days = Math.floor(d/86400000);
       var hrs  = Math.floor(d%86400000/3600000);
       var mins = Math.floor(d%3600000/60000);

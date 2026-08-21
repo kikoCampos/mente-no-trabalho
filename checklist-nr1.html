@@ -110,7 +110,7 @@ input[type=text],input[type=email],select{
 }
 input:focus,select:focus{outline:none;border-color:var(--navy);background:#fff}
 .row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.consent{display:flex;gap:10px;align-items:flex-start;font-size:12.5px;color:var(--muted);margin-top:6px}
+.mais{margin:2px 0 18px;border-top:1px solid rgba(10,24,48,.10);padding-top:12px}.mais>summary{cursor:pointer;list-style:none;font-size:13px;font-weight:700;color:var(--navy);display:inline-flex;align-items:center;gap:7px;padding:2px 0}.mais>summary::-webkit-details-marker{display:none}.mais>summary::before{content:"+";display:inline-grid;place-items:center;width:18px;height:18px;border:1px solid rgba(10,24,48,.28);border-radius:5px;font-weight:700;line-height:1}.mais[open]>summary::before{content:"–"}.mais>summary span{font-weight:500;color:var(--muted)}.mais>summary:hover{text-decoration:underline}.mais-in{padding-top:12px}.mais-in .hint{margin:0 0 12px}.consent{display:flex;gap:10px;align-items:flex-start;font-size:12.5px;color:var(--muted);margin-top:10px}
 .consent input{margin-top:3px;width:17px;height:17px;flex:none;accent-color:var(--navy)}
 
 /* ---------- Botões ---------- */
@@ -240,54 +240,64 @@ input:focus,select:focus{outline:none;border-color:var(--navy);background:#fff}
 
     <!-- Identificação -->
     <div class="card">
-      <h2>Para onde enviamos o seu resultado</h2>
-      <p class="hint">Você vê o resultado na tela imediatamente. O e-mail é para receber a versão completa com as recomendações por dimensão.</p>
-      <div class="field">
-        <label class="lbl" for="nome">Nome *</label>
-        <input type="text" id="nome" name="nome" autocomplete="name" placeholder="Como você quer ser chamado(a)">
-      </div>
-      <div class="field">
-        <label class="lbl" for="email">E-mail corporativo *</label>
-        <input type="email" id="email" name="email" autocomplete="email" placeholder="voce@empresa.com.br">
-      </div>
+      <h2>Seu resultado aparece aqui mesmo</h2>
+      <p class="hint">Deixe nome e e-mail: o índice aparece na hora, nesta tela. O e-mail fica com a gente só para enviar os materiais da série.</p>
       <div class="row2">
         <div class="field">
-          <label class="lbl" for="empresa">Empresa</label>
-          <input type="text" id="empresa" name="empresa" autocomplete="organization" placeholder="Opcional">
+          <label class="lbl" for="nome">Nome</label>
+          <input type="text" id="nome" name="nome" autocomplete="name" placeholder="Como você quer ser chamado(a)">
         </div>
         <div class="field">
-          <label class="lbl" for="porte">Porte</label>
-          <select id="porte" name="porte">
-            <option value="">Selecione</option>
-            <option>Até 100 pessoas</option>
-            <option>101 a 500</option>
-            <option>501 a 2.000</option>
-            <option>2.001 a 10.000</option>
-            <option>Mais de 10.000</option>
-          </select>
+          <label class="lbl" for="email">E-mail profissional</label>
+          <input type="email" id="email" name="email" autocomplete="email" placeholder="voce@empresa.com.br">
         </div>
       </div>
-      <div class="row2">
-        <div class="field">
-          <label class="lbl" for="papel">Seu papel</label>
-          <select id="papel" name="papel">
-            <option value="">Selecione</option>
-            <option>RH / Gente e Gestão</option>
-            <option>SESMT / Saúde e Segurança</option>
-            <option>Liderança de área</option>
-            <option>Diretoria / C-level</option>
-            <option>Consultoria / Autônomo</option>
-            <option>Outro</option>
-          </select>
+
+      <details class="mais">
+        <summary>Detalhar meu contexto <span>(opcional)</span></summary>
+        <div class="mais-in">
+          <p class="hint">Só para calibrarmos as recomendações. Nada aqui muda o seu índice.</p>
+          <div class="row2">
+            <div class="field">
+              <label class="lbl" for="empresa">Empresa</label>
+              <input type="text" id="empresa" name="empresa" autocomplete="organization" placeholder="Opcional">
+            </div>
+            <div class="field">
+              <label class="lbl" for="porte">Porte</label>
+              <select id="porte" name="porte">
+                <option value="">Selecione</option>
+                <option>Até 100 pessoas</option>
+                <option>101 a 500</option>
+                <option>501 a 2.000</option>
+                <option>2.001 a 10.000</option>
+                <option>Mais de 10.000</option>
+              </select>
+            </div>
+          </div>
+          <div class="row2">
+            <div class="field">
+              <label class="lbl" for="papel">Seu papel</label>
+              <select id="papel" name="papel">
+                <option value="">Selecione</option>
+                <option>RH / Gente e Gestão</option>
+                <option>SESMT / Saúde e Segurança</option>
+                <option>Liderança de área</option>
+                <option>Diretoria / C-level</option>
+                <option>Consultoria / Autônomo</option>
+                <option>Outro</option>
+              </select>
+            </div>
+            <div class="field">
+              <label class="lbl" for="setor">Setor</label>
+              <input type="text" id="setor" name="setor" placeholder="Opcional">
+            </div>
+          </div>
         </div>
-        <div class="field">
-          <label class="lbl" for="setor">Setor</label>
-          <input type="text" id="setor" name="setor" placeholder="Opcional">
-        </div>
-      </div>
+      </details>
+
       <label class="consent">
         <input type="checkbox" id="consent">
-        <span>Autorizo o contato por e-mail com o resultado deste diagnóstico e conteúdos da série <b>Mente no Trabalho</b>. Posso cancelar quando quiser. (LGPD)</span>
+        <span>Autorizo receber por e-mail os materiais da série <b>Mente no Trabalho</b>. Posso cancelar quando quiser. (LGPD)</span>
       </label>
     </div>
 
@@ -602,7 +612,7 @@ async function enviar(r){
       headers:{"Content-Type":"application/x-www-form-urlencoded"},
       body: dados.toString()
     });
-    st.textContent = "✓ Resultado registrado — enviamos a versão completa para " + v("email");
+    st.textContent = "✓ Diagnóstico registrado. O seu resultado completo está aqui embaixo — use “Salvar em PDF” para guardar.";
   }catch(e){
     st.textContent = "Não conseguimos registrar agora — use “Salvar em PDF” para guardar o seu resultado.";
   }
@@ -628,13 +638,13 @@ document.getElementById("formulario").addEventListener("submit", ev=>{
     return;
   }
   if(!nome || !okEmail){
-    erro.textContent = "Preencha nome e um e-mail válido para receber o resultado.";
+    erro.textContent = "Preencha nome e um e-mail válido para ver o seu índice.";
     erro.style.display="block";
     document.getElementById(nome?"email":"nome").focus();
     return;
   }
   if(!document.getElementById("consent").checked){
-    erro.textContent = "Confirme o aceite de contato (LGPD) para continuar.";
+    erro.textContent = "Marque o aceite de contato (LGPD) para ver o seu índice.";
     erro.style.display="block";
     return;
   }

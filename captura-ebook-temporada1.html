@@ -72,12 +72,28 @@
   .part span{color:var(--grey);font-size:14px}
   .quote{font-family:'Playfair Display',serif;font-size:19px;line-height:1.4;color:var(--navy);border-left:3px solid var(--amber);padding-left:16px;margin:26px 0}
   footer{border-top:1px solid var(--line);padding:22px 20px;text-align:center;font-size:13px;color:var(--grey)}
+
+  /* ===== masthead de retorno (padrão do site) ===== */
+  .top{gap:12px;flex-wrap:wrap}
+  .top .top-l{display:flex;align-items:center;gap:12px;min-width:0}
+  .top a{color:#fff;text-decoration:none}
+  .top .parent{font-size:11px;letter-spacing:.08em;text-transform:uppercase;opacity:.62;
+    padding-right:12px;border-right:1px solid rgba(255,255,255,.22);white-space:nowrap}
+  .top .parent:hover{opacity:1}
+  .top a.brand{font-weight:700;letter-spacing:.12em;color:#fff}
+  .top .back{font-size:12.5px;opacity:.85;white-space:nowrap}
+  .top .back:hover{opacity:1;text-decoration:underline}
+  @media(max-width:520px){.top .parent{font-size:10px}.top .back{font-size:11.5px}}
+
 </style>
 </head>
 <body>
 <div class="top">
-  <span class="brand">MENTE NO TRABALHO</span>
-  <a href="index.html#materiais">← voltar para a biblioteca</a>
+  <div class="top-l">
+    <a class="parent" href="https://kikocampos.com">&larr; kiko campos</a>
+    <a class="brand" href="index.html">MENTE NO TRABALHO</a>
+  </div>
+  <a class="back" href="index.html#materiais">Todos os materiais &rarr;</a>
 </div>
 <div class="wrap">
   <div>

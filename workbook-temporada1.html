@@ -218,12 +218,20 @@ table.fill textarea{min-height:38px}
   textarea{min-height:auto;height:auto!important}
   .wrap{max-width:100%;padding:0}
 }
+
+  /* ===== retorno ao site (masthead) ===== */
+  .topbar .parentlink{font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;opacity:.6;color:#EAF1FB;
+    text-decoration:none;padding-right:12px;margin-right:12px;border-right:1px solid rgba(255,255,255,.22);white-space:nowrap}
+  .topbar .parentlink:hover{opacity:1}
+  a.brandmark{color:inherit;text-decoration:none}
+  a.brandmark:hover{color:var(--accent)}
+  @media(max-width:640px){.topbar .parentlink{display:none}}
 </style>
 </head>
 <body>
 <div class="topbar noprint">
   <div class="topbar-in">
-    <div class="brandmark">Mente no Trabalho <span>· Workbook</span></div>
+    <a class="parentlink" href="https://kikocampos.com" title="Ir para kikocampos.com">&larr; kiko campos</a><a class="brandmark" href="index.html" title="Ir para o site da série">Mente no Trabalho <span>· Workbook</span></a>
     <div class="spacer"></div>
     <div class="progresswrap"><span id="pctTxt">0%</span><div class="bar"><i id="pctBar"></i></div></div>
     <span class="saved" id="savedTag">&nbsp;</span>

@@ -1,42 +1,127 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
 <title>Painel da Série · Mente no Trabalho</title>
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@300;400;500;700&family=Red+Hat+Text:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css">
-<link rel="stylesheet" href="assets/mente.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+--bg:#0A1830; --bg-2:#0E2140; --panel:#12294d; --panel-2:#16305a;
+--line:rgba(255,255,255,.10); --line-strong:rgba(255,255,255,.18);
+--ink:#EAF1FB; --ink-soft:#AFC0DB; --ink-mute:#7D91B4;
+--accent:#F2B33D; --accent-2:#5AA9E6; --good:#4FD1A1; --bad:#e8785f;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Montserrat",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+background:linear-gradient(180deg,var(--bg),var(--bg-2));color:var(--ink);
+padding:38px 22px 64px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1160px;margin:0 auto}
+.brand{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(242,179,61,.55);
+border-radius:999px;padding:7px 16px;font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ink)}
+.brand .dot{width:8px;height:8px;background:var(--accent);border-radius:50%}
+header.top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:14px;
+border-bottom:1px solid var(--line);padding-bottom:22px;margin-bottom:24px}
+header.top h1{font-family:"Playfair Display",Georgia,serif;font-size:34px;font-weight:800;letter-spacing:-.4px;margin-top:14px;line-height:1.1}
+header.top h1 em{color:var(--accent);font-style:normal}
+header.top .sub{color:var(--ink-soft);font-size:14px;margin-top:6px}
+.badge{font-size:12px;color:var(--ink-mute);background:var(--bg-2);border:1px solid var(--line);
+padding:7px 13px;border-radius:999px;white-space:nowrap}
+.verdict{display:flex;gap:14px;align-items:flex-start;background:linear-gradient(100deg,rgba(79,209,161,.10),rgba(242,179,61,.06));
+border:1px solid rgba(79,209,161,.30);border-left:4px solid var(--good);border-radius:14px;padding:16px 18px;margin-bottom:8px}
+.verdict .tag{font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--good);white-space:nowrap;padding-top:2px}
+.verdict p{font-size:14px;color:var(--ink)}
+.verdict b{color:#fff}
+h2.sec{font-size:12px;text-transform:uppercase;letter-spacing:.22em;color:var(--ink-mute);
+margin:34px 0 15px;font-weight:700}
+h2.sec span{color:var(--ink-mute);text-transform:none;letter-spacing:0;font-weight:500;font-size:12.5px}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.kpi{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:17px 19px;position:relative;overflow:hidden}
+.kpi::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--accent)}
+.kpi.blue::before{background:var(--accent-2)} .kpi.star::before{background:var(--good)}
+.kpi .lab{font-size:11.5px;color:var(--ink-soft);font-weight:600}
+.kpi .val{font-family:"Playfair Display",Georgia,serif;font-size:32px;font-weight:800;margin:8px 0 3px;letter-spacing:-.5px}
+.kpi .delta{font-size:12px;font-weight:600}
+.up{color:var(--good)} .down{color:var(--bad)} .flat{color:var(--ink-mute)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px 20px 13px}
+.panel h3{font-family:"Playfair Display",Georgia,serif;font-size:19px;font-weight:700;margin-bottom:2px}
+.panel .cap{font-size:12px;color:var(--ink-mute);margin-bottom:16px}
+svg{width:100%;height:auto;display:block;overflow:visible}
+.glab{font-size:11px;fill:var(--ink-mute)} .gval{font-size:11.5px;font-weight:700;fill:var(--ink)}
+/* funnel */
+.funnel{display:flex;flex-direction:column;gap:9px;margin-top:4px}
+.stage{position:relative}
+.stage .row{display:flex;align-items:center;justify-content:space-between;margin-bottom:5px}
+.stage .name{font-size:13px;font-weight:600;color:var(--ink)}
+.stage .name small{color:var(--ink-mute);font-weight:500;font-size:11.5px}
+.stage .amt{font-family:"Playfair Display",serif;font-size:17px;font-weight:800}
+.stage .bar{height:26px;border-radius:7px}
+.stage .bar.known{background:linear-gradient(90deg,var(--accent),#f6c766)}
+.stage .bar.dark{border:1.5px dashed rgba(242,179,61,.5);background:rgba(242,179,61,.05);display:flex;align-items:center;padding-left:12px}
+.stage .bar.dark span{font-size:11px;font-weight:700;color:var(--accent);letter-spacing:.03em}
+.conv{font-size:11px;color:var(--ink-mute);text-align:right;margin-top:-2px}
+/* tables */
+.tblwrap{overflow-x:auto;border:1px solid var(--line);border-radius:16px}
+table{border-collapse:collapse;width:100%;font-size:13px;min-width:820px}
+th,td{padding:11px 13px;text-align:right;border-bottom:1px solid var(--line);white-space:nowrap}
+th{background:var(--bg-2);color:var(--ink-mute);font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.05em}
+td:first-child,th:first-child{text-align:left}
+tbody tr:last-child td{border-bottom:none}
+tbody tr.l4{background:rgba(242,179,61,.06)}
+.tema{color:var(--ink-soft);font-size:12px}
+.dim{color:var(--ink-mute)}
+.win{color:var(--good);font-weight:700}
+/* experiment log */
+table.log{min-width:680px}
+table.log td,table.log th{text-align:left;white-space:normal}
+table.log td.r{white-space:nowrap;text-align:left}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+ul.clean{list-style:none} ul.clean li{padding:8px 0 8px 20px;position:relative;font-size:13.5px;color:var(--ink-soft);border-bottom:1px solid var(--line)}
+ul.clean li:last-child{border-bottom:none}
+ul.clean li::before{content:"";position:absolute;left:2px;top:15px;width:7px;height:7px;border-radius:50%;background:var(--accent)}
+ul.clean li b{color:var(--ink)}
+.pill{display:inline-block;font-size:11px;font-weight:700;padding:2px 9px;border-radius:999px;margin-left:6px}
+.pill.ok{background:rgba(79,209,161,.15);color:var(--good)}
+.pill.watch{background:rgba(242,179,61,.15);color:var(--accent)}
+.pill.miss{background:rgba(232,120,95,.15);color:var(--bad)}
+.foot{margin-top:32px;font-size:12px;color:var(--ink-mute);border-top:1px solid var(--line);padding-top:18px;line-height:1.7}
+.foot code{background:var(--bg-2);padding:2px 6px;border-radius:5px;color:var(--accent);font-size:11.5px}
+@media(max-width:820px){.kpis{grid-template-columns:1fr 1fr}.grid2{grid-template-columns:1fr}.cols{grid-template-columns:1fr}header.top h1{font-size:26px}}
+
+  /* ===== masthead de retorno (padrão do site) ===== */
+  .sitebar{background:#0A1830;color:#EAF1FB;border-bottom:1px solid rgba(255,255,255,.12)}
+  .sitebar .sb-in{max-width:1080px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  .sitebar a{color:#EAF1FB;text-decoration:none}
+  .sitebar .parent{font-size:11px;letter-spacing:.08em;text-transform:uppercase;opacity:.62;
+    padding-right:12px;border-right:1px solid rgba(255,255,255,.22);white-space:nowrap}
+  .sitebar .parent:hover{opacity:1}
+  .sitebar .sb-brand{font-weight:700;letter-spacing:.12em;font-size:12.5px}
+  .sitebar .sb-brand .dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:#F2B33D;margin-right:7px;vertical-align:middle}
+  .sitebar .sb-back{margin-left:auto;font-size:12.5px;opacity:.85;white-space:nowrap}
+  .sitebar .sb-back:hover{opacity:1;text-decoration:underline}
+  @media print{.sitebar{display:none}}
+  @media(max-width:520px){.sitebar .parent{font-size:10px}.sitebar .sb-back{font-size:11.5px}}
+
+</style>
 </head>
-<body class="m-tool m-panel">
-<aside class="rail" aria-hidden="true">
-  <span class="dot"></span>
-  <span class="rt"><b>Kiko Campos</b> — Cultura vira comportamento. Comportamento vira resultado.</span>
-  <span class="rt">kikocampos.com</span>
-</aside>
-
-<nav><div class="wrap navin">
-  <a class="brand" href="https://kikocampos.com/index.html"><span class="dot"></span>kiko campos</a>
-  <button class="navtoggle" type="button" aria-label="Abrir menu" aria-expanded="false" onclick="var o=document.body.classList.toggle('navopen');this.setAttribute('aria-expanded',o)">☰</button>
-  <div class="links">
-    <a href="https://kikocampos.com/palestras.html">Palestras</a><a href="https://kikocampos.com/programas.html">Programas</a><a href="https://kikocampos.com/advisory.html">Advisory</a><div class="dd"><button type="button" aria-haspopup="true" onclick="this.parentNode.classList.toggle('open')">Conteúdo &amp; Pesquisa</button><div class="menu"><a href="https://mente.kikocampos.com" aria-current="page">Mente no Trabalho<small>Série semanal e newsletter</small></a><a href="https://jovens.kikocampos.com">Pesquisa Jovens Talentos<small>4.991 estagiários ouvidos no Brasil</small></a><a href="https://kikocampos.com/seucodigo/index.html">Seu Código<small>Comece em 3 minutos</small></a><a href="https://kikocampos.com/manifesto.html">Manifesto</a></div></div><a href="https://kikocampos.com/cultura-como-sistema/index.html">Case</a><a href="https://kikocampos.com/livro.html">Livro</a><a href="https://kikocampos.com/sobre.html">Sobre</a>
-    <a class="btn btn-n" href="https://kikocampos.com/index.html#contato">Fale comigo&nbsp;↗</a>
+<body>
+<div class="sitebar">
+  <div class="sb-in">
+    <a class="parent" href="https://kikocampos.com">&larr; kiko campos</a>
+    <a class="sb-brand" href="index.html"><span class="dot"></span>MENTE NO TRABALHO</a>
+    <a class="sb-back" href="index.html">Ir para o site &rarr;</a>
   </div>
-</div></nav>
-<div class="mbar"><div class="wrap mbar-in">
-  <a class="mbrand" href="index.html">Mente no Trabalho <span>· série com Kiko Campos &amp; Esabela Cruz</span></a>
-  <div class="mlinks"><a href="index.html#ultima">Última live</a><a href="index.html#lives">Acervo</a><a href="index.html#clipes">Clipes</a><a href="index.html#materiais">Biblioteca</a><a href="captura-workbook-temporada1.html">Workbook</a><a class="mnl" href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=6888852094439198720" target="_blank" rel="noopener">Inscrever na newsletter&nbsp;↗</a></div>
-</div></div>
+</div>
 
-<div class="wrap pn">
+<div class="wrap">
 <header class="top">
 <div>
-<span class="label">Mente no Trabalho</span>
-<h1>Painel de Growth da Série</h1>
+<span class="brand"><span class="dot"></span>Mente no Trabalho</span>
+<h1>Painel de <em>Growth</em> da Série</h1>
 <div class="sub">Kiko Campos &amp; Esabela Cruz · funil, taxas e experimentos por live</div>
 </div>
 <div class="badge" id="stamp">Atualizado em 21/08/2026 · L8 medida em T+0 · fonte: LinkedIn + YouTube</div>
@@ -129,21 +214,6 @@ O placar que decide o portão é outro: <b>a temporada inteira produziu 18 e-mai
 <b>Notas:</b> <b>Live 2</b> transmitiu para um evento duplicado — 38 inscritos no oficial + 4 no duplicado; dados de vídeo vêm do evento onde a live ocorreu. <b>StreamYard</b> não guarda o pico de espectadores ao vivo para destino LinkedIn; anotar manualmente durante cada live. <b>Atualizar:</b> editar o array <code>lives</code> no topo do &lt;script&gt; e re-subir <code>painel.html</code> no repositório.
 </div>
 </div>
-<footer id="ecossistema"><div class="wrap">
-  <div class="mfoot">Mente no Trabalho · Painel da série (uso interno)</div>
-  <div class="footgrid">
-    <div class="fcol"><a class="brand" href="https://kikocampos.com/index.html" style="padding:0"><span class="dot"></span>kiko campos</a>
-      <p>Liderança executiva e transformação cultural. Cultura como sistema vivo, integrado e mensurável.</p></div>
-    <div class="fcol"><div class="fh">Serviços</div>
-      <a href="https://kikocampos.com/palestras.html">Palestras e Keynotes</a><a href="https://kikocampos.com/keynote-ia.html">Keynote · A IA sentou primeiro</a><a href="https://kikocampos.com/palestras/nr-1/index.html">Palestra · NR-1 e saúde mental</a><a href="https://kikocampos.com/programas.html">Programas e Projetos</a><a href="https://kikocampos.com/advisory.html">Advisory</a><a href="https://kikocampos.com/index.html#contato">Fale comigo</a></div>
-    <div class="fcol"><div class="fh">Conteúdo e pesquisa</div>
-      <a href="https://mente.kikocampos.com">Mente no Trabalho · série e newsletter</a><a href="https://jovens.kikocampos.com">Pesquisa Jovens Talentos · 4.991 estagiários</a><a href="https://kikocampos.com/seucodigo/index.html">Seu Código · comece em 3 minutos</a><a href="https://kikocampos.com/cultura-como-sistema/index.html">Case Cultura</a><a href="https://kikocampos.com/livro.html">O Novo Código da Mudança</a><a href="https://kikocampos.com/manifesto.html">Manifesto</a></div>
-    <div class="fcol"><div class="fh">Contato</div>
-      <a href="mailto:kiko@kikocampos.com">kiko@kikocampos.com</a><a href="https://www.linkedin.com/in/kikocampos">LinkedIn</a><a href="https://kikocampos.com/privacidade.html">Política de Privacidade</a><a href="https://kikocampos.com/sobre.html">Sobre</a></div>
-  </div>
-  <div class="fbase">© 2026 Kiko Campos. Todos os direitos reservados.</div>
-</div></footer>
-<script src="assets/site.js"></script>
 
 <script>
 /* ====== DADOS (edite aqui a cada live) ====== */
@@ -167,7 +237,7 @@ exp:'Fecho de temporada: DM à base dos 178 inscritos + porta única (e-book/wor
 ];
 /* ============================================ */
 
-const C={accent:'#CE420D',blue:'#0A1830',good:'#C98A4B',mut:'#4A5568',line:'rgba(10,24,48,.14)'};
+const C={accent:'#F2B33D',blue:'#5AA9E6',good:'#4FD1A1',mut:'#7D91B4',line:'rgba(255,255,255,.14)'};
 const fmt=n=>n==null?'—':n.toLocaleString('pt-BR');
 const mmss=s=>s==null?'—':Math.floor(s/60)+'m'+String(s%60).padStart(2,'0');
 const last=lives[lives.length-1], prev=lives[lives.length-2];
@@ -260,7 +330,7 @@ let path=data.map((d,i)=>(i?'L':'M')+X(i)+' '+Y(d.v)).join(' ');
 s+=`<path d="${path}" fill="none" stroke="${color}" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>`;
 data.forEach((d,i)=>{
 const lastp=i===data.length-1;
-s+=`<circle cx="${X(i)}" cy="${Y(d.v)}" r="${lastp?6:4.5}" fill="${lastp?C.accent:color}" stroke="#FFFFFF" stroke-width="2"/>`;
+s+=`<circle cx="${X(i)}" cy="${Y(d.v)}" r="${lastp?6:4.5}" fill="${lastp?C.accent:color}" stroke="#0A1830" stroke-width="2"/>`;
 s+=`<text class="gval" x="${X(i)}" y="${Y(d.v)-11}" text-anchor="middle">${fmtFn(d.v)}</text>`;
 s+=`<text class="glab" x="${X(i)}" y="${H-14}" text-anchor="middle">${d.k}</text>`;
 });

@@ -2,7 +2,6 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Google Analytics 4 + Consent Mode (LGPD) — ecossistema kikocampos.com -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-RD1P3CKLSE"></script>
 <script>
@@ -17,48 +16,93 @@
     'linker': { 'domains': ['kikocampos.com', 'mente.kikocampos.com', 'jovens.kikocampos.com'] }
   });
 </script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>O workbook da 1ª temporada · Mente no Trabalho</title>
 <meta name="description" content="O workbook interativo das 8 edições: oito módulos para preencher, com a calculadora das três contas e o Plano de Segunda-feira no final. Abre no navegador, gratuito.">
 <meta property="og:title" content="O workbook de quem vai fazer — 1ª temporada">
 <meta property="og:description" content="O e-book é para ler. Este é para preencher: oito módulos, um por edição, e no fim o seu Plano de Segunda-feira — o que muda, quem é o dono, qual número e em que data.">
 <meta property="og:image" content="https://mente.kikocampos.com/capa-workbook-temporada1.png">
 <meta property="og:url" content="https://mente.kikocampos.com/captura-workbook-temporada1.html">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@300;400;500;700&family=Red+Hat+Text:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css">
-<link rel="stylesheet" href="assets/mente.css">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0A1830; --navy2:#16294a; --amber:#C0891F; --amber-l:#E9CD8B;
+    --paper:#FBF9F4; --ink:#23262C; --grey:#5b6270; --line:#E4DFD3;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--paper);color:var(--ink);font-family:'Montserrat',-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.6}
+  .top{background:var(--navy);color:#fff;padding:14px 20px;display:flex;justify-content:space-between;align-items:center}
+  .top a{color:var(--amber-l);text-decoration:none;font-size:14px;font-weight:600}
+  .brand{font-weight:700;letter-spacing:.06em;font-size:14px}
+  .wrap{max-width:1040px;margin:0 auto;padding:48px 20px 64px;display:grid;grid-template-columns:1.15fr .85fr;gap:48px}
+  @media(max-width:820px){.wrap{grid-template-columns:1fr;padding-top:32px}}
+  .kicker{color:var(--amber);font-weight:700;font-size:12px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:14px}
+  h1{font-family:'Playfair Display',Georgia,serif;font-weight:800;font-size:clamp(30px,4.5vw,44px);line-height:1.12;color:var(--navy);margin-bottom:8px}
+  .sub{font-family:'Playfair Display',serif;font-size:20px;color:var(--amber);margin-bottom:18px}
+  .desc{color:var(--grey);margin-bottom:22px;max-width:52ch}
+  .capa{display:flex;gap:26px;align-items:flex-start;margin-bottom:26px}
+  .capa img{width:190px;border-radius:8px;border:1px solid var(--line);box-shadow:0 16px 40px rgba(10,24,48,.18);display:block}
+  @media(max-width:520px){.capa{flex-direction:column}.capa img{width:100%;max-width:240px}}
+  ul.bene{list-style:none}
+  ul.bene li{padding-left:26px;position:relative;margin-bottom:10px;color:var(--ink)}
+  ul.bene li::before{content:"—";position:absolute;left:0;color:var(--amber);font-weight:700}
+  .card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:28px;box-shadow:0 10px 30px rgba(10,24,48,.07);align-self:start}
+  .card h2{font-size:18px;color:var(--navy);margin-bottom:4px}
+  .card p.note{font-size:13px;color:var(--grey);margin-bottom:18px}
+  label{display:block;font-size:13px;font-weight:600;color:var(--navy);margin:14px 0 6px}
+  label span{font-weight:400;color:var(--grey)}
+  input{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:9px;font-family:inherit;font-size:15px;background:var(--paper)}
+  input:focus{outline:2px solid var(--amber-l);border-color:var(--amber)}
+  button{width:100%;margin-top:20px;padding:14px;border:0;border-radius:9px;background:var(--amber);color:#fff;font-family:inherit;font-weight:700;font-size:16px;cursor:pointer}
+  button:hover{filter:brightness(1.06)}
+  .priv{font-size:12px;color:var(--grey);margin-top:12px;text-align:center}
+  .priv a{color:var(--grey)}
+  .success{display:none;text-align:center;padding:10px 0}
+  .success h2{font-family:'Playfair Display',serif;color:var(--navy);font-size:24px;margin-bottom:10px}
+  .success p{color:var(--grey);margin-bottom:20px}
+  .success a.dl{display:inline-block;background:var(--amber);color:#fff;text-decoration:none;font-weight:700;padding:14px 26px;border-radius:9px}
+  .success p.nl{font-size:13px;margin-top:18px}
+  .success p.nl a{color:var(--amber);font-weight:600}
+  .sumario{border-top:1px solid var(--line);margin-top:8px;padding-top:22px}
+  .sumario h3{font-family:'Playfair Display',serif;color:var(--navy);font-size:19px;margin-bottom:14px}
+  .part{margin-bottom:16px}
+  .part b{display:block;color:var(--navy);font-size:14px}
+  .part span{color:var(--grey);font-size:14px}
+  .quote{font-family:'Playfair Display',serif;font-size:19px;line-height:1.4;color:var(--navy);border-left:3px solid var(--amber);padding-left:16px;margin:26px 0}
+  footer{border-top:1px solid var(--line);padding:22px 20px;text-align:center;font-size:13px;color:var(--grey)}
+
+  /* ===== masthead de retorno (padrão do site) ===== */
+  .top{gap:12px;flex-wrap:wrap}
+  .top .top-l{display:flex;align-items:center;gap:12px;min-width:0}
+  .top a{color:#fff;text-decoration:none}
+  .top .parent{font-size:11px;letter-spacing:.08em;text-transform:uppercase;opacity:.62;
+    padding-right:12px;border-right:1px solid rgba(255,255,255,.22);white-space:nowrap}
+  .top .parent:hover{opacity:1}
+  .top a.brand{font-weight:700;letter-spacing:.12em;color:#fff}
+  .top .back{font-size:12.5px;opacity:.85;white-space:nowrap}
+  .top .back:hover{opacity:1;text-decoration:underline}
+  @media(max-width:520px){.top .parent{font-size:10px}.top .back{font-size:11.5px}}
+
+</style>
 </head>
-<body class="m-cap">
-<aside class="rail" aria-hidden="true">
-  <span class="dot"></span>
-  <span class="rt"><b>Kiko Campos</b> — Cultura vira comportamento. Comportamento vira resultado.</span>
-  <span class="rt">kikocampos.com</span>
-</aside>
-
-<nav><div class="wrap navin">
-  <a class="brand" href="https://kikocampos.com/index.html"><span class="dot"></span>kiko campos</a>
-  <button class="navtoggle" type="button" aria-label="Abrir menu" aria-expanded="false" onclick="var o=document.body.classList.toggle('navopen');this.setAttribute('aria-expanded',o)">☰</button>
-  <div class="links">
-    <a href="https://kikocampos.com/palestras.html">Palestras</a><a href="https://kikocampos.com/programas.html">Programas</a><a href="https://kikocampos.com/advisory.html">Advisory</a><div class="dd"><button type="button" aria-haspopup="true" onclick="this.parentNode.classList.toggle('open')">Conteúdo &amp; Pesquisa</button><div class="menu"><a href="https://mente.kikocampos.com" aria-current="page">Mente no Trabalho<small>Série semanal e newsletter</small></a><a href="https://jovens.kikocampos.com">Pesquisa Jovens Talentos<small>4.991 estagiários ouvidos no Brasil</small></a><a href="https://kikocampos.com/seucodigo/index.html">Seu Código<small>Comece em 3 minutos</small></a><a href="https://kikocampos.com/manifesto.html">Manifesto</a></div></div><a href="https://kikocampos.com/cultura-como-sistema/index.html">Case</a><a href="https://kikocampos.com/livro.html">Livro</a><a href="https://kikocampos.com/sobre.html">Sobre</a>
-    <a class="btn btn-n" href="https://kikocampos.com/index.html#contato">Fale comigo&nbsp;↗</a>
+<body>
+<div class="top">
+  <div class="top-l">
+    <a class="parent" href="https://kikocampos.com">&larr; kiko campos</a>
+    <a class="brand" href="/">MENTE NO TRABALHO</a>
   </div>
-</div></nav>
-<div class="mbar"><div class="wrap mbar-in">
-  <a class="mbrand" href="index.html">Mente no Trabalho <span>· série com Kiko Campos &amp; Esabela Cruz</span></a>
-  <div class="mlinks"><a href="index.html#ultima">Última live</a><a href="index.html#lives">Acervo</a><a href="index.html#clipes">Clipes</a><a href="index.html#materiais">Biblioteca</a><a href="captura-workbook-temporada1.html" aria-current="page">Workbook</a><a class="mnl" href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=6888852094439198720" target="_blank" rel="noopener">Inscrever na newsletter&nbsp;↗</a></div>
-</div></div>
-
-<main>
-<section class="capg"><div class="wrap"><div class="grid">
-  <div class="cap-l">
-    <span class="label">Workbook interativo · 8 módulos · abre no navegador</span>
+  <a class="back" href="/#materiais">Todos os materiais &rarr;</a>
+</div>
+<div class="wrap">
+  <div>
+    <div class="kicker">WORKBOOK INTERATIVO · 8 MÓDULOS · ABRE NO NAVEGADOR</div>
     <h1>O workbook de quem vai fazer</h1>
     <div class="sub">O e-book é para ler. Este é para preencher.</div>
     <p class="desc">Oito módulos, um por edição da temporada. Você escreve as suas respostas, o navegador guarda, e no fim sai o seu Plano de Segunda-feira: o que muda, quem é o dono, qual número e em que data. Sem instalar nada.</p>
     <div class="capa">
-      <img width="560" height="793" src="capa-workbook-temporada1.webp" srcset="capa-workbook-temporada1-800.webp 800w, capa-workbook-temporada1.webp 560w" sizes="(max-width:900px) 100vw, 50vw" alt="Capa do workbook da 1ª temporada de Mente no Trabalho">
+      <img src="capa-workbook-temporada1.png" alt="Capa do workbook da 1ª temporada de Mente no Trabalho">
       <ul class="bene">
         <li><b>Os 4 E's da conversa</b> — oito práticas para escrever a conversa antes de precisar dela</li>
         <li><b>O radar de burnout</b> — padrão, pausa e prioridade aplicados a pessoas reais do seu time</li>
@@ -75,49 +119,32 @@
       <div class="part"><b>Um módulo por semana</b><span>Cada um leva de 12 a 25 minutos e termina numa decisão que vale para a semana seguinte.</span></div>
       <div class="part"><b>Tudo fica salvo no seu navegador</b><span>Nada é enviado para lugar nenhum. Dá para imprimir em PDF ou baixar um backup a qualquer momento.</span></div>
     </div>
-    <p class="desc small">Com Kiko Campos &amp; Esabela Cruz — série semanal, sextas 12h, ao vivo no LinkedIn.</p>
+    <p class="desc" style="font-size:14px;margin-top:24px">Com Kiko Campos &amp; Esabela Cruz — série semanal, sextas 12h, ao vivo no LinkedIn.</p>
   </div>
-  <aside class="cap-card">
+  <div class="card">
     <div id="formBox">
       <h2>Abrir o workbook</h2>
       <p class="note">Gratuito. Deixe o e-mail e o workbook abre nesta tela, na hora.</p>
-      <form data-live="1" id="capForm" novalidate>
+      <form id="capForm" novalidate>
         <label for="email">E-mail profissional</label>
         <input id="email" name="email" type="email" required autocomplete="email">
         <label for="nome">Nome <span>(opcional)</span></label>
         <input id="nome" name="nome" type="text" autocomplete="name">
         <label for="empresa">Empresa <span>(opcional)</span></label>
         <input id="empresa" name="empresa" type="text" autocomplete="organization">
-        <button class="btn btn-p" type="submit">Quero o workbook</button>
-      <div data-msg></div>
+        <button type="submit">Quero o workbook</button>
       </form>
       <p class="priv">Sem spam. Seus dados ficam com a equipe do Mente no Trabalho. <a href="https://kikocampos.com/privacidade.html">Privacidade</a></p>
     </div>
     <div class="success" id="successBox">
       <h2>Pronto. Bom trabalho.</h2>
       <p>Comece escolhendo a sua cadeira, na capa — ela define a ordem. E preencha pensando numa pessoa e numa área reais.</p>
-      <a class="btn btn-p dl" id="dlLink" href="workbook-temporada1.html" target="_blank" rel="noopener">Abrir o workbook&nbsp;↗</a>
-      <p class="nl">Quer a leitura antes da prática? <a href="captura-ebook-temporada1.html">Baixe também o e-book de 41 páginas</a>.<br>O aprofundamento semanal chega pela newsletter.<br><a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=6888852094439198720" target="_blank" rel="noopener">Assinar a Humanize-se&nbsp;↗</a></p>
+      <a class="dl" id="dlLink" href="workbook-temporada1.html" target="_blank" rel="noopener">Abrir o workbook &rarr;</a>
+      <p class="nl">Quer a leitura antes da prática? <a href="captura-ebook-temporada1.html">Baixe também o e-book de 41 páginas</a>.<br>O aprofundamento semanal chega pela newsletter.<br><a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=6888852094439198720" target="_blank" rel="noopener">Assinar a Humanize-se →</a></p>
     </div>
-  </aside>
-</div></div></section>
-</main>
-<footer id="ecossistema"><div class="wrap">
-  <div class="mfoot">Mente no Trabalho — Kiko Campos &amp; Esabela Cruz · <a href="https://kikocampos.com/privacidade.html" >Privacidade</a></div>
-  <div class="footgrid">
-    <div class="fcol"><a class="brand" href="https://kikocampos.com/index.html" style="padding:0"><span class="dot"></span>kiko campos</a>
-      <p>Liderança executiva e transformação cultural. Cultura como sistema vivo, integrado e mensurável.</p></div>
-    <div class="fcol"><div class="fh">Serviços</div>
-      <a href="https://kikocampos.com/palestras.html">Palestras e Keynotes</a><a href="https://kikocampos.com/keynote-ia.html">Keynote · A IA sentou primeiro</a><a href="https://kikocampos.com/palestras/nr-1/index.html">Palestra · NR-1 e saúde mental</a><a href="https://kikocampos.com/programas.html">Programas e Projetos</a><a href="https://kikocampos.com/advisory.html">Advisory</a><a href="https://kikocampos.com/index.html#contato">Fale comigo</a></div>
-    <div class="fcol"><div class="fh">Conteúdo e pesquisa</div>
-      <a href="https://mente.kikocampos.com">Mente no Trabalho · série e newsletter</a><a href="https://jovens.kikocampos.com">Pesquisa Jovens Talentos · 4.991 estagiários</a><a href="https://kikocampos.com/seucodigo/index.html">Seu Código · comece em 3 minutos</a><a href="https://kikocampos.com/cultura-como-sistema/index.html">Case Cultura</a><a href="https://kikocampos.com/livro.html">O Novo Código da Mudança</a><a href="https://kikocampos.com/manifesto.html">Manifesto</a></div>
-    <div class="fcol"><div class="fh">Contato</div>
-      <a href="mailto:kiko@kikocampos.com">kiko@kikocampos.com</a><a href="https://www.linkedin.com/in/kikocampos">LinkedIn</a><a href="https://kikocampos.com/privacidade.html">Política de Privacidade</a><a href="https://kikocampos.com/sobre.html">Sobre</a></div>
   </div>
-  <div class="fbase">© 2026 Kiko Campos. Todos os direitos reservados.</div>
-</div></footer>
-<script src="assets/site.js"></script>
-
+</div>
+<footer>Mente no Trabalho — Kiko Campos &amp; Esabela Cruz · <a href="https://kikocampos.com/privacidade.html" style="color:inherit">Privacidade</a></footer>
 <script>
   /* ====================================================================
      RASTREIO POR MATERIAL
@@ -151,7 +178,7 @@
     var email = document.getElementById('email').value.trim();
     if(!email || email.indexOf('@') < 1 || email.indexOf('.') < 3){
       var e = document.getElementById('email');
-      e.style.borderColor = '#FF4A12'; e.focus(); return;
+      e.style.borderColor = '#C0891F'; e.focus(); return;
     }
     var body = new URLSearchParams();
     body.append(GFORM.email, email);

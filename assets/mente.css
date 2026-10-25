@@ -446,3 +446,31 @@
 .pn h2.sec{padding:24px 0 0}
 .pn .win{color:var(--ink);font-weight:600}
 .phero .nums .n{white-space:nowrap}
+
+/* ---- celular v2 (25/10): menos rolagem, nada escondido para o lado ---- */
+@media(max-width:900px){
+  .m-home .ep{padding:16px 0;gap:6px}
+  .m-home .ep-t h3{font-size:1.125rem}
+  .m-home .ep-t p{display:none}
+  .m-home .ep-a{flex-direction:row;flex-wrap:wrap;gap:6px 18px;padding-top:2px}
+  .m-home .ep-mat{font-size:.875rem}
+  .m-home .tabs{flex-wrap:wrap;overflow:visible;gap:8px;border-bottom:0;margin-bottom:22px}
+  .m-home .tabs .tab{border:1px solid var(--line);border-radius:999px;padding:7px 12px;font-size:.875rem;white-space:nowrap}
+  .m-home .tabs .tab[aria-selected="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .m-home .tabs .tab::after{display:none}
+  .m-home .panel-head{flex-direction:column;gap:6px;margin-bottom:16px}
+  .m-home .panel-head h3{font-size:1.25rem}
+  .m-home .grid-4{display:block!important}
+  .m-home .clip{display:grid;grid-template-columns:128px 1fr;column-gap:14px;align-items:start;padding:12px 0;border-bottom:1px solid var(--line);margin:0!important}
+  .m-home .clip .ytlite{grid-row:1 / span 4;margin:0!important}
+  .m-home .clip .ytlite.on,.m-home .clip .ytlite:has(iframe){grid-column:1 / -1;grid-row:auto}
+  .m-home .clip .k{font-size:.8125rem;margin:0}
+  .m-home .clip h4{font-size:1rem;line-height:1.3;margin:2px 0 4px}
+  .m-home .clip p{font-size:.875rem;line-height:1.45;margin:0;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+  .m-home .ytplay{transform:translate(-50%,-50%) scale(.6)}
+}
+@media(max-width:900px){
+  .m-home .eb-capas{height:auto!important;min-height:0!important;display:flex;gap:10px;margin:0 0 22px!important;position:static}
+  .m-home .eb-capas img{position:static!important;width:96px!important;height:auto;transform:none!important;margin:0!important;box-shadow:0 8px 18px -10px rgba(10,24,48,.5)}
+  .m-home .eb-txt{margin-top:0!important}
+}

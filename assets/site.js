@@ -1,5 +1,5 @@
 document.querySelectorAll('.links a').forEach(function(a){a.addEventListener('click',function(){document.body.classList.remove('navopen')})});
-(function(){var here=location.pathname.replace(/index\.html$/,'');document.querySelectorAll('.links a:not(.btn)').forEach(function(a){var t=a.pathname.replace(/index\.html$/,'');if(t===here||(t.length>1&&here.indexOf(t.replace(/\.html$/,''))===0&&/\/$/.test(t)))a.setAttribute('aria-current','page');});})();
+(function(){var here=location.pathname.replace(/index\.html$/,'');document.querySelectorAll('.links a:not(.btn)').forEach(function(a){if(a.host!==location.host)return;var t=a.pathname.replace(/index\.html$/,'');if(t===here||(t.length>1&&here.indexOf(t.replace(/\.html$/,''))===0&&/\/$/.test(t)))a.setAttribute('aria-current','page');});})();
 /* barra fixa de contato no celular: aparece depois que o CTA do topo sai da tela e some quando o formulário de contato está visível */
 (function(){
   if(!document.body.hasAttribute('data-mbar'))return;
@@ -15,4 +15,14 @@ document.querySelectorAll('.links a').forEach(function(a){a.addEventListener('cl
     new IntersectionObserver(function(e){heroOut=!e[0].isIntersecting;upd()}).observe(hero);
     var c=document.getElementById('contato')||document.getElementById('contact');if(c)new IntersectionObserver(function(e){formIn=e[0].isIntersecting;upd()},{threshold:.15}).observe(c);
   }
+})();
+/* listas que abrem e fecham no celular: título visível, texto ao tocar */
+(function(){
+  if(!window.matchMedia('(max-width:900px)').matches)return;
+  document.querySelectorAll('.rows[data-acc]>.r').forEach(function(r){
+    var h=r.querySelector('h3');if(!h)return;r.classList.add('acc');
+    h.setAttribute('role','button');h.setAttribute('tabindex','0');h.setAttribute('aria-expanded','false');
+    function t(){var o=r.classList.toggle('open');h.setAttribute('aria-expanded',o)}
+    h.addEventListener('click',t);h.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();t()}});
+  });
 })();

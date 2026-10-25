@@ -442,3 +442,19 @@ h1,h2,h3{text-wrap:balance}
 .clientes-top{padding:0 0 56px;margin-top:-40px}
 .clientes-top .row{border-top:0}
 @media(max-width:900px){.clientes-top{padding:0 0 40px;margin-top:0}.clientes .names{font-size:1.125rem;gap:8px 24px}}
+
+/* ritmo vertical no celular — 25/10/2026: menos ar entre foto, texto e rodapé */
+@media(max-width:900px){
+  .sec,.metodo{padding:56px 0}
+  .prova .txt,.virada .txt{padding:52px 0}
+  .hero{padding:40px 0 44px}
+  .clientes{padding:48px 0}
+  .contato .grid{min-height:0;gap:0}
+  .contato .bleed-l{min-height:0;height:300px}
+  .contato .txt{padding:36px 0 56px}
+  .contato.quiet .txt{padding:52px 0 56px}
+  .cta-band{padding:60px 0}
+  footer{padding:48px 0 32px}
+  .prova .bleed-r,.virada .bleed-r,.bleed-l{min-height:360px}
+  .disc .dot{bottom:auto;top:184px;right:8px;width:32px}
+}

@@ -1,240 +1,53 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Diagnóstico de Maturidade NR-1 · Riscos Psicossociais | Mente no Trabalho</title>
 <meta name="description" content="15 perguntas, 4 minutos. Descubra o nível de maturidade da sua empresa na gestão de riscos psicossociais exigida pela NR-1 e receba um plano de 3 passos.">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500;700;800&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-:root{
-  --navy:#0a1a3a; --navy2:#12294f; --amber:#f4a80b; --amber-d:#c8880a;
-  --ink:#12294f; --muted:#5b6b86; --line:#dfe5ee; --bg:#f4f6fa; --white:#fff;
-  --ok:#1e8e5a; --warn:#c8880a; --bad:#c0392b;
-  --radius:14px;
-}
-*{box-sizing:border-box}
-html,body{margin:0;padding:0}
-body{
-  font-family:'Montserrat',system-ui,-apple-system,Segoe UI,sans-serif;
-  color:var(--ink); background:var(--bg); line-height:1.55; -webkit-font-smoothing:antialiased;
-}
-.wrap{max-width:760px;margin:0 auto;padding:0 18px 80px}
-
-/* ---------- Cabeçalho ---------- */
-header{
-  background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 100%);
-  color:#fff; padding:34px 0 30px; position:relative; overflow:hidden;
-}
-header:after{
-  content:""; position:absolute; right:-90px; top:-90px; width:260px; height:260px;
-  border:2px solid rgba(244,168,11,.28); border-radius:50%;
-}
-header .wrap{padding-bottom:0; position:relative; z-index:2}
-.pill{
-  display:inline-block; border:1.5px solid var(--amber); color:var(--amber);
-  font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase;
-  padding:6px 14px; border-radius:999px; margin-bottom:16px;
-}
-h1{
-  font-family:'Roboto Slab',Georgia,serif; font-weight:800; font-size:clamp(25px,5.2vw,38px);
-  line-height:1.16; margin:0 0 12px;
-}
-h1 em{color:var(--amber); font-style:normal}
-.sub{font-size:15px; opacity:.9; margin:0; max-width:56ch}
-.meta{
-  margin-top:18px; display:flex; gap:10px; flex-wrap:wrap;
-  font-size:12.5px; font-weight:600;
-}
-.meta span{background:rgba(255,255,255,.1); padding:6px 12px; border-radius:999px}
-
-/* ---------- Barra de progresso fixa ---------- */
-.progress-bar{
-  position:sticky; top:0; z-index:30; background:var(--white);
-  border-bottom:1px solid var(--line); box-shadow:0 2px 10px rgba(10,26,58,.06);
-}
-.progress-bar .inner{max-width:760px;margin:0 auto;padding:9px 18px;display:flex;align-items:center;gap:12px}
-.track{flex:1;height:7px;background:#e6ebf3;border-radius:99px;overflow:hidden}
-.fill{height:100%;width:0;background:linear-gradient(90deg,var(--amber),var(--amber-d));transition:width .28s ease}
-.pcount{font-size:12px;font-weight:700;color:var(--muted);white-space:nowrap}
-
-/* ---------- Cartões ---------- */
-.card{
-  background:var(--white); border:1px solid var(--line); border-radius:var(--radius);
-  padding:22px; margin:18px 0; box-shadow:0 1px 3px rgba(10,26,58,.05);
-}
-.card h2{
-  font-family:'Roboto Slab',Georgia,serif; font-size:19px; margin:0 0 4px; color:var(--navy);
-}
-.card .hint{font-size:13.5px;color:var(--muted);margin:0 0 16px}
-.dim-head{display:flex;align-items:flex-start;gap:12px;margin-bottom:14px}
-.dim-num{
-  flex:none;width:34px;height:34px;border-radius:9px;background:var(--navy);color:var(--amber);
-  font-family:'Roboto Slab',serif;font-weight:700;font-size:16px;display:flex;align-items:center;justify-content:center;
-}
-.dim-head h2{margin:0}
-.dim-head .dim-sub{font-size:12.5px;color:var(--muted);margin:2px 0 0}
-
-/* ---------- Perguntas ---------- */
-.q{padding:16px 0;border-top:1px solid var(--line)}
-.q:first-of-type{border-top:none;padding-top:4px}
-.q .txt{font-size:14.8px;font-weight:600;margin:0 0 4px;display:block}
-.q .ex{font-size:12.8px;color:var(--muted);margin:0 0 11px}
-.q .crit{
-  display:inline-block;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
-  color:var(--amber-d);border:1px solid var(--amber);border-radius:4px;padding:1px 6px;margin-left:7px;vertical-align:middle;
-}
-.opts{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-.opt{position:relative}
-.opt input{position:absolute;opacity:0;width:0;height:0}
-.opt span{
-  display:block;text-align:center;padding:11px 6px;border:1.5px solid var(--line);border-radius:10px;
-  font-size:13px;font-weight:600;cursor:pointer;background:#fbfcfe;transition:all .15s ease;user-select:none;
-}
-.opt span small{display:block;font-size:10.5px;font-weight:500;color:var(--muted);margin-top:2px}
-.opt input:checked + span{
-  border-color:var(--navy);background:var(--navy);color:#fff;box-shadow:0 3px 10px rgba(10,26,58,.2);
-}
-.opt input:checked + span small{color:rgba(255,255,255,.75)}
-.opt input:focus-visible + span{outline:3px solid rgba(244,168,11,.5);outline-offset:2px}
-.q.pending{background:#fff8e8;border-radius:10px;padding-left:12px;padding-right:12px;margin:0 -12px}
-
-/* ---------- Identificação ---------- */
-.field{margin-bottom:14px}
-label.lbl{display:block;font-size:13px;font-weight:700;margin-bottom:5px}
-input[type=text],input[type=email],select{
-  width:100%;padding:11px 13px;border:1.5px solid var(--line);border-radius:10px;
-  font-family:inherit;font-size:14.5px;color:var(--ink);background:#fbfcfe;
-}
-input:focus,select:focus{outline:none;border-color:var(--navy);background:#fff}
-.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.mais{margin:2px 0 18px;border-top:1px solid rgba(10,24,48,.10);padding-top:12px}.mais>summary{cursor:pointer;list-style:none;font-size:13px;font-weight:700;color:var(--navy);display:inline-flex;align-items:center;gap:7px;padding:2px 0}.mais>summary::-webkit-details-marker{display:none}.mais>summary::before{content:"+";display:inline-grid;place-items:center;width:18px;height:18px;border:1px solid rgba(10,24,48,.28);border-radius:5px;font-weight:700;line-height:1}.mais[open]>summary::before{content:"–"}.mais>summary span{font-weight:500;color:var(--muted)}.mais>summary:hover{text-decoration:underline}.mais-in{padding-top:12px}.mais-in .hint{margin:0 0 12px}.consent{display:flex;gap:10px;align-items:flex-start;font-size:12.5px;color:var(--muted);margin-top:10px}
-.consent input{margin-top:3px;width:17px;height:17px;flex:none;accent-color:var(--navy)}
-
-/* ---------- Botões ---------- */
-.btn{
-  display:inline-flex;align-items:center;justify-content:center;gap:8px;width:100%;
-  background:var(--amber);color:var(--navy);border:none;border-radius:12px;
-  font-family:'Montserrat',sans-serif;font-weight:700;font-size:16px;padding:16px 22px;cursor:pointer;
-  transition:transform .12s ease,box-shadow .12s ease; box-shadow:0 4px 14px rgba(244,168,11,.35);
-}
-.btn:hover{transform:translateY(-1px);box-shadow:0 7px 20px rgba(244,168,11,.42)}
-.btn:disabled{opacity:.6;cursor:not-allowed;transform:none}
-.btn.ghost{background:transparent;color:var(--navy);border:1.5px solid var(--navy);box-shadow:none;font-size:14px;padding:12px 18px}
-.btn-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
-.err{color:var(--bad);font-size:13px;font-weight:600;margin-top:10px;display:none}
-
-/* ---------- Resultado ---------- */
-#resultado{display:none}
-.score-card{
-  background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 100%);color:#fff;
-  border-radius:var(--radius);padding:28px 24px;text-align:center;position:relative;overflow:hidden;
-}
-.score-card:after{content:"";position:absolute;left:-70px;bottom:-70px;width:200px;height:200px;border:2px solid rgba(244,168,11,.25);border-radius:50%}
-.gauge{position:relative;width:170px;height:170px;margin:4px auto 14px}
-.gauge svg{transform:rotate(-90deg)}
-.gauge .val{
-  position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
-}
-.gauge .val b{font-family:'Roboto Slab',serif;font-size:44px;line-height:1}
-.gauge .val small{font-size:11px;letter-spacing:.12em;text-transform:uppercase;opacity:.75;margin-top:2px}
-.band{font-family:'Roboto Slab',serif;font-size:23px;font-weight:700;color:var(--amber);margin:0 0 8px}
-.band-desc{font-size:14.5px;opacity:.92;margin:0;max-width:52ch;margin-inline:auto}
-.alert{
-  background:#fff4f2;border:1px solid #f3c6bd;border-left:4px solid var(--bad);
-  border-radius:10px;padding:14px 16px;margin-top:16px;
-}
-.alert h3{margin:0 0 6px;font-size:14px;color:var(--bad);font-family:'Montserrat',sans-serif}
-.alert ul{margin:0;padding-left:18px;font-size:13.3px}
-.alert li{margin-bottom:4px}
-.dims{margin-top:6px}
-.dimrow{margin-bottom:14px}
-.dimrow .top{display:flex;justify-content:space-between;font-size:13.5px;font-weight:600;margin-bottom:5px;gap:10px}
-.dimrow .top span:last-child{white-space:nowrap;font-family:'Roboto Slab',serif}
-.dbar{height:9px;background:#e6ebf3;border-radius:99px;overflow:hidden}
-.dbar i{display:block;height:100%;border-radius:99px;transition:width .5s ease}
-.tag{font-size:11px;font-weight:700;padding:2px 8px;border-radius:99px;margin-left:8px;vertical-align:middle}
-.tag.f{background:#fdecea;color:var(--bad)}
-.tag.m{background:#fdf3e0;color:var(--warn)}
-.tag.o{background:#e8f5ee;color:var(--ok)}
-.steps{counter-reset:s}
-.step{display:flex;gap:14px;padding:15px 0;border-top:1px solid var(--line)}
-.step:first-child{border-top:none}
-.step .n{
-  flex:none;width:30px;height:30px;border-radius:50%;background:var(--amber);color:var(--navy);
-  font-weight:700;font-size:14px;display:flex;align-items:center;justify-content:center;font-family:'Roboto Slab',serif;
-}
-.step h4{margin:2px 0 4px;font-size:15px;font-family:'Roboto Slab',serif;color:var(--navy)}
-.step p{margin:0;font-size:13.6px;color:#3d4d68}
-.next{background:var(--navy);color:#fff;border-radius:var(--radius);padding:24px}
-.next h2{font-family:'Roboto Slab',serif;font-size:20px;margin:0 0 8px;color:var(--amber)}
-.next p{font-size:14.3px;margin:0 0 14px;opacity:.93}
-.sent{font-size:12.5px;color:var(--muted);text-align:center;margin-top:12px}
-.foot{font-size:11.8px;color:var(--muted);text-align:center;margin-top:26px;line-height:1.6}
-.foot a{color:var(--navy2)}
-
-@media (max-width:560px){
-  .pill{font-size:9.5px;letter-spacing:.09em;padding:5px 11px;white-space:nowrap}
-  header{padding:26px 0 24px}
-  .opts{grid-template-columns:1fr;gap:7px}
-  .opt span{text-align:left;padding:10px 14px}
-  .opt span small{display:inline;margin-left:6px}
-  .row2{grid-template-columns:1fr}
-  .btn-row{grid-template-columns:1fr}
-  .card{padding:18px 16px}
-}
-@media print{
-  header,.progress-bar,#formulario,.next,.btn,.btn-row{display:none!important}
-  body{background:#fff}
-  .card{break-inside:avoid;box-shadow:none}
-}
-
-  /* ===== masthead de retorno (padrão do site) ===== */
-  .sitebar{background:#0A1830;color:#EAF1FB;border-bottom:1px solid rgba(255,255,255,.12)}
-  .sitebar .sb-in{max-width:1080px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-  .sitebar a{color:#EAF1FB;text-decoration:none}
-  .sitebar .parent{font-size:11px;letter-spacing:.08em;text-transform:uppercase;opacity:.62;
-    padding-right:12px;border-right:1px solid rgba(255,255,255,.22);white-space:nowrap}
-  .sitebar .parent:hover{opacity:1}
-  .sitebar .sb-brand{font-weight:700;letter-spacing:.12em;font-size:12.5px}
-  .sitebar .sb-brand .dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:#F2B33D;margin-right:7px;vertical-align:middle}
-  .sitebar .sb-back{margin-left:auto;font-size:12.5px;opacity:.85;white-space:nowrap}
-  .sitebar .sb-back:hover{opacity:1;text-decoration:underline}
-  @media print{.sitebar{display:none}}
-  @media(max-width:520px){.sitebar .parent{font-size:10px}.sitebar .sb-back{font-size:11.5px}}
-
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@300;400;500;700&family=Red+Hat+Text:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/mente.css">
 </head>
-<body>
-<div class="sitebar">
-  <div class="sb-in">
-    <a class="parent" href="https://kikocampos.com">&larr; kiko campos</a>
-    <a class="sb-brand" href="/"><span class="dot"></span>MENTE NO TRABALHO</a>
-    <a class="sb-back" href="/#materiais">Todos os materiais &rarr;</a>
-  </div>
-</div>
+<body class="m-tool m-check">
+<aside class="rail" aria-hidden="true">
+  <span class="dot"></span>
+  <span class="rt"><b>Kiko Campos</b> — Cultura vira comportamento. Comportamento vira resultado.</span>
+  <span class="rt">kikocampos.com</span>
+</aside>
 
-
-<header>
-  <div class="wrap">
-    <div class="pill">Mente no Trabalho · Diagnóstico NR-1</div>
-    <h1>Sua empresa está <em>gerindo</em> o risco psicossocial — ou só <em>documentando</em>?</h1>
-    <p class="sub">15 perguntas sobre o que a NR-1 exige na prática. Ao final você recebe um índice de maturidade de 0 a 100, o retrato de cada uma das 5 dimensões e os 3 movimentos que destravam o seu caso.</p>
-    <div class="meta"><span>⏱ 4 minutos</span><span>15 perguntas</span><span>Resultado na hora</span></div>
+<nav><div class="wrap navin">
+  <a class="brand" href="https://kikocampos.com/index.html"><span class="dot"></span>kiko campos</a>
+  <button class="navtoggle" type="button" aria-label="Abrir menu" aria-expanded="false" onclick="var o=document.body.classList.toggle('navopen');this.setAttribute('aria-expanded',o)">☰</button>
+  <div class="links">
+    <a href="https://kikocampos.com/palestras.html">Palestras</a><a href="https://kikocampos.com/programas.html">Programas</a><a href="https://kikocampos.com/advisory.html">Advisory</a><div class="dd"><button type="button" aria-haspopup="true" onclick="this.parentNode.classList.toggle('open')">Conteúdo &amp; Pesquisa</button><div class="menu"><a href="https://mente.kikocampos.com" aria-current="page">Mente no Trabalho<small>Série semanal e newsletter</small></a><a href="https://jovens.kikocampos.com">Pesquisa Jovens Talentos<small>4.991 estagiários ouvidos no Brasil</small></a><a href="https://kikocampos.com/seucodigo/index.html">Seu Código<small>Comece em 3 minutos</small></a><a href="https://kikocampos.com/manifesto.html">Manifesto</a></div></div><a href="https://kikocampos.com/cultura-como-sistema/index.html">Case</a><a href="https://kikocampos.com/livro.html">Livro</a><a href="https://kikocampos.com/sobre.html">Sobre</a>
+    <a class="btn btn-n" href="https://kikocampos.com/index.html#contato">Fale comigo&nbsp;↗</a>
   </div>
-</header>
+</div></nav>
+<div class="mbar"><div class="wrap mbar-in">
+  <a class="mbrand" href="index.html">Mente no Trabalho <span>· série com Kiko Campos &amp; Esabela Cruz</span></a>
+  <div class="mlinks"><a href="index.html#ultima">Última live</a><a href="index.html#lives">Acervo</a><a href="index.html#clipes">Clipes</a><a href="index.html#materiais" aria-current="page">Biblioteca</a><a href="captura-workbook-temporada1.html">Workbook</a><a class="mnl" href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=6888852094439198720" target="_blank" rel="noopener">Inscrever na newsletter&nbsp;↗</a></div>
+</div></div>
+
+<header class="ck-head"><div class="wrap">
+  <span class="label">Mente no Trabalho · Diagnóstico NR-1</span>
+  <h1>Sua empresa está gerindo o risco psicossocial — ou só documentando?</h1>
+  <p class="sub">15 perguntas sobre o que a NR-1 exige na prática. Ao final você recebe um índice de maturidade de 0 a 100, o retrato de cada uma das 5 dimensões e os 3 movimentos que destravam o seu caso.</p>
+  <div class="meta"><span>4 minutos</span><span>15 perguntas</span><span>Resultado na hora</span></div>
+</div></header>
 
 <div class="progress-bar">
-  <div class="inner">
+  <div class="inner wrap">
     <div class="track"><div class="fill" id="fill"></div></div>
     <div class="pcount" id="pcount">0 de 15</div>
   </div>
 </div>
 
-<div class="wrap">
-  <form id="formulario" novalidate>
+<div class="wrap ck">
+  <form data-live="1" id="formulario" novalidate>
 
     <div class="card" id="dims"></div>
 
@@ -301,7 +114,7 @@ input:focus,select:focus{outline:none;border-color:var(--navy);background:#fff}
       </label>
     </div>
 
-    <button type="submit" class="btn" id="submitBtn">Ver meu índice de maturidade →</button>
+    <button type="submit" class="btn btn-p" id="submitBtn">Ver meu índice de maturidade&nbsp;↗</button>
     <div class="err" id="erro"></div>
   </form>
 
@@ -310,15 +123,15 @@ input:focus,select:focus{outline:none;border-color:var(--navy);background:#fff}
     <div class="score-card">
       <div class="gauge">
         <svg width="170" height="170" viewBox="0 0 170 170">
-          <circle cx="85" cy="85" r="72" fill="none" stroke="rgba(255,255,255,.15)" stroke-width="13"></circle>
-          <circle id="arc" cx="85" cy="85" r="72" fill="none" stroke="#f4a80b" stroke-width="13"
+          <circle cx="85" cy="85" r="72" fill="none" stroke="rgba(255,255,255,.18)" stroke-width="13"></circle>
+          <circle id="arc" cx="85" cy="85" r="72" fill="none" stroke="#FF4A12" stroke-width="13"
                   stroke-linecap="round" stroke-dasharray="452" stroke-dashoffset="452"
                   style="transition:stroke-dashoffset 1s ease"></circle>
         </svg>
         <div class="val"><b id="scoreNum">0</b><small>de 100</small></div>
       </div>
-      <p class="band" id="bandName"></p>
-      <p class="band-desc" id="bandDesc"></p>
+      <div class="bandtxt"><p class="band" id="bandName"></p>
+      <p class="band-desc" id="bandDesc"></p></div>
     </div>
 
     <div id="alertBox"></div>
@@ -342,8 +155,8 @@ input:focus,select:focus{outline:none;border-color:var(--navy);background:#fff}
     </div>
 
     <div class="btn-row">
-      <button class="btn ghost" onclick="window.print()">Salvar em PDF</button>
-      <button class="btn ghost" id="copiar">Copiar resumo</button>
+      <button type="button" class="btn ghost" onclick="window.print()">Salvar em PDF</button>
+      <button type="button" class="btn ghost" id="copiar">Copiar resumo</button>
     </div>
     <p class="sent" id="statusEnvio"></p>
   </div>
@@ -353,6 +166,21 @@ input:focus,select:focus{outline:none;border-color:var(--navy);background:#fff}
     Referência: NR-1 / GRO-PGR com fatores de risco psicossocial. Não substitui avaliação técnica de SST nem parecer jurídico.
   </p>
 </div>
+<footer id="ecossistema"><div class="wrap">
+  <div class="mfoot">Mente no Trabalho · Diagnóstico de Maturidade NR-1 — Kiko Campos &amp; Esabela Cruz</div>
+  <div class="footgrid">
+    <div class="fcol"><a class="brand" href="https://kikocampos.com/index.html" style="padding:0"><span class="dot"></span>kiko campos</a>
+      <p>Liderança executiva e transformação cultural. Cultura como sistema vivo, integrado e mensurável.</p></div>
+    <div class="fcol"><div class="fh">Serviços</div>
+      <a href="https://kikocampos.com/palestras.html">Palestras e Keynotes</a><a href="https://kikocampos.com/keynote-ia.html">Keynote · A IA sentou primeiro</a><a href="https://kikocampos.com/palestras/nr-1/index.html">Palestra · NR-1 e saúde mental</a><a href="https://kikocampos.com/programas.html">Programas e Projetos</a><a href="https://kikocampos.com/advisory.html">Advisory</a><a href="https://kikocampos.com/index.html#contato">Fale comigo</a></div>
+    <div class="fcol"><div class="fh">Conteúdo e pesquisa</div>
+      <a href="https://mente.kikocampos.com">Mente no Trabalho · série e newsletter</a><a href="https://jovens.kikocampos.com">Pesquisa Jovens Talentos · 4.991 estagiários</a><a href="https://kikocampos.com/seucodigo/index.html">Seu Código · comece em 3 minutos</a><a href="https://kikocampos.com/cultura-como-sistema/index.html">Case Cultura</a><a href="https://kikocampos.com/livro.html">O Novo Código da Mudança</a><a href="https://kikocampos.com/manifesto.html">Manifesto</a></div>
+    <div class="fcol"><div class="fh">Contato</div>
+      <a href="mailto:kiko@kikocampos.com">kiko@kikocampos.com</a><a href="https://www.linkedin.com/in/kikocampos">LinkedIn</a><a href="https://kikocampos.com/privacidade.html">Política de Privacidade</a><a href="https://kikocampos.com/sobre.html">Sobre</a></div>
+  </div>
+  <div class="fbase">© 2026 Kiko Campos. Todos os direitos reservados.</div>
+</div></footer>
+<script src="assets/site.js"></script>
 
 <script>
 /* =====================================================================
@@ -431,16 +259,16 @@ const OPCOES = [
 ];
 
 const FAIXAS = [
-  {min:0,  max:34,  nome:"Zona de exposição", cor:"#c0392b",
+  {min:0,  max:34,  nome:"Zona de exposição", cor:"#CE420D",
    desc:"Existe preocupação com o tema, mas ainda não existe sistema. Hoje a empresa está exposta em dois flancos ao mesmo tempo: o humano e o documental — e nenhum dos dois se resolve com uma campanha.",
    bridge:"No seu estágio, o board não vai aprovar um programa. Vai aprovar a redução de uma perda que já está acontecendo."},
-  {min:35, max:59,  nome:"Formal no papel", cor:"#c8880a",
+  {min:35, max:59,  nome:"Formal no papel", cor:"#C98A4B",
    desc:"Há documentação em construção, mas a prática ainda não mudou o trabalho de ninguém. É o estágio mais arriscado: dá a sensação de conformidade sem a proteção que ela deveria trazer.",
    bridge:"Você já tem o que mostrar. Falta traduzir: o mesmo material, lido em reais, muda quem senta na mesa com você."},
-  {min:60, max:79,  nome:"Estruturado", cor:"#1e8e5a",
+  {min:60, max:79,  nome:"Estruturado", cor:"#0A1830",
    desc:"O ciclo existe e roda: você identifica, prioriza, age e registra. O que separa você do próximo nível é consistência entre áreas e a qualidade da evidência ao longo do tempo.",
    bridge:"Nesse ponto o gargalo deixa de ser técnico e vira orçamentário. Quem sustenta o ciclo é quem consegue defendê-lo em número."},
-  {min:80, max:100, nome:"Integrado ao negócio", cor:"#1e8e5a",
+  {min:80, max:100, nome:"Integrado ao negócio", cor:"#0A1830",
    desc:"A gestão do risco psicossocial está viva, distribuída na liderança e sustentada por evidência. Seu desafio agora é outro: manter a conversa no nível da decisão de negócio, não da conformidade.",
    bridge:"Empresas neste estágio ganham quando param de defender o programa e passam a reportar a linha de resultado que ele protege."}
 ];
@@ -522,7 +350,7 @@ function calcular(){
   return {score, faixa, porDim, criticosFalhos, respostas, soma, max};
 }
 
-function corPct(p){ return p<40 ? "#c0392b" : p<70 ? "#c8880a" : "#1e8e5a"; }
+function corPct(p){ return p<40 ? "#CE420D" : p<70 ? "#C98A4B" : "#0A1830"; }
 function tagPct(p){ return p<40 ? '<span class="tag f">frágil</span>' : p<70 ? '<span class="tag m">em construção</span>' : '<span class="tag o">consistente</span>'; }
 
 /* ---------- Exibição ---------- */
@@ -544,7 +372,7 @@ function mostrar(r){
     document.getElementById("alertBox").innerHTML =
       `<div class="alert"><h3>Atenção: ${r.criticosFalhos.length} item(ns) não-negociável(is) em zero</h3>
        <ul>${r.criticosFalhos.map(c=>`<li>${c}</li>`).join("")}</ul>
-       <p style="font-size:12.8px;margin:8px 0 0;color:#5b6b86">Independentemente da sua pontuação geral, estes pontos são os que aparecem primeiro numa fiscalização e numa crise. Trate-os antes de ampliar qualquer programa.</p></div>`;
+       <p style="font-size:12.8px;margin:8px 0 0;color:#4A5568">Independentemente da sua pontuação geral, estes pontos são os que aparecem primeiro numa fiscalização e numa crise. Trate-os antes de ampliar qualquer programa.</p></div>`;
   }
 
   document.getElementById("dimBars").innerHTML = r.porDim.map(d=>`
@@ -574,7 +402,7 @@ function mostrar(r){
       (r.criticosFalhos.length?`\n\nNão-negociáveis em zero:\n`+r.criticosFalhos.map(c=>"- "+c).join("\n"):"")+
       `\n\nPróximos passos:\n`+passos.map((p,i)=>`${i+1}. ${p.t}`).join("\n");
     navigator.clipboard.writeText(txt).then(()=>{
-      document.getElementById("copiar").textContent = "Copiado ✓";
+      document.getElementById("copiar").textContent = "Copiado";
       setTimeout(()=>document.getElementById("copiar").textContent="Copiar resumo",2200);
     });
   };
